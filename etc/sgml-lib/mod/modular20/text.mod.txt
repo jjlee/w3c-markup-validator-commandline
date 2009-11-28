@@ -1,0 +1,54 @@
+<!-- ............................................................ -->
+<!-- HTML DTD Text Markup Module ................................ -->
+<!-- File text.mod .............................................. -->
+
+<!ENTITY % text.module.status %HTML.status; >
+<!ENTITY % text.module.expires %HTML.expires; >
+<!ENTITY % text.module.version 
+        "-//IETF//ELEMENTS HTML V2.0 Text Markup//EN" >
+
+<![ %HTML.Highlighting [
+
+<!ENTITY % font " TT | B | I ">
+
+<!ENTITY % phrase "EM | STRONG | CODE | SAMP | KBD | VAR | CITE ">
+
+<!ENTITY % text "#PCDATA | A | IMG | BR | %phrase | %font">
+
+<!ELEMENT (%font;|%phrase) - - (%text)*>
+<!ATTLIST ( TT | CODE | SAMP | KBD | VAR )
+        %SDAFORM; "Lit"
+        >
+<!ATTLIST ( B | STRONG )
+        %SDAFORM; "B"
+        >
+<!ATTLIST ( I | EM | CITE )
+        %SDAFORM; "It"
+        >
+
+<!-- <TT>       Typewriter text                         -->
+<!-- <B>        Bold text                               -->
+<!-- <I>        Italic text                             -->
+
+<!-- <EM>       Emphasized phrase                       -->
+<!-- <STRONG>   Strong emphasis                         -->
+<!-- <CODE>     Source code phrase                      -->
+<!-- <SAMP>     Sample text or characters               -->
+<!-- <KBD>      Keyboard phrase, e.g. user input        -->
+<!-- <VAR>      Variable phrase or substitutable        -->
+<!-- <CITE>     Name or title of cited work             -->
+
+<!ENTITY % pre.content "#PCDATA | A | HR | BR | %font | %phrase">
+
+]]>
+
+<!ENTITY % text "#PCDATA | A | IMG | BR">
+
+<!ELEMENT BR    - O EMPTY>
+<!ATTLIST BR
+        %SDAPREF; "&#RE;"
+        >
+
+<!-- <BR>       Line break      -->
+
+<!-- End of text.module -->

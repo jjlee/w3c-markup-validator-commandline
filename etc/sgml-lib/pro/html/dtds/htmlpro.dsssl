@@ -1,0 +1,626 @@
+<!DOCTYPE style-sheet PUBLIC "-//James Clark//DTD DSSSL Style Sheet//EN">
+
+(element HTML
+  (make simple-page-sequence
+    (process-children)))
+
+(element BODY
+  (make display-group
+    (process-children)))
+
+(element BANNER
+  (make paragraph
+    (process-children)))
+
+(element A
+  (make sequence
+    (process-children)))
+
+(element ABBREV
+  (make sequence
+    (process-children)))
+
+(element ACRONYM
+  (make sequence
+    (process-children)))
+
+(element APP
+  (make sequence
+    (process-children)))
+
+(element PARAM
+  (make sequence
+    (process-children)))
+
+(element TEXTFLOW
+  (make paragraph
+    (process-children)))
+
+(element APPLET
+  (make sequence
+    (process-children)))
+
+(element ATTRIB
+  (make sequence
+    (process-children)))
+
+(element AU
+  (make sequence
+    (process-children)))
+
+(element AUDIOSCOPE
+  (make sequence
+    (process-children)))
+
+(element AUTHOR
+  (make sequence
+    (process-children)))
+
+(element B
+  (make sequence
+    (process-children)))
+
+(element BASEFONT
+  (make sequence
+    (process-children)))
+
+(element BGSOUND
+  (make sequence
+    (process-children)))
+
+(element BIG
+  (make sequence
+    (process-children)))
+
+(element BLACKFACE
+  (make sequence
+    (process-children)))
+
+(element BLINK
+  (make sequence
+    (process-children)))
+
+(element BR
+  (make sequence
+    (process-children)))
+
+(element CITE
+  (make sequence
+    (process-children)))
+
+(element CODE
+  (make sequence
+    (process-children)))
+
+(element COMMENT
+  (make sequence
+    (process-children)))
+
+(element DEL
+  (make sequence
+    (process-children)))
+
+(element DFN
+  (make sequence
+    (process-children)))
+
+(element ELEMENT
+  (make sequence
+    (process-children)))
+
+(element EM
+  (make sequence
+    (process-children)))
+
+(element EMBED
+  (make sequence
+    (process-children)))
+
+(element CAPTION
+  (make paragraph
+    (process-children)))
+
+(element ENTITY
+  (make sequence
+    (process-children)))
+
+(element FONT
+  (make sequence
+    (process-children)))
+
+(element HR
+  (make sequence
+    (process-children)))
+
+(element I
+  (make sequence
+    (process-children)))
+
+(element IMAGE
+  (make sequence
+    (process-children)))
+
+(element IMG
+  (make sequence
+    (process-children)))
+
+(element INS
+  (make sequence
+    (process-children)))
+
+(element ISINDEX
+  (make sequence
+    (process-children)))
+
+(element KBD
+  (make sequence
+    (process-children)))
+
+(element LANG
+  (make sequence
+    (process-children)))
+
+(element LIMITTEXT
+  (make sequence
+    (process-children)))
+
+(element MAP
+  (make sequence
+    (process-children)))
+
+(element AREA
+  (make sequence
+    (process-children)))
+
+(element MARQUEE
+  (make sequence
+    (process-children)))
+
+(element MATH
+  (make sequence
+    (process-children)))
+
+(element ABOVE
+  (make sequence
+    (process-children)))
+
+(element ARRAY
+  (make sequence
+    (process-children)))
+
+(element ROW
+  (make display-group
+    (process-children)))
+
+(element ITEM
+  (make paragraph
+    (process-children)))
+
+(element BAR
+  (make sequence
+    (process-children)))
+
+(element BELOW
+  (make sequence
+    (process-children)))
+
+(element BOX
+  (make sequence
+    (process-children)))
+
+(element ATOP
+  (make sequence
+    (process-children)))
+
+(element BT
+  (make sequence
+    (process-children)))
+
+(element DDOT
+  (make sequence
+    (process-children)))
+
+(element DOT
+  (make sequence
+    (process-children)))
+
+(element HAT
+  (make sequence
+    (process-children)))
+
+(element ROOT
+  (make sequence
+    (process-children)))
+
+(element OF
+  (make sequence
+    (process-children)))
+
+(element SQRT
+  (make sequence
+    (process-children)))
+
+(element SUB
+  (make sequence
+    (process-children)))
+
+(element NOSMARTQUOTES
+  (make sequence
+    (process-children)))
+
+(element NOEMBED
+  (make sequence
+    (process-children)))
+
+(element OBJECT
+  (make sequence
+    (process-children)))
+
+(element ADDRESS
+  (make sequence
+    (process-children)))
+
+(element P
+  (make sequence
+    (process-children)))
+
+(element PERSON
+  (make sequence
+    (process-children)))
+
+(element Q
+  (make sequence
+    (process-children)))
+
+(element S
+  (make sequence
+    (process-children)))
+
+(element SAMP
+  (make sequence
+    (process-children)))
+
+(element SCRIPT
+  (make sequence
+    (process-children)))
+
+(element SERVER
+  (make sequence
+    (process-children)))
+
+(element SHADOW
+  (make sequence
+    (process-children)))
+
+(element SIDEBAR
+  (make sequence
+    (process-children)))
+
+(element BDO
+  (make sequence
+    (process-children)))
+
+(element SMALL
+  (make sequence
+    (process-children)))
+
+(element SPACER
+  (make sequence
+    (process-children)))
+
+(element SPAN
+  (make sequence
+    (process-children)))
+
+(element STRIKE
+  (make sequence
+    (process-children)))
+
+(element STRONG
+  (make sequence
+    (process-children)))
+
+(element STYLE
+  (make sequence
+    (process-children)))
+
+(element SUP
+  (make sequence
+    (process-children)))
+
+(element T
+  (make sequence
+    (process-children)))
+
+(element TILDE
+  (make sequence
+    (process-children)))
+
+(element VEC
+  (make sequence
+    (process-children)))
+
+(element TT
+  (make sequence
+    (process-children)))
+
+(element TAB
+  (make sequence
+    (process-children)))
+
+(element U
+  (make sequence
+    (process-children)))
+
+(element VAR
+  (make sequence
+    (process-children)))
+
+(element BLOCKQUOTE
+  (make sequence
+    (process-children)))
+
+(element BODYTEXT
+  (make display-group
+    (process-children)))
+
+(element BQ
+  (make display-group
+    (process-children)))
+
+(element CREDIT
+  (make paragraph
+    (process-children)))
+
+(element CENTER
+  (make paragraph
+    (process-children)))
+
+(element DIR
+  (make sequence
+    (process-children)))
+
+(element LH
+  (make sequence
+    (process-children)))
+
+(element LI
+  (make sequence
+    (process-children)))
+
+(element DL
+  (make sequence
+    (process-children)))
+
+(element DD
+  (make paragraph
+    (process-children)))
+
+(element DIV
+  (make sequence
+    (process-children)))
+
+(element FIG
+  (make sequence
+    (process-children)))
+
+(element FIGTEXT
+  (make display-group
+    (process-children)))
+
+(element FN
+  (make paragraph
+    (process-children)))
+
+(element FORM
+  (make sequence
+    (process-children)))
+
+(element FIELDSET
+  (make sequence
+    (process-children)))
+
+(element H1
+  (make paragraph
+    (process-children)))
+
+(element H2
+  (make paragraph
+    (process-children)))
+
+(element H3
+  (make paragraph
+    (process-children)))
+
+(element H4
+  (make paragraph
+    (process-children)))
+
+(element H5
+  (make paragraph
+    (process-children)))
+
+(element H6
+  (make paragraph
+    (process-children)))
+
+(element LISTING
+  (make sequence
+    (process-children)))
+
+(element MENU
+  (make display-group
+    (process-children)))
+
+(element MULTICOL
+  (make display-group
+    (process-children)))
+
+(element NOBR
+  (make paragraph
+    (process-children)))
+
+(element WBR
+  (make sequence
+    (process-children)))
+
+(element NOTE
+  (make paragraph
+    (process-children)))
+
+(element OL
+  (make sequence
+    (process-children)))
+
+(element PRE
+  (make sequence
+    (process-children)))
+
+(element TABLE
+  (make sequence
+    (process-children)))
+
+(element COL
+  (make sequence
+    (process-children)))
+
+(element COLGROUP
+  (make display-group
+    (process-children)))
+
+(element TBODY
+  (make display-group
+    (process-children)))
+
+(element TR
+  (make display-group
+    (process-children)))
+
+(element TD
+  (make paragraph
+    (process-children)))
+
+(element UL
+  (make sequence
+    (process-children)))
+
+(element XMP
+  (make sequence
+    (process-children)))
+
+(element TH
+  (make paragraph
+    (process-children)))
+
+(element TFOOT
+  (make display-group
+    (process-children)))
+
+(element THEAD
+  (make display-group
+    (process-children)))
+
+(element INPUT
+  (make sequence
+    (process-children)))
+
+(element KEYGEN
+  (make sequence
+    (process-children)))
+
+(element LABEL
+  (make sequence
+    (process-children)))
+
+(element SELECT
+  (make sequence
+    (process-children)))
+
+(element OPTION
+  (make sequence
+    (process-children)))
+
+(element TEXTAREA
+  (make sequence
+    (process-children)))
+
+(element OVERLAY
+  (make sequence
+    (process-children)))
+
+(element DT
+  (make paragraph
+    (process-children)))
+
+(element CHOOSE
+  (make sequence
+    (process-children)))
+
+(element LEFT
+  (make sequence
+    (process-children)))
+
+(element OVER
+  (make sequence
+    (process-children)))
+
+(element RIGHT
+  (make sequence
+    (process-children)))
+
+(element EMBED.BODY
+  (make paragraph
+    (process-children)))
+
+(element SPOT
+  (make sequence
+    (process-children)))
+
+(element FRAMESET
+  (make display-group
+    (process-children)))
+
+(element FRAME
+  (make sequence
+    (process-children)))
+
+(element HEAD
+  (make display-group
+    (process-children)))
+
+(element BASE
+  (make sequence
+    (process-children)))
+
+(element LINK
+  (make sequence
+    (process-children)))
+
+(element META
+  (make sequence
+    (process-children)))
+
+(element NEXTID
+  (make sequence
+    (process-children)))
+
+(element NOSCRIPT
+  (make paragraph
+    (process-children)))
+
+(element RANGE
+  (make sequence
+    (process-children)))
+
+(element TITLE
+  (make sequence
+    (process-children)))
+
+(element NOFRAMES
+  (make display-group
+    (process-children)))
+
+(element PLAINTEXT
+  (make paragraph
+    (process-children)))
+

@@ -1,0 +1,7 @@
+
+SYSTEM "http://www.w3.org/pub/WWW/MarkUp/Cougar/Cougar.dtd" "Cougar.dtd"
+PUBLIC "-//W3C//ENTITIES Latin1//EN//HTML" ISOlat1.ent
+PUBLIC "-//W3C//ENTITIES Special//EN//HTML" HTMLmisc.ent
+PUBLIC "-//W3C//ENTITIES Symbols//EN//HTML" HTMLsym.ent
+
+

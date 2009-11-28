@@ -1,0 +1,1149 @@
+<!DOCTYPE HTML PUBLIC "+//Silmaril//DTD HTML Pro v0r11 19970101//EN">
+<HTML><HEAD><TITLE>The HTML Professional DTD</TITLE>
+<BASE HREF="http://www.ucc.ie/html/dtds/htmlpro.html">
+<BGSOUND SRC="file://C|/WINDOWS/MEDIA/JungleWi.WAV" FILEFORMAT="WAV"></BGSOUND>
+<LINK
+ID="au" HREF="http://curia.ucc.ie/~pflynn/" REL="author" TITLE="Author's homepage">
+<LINK
+ID="htmldata" TITLE="Information on HTML" HREF="http://www.w3.org/foobar/MarkUp.html" REL="documentation">
+<LINK
+ID="book" TITLE="The World-Wide Web Handbook" HREF="http://www.ucc.ie/~pflynn/books/">
+<META
+HTTP-EQUIV="Keywords" CONTENT="html dtd sgml markup web www language pro professional homepage conformance iso 8879 rfc 1866 1867 1942 1766 2070 ietf w3c authoring editing periodic table elements internationalization i18n">
+<META NAME="DC.author" CONTENT="Peter Flynn">
+<META NAME="DC.subject" CONTENT="The HTML DTDs">
+<META NAME="DC.title" CONTENT="HTML Professional (composite) DTD">
+<META NAME="DC.date" CONTENT="1997-01-01">
+<META NAME="DC.form" CONTENT="SGML DTD">
+<META
+NAME="DC.identifier" CONTENT="+//Silmaril//DTD HTML Pro v0r11 19970101//EN ">
+</HEAD>
+<BODY BGCOLOR="silver"><BANNER><H3 ALIGN="CENTER"><FONT
+COLOR="lightblue">SILMARIL</FONT> <FONT
+COLOR="pink" FACE="Brush Script MT">consultants</FONT></H3><H4
+ALIGN="center"><Q><CITE>Where would you like to go tomorrow?</CITE></Q><SUP>&trade;</SUP></H4><BLOCKQUOTE>
+<BODYTEXT><TABLE><COLGROUP CHARPOS="0" TOPSEP="HNone" COLSEP="VNone"><COL
+COLWD="1.5" TBLUNITS="INCHES" TOPSEP="HNONE"><COL
+COLWD="3" TBLUNITS="inches" TOPSEP="HNone"><COL
+COLWD="1.5" TBLUNITS="inches" TOPSEP="HNone"></COLGROUP><TBODY
+VALIGN="TOP" ROWSEP="HNONE"><TR><TD
+VALIGN="TOP" COLSTART="1" COLSEP="VNONE" ROWSEP="HNONE"><P><SMALL><A
+HREF="http://www.sq.com/products/panorama/panor-fe.htm"><IMG
+SRC="panorama.gif" ALT="Panorama" FILEFORMAT="GIF"></IMG><BR>Users of
+Panorama</A> <A HREF="#sgml">can now get full SGML from HTML Pro. </A></SMALL></P></TD>
+<TD VALIGN="TOP" COLSTART="2" COLSEP="VNONE"><P><SMALL>(Note that if your
+browser displays the word <Q><CODE>&amp;trade;</CODE></Q> above then
+you should contact your browser maker and ask them to support the wider
+range of ISO character entities.)</small> </P></TD><TD VALIGN="TOP" COLSTART="3"><P><SMALL>Best
+viewed with the browser of your choice. <BR><A
+HREF="http://ecco.bsee.swin.edu.au/homes/homes.html"><IMG
+SRC="any.gif" ALT="any HTML browser" FILEFORMAT="GIF" ALIGN="left"></IMG></A></SMALL></P></TD></TR></TBODY></TABLE></BODYTEXT></BLOCKQUOTE><H1><A
+HREF="htmlpro.dtd" TITLE="The DTD file">The HTML Professional DTD</A></H1>
+<H2>A composite Document Type
+Description for the HyperText Markup Language </H2>
+<H3>DRAFT version 0 revision 11 (1 January 1997)</H3>
+</BANNER>
+<BODYTEXT>
+<BLOCKQUOTE><BODYTEXT><H3>Copyleft notice</H3>
+<P><SMALL>The HTML composite DTD is Copyleft
+<IMG SRC="copyleft.gif" ALT="(c)" HEIGHT="10" FILEFORMAT="GIF"></IMG> 1996--97 by
+<A HREF="http://www.arbornet.org/~silmaril" TITLE="Silmaril Consultants">Silmaril
+Consultants</A> and is protected by the terms of the
+<A
+HREF="http://www.gnu.ai.mit.edu/gnu/manifesto.html" TITLE="Details of the GNU GPL">GNU
+General Public License</A>, a copy of which is included in the
+distribution of this software as file
+<A HREF="gnugpl.html" TITLE="GNU GPL"><VAR CLASS="filename">gnugpl.html</VAR></A>.</SMALL></P>
+<P><SMALL>You may freely distribute and use this material, provided
+that nothing is done to prevent its further distribution or use, and
+subject to the condition that it may not be distributed without a
+similar condition, including this condition, being imposed on the
+subsequent user. Modifications should be reported to the author so that
+they can be incorporated in a controlled manner.</SMALL></P></BODYTEXT></BLOCKQUOTE>
+<HR>
+<BQ>
+<BODYTEXT><H2>Management summary</H2>
+<H4>Description</H4>
+<P><ACRONYM>HTML</ACRONYM> Pro is an up-to-date, reliable, and robust
+Document Type Description (<ACRONYM>DTD</ACRONYM>) for the HyperText
+Markup Language, which is used to create hypertext <Q>pages</Q> as used
+in the World-Wide Web.</P>
+<H4>Objectives</H4>
+<P><ACRONYM>HTML</ACRONYM> Pro is designed for use by professional
+document authors and designers to replace the earlier versions of
+<ACRONYM>HTML</ACRONYM> which were subject to constraints for standards
+work which made them inflexible. <ACRONYM>HTML</ACRONYM> Pro provides
+extended support for editors or authors which is not available in most
+other versions.</P>
+<H4>Composition</H4>
+<P>The present <ACRONYM>DTD</ACRONYM> is built as a composite of all
+known <ACRONYM>HTML</ACRONYM> <ACRONYM>DTD</ACRONYM>s to date. It has
+been arranged in such a way as to allow authors and designers to support
+their target browsers but still ensure that the files they create are
+conformant. This means they are valid, parsable instances of <ACRONYM>SGML</ACRONYM>
+(<ACRONYM>ISO 8879</ACRONYM> --- Standard Generalized Markup
+Language, the language in which <ACRONYM>HTML</ACRONYM> is written).</P>
+<H4>Benefits</H4>
+<P>Conformance to a standard is important for businesses and other
+organizations, and for authors, designers or other individuals because
+it provides flexibility. This means that portable, reusable, long-term
+or large-scale Web information can be edited, controlled, and reused on
+multiple platforms using a wider range of software than is possible when
+tied to a specific manufacturer.</P>
+<P>Web pages can now easily be based in the same <ACRONYM>SGML</ACRONYM>
+syntax used for a wide range of other corporate and institutional
+document projects (archives, servers, databases, marketing and
+publication systems, <LANG>etc</LANG>), on intranets as well as on the
+Internet.</P>
+<H4>Availability and maintenance</H4>
+<P>The <ACRONYM>HTML</ACRONYM> Pro <ACRONYM>DTD</ACRONYM> is
+available free of charge from <A HREF="#install">the sources shown
+below</A>, and is updated following the professional advice of the
+members of the
+<A
+TITLE="The www-html mailing list" HREF="mailto:www-html-request@w3.org"><SAMP>www-html</SAMP></A>
+mailing list.</P>
+<P>HTML Pro is an SGML system conforming to International Standard ISO
+8879 --- Standard Generalized Markup Language.</P></BODYTEXT></BQ>
+<HR>
+<DIV><H2>Background</H2><H3>Derivation</H3><P>The first <ACRONYM>HTML</ACRONYM>
+<A HREF="http://www.sil.org/sgml/sgml.html" TITLE="More about DTDs">Document
+Type Description</A> was devised to support the original versions of
+<A
+HREF="http://www.w3.org/pub/WWW/Tools" TITLE="W3C's list of Web software">World-Wide
+Web software</A> in the early 1990s. A revised and more widely-discussed
+version was codified as
+<A
+HREF="http://www.w3.org/pub/WWW/MarkUp/html-spec" TITLE="HTML 2.0 standard"><ACRONYM>HTML
+2.0</ACRONYM></A> by the
+<A
+HREF="http://www.ietf.cnri.reston.va.us/tao.html" TITLE="The Tao of the IETF">Internet
+Engineering Task Force</A>
+<A
+HREF="http://www.w3.org/pub/WWW/MarkUp/HTML-WG/" TITLE="HTML Working Group archives">Working
+Group on <ACRONYM>HTML</ACRONYM></A>, and adopted by the <ACRONYM>IETF</ACRONYM>
+as a draft standard,
+<A
+HREF="http://www.cis.ohio-state.edu/hypertext/information/rfc.html" TITLE="Repository of RFC reference copies"><ACRONYM>RFC1866</ACRONYM></A>,
+in November 1995.</P><P>A more advanced but experimental version,
+<ACRONYM><A
+HREF="http://www.w3.org/pub/WWW/MarkUp/HTMLPlus/htmlplus_1.html" TITLE="HTML+ (obsolete)">HTML+</A></ACRONYM>
+(now obsolete), had been under discussion for several years, and many of
+its features were republished as <ACRONYM><A
+HREF="http://www.w3.org/pub/WWW/MarkUp/html3/" TITLE="HTML3 draft">HTML3</A></ACRONYM>
+in an Internet Draft (March 1995). On expiry, this draft was taken back
+into discussion, and passed to the
+<A HREF="http://www.w3c.org/" TITLE="World-Wide Web Consortium">World-Wide
+Web Consortium</A> (<ACRONYM>W3C</ACRONYM>), when it took over
+<ACRONYM>HTML</ACRONYM> development from the <ACRONYM>IETF</ACRONYM>
+in 1996.</P>
+<P>The <ACRONYM>W3C</ACRONYM> has attempted to reconcile the sometimes
+conflicting aspirations of some of its members by publishing two
+experimental versions of <ACRONYM>HTML</ACRONYM> in May and July 1996:
+respectively
+<A
+HREF="http://www.w3.org/pub/WWW/MarkUp/Wilbur/" TITLE="HTML 3.2 (experimental)">Wilbur</A>,
+the codename for <ACRONYM>HTML 3.2</ACRONYM>, which is largely
+<ACRONYM>HTML 2.0</ACRONYM> disguised with the addition of stylesheet
+and scripting support; and <CITE><A
+HREF="http://www.w3.org/pub/WWW/MarkUp/Cougar/HTML.dtd" TITLE="The Cougar DTD (experimental)">Cougar</A></CITE>,
+which is a less structured version of <ACRONYM>HTML3</ACRONYM> with
+some changes to the tables model, and some of the new content markup
+removed. While both have their adherents and proponents, both are highly
+selective, and neither can be said to be in any way stable or
+comprehensive. Both also suffer from a lack of discipline, because they
+try to accommodate historical, even obsolete, practice in a fully
+backwards-compatible manner. The result is that both use a flat content
+model for the body of the document, and have reintroduced ---
+without warning or explanation --- several elements which the
+original designers had clearly marked for removal.</P><P>Companies
+implementing Web software (particularly browsers), and individuals
+implementing <ACRONYM>HTML</ACRONYM> pages, have throughout this period
+continually sought additional markup facilities for their own and their
+customers' purposes. In some cases element names were simply invented on
+an
+<LANG>ad hoc</LANG> basis, with no attempt to define when or how they
+can be used; in other cases, market position was available as leverage
+to add support for them ahead of their inclusion in a <ACRONYM>DTD</ACRONYM>.
+While the former method can be excused in individuals on grounds of
+ignorance, the same argument cannot be made for corporations. The latter
+method is natural from a marketing point of view, but it has led to a
+further Balkanization of the <ACRONYM>DTD</ACRONYM> position, with
+separate versions needed to describe differing implementations by
+Microsoft, Sun, Netscape and others, as well the implementation of more
+practical versions by SoftQuad and other editor makers.</P>
+<H3>HTML Pro</H3><P>The edition of <ACRONYM>HTML</ACRONYM> presented
+here, codenamed <CITE>Aardvark</CITE>, is a composite of all known
+versions to date. It contains all the elements published (as far as they
+can be found or identified) in the various forms of <ACRONYM>HTML</ACRONYM>
+since 1990, in a manner which can be used by editors, browsers, parsers,
+databases, search engines, formatters, indeed any conforming application
+of
+<ACRONYM>ISO 8879</ACRONYM> ---
+<A HREF="http://www.sil.org/sgml/sgml.html" TITLE="Details on SGML">Standard
+Generalized Markup Language</A> (<ACRONYM>SGML</ACRONYM>, the language
+in which
+<ACRONYM>HTML</ACRONYM> is written).</P><P><ACRONYM>HTML</ACRONYM>
+Pro is intended for use by the information professional who has neither
+the time nor the inclination to participate in the interesting but
+destructive competition between rival browser makers, and who is
+unwilling to mislead her clients by creating anything other than valid,
+conformant instances of <ACRONYM>HTML</ACRONYM>.</P></DIV>
+<HR>
+<DIV><H2>The DTD</H2>
+<P>There are now 140 elements in the <ACRONYM>DTD</ACRONYM> sharing
+245 different attribute names. Of these attributes, seven are common to
+all elements (<A HREF="#commonatts">see below</A>). The element with
+the greatest number of attributes is <CODE>INPUT</CODE> (52).</P><H3><A
+ID="install" NAME="install">Downloading and installing</A></H3><H4>Downloading</H4><P>The
+<ACRONYM>HTML</ACRONYM> Pro <ACRONYM>DTD</ACRONYM> is available in
+several forms: this file with active links is maintained at <CODE>http://www.arbornet.org/~silmaril/dtds/html/htmlpro.html</CODE>
+and the distribution files are held at <CODE>ftp://ftp.ucc.ie/pub/html/</CODE></P><UL>
+<LI><P>The full distribution as a single compressed archive for
+<A HREF="ftp://ftp.ucc.ie/pub/html/htmlpro.tar.gz"><ACRONYM>UNIX</ACRONYM>
+(<SAMP>htmlpro.tar.gz</SAMP>)</A>,
+<A HREF="ftp://ftp.ucc.ie/pub/html/htmlpro.zip"><ACRONYM>PC</ACRONYM>s
+(<SAMP>htmlpro.exe</SAMP>)</A>, or
+<A HREF="ftp://ftp.ucc.ie/pub/html/htmlpro.hqx">Macs (<SAMP>htmlpro.zip.hqx</SAMP>)</A>,
+and a <A HREF="ftp://ftp.ucc.ie/pub/html/htmlpro.sav"><ACRONYM>VAX/VMS</ACRONYM></A>
+save-set version is in preparation (<SAMP>htmlpro.sav</SAMP>);</P></LI>
+<LI><P>A <A HREF="http://www.ucc.ie/html/dtds/panofkit.exe">minimal
+installation (<SAMP>panofkit.exe</SAMP>)</A> consisting of the
+<ACRONYM>DTD</ACRONYM>, stylesheet, navigator, and support files to
+demonstrate the use of a free <ACRONYM>SGML</ACRONYM> browser/viewer
+for <ACRONYM>PC</ACRONYM>s (<CITE>Panorama</CITE>: installation
+instructions <A HREF="#sgml">below</A>).</P></LI>
+<LI><P>The
+<A HREF="http://www.arbornet.org/~silmaril/dtds/html/htmlpro.dtd"><SAMP>htmlpro.dtd</SAMP></A>
+file on its own, for existing users who are upgrading, or who don't want
+or need the background and supporting files;</P></LI>
+<LI><P><A
+HREF="http://www.arbornet.org/~silmaril/dtds/html/htmlpro.dtd">This
+document (<SAMP>htmlpro.html</SAMP>)</A>, also available
+<A HREF="http://www.ucc.ie/html/dtds/htmlpro.sgml">for use with <CITE>Panorama</CITE></A>
+(<SAMP>htmlpro.sgml</SAMP>, see below), and as a
+<A HREF="http://www.ucc.ie/html/dtds/htmlpro.ps">PostScript file (<SAMP>htmlpro.ps</SAMP>)</A>
+for printing or viewing;</P></LI></UL><P>The full or the minimal
+distribution should be saved to a suitable temporary directory before
+installing (unless you are running <CITE>WinZip</CITE>, which automates
+this). There is a <ACRONYM>DOS</ACRONYM>
+<A HREF="ftp://ftp.ucc.ie/pub/html/htmlpro.zip"><SAMP>htmlpro.zip</SAMP></A>
+version available for non-Windows users.</P><NOTE><P>The installation
+needs to be able to create (or if they exist, to write to) the <SAMP>/usr/local/lib</SAMP>
+and <SAMP>/html</SAMP> directories (on a <ACRONYM>PC</ACRONYM>, this
+is <SAMP>C:\usr\local\lib</SAMP> and <SAMP>C:\html</SAMP>; on a Mac
+this means creating folders at the top level in your hard disk).</P><P><EM>If
+you use a shared computer system,  you may not have permission to create
+directories or folders at this level, in which case you need to obtain
+that permission from your systems administrators, or have them do the
+installation for you.</EM></P><P>It is quite possible to install
+<ACRONYM>HTML</ACRONYM> Pro elsewhere on your hard disk, but you will
+need to consult the manuals for your applications software to see what
+directories the resulting files need to be moved into before it will
+work. The <A HREF="#distrib">list of files in the distribution (see
+below)</A> shows in [square brackets] the directories or folders into
+which files go <EM>by default</EM>.</P></NOTE><H4>Installation</H4><P><B>The
+<ACRONYM>UNIX</ACRONYM> version</B> unpacks with the commands:</P><PRE>gunzip htmlpro.tar.gz
+tar -xvf htmlpro.tar</PRE><P>U<ACRONYM></ACRONYM>NIX users who intend
+to use <CITE>Emacs</CITE> with <VAR>psgml-mode</VAR> to parse
+<ACRONYM>SGML</ACRONYM> Public Identifers in their files will need to
+create downcased soft links to the subdirectories <SAMP>DTD</SAMP> and
+<SAMP>ENTITIES</SAMP> within any of the Public Owner directories in
+<SAMP>/usr/local/lib/sgml</SAMP>, for example with the commands (in
+each directory needed):</P><PRE>ln -s DTD dtd
+ln -s ENTITIES entities</PRE><P><B>The <ACRONYM>PC</ACRONYM>/Windows
+version</B> is a <CITE>WinZip</CITE> self-installer which unpacks
+automatically when you double-click it. If you prefer not to execute
+such programs, you should download
+<A HREF="ftp://ftp.ucc.ie/pub/html/htmlpro.zip">the <ACRONYM>DOS</ACRONYM>
+version</A> instead and unzip it manually.</P><P><CITE>Emacs</CITE>
+users under <ACRONYM>DOS</ACRONYM> and Windows do not need to change
+any directory names.</P><P><B>The Mac version</B> is a BinHex'd zip
+file which can be unpacked by <CITE>UnStuffIt</CITE> or similar
+dearchiving program. The BinHexing should be unnecessary, in which case
+you can download the <ACRONYM>DOS</ACRONYM> zip file referred to above,
+and drop it onto <CITE>UnStuffIt</CITE>. Macs are poorly catered for by
+the <ACRONYM>SGML</ACRONYM> software community, so little information
+is available about where files like <ACRONYM>DTD</ACRONYM>s and
+character entity collections should be installed: if you have this
+information, <A HREF="mailto:silmaril@m-net.arbornet.org">please mail
+us</A>.</P><H3>Versioning</H3><P>The versions of <ACRONYM>HTML</ACRONYM>
+included in this edition were taken from public copies of <ACRONYM>DTD</ACRONYM>s
+and fragments on the Web: this list appears in slightly altered form
+later on, showing the codes used in the <ACRONYM>DTD</ACRONYM> to
+identify sources.</P>
+<DIR><LI><ACRONYM>HTML</ACRONYM> <Q>1.0</Q> (<ACRONYM>CERN</ACRONYM>,
+1992)</LI><LI><ACRONYM>HTML+</ACRONYM> (Proposal, 1993)</LI><LI><ACRONYM>HTML
+2.0</ACRONYM> (<ACRONYM>RFC1866</ACRONYM>, November 1995)</LI><LI><ACRONYM>HTML3</ACRONYM>
+(Internet Draft, March 1995)</LI><LI>*Netscape Navigator <ACRONYM>DTD</ACRONYM>
+(October 1994)</LI><LI>*Sun Microsystems HotJava <ACRONYM>DTD</ACRONYM>
+(July 1995)</LI><LI>*Microsoft Internet Explorer DT<ACRONYM></ACRONYM>D
+(March 1996)</LI><LI>SoftQuad HoTMetaL Pro 2.0 <ACRONYM>DTD</ACRONYM>
+(1995)</LI><LI>Internet Draft: <CITE>Compound Documents in HTML</CITE>
+(Burchard &amp; Raggett)</LI><LI>Internet Draft: <CITE>Internationalization
+of HTML</CITE> (now <ACRONYM>RFC2070</ACRONYM>)</LI><LI><CITE>Form-based
+File Upload in HTML</CITE> (<ACRONYM>RFC1867</ACRONYM>)</LI><LI><ACRONYM>HTML</ACRONYM>
+Tables (<ACRONYM>RFC1942</ACRONYM>)</LI><LI>Wilbur (<ACRONYM>HTML 3.2</ACRONYM>,
+<ACRONYM>W3C</ACRONYM>, May 1996)</LI><LI>Cougar (<ACRONYM>W3C</ACRONYM>,
+July 1996)</LI><LI>*WebTV (December 1996)</LI></DIR>
+<NOTE><P>*Asterisked items were not produced by the companies
+themselves, but are <Q>compatibility releases</Q> generated from the
+<ACRONYM>HTML3</ACRONYM> <ACRONYM>DTD</ACRONYM> or other sources in
+order to provide some foundation for the experiments and claims of the
+companies. While the browser makers are occupied in developing the
+interface, it is unlikely that these <ACRONYM>DTD</ACRONYM>s will be
+revised.</P></NOTE>
+<P>My thanks to all the many authors and contributors to these
+<ACRONYM>DTD</ACRONYM>s, whose notes and comments have made it easier
+to work out what to do, and whose research has made it possible to
+identify to some extent which browser can support which elements.</P>
+<P>The current version of the <ACRONYM>HTML</ACRONYM> Pro <ACRONYM>DTD</ACRONYM>
+is 0.11, and it is released for comment by the relevant interested
+parties on the <A HREF="mailto:www-html@w3.org"><VAR CLASS="email">www-html</VAR></A>
+mailing list and elsewhere. Please forward all comments and suggestions
+to the mailing list for discussion.</P>
+<H3>Basic changes introduced</H3>
+<P>Very few changes to structure have been made, although those
+familiar with the internals of previous versions will notice the large
+amount of additional material from the other sources, including the
+unilaterally-introduced elements invented by some browser makers (which
+in many cases has involved a guess at their structure, as the companies
+have often been reluctant to provide details).</P>
+<P>The header is as defined in <ACRONYM>HTML3</ACRONYM>, with the
+addition of <CODE>NOSCRIPT</CODE> and <CODE>BGSOUND</CODE>. The
+content model has been rearranged to allow intermingled <CODE>META</CODE>
+and <CODE>LINK</CODE> elements, and still try to help editing systems
+keep header elements in some semblance of logical order (my thanks to
+Joe English for this code). The use of <CODE>META</CODE> is now
+expanding to include the
+<A HREF="http://www.roads.lut.ac.uk/Metadata/DC-SubElements.html"><Q>Dublin
+Core</Q> metadata qualifiers</A> (Title, Subject, Author, Publisher,
+OtherAgent, Date, ObjectType, Form, Identifier, Relation, Source,
+Language, and Coverage).</P><P>The most significant structural change
+in the text body is to the way in which content models are used. The
+original mechanism was for <CODE>%body.content;</CODE> to contain both
+structural and descriptive elements as peers, so that there was no
+distinction between, say, a list and some running text in italics. The
+<EM>implication</EM> was originally that inline markup, which was
+identified as <CODE>%flow;</CODE> in earlier versions, should be
+contained in a paragraph-level element, and this is in fact what
+SoftQuad's
+<CITE>HoTMetaL Pro</CITE> does when it imports existing invalid
+<ACRONYM>HTML</ACRONYM>.</P><P>The <ACRONYM>DTD</ACRONYM> has <EM>not</EM>
+been modularised in any way: on the contrary, it is currently an
+entirely flat file with only the barest minimum of entities. This is
+deliberate at this stage, as some non-<ACRONYM>SGML</ACRONYM> tools
+were used in the conversion of the code from the various sources, and
+following the  text formatting established by <CITE>Near&amp;Far</CITE>
+for the layout proved useful for this purpose, where each declaration
+and each attribute definition is followed by a line containing a
+comment. In a future version, use will be made of the work of Altheim,
+Connolly, Maler, and Allen in defining
+<A HREF="http://ogopogo.nttc.edu/spec/html/modular-dtd.html">the
+modularised version of <ACRONYM>HTML.</ACRONYM></A></P><P>There are
+now four classes of elements, defined by the entities following:</P>
+<FIG>
+<CAPTION>Taxonomy of <ACRONYM>HTML</ACRONYM> text body elements</CAPTION><FIGTEXT
+><TABLE BORDER="BORDER"><COLGROUP><COL
+COLWD="2" TBLUNITS="inches" TOPSEP="HSingle"><COL
+WIDTH="4in" COLWD="4" TBLUNITS="inches" TOPSEP="HSingle"></COLGROUP><TBODY
+VALIGN="Top"><TR><TD><P><B>Parameter entity</B></P></TD><TD><P><B>Elements
+represented</B></P></TD></TR><TR><TD VALIGN="TOP"><P><CODE>%structure;</CODE></P><P>Elements
+which are generally used to contain the continuous text of the document.</P></TD>
+<TD VALIGN="TOP"><CODE>DIV</CODE>, <CODE>CENTER</CODE>,
+<CODE>H1</CODE> to
+<CODE>H6</CODE>, <CODE>P</CODE>, <CODE>UL</CODE>, <CODE>OL</CODE>,
+<CODE>DL</CODE>, <CODE>DIR</CODE>,
+<CODE>MENU</CODE>, <CODE>PRE</CODE>, <CODE>XMP</CODE>, <CODE>LISTING</CODE>,
+<CODE>BLOCKQUOTE</CODE>, <CODE>BQ</CODE>,
+<CODE>MULTICOL</CODE>, <CODE>NOBR</CODE>, <CODE>FORM</CODE>, <CODE>TABLE</CODE>,
+<CODE>ADDRESS</CODE>, <CODE>FIG</CODE>, <CODE>BDO</CODE>,  <CODE>NOTE</CODE>,
+and
+<CODE>FN</CODE>; plus <CODE>WBR</CODE>, <CODE>LI</CODE>, and <CODE>LH</CODE></TD></TR>
+<TR><TD VALIGN="TOP"><P><CODE>%insertions;</CODE></P><P>Elements
+which usually contain special-purpose material, or no text material at
+all.</P></TD><TD VALIGN="TOP"><P><CODE>BASEFONT</CODE>,
+<CODE>APPLET</CODE>,
+<CODE>OBJECT</CODE>, <CODE>EMBED</CODE>, <CODE>SCRIPT</CODE>, <CODE>MAP</CODE>,
+<CODE>MARQUEE</CODE>, <CODE>HR</CODE>, <CODE>ISINDEX</CODE>, <CODE>BGSOUND</CODE>,
+<CODE>TAB</CODE>, <CODE>IMG</CODE>, <CODE>IMAGE</CODE>, <CODE>BR</CODE>,
+plus <CODE>NOEMBED</CODE>, <CODE>SERVER</CODE>, <CODE>SPACER</CODE>,
+<CODE>AUDIOSCOPE</CODE>, and <CODE>SIDEBAR</CODE>;</P></TD></TR><TR><TD
+VALIGN="TOP"><P><CODE>%text;</CODE></P><P>Elements within the
+<CODE>%structure;</CODE> which directly contain running text.</P></TD><TD
+VALIGN="TOP"><P><EM>Descriptive or analytic markup</EM>: <CODE>EM</CODE>,
+<CODE>STRONG</CODE>, <CODE>DFN</CODE>, <CODE>CODE</CODE>,
+<CODE>SAMP</CODE>, <CODE>KBD</CODE>, <CODE>VAR</CODE>,
+<CODE>CITE</CODE>, <CODE>Q</CODE>, <CODE>LANG</CODE>, <CODE>AU</CODE>,
+<CODE>AUTHOR</CODE>,
+<CODE>PERSON</CODE>, <CODE>ACRONYM</CODE>, <CODE>ABBREV</CODE>,
+<CODE>INS</CODE>, <CODE>DEL</CODE>, and <CODE>SPAN</CODE></P><P><EM>Visual
+markup</EM>:<CODE>S</CODE>, <CODE>STRIKE</CODE>, <CODE>I</CODE>,
+<CODE>B</CODE>, <CODE>TT</CODE>, <CODE>U</CODE>, <CODE>NOBR</CODE>,
+<CODE>WBR</CODE>, <CODE>BR</CODE>, <CODE>BIG</CODE>,
+<CODE>SMALL</CODE>, <CODE>FONT</CODE>, <CODE>STYLE</CODE>,
+<CODE>BLINK</CODE>, <CODE>TAB</CODE>, <CODE>BLACKFACE</CODE>, <CODE>LIMITTEXT</CODE>,
+<CODE>NOSMARTQUOTES</CODE>,  and <CODE>SHADOW</CODE></P><P><EM>Hypertext
+and graphics</EM>:
+<CODE>A</CODE> and <CODE>IMG</CODE></P><P><EM>Mathematical</EM>:
+<CODE>SUB</CODE>, <CODE>SUP</CODE>, and
+<CODE>MATH</CODE></P><P><EM>Documentary</EM>: <CODE>COMMENT</CODE>,
+<CODE>ENTITY</CODE>, <CODE>ELEMENT</CODE>, and
+<CODE>ATTRIB</CODE></P></TD></TR><TR><TD VALIGN="TOP"><P><CODE>%formula;</CODE></P><P>Mathematical
+content.</P></TD><TD VALIGN="TOP"><P><CODE>BOX</CODE>, <CODE>ABOVE</CODE>,
+<CODE>BELOW</CODE>, <CODE>VEC</CODE>, <CODE>BAR</CODE>,
+<CODE>DOT</CODE>, <CODE>DDOT</CODE>, <CODE>HAT</CODE>,
+<CODE>TILDE</CODE>, <CODE>ROOT</CODE>, <CODE>SQRT</CODE>,
+<CODE>ARRAY</CODE>, <CODE>SUB</CODE>, <CODE>SUP</CODE>,
+<CODE>B</CODE>, <CODE>I</CODE>, <CODE>T</CODE>, and
+<CODE>BT</CODE></P></TD></TR></TBODY></TABLE></FIGTEXT></FIG>
+<P>The distinction is that the <CODE>insertions</CODE> class can be
+peer with <CODE>text</CODE> as well as with
+<CODE>structure</CODE>, whereas <CODE>text</CODE> can nest only within
+<CODE>structure</CODE>.</P>
+<P>Some changes have been made to the content models of the
+<CODE>text</CODE> elements to accommodate this, but the only noticeable
+ones are <CODE>SUP</CODE> and <CODE>SUB</CODE>, which may now contain
+math elements even when used in non-math mode. The exclusion exceptions
+for
+<CODE>MATH</CODE> have been significantly reduced because it would
+appear from discussions with mathematicians that it is in fact
+unobjectionable for math to contain many of the elements previously
+proscribed. The effect of these changes is an increase in the amount of
+mixed content (see <A HREF="#mixedcontent">note below</A>), which some
+analysts regard as pernicious.</P>
+<P>The exclusion exceptions for <CODE>PRE</CODE> now include
+<CODE>TT</CODE> and <CODE>BR</CODE>, as neither have any relevance in
+preformatted fixed-width material, but <CODE>SUB</CODE> and
+<CODE>SUP</CODE> are now permitted, as it seems perfectly reasonable
+that an author might want to represent typewritten material containing
+subscripts and superscripts. <CODE>PRE</CODE> can now include <CODE>IMG</CODE>
+to enable character-cell-sized image glyphs, and <CODE>APPLET</CODE>,
+<CODE>EMBED</CODE>, and <CODE>OBJECT</CODE> to allow the dynamic
+generation of fixed-width content.</P>
+<H4>Accessibility issues</H4><P>The <ACRONYM>ICADD</ACRONYM> fixed
+attributes which were added by the late Yuri Rubinsky have been
+reinserted for those elements to which they were attached in <ACRONYM>RFC1866</ACRONYM>.
+Work is proceeding with the developers of the <ACRONYM>ICADD</ACRONYM>
+<ACRONYM>DTD</ACRONYM> to identify what equivalents to add for the
+remaining elements, and this is being coordinated with a similar
+exercise being undertaken on the Text Encoding Initiative (<ACRONYM>TEI</ACRONYM>)
+<ACRONYM>DTD</ACRONYM>. A note to <ACRONYM>RFC2070</ACRONYM> says:</P><NOTE><P><ACRONYM>HTML</ACRONYM>
+contains <ACRONYM>SGML</ACRONYM> Document Access (<ACRONYM>SDA</ACRONYM>)
+fixed attributes in support of easy transformation to the International
+Committee for Accessible Document Design (<ACRONYM>ICADD</ACRONYM>)
+<ACRONYM>DTD</ACRONYM> <SAMP>"-//EC-USA-CDA/ICADD//DTD ICADD22//EN"</SAMP>.
+<ACRONYM>ICADD</ACRONYM> applications are designed to support usable
+access to structured information by print-impaired individuals through
+Braille, large print and voice synthesis.  For more information on
+<ACRONYM>SDA</ACRONYM> &amp; <ACRONYM>ICADD</ACRONYM>:</P><UL>
+<LI><ACRONYM>ISO 12083:1993</ACRONYM>, Annex A.8, Facilities for
+Braille, large print and computer voice</LI>
+<LI><ACRONYM>ICADD</ACRONYM> ListServ <SAMP>ICADD%ASUACAD.BITNET@ARIZVM1.ccit.arizona.edu</SAMP></LI>
+<LI>Usenet news group <SAMP>bit.listserv.easi</SAMP></LI>
+<LI>Recording for the Blind, +1 800 221 4792</LI></UL></NOTE><P>Following
+the informal discussions at SGML'96, some recent suggestions from Harvey
+Bingham have been incorporated in respect of Tables (additional
+attributes).</P><H3>Recent alterations and additions</H3><P>I am
+grateful to Foteos Macrides for keeping me updated on the
+implementations used for <CITE>Lynx</CITE> and other browsers. His
+request for a <SAMP>TITLE</SAMP> attribute for <CODE>FORM</CODE> and
+<CODE>MAP</CODE> triggered a rework of the <A NAME="commonatts">common
+attributes</A> which are now applied to all elements:</P><DIR><LI><SAMP>ID</SAMP></LI><LI><SAMP>CLASS</SAMP></LI><LI><SAMP>STYLE</SAMP></LI><LI><SAMP>TITLE</SAMP></LI><LI><SAMP>LANG</SAMP></LI><LI><SAMP>DIR</SAMP></LI><LI><SAMP>NOINDEX</SAMP></LI></DIR><H4>Internationalization</H4><P>The
+<SAMP>LANG</SAMP> and <SAMP>DIR</SAMP> (and some changes to the
+<A HREF="sgmlhtml.dec"><ACRONYM>SGML</ACRONYM> Declaration</A>) are
+reintroduced directly from the Internet Draft on
+<A HREF="http://ds.internic.net/rfc/rfc2070.txt">Internationalization
+of HTML</A> (now <ACRONYM>RFC2070</ACRONYM>). <STRONG>Authors should
+note the following (from <ACRONYM>RFC2070</ACRONYM>) and ensure that
+they use only valid numeric character references</STRONG>:</P><NOTE><P>The
+<ACRONYM>SGML</ACRONYM> declaration, like that of <ACRONYM>HTML</ACRONYM>
+2.0, specifies the 32 character numbers 128 to 159 (decimal) as
+<VAR>UNUSED</VAR>.  This means that numeric character references within
+that range (<LANG>eg</LANG> <SAMP>&amp;#146</SAMP>) are illegal in
+<ACRONYM>HTML</ACRONYM>. Neither <ACRONYM>ISO 8859-1</ACRONYM> nor
+Unicode contains characters in that range, which is reserved for control
+characters.</P></NOTE><P>The relevant <ACRONYM>RFC</ACRONYM>s referred
+to here and in the <ACRONYM>DTD</ACRONYM> source code are included in
+the distribution in <SAMP>/usr/local/lib/sgml/IETF/HTML</SAMP> for want
+of a better location.</P><H4>Indexing</H4><P>Scott Preece suggested
+the <SAMP>NOINDEX</SAMP> attribute to provide a means of allowing an
+author to specify to indexing engines that the document is not
+considered meaningful for index-gathering (valuable for <Q>pages</Q>
+originally generated from scripts but stored as temporarily static
+files).</P><H4><ACRONYM>HTML3</ACRONYM> revisited</H4><P>Foteos also
+brought to my attention the need to replace more of the material
+originally in <ACRONYM>HTML3</ACRONYM> which had fallen away, as well
+as the attributes supported by <CITE>Lynx</CITE>, including the <SAMP>DISABLED</SAMP>
+attribute for <CODE>INPUT</CODE>, <CODE>OPTION</CODE>, <CODE>SELECT</CODE>,
+and <CODE>TEXTAREA</CODE>; the <SAMP>PLAIN</SAMP> attribute for
+<CODE>UL</CODE>; <SAMP>CONTINUE</SAMP> for <CODE>OL</CODE>; <SAMP>ALT</SAMP>
+for <CODE>BGSOUND</CODE>, <CODE>APPLET</CODE>, <CODE>AREA</CODE>,
+<CODE>IMG</CODE>, and <CODE>EMBED</CODE>; and the <SAMP>HREF</SAMP>
+attribute (and <SAMP>ACTION</SAMP> as a synonym, from <CITE>Mosaic</CITE>)
+for <CODE>ISINDEX</CODE>.</P><NOTE><P>It is worth warning that some
+browser and editor manufacturers are accepting or generating very
+careless code of the form </P><PRE>&lt;isindex http:foo.bar.com/blort&gt;</PRE><P>which
+is not only unparsable, and thus unusable anywhere else, but unnecessary
+given the availability of <SAMP>HREF</SAMP>.</P></NOTE><P>Drazen Kacar
+suggested the reinclusion of the <SAMP>CLEAR</SAMP> attribute on all
+structural elements, so this has been done. The assumption is that it is
+not needed on inline or descriptive markup.</P><H4>Embedded objects</H4><P>The
+controversy over <CODE>EMBED</CODE> <LANG>vs</LANG> <CODE>OBJECT</CODE>
+was no less acrimonious than the earlier one over <CODE>APP</CODE> or
+<CODE>APPLET</CODE> <LANG>vs</LANG> <CODE>FIG</CODE>, and has been
+treated by including all five elements as implemented. The now-expired
+<A
+HREF="http://www.ics.uci.edu/pub/ietf/html/draft-ietf-html-cda-00.txt">Internet
+Draft on Compound Documents</A> by <AU>Paul Burchard</AU> and <AU>Dave
+Raggett</AU> included <SAMP>PARAMS</SAMP> as an attribute on <CODE>EMBED</CODE>,
+rather than the <Q>attribute soup</Q> approach piloted by some
+browser-makers, and the <ACRONYM>W3C</ACRONYM> now has
+<A HREF="http://www.w3.org/pub/WWW/TR/WD-object.html">their own
+document on the subject</A>.</P><H4>Mathematics</H4><P>Little comment
+has been received to date about math content. The view was expressed at
+<ACRONYM>SGML'96</ACRONYM> that the whole question of <ACRONYM>SGML</ACRONYM>
+math was still up for grabs, so it is unlikely that any significant
+change to the <ACRONYM>HTML3</ACRONYM>--based content will be made
+unless mathematicians present some kind of conclusion.</P><P>I am
+grateful to Dave Carter, however, for the suggestion to include <CODE>FONT</CODE>
+in the model, so that manual/visual adjustment can be made to large
+symbols where browsers fail to render them automatically. There is as
+yet no default inclusion of the ISOams* character entities (although
+that can easily be done with a simple edit).</P><P>There is one
+significant new attribute, <VAR>ROLE</VAR> on
+<CODE>MATH</CODE>, which can take the values <SAMP>INLINE</SAMP> or
+<SAMP>DISPLAY</SAMP>. This corresponds with standard mathematical usage
+as reflected in TeX (this attribute has been made <VAR>#REQUIRED</VAR>).
+Following hints from Tom Magliery, it is possibly true that most math
+authors are writing in TeX and making <ACRONYM>GIF</ACRONYM>s.</P><H4><ACRONYM>TV</ACRONYM>
+browsing</H4><P>There has been one special group of added elements:
+those implemented by WebTV without a <ACRONYM>DTD</ACRONYM>. The
+elements added are <CODE>AUDIOSCOPE</CODE> and <CODE>SIDEBAR</CODE> in
+the <CODE>insertions</CODE> class, and <CODE>BLACKFACE</CODE>, <CODE>LIMITTEXT</CODE>,
+<CODE>NOSMARTQUOTES</CODE>, and <CODE>SHADOW</CODE> to the <CODE>text</CODE>
+class. A substantial number of specialist attributes have been added to
+handle the WebTV output, and these are identified by <SAMP>(T)</SAMP>
+in the <ACRONYM>DTD</ACRONYM> source.</P><H4>Plugin support</H4><P>The
+only requested addition has come from FirstFloor Software, who provide
+the <CITE>Smart Bookmarks</CITE> module shipped in Netscape's <CITE>PowerPack</CITE>.
+This allows for specification on any <CODE>A</CODE> (anchor) element of
+the date and time (<ACRONYM>HTTP</ACRONYM> format, <LANG>eg</LANG>
+<SAMP>Sun, 06 Nov 1994 08:49:37 GMT</SAMP>) of a bulletin, plus
+displayable text and links to the bulletin and an image.</P><P>Manufacturers
+who are experimenting with additional markup are invited to send details
+(with a <ACRONYM>DTD</ACRONYM> fragment) so that the elements can be
+included in a subsequent  release of <ACRONYM>HTML</ACRONYM> Pro. The
+address for submissions is <TT><A
+HREF="mailto:silmaril@m-net.arbornet.org">silmaril@m-net.arbornet.org</A></TT></P><H4><ACRONYM>SGML</ACRONYM>
+experiment</H4><P>The astute reader will have noticed the new elements
+<CODE>ELEMENT</CODE> and <CODE>ATTRIB</CODE>, which have been added to
+this version to test their use in documentation, in order to accompany
+the already proposed <CODE>ENTITY</CODE> and <CODE>COMMENT</CODE>. It
+is not the intention that they should remain past v1r0 unless a formal
+approach is made to the then controllers of the <ACRONYM>HTML</ACRONYM>
+standard.</P><P>The <CODE>COMMENT</CODE> element is in any case wholly
+redundant, and it is assumed that the element was invented in an
+uncontrolled burst of misdirected enthusiasm, coupled with a significant
+failure to read the <ACRONYM>HTML</ACRONYM> specification, as <CODE>COMMENT</CODE>
+does not correctly implement comments at all (embedded markup gets
+interpreted instead of ignored, in implementations to date).</P>
+<H4>Documentation of markup sources</H4><P>Where it has been possible
+to find out who invented an element, this is noted in the comment which
+follows every element and attribute in the <ACRONYM>DTD</ACRONYM>
+source code. This comment is in the form used by Microstar's <CITE>Near&amp;Far</CITE>
+which they call a <Q>title</Q>:</P><PRE>&lt;!element foo - - %bar;
+ --&lt;Title&gt;<I>(X)</I><B>comment goes here</B>--&gt;
+...
+&lt;!attlist foo %commonatts;
+ bar CDATA #IMPLIED
+ --&lt;Title&gt;<I>(Y)</I><B>comment goes here</B>--&gt;</PRE><P>The
+attribution is given by quoting one or more single-letter codes in
+parentheses immediately before the comment (see Figure 2 for the codes).
+I am grateful to the authors of the <CITE>WebTV</CITE> proposals for
+their work on identifying some of these origins.</P><FIG>
+<CAPTION>Browser codes used in attribution comments</CAPTION><FIGTEXT><TABLE>
+<COLGROUP><COL CHARPOS="0" TOPSEP="HSingle"><COL
+COLWD="4.5" TBLUNITS="inches" TOPSEP="HSingle"></COLGROUP><TBODY><TR><TD
+COLSTART="1"><P><B>Code</B></P></TD><TD COLSTART="2"><P><B>Source</B></P></TD></TR>
+<TR><TD COLSTART="1"><P>1</P></TD><TD COLSTART="2"><P><ACRONYM>HTML</ACRONYM>,
+<ACRONYM>CERN</ACRONYM> original version (1)</P></TD></TR><TR><TD
+COLSTART="1"><P>2</P></TD><TD COLSTART="2"><P><ACRONYM>HTML 2.0</ACRONYM>
+(<ACRONYM>RFC1866</ACRONYM>), the formal standard</P></TD></TR><TR><TD
+COLSTART="1"><P>3</P></TD><TD COLSTART="2"><P><ACRONYM>HTML3</ACRONYM>,
+the expired Internet Draft</P></TD></TR>
+<TR><TD COLSTART="1"><P>C</P></TD><TD COLSTART="2"><P>Cougar,
+<ACRONYM>HTML 3.2</ACRONYM>, a <ACRONYM>W3C</ACRONYM> stopgap</P></TD></TR>
+<TR><TD COLSTART="1"><P>W</P></TD><TD COLSTART="2"><P>Wilbur, a
+<ACRONYM>W3C</ACRONYM> experiment</P></TD></TR><TR><TD COLSTART="1"><P>M</P></TD>
+<TD COLSTART="2"><P>Microsoft proposals</P></TD></TR><TR><TD
+COLSTART="1"><P>N</P></TD><TD COLSTART="2"><P>Netscape proposals</P></TD></TR>
+<TR><TD COLSTART="1"><P>S</P></TD><TD COLSTART="2"><P>Sun proposals</P></TD></TR>
+<TR><TD COLSTART="1"><P>L</P></TD><TD COLSTART="2"><P>Lynx
+proposals</P></TD></TR><TR><TD COLSTART="1"><P>T</P></TD><TD
+COLSTART="2"><P>WebTV proposals</P></TD></TR><TR><TD COLSTART="1"><P>I</P></TD>
+<TD COLSTART="2"><P>Internationalization (<ACRONYM>I18N</ACRONYM>,
+<ACRONYM>RFC2070</ACRONYM>)</P></TD></TR><TR><TD COLSTART="1"><P>F</P></TD>
+<TD COLSTART="2"><P>Form-based file uploads (<ACRONYM>RFC1867</ACRONYM>)</P></TD></TR>
+<TR><TD COLSTART="1"><P>O</P></TD><TD COLSTART="2"><P>Compound
+Documents in
+<ACRONYM>HTML</ACRONYM> (Burchard &amp; Raggett)</P></TD></TR><TR><TD
+COLSTART="1"><P>P</P></TD><TD COLSTART="2"><P><ACRONYM>HTML</ACRONYM>
+Pro experimental or enabling mechanism</P></TD></TR><TR><TD
+COLSTART="1"><P>D</P></TD><TD COLSTART="2"><P><ACRONYM>ICADD</ACRONYM>/<ACRONYM>HTML</ACRONYM>
+Interest Group (from <ACRONYM>SGML'96</ACRONYM>)</P></TD></TR><TR><TD
+COLSTART="1"><P>B</P></TD><TD COLSTART="2"><P>FirstFloor Software's
+<CITE>Smart Bookmarks</CITE> Netscape plugin</P></TD></TR><TR><TD
+COLSTART="1"><P>?</P></TD><TD COLSTART="2"><P>Unknown, information
+welcomed</P></TD></TR><TR><TD COLSTART="1"><P></P></TD><TD
+COLSTART="2"><P></P></TD></TR></TBODY></TABLE></FIGTEXT></FIG><P>The
+<ACRONYM>HTML3</ACRONYM> concept of <ACRONYM>HTML</ACRONYM>-specific
+character entity files has been ditched, and this version includes the
+whole of ISOlat1, ISOlat2, ISOnum, ISOpub and ISOtech, which should have
+been done years ago.</P>
+<H3><A NAME="mixedcontent" ID="mixedcontent">Mixed Content</A></H3>
+<P>The infamous problem of mixed content in list items (and elsewhere)
+has been tackled head on by simply permitting it: text data is allowed
+as well as paragraphs and other structural markup like lists, tables,
+and forms. This may cause some less well-endowed editors a little grief,
+but the advantages of being able to tweak the performance
+characteristics of various browsers are too great to pass up.</P><NOTE><P>For
+those unfamiliar with mixed content, this is a position which obtains
+when an element can contain both running text (<ACRONYM>PCDATA</ACRONYM>
+in <ACRONYM>SGML</ACRONYM> terms), and the inline markup that usually
+accompanies it, as well as structural markup. <DFN>Inline markup</DFN>
+is the term given to markup which normally occurs at paragraph level,
+such as emphasis, hypertext links, or font style changes like bold or
+italics. <DFN>Structural markup</DFN> is that which defines the bones
+of the document: paragraphs, lists, headings, sections, tables <LANG>etc</LANG>.
+Examples of <DFN>mixed content</DFN> are (as above) list items, or
+table cells, which can contain both running text <EM>and</EM> other
+structures like headings or further lists.</P><P>White space
+(linebreaks, tabs, or spaces) between structural elements is usually not
+significant to an <ACRONYM>SGML</ACRONYM> parser, as it cannot have any
+meaning in terms of the document structure: <Q>meaning</Q> is borne by
+the markup at this level. For this reason, <ACRONYM>HTML</ACRONYM>
+browsers (and some <ACRONYM>SGML</ACRONYM> display systems) disregard
+or remove such white space, so it can freely be inserted by editors and
+authors for their own visual comfort and ease of editing, as it will not
+affect the display or use of the document. White space <EM>within</EM>
+running text (at the paragraph level, for example) is of course <EM>very</EM>
+significant, as it  separates words.</P><P>Where the content of an
+element is mixed, therefore, there is an ambiguity about whether any
+space is there for redundant (non-significant) purposes, or if it is a
+part of the textual data content. A machine simply cannot tell ---
+only a human can detect this from the contextual meaning. To enable
+parsing to work, linebreaks are not permitted by the rules of <ACRONYM>SGML</ACRONYM>
+in certain circumstances immediately prior to, between, and immediately
+following, structural elements in mixed content.</P></NOTE><P>This has
+been regarded as unavoidable, given that different usages are needed,
+and the same has been permitted within the cells of tables, as
+established practice dictates. Rather than produce several <ACRONYM>DTD</ACRONYM>
+versions, one permitting text where another permits only further markup
+(the <Q>lax</Q> <LANG>vs</LANG> <Q>strict</Q> versions of many
+<ACRONYM>HTML</ACRONYM> <ACRONYM>DTD</ACRONYM>s to date), it has been
+assumed that professional users would be equipped with a suitable editor
+capable of handling the behavioral and formatting requirements of mixed
+content.</P></DIV>
+<HR>
+<DIV><H2>Usage</H2><P>It is assumed that the user is aware of the
+meaning and usage of the elements of <ACRONYM>HTML</ACRONYM>, and of
+the principles of <ACRONYM>SGML</ACRONYM>. Those who are unfamiliar
+with these will find help in the only <ACRONYM>SGML</ACRONYM>-compliant
+book on the use of <ACRONYM>HTML</ACRONYM>,
+<A
+TITLE="Book" HREF="http://www.ucc.ie/~pflynn/books/wwwbook.html" REV="author">The
+World-Wide Web Handbook</A> by <AU>Peter Flynn</AU> (<ACRONYM>ITCP</ACRONYM>
+1995, <ACRONYM>ISBN</ACRONYM> 1-85032-205-8), which covers <ACRONYM>HTML
+2.0</ACRONYM> and <ACRONYM>HTML3</ACRONYM>. The
+<A HREF="http://www.ucc.ie/~pflynn/books/htmlcard.html">Reference Card
+which accompanied the book is also available on the Web</A> and for
+download as a PostScript file to print. </P><P>A more extensive list
+including the proposed additional elements, with a short comment on
+their intended usage, is included in the <ACRONYM>HTML</ACRONYM> Pro
+distribution as file <TT>htmlpro.tag</TT> (as used in SoftQuad's
+<CITE>RulesBuilder</CITE>), and is reproduced here in Figure 3.</P><FIG>
+<CAPTION>Alphabetical list of HTML Pro elements</CAPTION>
+<CREDIT>The <Q>Periodic Table of the Elements</Q> for HTML</CREDIT><FIGTEXT>
+<TABLE BORDER="BORDER"><COLGROUP><COL
+COLWD="1.5" TBLUNITS="inches" TOPSEP="HSingle">
+<COL COLWD="4" TBLUNITS="inches" TOPSEP="HSingle"></COLGROUP>
+<TBODY><TR><TD><P><ELEMENT>A</ELEMENT></P></TD>
+<TD><P>(1) Hypertext anchor</P></TD></TR>
+<TR><TD><P><ELEMENT>ABBREV</ELEMENT></P></TD>
+<TD><P>(3) Abbreviation</P></TD></TR>
+<TR><TD><P><ELEMENT>ABOVE</ELEMENT></P></TD>
+<TD><P>(3) Numerator of fraction</P></TD></TR>
+<TR><TD><P><ELEMENT>ACRONYM</ELEMENT></P></TD>
+<TD><P>(3) Acronym</P></TD></TR>
+<TR><TD><P><ELEMENT>ADDRESS</ELEMENT></P></TD>
+<TD><P>(1) Address block</P></TD></TR>
+<TR><TD><P><ELEMENT>APP</ELEMENT></P></TD>
+<TD><P>(S) Obsolete name for <CODE>APPLET</CODE></P></TD></TR>
+<TR><TD><P><ELEMENT>APPLET</ELEMENT></P></TD>
+<TD><P>(N) Java or other applet</P></TD></TR>
+<TR><TD><P><ELEMENT>AREA</ELEMENT></P></TD>
+<TD><P>(N) Area in clientside imageMAP</P></TD></TR>
+<TR><TD><P><ELEMENT>ARRAY</ELEMENT></P></TD>
+<TD><P>(3) Math array</P></TD></TR>
+<TR><TD><P><ELEMENT>ATOP</ELEMENT></P></TD>
+<TD><P>(3) Top half of unlined fraction</P></TD></TR>
+<TR><TD><P><ELEMENT>ATTRIB</ELEMENT></P></TD>
+<TD><P>(P) SGML attribute name</P></TD></TR>
+<TR><TD><P><ELEMENT>AU</ELEMENT></P></TD>
+<TD><P>(3) Author name</P></TD></TR>
+<TR><TD><P><ELEMENT>AUDIOSCOPE</ELEMENT></P></TD>
+<TD><P>(T) Visual display of a sound played</P></TD></TR>
+<TR><TD><P><ELEMENT>AUTHOR</ELEMENT></P></TD>
+<TD><P>(L) Author</P></TD></TR>
+<TR><TD><P><ELEMENT>B</ELEMENT></P></TD>
+<TD><P>(2) Unidentified bold type</P></TD></TR>
+<TR><TD><P><ELEMENT>BANNER</ELEMENT></P></TD>
+<TD><P>(3) Unscrollable banner</P></TD></TR>
+<TR><TD><P><ELEMENT>BAR</ELEMENT></P></TD>
+<TD><P>(3) Math overbar</P></TD></TR>
+<TR><TD><P><ELEMENT>BASE</ELEMENT></P></TD>
+<TD><P>(1) Home URL of this file</P></TD></TR>
+<TR><TD><P><ELEMENT>BASEFONT</ELEMENT></P></TD>
+<TD><P>(M) Base size for subsequent fonts</P></TD></TR>
+<TR><TD><P><ELEMENT>BDO</ELEMENT></P></TD>
+<TD><P>(I) BiDirectional override</P></TD></TR>
+<TR><TD><P><ELEMENT>BELOW</ELEMENT></P></TD>
+<TD><P>(3) Denominator of fraction</P></TD></TR>
+<TR><TD><P><ELEMENT>BGSOUND</ELEMENT></P></TD>
+<TD><P>(M) Background sound</P></TD></TR>
+<TR><TD><P><ELEMENT>BIG</ELEMENT></P></TD>
+<TD><P>(3) Larger type</P></TD></TR>
+<TR><TD><P><ELEMENT>BLACKFACE</ELEMENT></P></TD>
+<TD><P>(T) Extra bold</P></TD></TR>
+<TR><TD><P><ELEMENT>BLINK</ELEMENT></P></TD>
+<TD><P>(N) Blinking</P></TD></TR>
+<TR><TD><P><ELEMENT>BLOCKQUOTE</ELEMENT></P></TD>
+<TD><P>(1) Block (indented) quotation</P></TD></TR>
+<TR><TD><P><ELEMENT>BODY</ELEMENT></P></TD>
+<TD><P>(1) Body of the text</P></TD></TR>
+<TR><TD><P><ELEMENT>BODYTEXT</ELEMENT></P></TD>
+<TD><P>(3) Identifies body after BANNER</P></TD></TR>
+<TR><TD><P><ELEMENT>BOX</ELEMENT></P></TD>
+<TD><P>(3) Math fraction</P></TD></TR>
+<TR><TD><P><ELEMENT>BQ</ELEMENT></P></TD>
+<TD><P>(3) Alternate BLOCKQUOTE</P></TD></TR>
+<TR><TD><P><ELEMENT>BR</ELEMENT></P></TD>
+<TD><P>(2) Forced linebreak</P></TD></TR>
+<TR><TD><P><ELEMENT>BT</ELEMENT></P></TD>
+<TD><P>(3) Math bold typewriter type</P></TD></TR>
+<TR><TD><P><ELEMENT>CAPTION</ELEMENT></P></TD>
+<TD><P>(3) Caption of TABLE or FIGure</P></TD></TR>
+<TR><TD><P><ELEMENT>CENTER</ELEMENT></P></TD>
+<TD><P>(N) Arbitrary centering</P></TD></TR>
+<TR><TD><P><ELEMENT>CHOOSE</ELEMENT></P></TD>
+<TD><P>(3) Math binomial choice</P></TD></TR>
+<TR><TD><P><ELEMENT>CITE</ELEMENT></P></TD>
+<TD><P>(3) Citation (book, product, etc)</P></TD></TR>
+<TR><TD><P><ELEMENT>CODE</ELEMENT></P></TD>
+<TD><P>(2) Program code</P></TD></TR>
+<TR><TD><P><ELEMENT>COL</ELEMENT></P></TD>
+<TD><P>(3) Column spec in TABLE</P></TD></TR>
+<TR><TD><P><ELEMENT>COLGROUP</ELEMENT></P></TD>
+<TD><P>(3) Group of COLs</P></TD></TR>
+<TR><TD><P><ELEMENT>COMMENT</ELEMENT></P></TD>
+<TD><P><DEL>(?M) Visible comment (superfluous)</DEL></P></TD></TR>
+<TR><TD><P><ELEMENT>CREDIT</ELEMENT></P></TD>
+<TD><P>(3) Credits for FIGure (illustration)</P></TD></TR>
+<TR><TD><P><ELEMENT>DD</ELEMENT></P></TD>
+<TD><P>(1) Definition list discussion</P></TD></TR>
+<TR><TD><P><ELEMENT>DDOT</ELEMENT></P></TD>
+<TD><P>(3) Math double-dot accent</P></TD></TR>
+<TR><TD><P><ELEMENT>DEL</ELEMENT></P></TD>
+<TD><P>(3) Text marked for deletion</P></TD></TR>
+<TR><TD><P><ELEMENT>DFN</ELEMENT></P></TD>
+<TD><P>(3) Definition of new (index) term</P></TD></TR>
+<TR><TD><P><ELEMENT>DIR</ELEMENT></P></TD>
+<TD><P><DEL>(1) Directory list</DEL></P></TD></TR>
+<TR><TD><P><ELEMENT>DIV</ELEMENT></P></TD>
+<TD><P>(3) Structural division</P></TD></TR>
+<TR><TD><P><ELEMENT>DL</ELEMENT></P></TD>
+<TD><P>(1) Definition list</P></TD></TR>
+<TR><TD><P><ELEMENT>DOT</ELEMENT></P></TD>
+<TD><P>(3) Math dot accent</P></TD></TR>
+<TR><TD><P><ELEMENT>DT</ELEMENT></P></TD>
+<TD><P>(1) Definition list term</P></TD></TR>
+<TR><TD><P><ELEMENT>ELEMENT</ELEMENT></P></TD>
+<TD><P>(P) SGML element name</P></TD></TR>
+<TR><TD><P><ELEMENT>EM</ELEMENT></P></TD>
+<TD><P>(1) Emphasis</P></TD></TR>
+<TR><TD><P><ELEMENT>EMBED</ELEMENT></P></TD>
+<TD><P>(M) Embedded object</P></TD></TR>
+<TR><TD><P><ELEMENT>ENTITY</ELEMENT></P></TD>
+<TD><P>(?M) SGML or other entity name</P></TD></TR>
+<TR><TD><P><ELEMENT>FIELDSET</ELEMENT></P></TD>
+<TD><P>(?N) Group of FORM fields</P></TD></TR>
+<TR><TD><P><ELEMENT>FIG</ELEMENT></P></TD>
+<TD><P>(3) Figure or illustration</P></TD></TR>
+<TR><TD><P><ELEMENT>FIGTEXT</ELEMENT></P></TD>
+<TD><P><DEL>(3) Dummy text for FIGures</DEL></P></TD></TR>
+<TR><TD><P><ELEMENT>FN</ELEMENT></P></TD>
+<TD><P>(3) Footnote</P></TD></TR>
+<TR><TD><P><ELEMENT>FONT</ELEMENT></P></TD>
+<TD><P>(N) Specific font change</P></TD></TR>
+<TR><TD><P><ELEMENT>FORM</ELEMENT></P></TD>
+<TD><P>(2) Fill-in form</P></TD></TR>
+<TR><TD><P><ELEMENT>FRAME</ELEMENT></P></TD>
+<TD><P>(N) Subdivision of user's window</P></TD></TR>
+<TR><TD><P><ELEMENT>FRAMESET</ELEMENT></P></TD>
+<TD><P>(N) Group of FRAMEs</P></TD></TR>
+<TR><TD><P><ELEMENT>H1</ELEMENT></P></TD>
+<TD><P>(1) Top-level heading</P></TD></TR>
+<TR><TD><P><ELEMENT>H2</ELEMENT></P></TD>
+<TD><P>(1) Second-level heading</P></TD></TR>
+<TR><TD><P><ELEMENT>H3</ELEMENT></P></TD>
+<TD><P>(1) Third-level heading</P></TD></TR>
+<TR><TD><P><ELEMENT>H4</ELEMENT></P></TD>
+<TD><P>(1) Fourth-level heading</P></TD></TR>
+<TR><TD><P><ELEMENT>H5</ELEMENT></P></TD>
+<TD><P>(1) Fifth-level heading</P></TD></TR>
+<TR><TD><P><ELEMENT>H6</ELEMENT></P></TD>
+<TD><P>(1) Sixth-level heading</P></TD></TR>
+<TR><TD><P><ELEMENT>HAT</ELEMENT></P></TD>
+<TD><P>(3) Math hat (circumflex) accent</P></TD></TR>
+<TR><TD><P><ELEMENT>HEAD</ELEMENT></P></TD>
+<TD><P>(1) Documentation header</P></TD></TR>
+<TR><TD><P><ELEMENT>HR</ELEMENT></P></TD>
+<TD><P>(1) Horizontal rule</P></TD></TR>
+<TR><TD><P><ELEMENT>HTML</ELEMENT></P></TD>
+<TD><P>(1) Entire HTML document</P></TD></TR>
+<TR><TD><P><ELEMENT>I</ELEMENT></P></TD>
+<TD><P>(2) Unidentified italics</P></TD></TR>
+<TR><TD><P><ELEMENT>IMAGE</ELEMENT></P></TD>
+<TD><P><DEL>(N) As <CODE>IMG</CODE> (superfluous)</DEL></P></TD></TR>
+<TR><TD><P><ELEMENT>IMG</ELEMENT></P></TD>
+<TD><P>(2) Inline image (picture, icon)</P></TD></TR>
+<TR><TD><P><ELEMENT>INPUT</ELEMENT></P></TD>
+<TD><P>(2) Inline input in FORM</P></TD></TR>
+<TR><TD><P><ELEMENT>INS</ELEMENT></P></TD>
+<TD><P>(3) Text to be inserted</P></TD></TR>
+<TR><TD><P><ELEMENT>ISINDEX</ELEMENT></P></TD>
+<TD><P>(1) Input to non-FORM script</P></TD></TR>
+<TR><TD><P><ELEMENT>ITEM</ELEMENT></P></TD>
+<TD><P>(3) Item in MATH ARRAY</P></TD></TR>
+<TR><TD><P><ELEMENT>KBD</ELEMENT></P></TD>
+<TD><P>(1) Keyboard key or screen button</P></TD></TR>
+<TR><TD><P><ELEMENT>KEYGEN</ELEMENT></P></TD>
+<TD><P>(N) Generates PublicKey</P></TD></TR>
+<TR><TD><P><ELEMENT>LABEL</ELEMENT></P></TD>
+<TD><P>(?N) FORM field name label</P></TD></TR>
+<TR><TD><P><ELEMENT>LANG</ELEMENT></P></TD>
+<TD><P>(3) Foreign language</P></TD></TR>
+<TR><TD><P><ELEMENT>LEFT</ELEMENT></P></TD>
+<TD><P>(3) MATH fraction left delimiter</P></TD></TR>
+<TR><TD><P><ELEMENT>LH</ELEMENT></P></TD>
+<TD><P>(3) List heading</P></TD></TR>
+<TR><TD><P><ELEMENT>LI</ELEMENT></P></TD>
+<TD><P>(1) List item</P></TD></TR>
+<TR><TD><P><ELEMENT>LIMITTEXT</ELEMENT></P></TD>
+<TD><P>(T) Width-limited text</P></TD></TR>
+<TR><TD><P><ELEMENT>LINK</ELEMENT></P></TD>
+<TD><P>(2) Link to other resources</P></TD></TR>
+<TR><TD><P><ELEMENT>LISTING</ELEMENT></P></TD>
+<TD><P><DEL>(1) Computer printout</DEL></P></TD></TR>
+<TR><TD><P><ELEMENT>MAP</ELEMENT></P></TD>
+<TD><P>(N) Clientside imagemap</P></TD></TR>
+<TR><TD><P><ELEMENT>MARQUEE</ELEMENT></P></TD>
+<TD><P>(M) Marching display</P></TD></TR>
+<TR><TD><P><ELEMENT>MATH</ELEMENT></P></TD>
+<TD><P>(3) Mathematics</P></TD></TR>
+<TR><TD><P><ELEMENT>MENU</ELEMENT></P></TD>
+<TD><P><DEL>(1) Menu list</DEL></P></TD></TR>
+<TR><TD><P><ELEMENT>META</ELEMENT></P></TD>
+<TD><P>(2) Metainformation</P></TD></TR>
+<TR><TD><P><ELEMENT>MULTICOL</ELEMENT></P></TD>
+<TD><P>(N) Encloses multicolumn text</P></TD></TR>
+<TR><TD><P><ELEMENT>NEXTID</ELEMENT></P></TD>
+<TD><P><DEL>(1) Edit control value</DEL></P></TD></TR>
+<TR><TD><P><ELEMENT>NOBR</ELEMENT></P></TD>
+<TD><P>(N) Prohibit linebreak</P></TD></TR>
+<TR><TD><P><ELEMENT>NOEMBED</ELEMENT></P></TD>
+<TD><P>(M) Alternative for browsers with no EMBED</P></TD></TR>
+<TR><TD><P><ELEMENT>NOFRAMES</ELEMENT></P></TD>
+<TD><P>(N) Alternative for browsers with no FRAMEs</P></TD></TR>
+<TR><TD><P><ELEMENT>NOSCRIPT</ELEMENT></P></TD>
+<TD><P>(N) Alternative for browsers with no SCRIPT</P></TD></TR>
+<TR><TD><P><ELEMENT>NOSMARTQUOTES</ELEMENT></P></TD>
+<TD><P>(T) Turns off <Q>smart</Q> quotes</P></TD></TR>
+<TR><TD><P><ELEMENT>NOTE</ELEMENT></P></TD>
+<TD><P>(3) Note of any kind</P></TD></TR>
+<TR><TD><P><ELEMENT>OBJECT</ELEMENT></P></TD>
+<TD><P>(W) Inline embedded object</P></TD></TR>
+<TR><TD><P><ELEMENT>OF</ELEMENT></P></TD>
+<TD><P>(3) MATH ROOT divider</P></TD></TR>
+<TR><TD><P><ELEMENT>OL</ELEMENT></P></TD>
+<TD><P>(1) Ordered (numbered) list</P></TD></TR>
+<TR><TD><P><ELEMENT>OPTION</ELEMENT></P></TD>
+<TD><P>(2) Choice in a FORM SELECTion menu</P></TD></TR>
+<TR><TD><P><ELEMENT>OVER</ELEMENT></P></TD>
+<TD><P>(3) MATH fraction (BOX) divider</P></TD></TR>
+<TR><TD><P><ELEMENT>OVERLAY</ELEMENT></P></TD>
+<TD><P>(3) FIGure image overlay</P></TD></TR>
+<TR><TD><P><ELEMENT>P</ELEMENT></P></TD>
+<TD><P>(1) Paragraph</P></TD></TR>
+<TR><TD><P><ELEMENT>PARAM</ELEMENT></P></TD>
+<TD><P>(S) Parameter to APPLET or OBJECT</P></TD></TR>
+<TR><TD><P><ELEMENT>PERSON</ELEMENT></P></TD>
+<TD><P>(3) Personal name</P></TD></TR>
+<TR><TD><P><ELEMENT>PLAINTEXT</ELEMENT></P></TD>
+<TD><P><DEL>(1) Unmarked plain text</DEL></P></TD></TR>
+<TR><TD><P><ELEMENT>PRE</ELEMENT></P></TD>
+<TD><P>(3) Preformatted text</P></TD></TR>
+<TR><TD><P><ELEMENT>Q</ELEMENT></P></TD>
+<TD><P>(3) <Q>Quote</Q> (direct speech)</P></TD></TR>
+<TR><TD><P><ELEMENT>RANGE</ELEMENT></P></TD>
+<TD><P>(3) Text between two SPOTs</P></TD></TR>
+<TR><TD><P><ELEMENT>RIGHT</ELEMENT></P></TD>
+<TD><P>(3) MATH fraction right delimiter</P></TD></TR>
+<TR><TD><P><ELEMENT>ROOT</ELEMENT></P></TD>
+<TD><P>(3) MATH root</P></TD></TR>
+<TR><TD><P><ELEMENT>ROW</ELEMENT></P></TD>
+<TD><P>(3) Row in MATH ARRAY</P></TD></TR>
+<TR><TD><P><ELEMENT>S</ELEMENT></P></TD>
+<TD><P>(2) Strikeout text</P></TD></TR>
+<TR><TD><P><ELEMENT>SAMP</ELEMENT></P></TD>
+<TD><P>(1) Inline computer input/output</P></TD></TR>
+<TR><TD><P><ELEMENT>SCRIPT</ELEMENT></P></TD>
+<TD><P>(SN) Executable inline script</P></TD></TR>
+<TR><TD><P><ELEMENT>SELECT</ELEMENT></P></TD>
+<TD><P>(2) FORM selection menu</P></TD></TR>
+<TR><TD><P><ELEMENT>SERVER</ELEMENT></P></TD>
+<TD><P>(M) Invokes server-side
+<Q>push</Q> script</P></TD></TR>
+<TR><TD><P><ELEMENT>SHADOW</ELEMENT></P></TD>
+<TD><P>(T) Shadowed text</P></TD></TR>
+<TR><TD><P><ELEMENT>SIDEBAR</ELEMENT></P></TD>
+<TD><P>(T) Unscrollable sidebar</P></TD></TR>
+<TR><TD><P><ELEMENT>SMALL</ELEMENT></P></TD>
+<TD><P>(3) Smaller type</P></TD></TR>
+<TR><TD><P><ELEMENT>SPACER</ELEMENT></P></TD>
+<TD><P>(N) Inserts concrete spacing</P></TD></TR>
+<TR><TD><P><ELEMENT>SPAN</ELEMENT></P></TD>
+<TD><P>(3) Identifies arbitrary portion of text</P></TD></TR>
+<TR><TD><P><ELEMENT>SPOT</ELEMENT></P></TD>
+<TD><P>(3) Start or end of RANGE</P></TD></TR>
+<TR><TD><P><ELEMENT>SQRT</ELEMENT></P></TD>
+<TD><P>(3) MATH square root</P></TD></TR>
+<TR><TD><P><ELEMENT>STRIKE</ELEMENT></P></TD>
+<TD><P>(3) Strikeout text</P></TD></TR>
+<TR><TD><P><ELEMENT>STRONG</ELEMENT></P></TD>
+<TD><P>(1) Strong emphasis</P></TD></TR>
+<TR><TD><P><ELEMENT>STYLE</ELEMENT></P></TD>
+<TD><P>(3) Embedded stylesheet formatting</P></TD></TR>
+<TR><TD><P><ELEMENT>SUB</ELEMENT></P></TD>
+<TD><P>(3) Subscript</P></TD></TR>
+<TR><TD><P><ELEMENT>SUP</ELEMENT></P></TD>
+<TD><P>(3) Superscript</P></TD></TR>
+<TR><TD><P><ELEMENT>T</ELEMENT></P></TD>
+<TD><P>(3) MATH typewriter type</P></TD></TR>
+<TR><TD><P><ELEMENT>TAB</ELEMENT></P></TD>
+<TD><P>(3) Relocatable tab across screen/page</P></TD></TR>
+<TR><TD><P><ELEMENT>TABLE</ELEMENT></P></TD>
+<TD><P>(3) Tabular alignment</P></TD></TR>
+<TR><TD><P><ELEMENT>TBODY</ELEMENT></P></TD>
+<TD><P>(3) Body within a TABLE</P></TD></TR>
+<TR><TD><P><ELEMENT>TD</ELEMENT></P></TD>
+<TD><P>(3) Cell of TABLE Data</P></TD></TR>
+<TR><TD><P><ELEMENT>TEXTAREA</ELEMENT></P></TD>
+<TD><P>(2) Free-form text input in FORM</P></TD></TR>
+<TR><TD><P><ELEMENT>TEXTFLOW</ELEMENT></P></TD>
+<TD><P>(3) Dummy</P></TD></TR>
+<TR><TD><P><ELEMENT>TFOOT</ELEMENT></P></TD>
+<TD><P>(3) Foot of a TABLE</P></TD></TR>
+<TR><TD><P><ELEMENT>TH</ELEMENT></P></TD>
+<TD><P>(3) Row/col header cell in TABLE</P></TD></TR>
+<TR><TD><P><ELEMENT>THEAD</ELEMENT></P></TD>
+<TD><P>(3) Headings of a TABLE</P></TD></TR>
+<TR><TD><P><ELEMENT>TILDE</ELEMENT></P></TD>
+<TD><P>(3) MATH tilde accent</P></TD></TR>
+<TR><TD><P><ELEMENT>TITLE</ELEMENT></P></TD>
+<TD><P>(1) Document title</P></TD></TR>
+<TR><TD><P><ELEMENT>TR</ELEMENT></P></TD>
+<TD><P>(3) TABLE row</P></TD></TR>
+<TR><TD><P><ELEMENT>TT</ELEMENT></P></TD>
+<TD><P>(1) Unidentified typewriter type</P></TD></TR>
+<TR><TD><P><ELEMENT>U</ELEMENT></P></TD>
+<TD><P>(1) Underlined type</P></TD></TR>
+<TR><TD><P><ELEMENT>UL</ELEMENT></P></TD>
+<TD><P>(1) Unordered (bulleted) list</P></TD></TR>
+<TR><TD><P><ELEMENT>VAR</ELEMENT></P></TD>
+<TD><P>(1) Computer variable or filename</P></TD></TR>
+<TR><TD><P><ELEMENT>VEC</ELEMENT></P></TD>
+<TD><P>(3) MATH vector</P></TD></TR>
+<TR><TD><P><ELEMENT>WBR</ELEMENT></P></TD>
+<TD><P>(N) Wordbreak</P></TD></TR>
+<TR><TD><P><ELEMENT>XMP</ELEMENT></P></TD>
+<TD><P><DEL>(1) Example fixed-format text</DEL></P></TD></TR>
+<TR><TD><P><ELEMENT>XTML</ELEMENT></P></TD>
+<TD><P>(P) Container for corpora of HTML</P></TD></TR></TBODY></TABLE></FIGTEXT></FIG></DIV>
+<HR>
+<DIV><H2>Outstanding items</H2>
+<P>The machine-generated status of the <ACRONYM>DTD</ACRONYM> file
+meant that there was a substantial amount of legacy comment from the
+assorted versions used in compositing the <ACRONYM>DTD</ACRONYM>. The
+majority of this has now been edited out so that obsolete comments and
+parameter entities are not left to confuse the unwary reader, but users
+who locate undetected
+<LANG>residua</LANG> are asked to report them (to the address below).</P>
+<P>Now that the <ACRONYM>DTD</ACRONYM> is stabilizing, there is a need
+to re-parameterize some of the material, and use some of the
+architectural material already tested in the modular version of the
+standard.</P><P>The elements for which no <ACRONYM>ICADD</ACRONYM>
+fixed attribute exists need analyzing and the relevant values adding
+from the International Committee for Accessible Document Design
+<ACRONYM>DTD</ACRONYM> (<SAMP>"-//EC-USA-CDA/ICADD//DTD ICADD22//EN"</SAMP>;
+work is under way on this).</P>
+<P>A longer-term goal is to devise and maintain publicly a table of
+which elements and which attributes are actively supported in which
+browsers.</P><P>There are undoubtedly other errors, both of omission
+and of commission, and I would be very grateful for details so that they
+can be fixed: <TT><A HREF="mailto:silmaril@m-net.arbornet.org">silmaril@m-net.arbornet.org</A></TT>.</P>
+</DIV>
+<HR>
+<DIV><H2><A ID="distrib" NAME="distrib">Distribution</A></H2>
+<P>The current distribution includes the following files. The default
+installation directory is given in [square brackets].</P>
+<UL>
+<LI>Directories containing known source <ACRONYM>DTD</ACRONYM>s in
+their Public Text versions. The directory names and the files they
+contain are those expected by an
+<ACRONYM>SGML</ACRONYM>-compliant system expanding the Formal Public
+Identifier (<ACRONYM>FPI</ACRONYM>) in the manner of <VAR>sgmls</VAR>.
+The directories are [<SAMP>/usr/local/lib/sgml/...</SAMP>]:<DIR><LI>IETF/</LI><LI>ISO_8879-1986/</LI><LI>Microsoft/</LI><LI>Netscape_Comm._Corp._Strict/</LI><LI>Netscape_Comm._Corp/</LI><LI>Silmaril/</LI><LI>SQ/</LI><LI>Sun_Microsystems_Corp/</LI><LI>W3C/</LI><LI>WebTechs/</LI></DIR><P>On
+a <ACRONYM>UNIX</ACRONYM> or <ACRONYM>DOS</ACRONYM>-based system, this
+usually means the mapping given in <A HREF="#fpimap">Figure 4</A>. The
+somewhat strange names of some existing files are a result of a
+misunderstanding of the nature of the role of the <ACRONYM>ISO 9070</ACRONYM>
+Public Owner Identifier by the authors of some of the <ACRONYM>DTD</ACRONYM>s.</P></LI>
+<LI>This document (<VAR>htmlpro.html</VAR>) in <ACRONYM>HTML</ACRONYM>
+format [<SAMP>/html/dtds</SAMP>];</LI>
+<LI>This document in PostScript format (<VAR>htmlpro.ps</VAR>) [<SAMP>/html/dtds</SAMP>];</LI>
+<LI>The <ACRONYM>HTML</ACRONYM> Pro <ACRONYM>DTD</ACRONYM> in a
+short-filename form (<VAR>htmlpro.dtd</VAR>) [<SAMP>/html/dtds</SAMP>];</LI>
+<LI>One-line explanations of the elements (<VAR>htmlpro.tag</VAR>)
+suitable for input to compilers such as SoftQuad's
+<CITE>RulesBuilder</CITE> [<SAMP>/html/dtds</SAMP>];</LI>
+<LI>Multipage table of elements against attributes showing which uses
+what (<VAR>htmlpro.lis</VAR>, a 66--line by 132--column
+lineprinter listing) [<SAMP>/html/dtds</SAMP>];</LI>
+<LI>Copies of the principal Internet Drafts and <ACRONYM>RFC</ACRONYM>s
+referred to above [<SAMP>/usr/local/lib/sgml/IETF/html/</SAMP>];</LI>
+<LI>Precompiled (binary) versions of the <ACRONYM>DTD</ACRONYM> for
+some application systems:<DIR><LI>SoftQuad <CITE>Author/Editor</CITE>
+rules file (<VAR>htmlpro.rls</VAR>) and sample style file (<VAR>htmlpro.stl</VAR>
+and <VAR>htmlpro.asf</VAR>);</LI><LI>Emacs psgml-mode CED file (<VAR>htmlpro.ced</VAR>);</LI><LI>Microstar
+(<CITE>Near&amp;Far</CITE>) Binary Format file (<VAR>htmlpro.mbf</VAR>).</LI></DIR>[<SAMP>/html/dtds</SAMP>];</LI>
+<LI>Sample <ACRONYM>DSSSL</ACRONYM> skeleton structure (<VAR>htmlpro.dsssl</VAR>)
+generated with <SAMP>psgml-dsssl</SAMP> [<SAMP>/html/dtds</SAMP>];</LI>
+<LI>Sample style sheets and navigators for <CITE>Panorama Pro</CITE> (<VAR>htmlpro.ssh</VAR>
+and <VAR>htmlpro.nav</VAR>), plus <VAR>catalog</VAR> and <VAR>entityrc</VAR>
+file fragments [<SAMP>/Program Files/SoftQuad/Panorama PRO/...</SAMP>];</LI>
+<LI>Sample style sheets and navigators for <CITE>Panorama Free</CITE>
+(<VAR>htmldemo.ssh</VAR> and <VAR>htmldemo.nav</VAR>), plus <VAR>catalog.fre</VAR>
+and <VAR>entityrc.fre</VAR> file fragments [<SAMP>/Softquad/Panorama/...</SAMP>];</LI>
+<LI>Graphical diagrams of the <ACRONYM>DTD</ACRONYM> structure (<VAR>htmlpro*.eps</VAR>)
+taken from
+<CITE>Near&amp;Far</CITE> [<SAMP>/html/dtds</SAMP>];</LI>
+<LI>Assorted icons for use with the documentation when displayed with a
+browser [<SAMP>/html/dtds</SAMP>].</LI></UL>
+<P>Software manufacturers who would like compiled versions in their own
+format included are invited to contact the authors.</P><FIG>
+<CAPTION><A NAME="fpimap">Mapping of Formal Public Identifiers to
+directory and file names</A></CAPTION><FIGTEXT><TABLE BORDER="BORDER"><COLGROUP>
+<COL COLWD="2.25" TBLUNITS="inches" TOPSEP="HSingle"><COL
+COLWD="1.25" TBLUNITS="inches" TOPSEP="HSingle"><COL
+COLWD="2.5" TBLUNITS="inches" TOPSEP="HSingle"></COLGROUP><TBODY><TR><TD
+VALIGN="TOP" COLSTART="1"><P><CODE>+//</CODE> or <CODE>-//</CODE></P></TD>
+<TD VALIGN="TOP" COLSTART="2"><P>Registered (+) or unregistered (-)
+under ISO/IEC 9070</P></TD><TD VALIGN="TOP" COLSTART="3"><P>Ignored
+while most owners are unregistered</P></TD></TR><TR VALIGN="TOP"><TD
+VALIGN="TOP" COLSTART="1"><PRE>Silmaril//</PRE></TD><TD
+VALIGN="TOP" COLSTART="2"><P>ISO/IEC 9070 Public Owner Identifier</P></TD><TD
+ VALIGN="TOP" COLSTART="3"><P>Treated as a directory name under
+<VAR>/usr/local/lib/sgml/</VAR>, with spaces replaced by underscore
+characters.</P></TD></TR><TR><TD VALIGN="TOP" COLSTART="1"><P><CODE>DTD</CODE>
+or <CODE>ENTITY</CODE></P></TD>
+<TD VALIGN="TOP" COLSTART="2"><P>Class</P></TD><TD
+VALIGN="TOP" COLSTART="3"><P>Class of document treated as further
+subdirectory (note Emacs psgml-mode expects this to be lowercase; other
+systems expect uppercase; DOS/Windows doesn't care).</P></TD></TR>
+<TR><TD VALIGN="TOP" COLSTART="1"><PRE>HTML Pro v0r11 19970101//</PRE></TD>
+<TD VALIGN="TOP" COLSTART="2"><P>Name</P></TD><TD
+VALIGN="TOP" COLSTART="3"><P>Document name: treated as filename, with
+spaces replaced by underscore characters.</P></TD></TR><TR><TD
+VALIGN="TOP" COLSTART="1"><P><CODE>EN</CODE></P></TD>
+<TD VALIGN="TOP" COLSTART="2"><P>Language</P></TD><TD
+VALIGN="TOP" COLSTART="3"><P>Ignored by most software (default
+English).</P></TD></TR></TBODY></TABLE></FIGTEXT></FIG><H3>SGML support</H3><P>No
+<ACRONYM>SGML</ACRONYM> software is included, as this can all be
+obtained online. A good list of software and associated information on
+projects and activities is kept by Robin Cover at <SAMP><A
+HREF="http://www.sil.or/sgml/sgml.html">http://www.sil.org/sgml/sgml.html</A></SAMP>.</P><H4>Editing</H4><P>The
+minimum to get started editing <ACRONYM>HTML</ACRONYM> in a
+fully-conformant manner is an <ACRONYM>SGML</ACRONYM> editor. Some of
+the most popular cross-platform systems seem to be:</P><UL>
+<LI><P><CITE>Author/Editor</CITE> from <A HREF="http://www.sq.com/">SoftQuad</A>.
+This is a straightforward graphical editor for any <ACRONYM>DTD</ACRONYM>,
+and is available for MS-Windows (3.x and 95), Apple Mac, and <A>UNIX</A>/X.
+It is only an editor, not a <ACRONYM>DTP</ACRONYM> system, so its
+paper-publishing facilities are limited (SoftQuad do a separate system
+called <CITE>Sculptor</CITE> which takes A/E into the professional
+publishing field).</P></LI>
+<LI><P><ACRONYM>GNU</ACRONYM> <CITE><A
+HREF="http://www.ucc.ie/doc/editing/emacs.html">Emacs</A></CITE> with
+<VAR><A HREF="http://www.ucc.ie/doc/editing/emacs-sgml.html">psgml-mode</A></VAR>.
+This free editor is well-known in the <ACRONYM>UNIX</ACRONYM> field (it
+also reads mail and Usenet news, browses the Web, does <ACRONYM>FTP</ACRONYM>,
+and a thousand other things as well as just edit), but it also works
+well under <ACRONYM>MS-DOS</ACRONYM> and Windows, and there are
+user-supported versions available separately for Macs and <ACRONYM>VMS</ACRONYM>.</P></LI></UL><H4>Browsing</H4><P>Softquad
+also do a <A HREF="http://www.sq.com/products/panorama/panor-fe.htm">Web
+browser add-on for Windows <ACRONYM>PC</ACRONYM>s called <CITE>Panorama</CITE></A>.
+There's a <A HREF="http://www.sq.com/products/panorama/pan-free.htm">free
+version</A> online, but if you're planning on using <ACRONYM>SGML</ACRONYM>
+more than trivially, the
+<A HREF="http://www.sq.com/products/orders/pnorder.htm">commercial
+version</A>, <CITE>Panorama Pro</CITE>, is strongly recommended.</P><P>This
+file can be used with either version, but with <CITE>PanoFree</CITE>
+you need to install the minimal subset of <ACRONYM>HTML</ACRONYM> Pro,
+whereas <CITE>PanoPro</CITE> it will automatically download the right
+bits and pieces for you. If you've got <CITE>PanoPro</CITE> already
+installed and working, you can go right ahead and
+<A HREF="http://www.ucc.ie/html/dtds/htmlpro.sgml">click here</A>.</P><P>If
+you want to get started with the free version, do the following:</P><OL>
+<LI><P>Make sure your regular browser (<CITE>Netscape</CITE>, <CITE>Mosaic</CITE>,
+<CITE>Explorer</CITE>) is already running first: presumably it is, or
+is at least possible, or you wouldn't be reading this (unless someone
+else printed it off for you);</P></LI>
+<LI><P><A HREF="http://www.sq.com/products/panorama/panor-fe.htm">Download
+<CITE>PanoFree</CITE></A> and double-click to install it, making sure
+you use the default directory (<SAMP>C:\Softquad\Panorama</SAMP>). If
+it doesn't mention your browser as one it works with, don't worry
+--- after installation is finished, go to your browser's Options
+menu and reconfigure your Helper applications for the MIME type <SAMP>text/x-sgml</SAMP>
+to make file types <SAMP>.sgm</SAMP> and <SAMP>.sgml</SAMP> start the
+<SAMP>c:\softquad\panorama\panorama.exe</SAMP> program;</P></LI>
+<LI><P>Close down and restart your browser so that it picks up the
+link to <CITE>Panorama</CITE> correctly;</P></LI>
+<LI><P><STRONG>Don't be tempted to try and run <CITE>Panorama</CITE>
+yet before the installation of <ACRONYM>HTML</ACRONYM> Pro is complete;</STRONG></P></LI>
+<LI><P>Download <A HREF="ftp://www.ucc.ie/pub/sgml/panofkit.exe">the
+<CITE>PanoFree</CITE> <ACRONYM>HTML</ACRONYM> Pro starter kit</A>
+(about 45Kb) and double-click to install it;</P></LI></OL><P>Now you
+should be able to <A HREF="http://www.ucc.ie/html/dtds/htmlpro.sgm">click
+here</A> and view this file using all the facilities of a real
+<ACRONYM>SGML</ACRONYM> application (well, nearly all: some of them are
+reserved for customers of the commercial version, <CITE>Panorama Pro</CITE>).</P><BLOCKQUOTE>
+<BODYTEXT><H5>Disclaimer</H5>
+<P>Silmaril has no connection with or financial interest in SoftQuad,
+Inc. or with any other company mentioned in this document.</P></BODYTEXT></BLOCKQUOTE></DIV>
+<HR>
+<BLOCKQUOTE><BODYTEXT><P ALIGN="CENTER"><CITE>Don't forget, it's
+spelled HTML Pro but it's pronounced A-a-r-d-v-a-r-k</CITE></P></BODYTEXT></BLOCKQUOTE>
+<HR>
+<ADDRESS><A HREF="mailto:pflynn@m-net.arbornet.org" TITLE="Peter Flynn">Peter Flynn</A></ADDRESS></BODYTEXT></BODY></HTML>

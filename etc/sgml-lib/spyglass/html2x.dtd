@@ -1,0 +1,520 @@
+<!-- ...................................................................... -->
+<!-- HTML 2.0 Extended DTD ................................................ -->
+<!-- File html2x.dtd ...................................................... -->
+
+<!--    Document Type Definition for the HyperText Markup Language
+        for Extended Feature Support (HTML 2.0 Extended)
+ 
+        Spyglass/Stonehand Development Version
+        NOTE: This DTD has no status as an IETF standard.
+
+        Maintainer: Murray Altheim <murray@spyglass.com>
+        Revision:
+            $Header: /cvs/projects/w3cvalidator/etc/sgml-lib/spyglass/html2x.dtd,v 1.1.1.1 2004/09/19 12:34:09 ralph Exp $
+        
+        Location:
+            http://www.stonehand.com/dtd/html2x.dtd
+
+        This DTD also references:
+            http://www.stonehand.com/dtd/dsssl.not
+            http://www.stonehand.com/dtd/w3csty.not
+            http://www.stonehand.com/dtd/css.not
+-->
+
+<!ENTITY % HTML.Version
+        "-//Spyglass//DTD HTML 2.0 Extended//EN"
+
+        -- Typical usage:
+
+            <!DOCTYPE HTML PUBLIC "-//SPYGLASS//DTD HTML 2.0 Extended//EN"
+                                  "http://www.stonehand.com/dtd/html2x.dtd">
+            <html>
+            ...
+            </html>
+        --
+        >
+
+<!ENTITY % version.attr "VERSION CDATA #FIXED '%HTML.Version;'">
+
+<!-- Character Mnemonic Entities .......................................... -->
+  
+<!ENTITY amp    CDATA "&#38;">
+<!ENTITY gt     CDATA "&#62;">
+<!ENTITY lt     CDATA "&#60;">
+<!ENTITY quot   CDATA "&#34;">
+
+<!-- include contents of "-//IETF//ENTITIES Added Latin 1 for HTML//EN" -->
+<!ENTITY aacute SDATA "[aacute]">
+<!ENTITY Aacute SDATA "[Aacute]">
+<!ENTITY acirc  SDATA "[acirc ]">
+<!ENTITY Acirc  SDATA "[Acirc ]">
+<!ENTITY agrave SDATA "[agrave]">
+<!ENTITY Agrave SDATA "[Agrave]">
+<!ENTITY aring  SDATA "[aring ]">
+<!ENTITY Aring  SDATA "[Aring ]">
+<!ENTITY atilde SDATA "[atilde]">
+<!ENTITY Atilde SDATA "[Atilde]">
+<!ENTITY auml   SDATA "[auml  ]">
+<!ENTITY Auml   SDATA "[Auml  ]">
+<!ENTITY aelig  SDATA "[aelig ]">
+<!ENTITY AElig  SDATA "[AElig ]">
+<!ENTITY ccedil SDATA "[ccedil]">
+<!ENTITY Ccedil SDATA "[Ccedil]">
+<!ENTITY eth    SDATA "[eth   ]">
+<!ENTITY ETH    SDATA "[ETH   ]">
+<!ENTITY eacute SDATA "[eacute]">
+<!ENTITY Eacute SDATA "[Eacute]">
+<!ENTITY ecirc  SDATA "[ecirc ]">
+<!ENTITY Ecirc  SDATA "[Ecirc ]">
+<!ENTITY egrave SDATA "[egrave]">
+<!ENTITY Egrave SDATA "[Egrave]">
+<!ENTITY euml   SDATA "[euml  ]">
+<!ENTITY Euml   SDATA "[Euml  ]">
+<!ENTITY iacute SDATA "[iacute]">
+<!ENTITY Iacute SDATA "[Iacute]">
+<!ENTITY icirc  SDATA "[icirc ]">
+<!ENTITY Icirc  SDATA "[Icirc ]">
+<!ENTITY igrave SDATA "[igrave]">
+<!ENTITY Igrave SDATA "[Igrave]">
+<!ENTITY iuml   SDATA "[iuml  ]">
+<!ENTITY Iuml   SDATA "[Iuml  ]">
+<!ENTITY ntilde SDATA "[ntilde]">
+<!ENTITY Ntilde SDATA "[Ntilde]">
+<!ENTITY oacute SDATA "[oacute]">
+<!ENTITY Oacute SDATA "[Oacute]">
+<!ENTITY ocirc  SDATA "[ocirc ]">
+<!ENTITY Ocirc  SDATA "[Ocirc ]">
+<!ENTITY ograve SDATA "[ograve]">
+<!ENTITY Ograve SDATA "[Ograve]">
+<!ENTITY oslash SDATA "[oslash]">
+<!ENTITY Oslash SDATA "[Oslash]">
+<!ENTITY otilde SDATA "[otilde]">
+<!ENTITY Otilde SDATA "[Otilde]">
+<!ENTITY ouml   SDATA "[ouml  ]">
+<!ENTITY Ouml   SDATA "[Ouml  ]">
+<!ENTITY szlig  SDATA "[szlig ]">
+<!ENTITY thorn  SDATA "[thorn ]">
+<!ENTITY THORN  SDATA "[THORN ]">
+<!ENTITY uacute SDATA "[uacute]">
+<!ENTITY Uacute SDATA "[Uacute]">
+<!ENTITY ucirc  SDATA "[ucirc ]">
+<!ENTITY Ucirc  SDATA "[Ucirc ]">
+<!ENTITY ugrave SDATA "[ugrave]">
+<!ENTITY Ugrave SDATA "[Ugrave]">
+<!ENTITY uuml   SDATA "[uuml  ]">
+<!ENTITY Uuml   SDATA "[Uuml  ]">
+<!ENTITY yacute SDATA "[yacute]">
+<!ENTITY Yacute SDATA "[Yacute]">
+<!ENTITY yuml   SDATA "[yuml  ]">
+<!ENTITY emsp   SDATA "[emsp  ]">
+<!ENTITY ensp   SDATA "[ensp  ]">
+<!ENTITY mdash  SDATA "[ndash ]">
+<!ENTITY ndash  SDATA "[ndash ]">
+<!ENTITY trade  SDATA "[trade ]">
+<!ENTITY nbsp   SDATA "[nbsp  ]">
+<!ENTITY iexcl  SDATA "[iexcl ]">
+<!ENTITY cent   SDATA "[cent  ]">
+<!ENTITY pound  SDATA "[pound ]">
+<!ENTITY curren SDATA "[curren]">
+<!ENTITY yen    SDATA "[yen   ]">
+<!ENTITY brvbar SDATA "[brvbar]">
+<!ENTITY sect   SDATA "[sect  ]">
+<!ENTITY uml    SDATA "[uml   ]">
+<!ENTITY copy   SDATA "[copy  ]">
+<!ENTITY ordf   SDATA "[ordf  ]">
+<!ENTITY laquo  SDATA "[laquo ]">
+<!ENTITY not    SDATA "[not   ]">
+<!ENTITY shy    SDATA "[shy   ]">
+<!ENTITY reg    SDATA "[reg   ]">
+<!ENTITY macr   SDATA "[macr  ]">
+<!ENTITY deg    SDATA "[deg   ]">
+<!ENTITY plusmn SDATA "[plusmn]">
+<!ENTITY sup2   SDATA "[sup2  ]">
+<!ENTITY sup3   SDATA "[sup3  ]">
+<!ENTITY acute  SDATA "[acute ]">
+<!ENTITY micro  SDATA "[micro ]">
+<!ENTITY para   SDATA "[para  ]">
+<!ENTITY middot SDATA "[middot]">
+<!ENTITY cedil  SDATA "[cedil ]">
+<!ENTITY sup1   SDATA "[sup1  ]">
+<!ENTITY ordm   SDATA "[ordm  ]">
+<!ENTITY raquo  SDATA "[raquo ]">
+<!ENTITY frac14 SDATA "[frac14]">
+<!ENTITY frac12 SDATA "[frac12]">
+<!ENTITY frac34 SDATA "[frac34]">
+<!ENTITY iquest SDATA "[iquest]">
+
+<!-- Imported Names/Base Class Attributes ................................. -->
+
+<!ENTITY % Content-Type "CDATA">
+<!ENTITY % HTTP-Method  "GET|POST">
+<!ENTITY % URI          "CDATA">
+<!ENTITY % literal      "CDATA">
+<!ENTITY % linkName     "CDATA">
+<!ENTITY % linkType     "NAME">
+<!ENTITY % linkExtraAttributes
+                        "REL %linkType #IMPLIED
+                         REV %linkType #IMPLIED
+                         URN CDATA #IMPLIED
+                         TITLE CDATA #IMPLIED
+                         METHODS NAMES #IMPLIED">
+<!ENTITY % InputType    "(TEXT|PASSWORD|CHECKBOX|RADIO|SUBMIT|RESET|
+                         IMAGE|HIDDEN)">
+<!ENTITY % attrs        "ID ID #IMPLIED
+                         LANG CDATA 'en.us'
+                         CLASS NAMES #IMPLIED">
+<!ENTITY % needs        "CLEAR CDATA #IMPLIED">
+<!ENTITY % block.align  "ALIGN (BLEEDLEFT|LEFT|CENTER|RIGHT|BLEEDRIGHT|
+                        JUSTIFY) CENTER">
+<!ENTITY % horiz.align  "LEFT|CENTER|RIGHT|JUSTIFY">
+<!ENTITY % vert.align   "TOP|MIDDLE|BOTTOM|BASELINE">
+<!ENTITY % heading      "H1|H2|H3|H4|H5|H6">
+<!ENTITY % list         "UL|OL|DIR|MENU" >
+<!ENTITY % font         "TT|B|I|U|S">
+<!ENTITY % ns.text	"BLINK">
+<!ENTITY % ns.obj	"EMBED">
+<!ENTITY % hj.obj	"APP">
+<!ENTITY % ms.text	"MARQUEE">
+<!ENTITY % sg.text	"MAP">
+<!ENTITY % ms.obj	"BGSOUND">
+
+<!-- Text Formatting ...................................................... -->
+
+<!ENTITY % phrase       "EM|STRONG|CODE|SAMP|KBD|VAR|CITE|Q|LANG|AU|DFN|PERSON|ACRONYM|ABBREV|INS|DEL">
+<!ENTITY % text         "#PCDATA|A|IMG|BR|%phrase|%font|%ns.text|BASEFONT|FONT|NOBR|WBR|%ns.obj|%hj.obj|%ms.text|%ms.obj|%sg.text">
+<!ENTITY % A.content    "(%heading|%text)*">
+<!ENTITY % block.forms  "BLOCKQUOTE|FORM|ISINDEX">
+<!ENTITY % preformatted "PRE|XMP|LISTING">
+<!ENTITY % block        "P|%list|DL|%preformatted|%block.forms|TABLE|CENTER">
+<!ENTITY % cell         "TH|TD">
+<!ENTITY % flow         "(%text|%block|%heading)*">
+<!ENTITY % body.content "(%heading|%text|%block|HR|ADDRESS)*">
+<!ENTITY % head.content "TITLE & ISINDEX* & BASE* & STYLE* & META* & LINK* & NEXTID*">
+<!ENTITY % html.content "HEAD, BODY, PLAINTEXT?">
+<!ELEMENT (%font|%phrase|%ns.text|FONT|NOBR) - - %body.content>
+<!ATTLIST (%font|%phrase|%ns.text|NOBR)
+	%attrs;
+	>
+<!ATTLIST FONT
+        %attrs;
+        SIZE CDATA #IMPLIED
+	FACE CDATA #IMPLIED
+	COLOR CDATA #IMPLIED
+        >
+<!ELEMENT BASEFONT - O EMPTY>
+<!ATTLIST BASEFONT
+        SIZE CDATA #IMPLIED
+        >
+<!ELEMENT (BR|WBR)    - O EMPTY>
+<!ATTLIST (BR|WBR)
+        %needs;
+        >
+        
+<!-- Link & Media Embedding Markup ........................................ -->
+
+<!ELEMENT A     - - %A.content -(A)>
+<!ATTLIST A
+        %attrs;
+        HREF %URI; #IMPLIED
+        NAME %linkName; #IMPLIED
+        %linkExtraAttributes;
+        >
+<!ELEMENT AREA - O EMPTY>
+<!ATTLIST AREA
+	SHAPE CDATA #REQUIRED
+	COORDS CDATA #REQUIRED
+	HREF %URI; #REQUIRED
+>
+<!ELEMENT MAP - - (AREA)*>
+<!ATTLIST MAP
+	NAME %linkName; #REQUIRED
+>
+<!ELEMENT IMG    - O EMPTY>
+<!ATTLIST IMG
+        SRC %URI;     #REQUIRED
+        ALT CDATA     #IMPLIED
+        ALIGN  (LEFT|RIGHT|TOP|TEXTTOP|MIDDLE|ABSMIDDLE|BASELINE|BOTTOM|ABSBOTTOM) #IMPLIED
+        WIDTH  NUMBER #IMPLIED
+        HEIGHT NUMBER #IMPLIED
+        BORDER NUMBER #IMPLIED
+        VSPACE NUMBER #IMPLIED
+        HSPACE NUMBER #IMPLIED
+        ISMAP (ISMAP) #IMPLIED
+	LOWSRC %URI;  #IMPLIED
+	START  CDATA  #IMPLIED
+	CONTROLS (CONTROLS) #IMPLIED
+	LOOP   CDATA  #IMPLIED
+	LOOPDELAY NUMBER #IMPLIED
+	DYNSRC %URI;  #IMPLIED
+	USEMAP %URI; #IMPLIED
+        >
+<!ELEMENT (APP|EMBED) - O EMPTY>
+<!ATTLIST (APP|EMBED)
+	ID	ID		#IMPLIED
+	LANG	CDATA		'en.us'
+	CLASS	NAMES		#IMPLIED
+	SRC	%URI;		#IMPLIED
+	ALIGN	(%vert.align;)	#IMPLIED
+	WIDTH	CDATA		#IMPLIED
+	HEIGHT	CDATA		#IMPLIED
+        HSPACE NUMBER		#IMPLIED
+        VSPACE NUMBER		#IMPLIED
+	>
+<!ELEMENT BGSOUND    - O EMPTY>
+<!ATTLIST BGSOUND
+        SRC %URI;     #REQUIRED
+	LOOP CDATA    #IMPLIED
+        >
+<!ELEMENT MARQUEE - - (%text;)*>
+<!ATTLIST MARQUEE
+	ALIGN (TOP|MIDDLE|BOTTOM) #IMPLIED
+	BEHAVIOR (SCROLL|SLIDE|ALTERNATE) #IMPLIED
+	BGCOLOR CDATA #IMPLIED
+	DIRECTION (LEFT|RIGHT) #IMPLIED
+	HEIGHT CDATA #IMPLIED
+	WIDTH CDATA #IMPLIED
+        HSPACE NUMBER #IMPLIED
+        VSPACE NUMBER #IMPLIED
+	LOOP CDATA #IMPLIED
+	SCROLLAMOUNT NUMBER #IMPLIED
+	SCROLLDELAY NUMBER #IMPLIED
+	>
+
+<!-- Paragraphs ........................................................... -->
+
+<!ELEMENT P     - O (%text;)*>
+<!ATTLIST P
+        %attrs;
+        ALIGN  (LEFT|CENTER|RIGHT|JUSTIFY) #IMPLIED
+        %needs; -- for control of text flow --
+        NOWRAP (NOWRAP) #IMPLIED -- disable wordwrap --
+	>
+
+<!-- Headings, Titles, Sections ........................................... -->
+
+<!ELEMENT CENTER - - %body.content;>
+<!ELEMENT HR    - O EMPTY>
+<!ATTLIST HR
+	SRC %URI; #IMPLIED
+        SIZE NUMBER #IMPLIED
+        WIDTH CDATA #IMPLIED
+        ALIGN (LEFT|RIGHT|CENTER) #IMPLIED
+        NOSHADE (NOSHADE) #IMPLIED
+        >
+<!ELEMENT (%heading;)  - -  (%text;)*>
+<!ATTLIST (%heading;)
+        %attrs;
+        ALIGN  (LEFT|CENTER|RIGHT|JUSTIFY) #IMPLIED
+        %needs; -- for control of text flow --
+        NOWRAP (NOWRAP) #IMPLIED -- disable wordwrap --
+	>
+
+<!-- Text Flows ........................................................... -->
+
+<!ELEMENT PRE - - %body.content;>
+<!ATTLIST PRE
+        %attrs;
+        ALIGN  (LEFT|CENTER|RIGHT|JUSTIFY) #IMPLIED
+        %needs; -- for control of text flow --
+        WIDTH NUMBER #IMPLIED
+        >
+<!ELEMENT (XMP|LISTING) - -  %literal;>
+<!ELEMENT PLAINTEXT - O %literal;>
+
+<!-- Lists ................................................................ -->
+
+<!ELEMENT DL    - -  (DT | DD)+>
+<!ATTLIST DL
+        %attrs;
+        COMPACT (COMPACT) #IMPLIED
+        >
+<!ELEMENT DT    - O (%text;)*>
+<!ELEMENT DD    - O %flow;>
+<!ATTLIST (DT|DD)
+        %attrs;
+        ALIGN  (LEFT|CENTER|RIGHT|JUSTIFY) #IMPLIED
+        %needs; -- for control of text flow --
+        NOWRAP (NOWRAP) #IMPLIED -- disable wordwrap --
+        >
+<!ELEMENT (OL|UL) - -  (LI)+>
+<!ATTLIST (OL|UL)
+        %attrs;
+        COMPACT (COMPACT) #IMPLIED
+        TYPE CDATA #IMPLIED
+	START CDATA #IMPLIED
+        >
+<!ELEMENT (DIR|MENU) - -  (LI)+ -(%block;)>
+<!ATTLIST (DIR|MENU)
+        COMPACT (COMPACT) #IMPLIED
+        >
+<!ELEMENT LI    - O %flow;>
+<!ATTLIST LI
+        %attrs;
+        ALIGN  (LEFT|CENTER|RIGHT|JUSTIFY) #IMPLIED
+        %needs; -- for control of text flow --
+        NOWRAP (NOWRAP) #IMPLIED -- disable wordwrap --
+        TYPE CDATA #IMPLIED
+	VALUE CDATA #IMPLIED
+        >
+
+<!-- Document Body ........................................................ -->
+
+<!ELEMENT BODY O O %body.content;>
+<!ATTLIST BODY
+	%attrs;	
+        BACKGROUND CDATA #IMPLIED
+        BGCOLOR CDATA #IMPLIED
+        TEXT CDATA #IMPLIED
+        LINK CDATA #IMPLIED
+        VLINK CDATA #IMPLIED
+        ALINK CDATA #IMPLIED
+        BGPROPERTIES CDATA #IMPLIED
+        >
+<!ELEMENT BLOCKQUOTE - - %body.content;>
+<!ELEMENT ADDRESS - - (%text;|P)*>
+<!ATTLIST (ADDRESS|BLOCKQUOTE)
+        %attrs;
+        ALIGN  (LEFT|CENTER|RIGHT|JUSTIFY) #IMPLIED
+        %needs; -- for control of text flow --
+        NOWRAP (NOWRAP) #IMPLIED -- disable wordwrap --
+	>
+
+<!-- Forms ................................................................ -->
+
+<!ELEMENT FORM - - %body.content; -(FORM) +(INPUT|SELECT|TEXTAREA)>
+<!ATTLIST FORM
+        ACTION %URI; #IMPLIED
+        METHOD (%HTTP-Method;) GET
+        ENCTYPE %Content-Type; "application/x-www-form-urlencoded"
+        >
+<!ELEMENT INPUT - O EMPTY>
+<!ATTLIST INPUT
+        TYPE %InputType; TEXT
+        NAME CDATA #IMPLIED
+        VALUE CDATA #IMPLIED
+        SRC %URI; #IMPLIED
+        CHECKED (CHECKED) #IMPLIED
+        SIZE CDATA #IMPLIED
+        MAXLENGTH NUMBER #IMPLIED
+        ALIGN (TOP|MIDDLE|BOTTOM) #IMPLIED
+        >
+<!ELEMENT SELECT - - (OPTION+)>
+<!ATTLIST SELECT
+        NAME CDATA #REQUIRED
+        SIZE NUMBER #IMPLIED
+        MULTIPLE (MULTIPLE) #IMPLIED
+        >
+<!ELEMENT OPTION - O (#PCDATA)*>
+<!ATTLIST OPTION
+        SELECTED (SELECTED) #IMPLIED
+        VALUE CDATA #IMPLIED
+        >
+<!ELEMENT TEXTAREA - - (#PCDATA)*>
+<!ATTLIST TEXTAREA
+        NAME CDATA #REQUIRED
+        ROWS NUMBER #REQUIRED
+        COLS NUMBER #REQUIRED
+        >
+
+<!-- Tables ............................................................... -->
+
+<!ELEMENT CAPTION - - %body.content;>
+<!ATTLIST CAPTION
+        %attrs;
+        ALIGN (TOP|BOTTOM|LEFT|RIGHT) #IMPLIED
+        >
+<!ELEMENT (%cell;) - O %body.content;>
+<!ATTLIST (%cell;)
+        %attrs;
+        COLSPAN NUMBER    1
+        ROWSPAN NUMBER    1
+        ALIGN  (%horiz.align;) #IMPLIED
+        VALIGN (%vert.align;) TOP
+        DP      CDATA    #IMPLIED
+        NOWRAP (NOWRAP)  #IMPLIED
+        AXIS    CDATA #IMPLIED
+        AXES    CDATA #IMPLIED
+        WIDTH   CDATA   #IMPLIED
+        HEIGHT  CDATA   #IMPLIED
+        BGCOLOR CDATA #IMPLIED
+        >
+<!ELEMENT TR - O (%cell;)*>
+<!ATTLIST TR
+        %attrs;
+        ALIGN  (%horiz.align;) #IMPLIED
+        VALIGN (%vert.align;)  TOP
+        DP      CDATA         #IMPLIED
+        NOWRAP (NOWRAP)       #IMPLIED
+        BGCOLOR CDATA #IMPLIED
+        >
+<!ELEMENT TABLE - - (CAPTION?, TR*)>
+<!ATTLIST TABLE
+        %attrs;
+        %needs;
+        BORDER (BORDER|0|1|2|3|4|5|6|7|8|9|10) #IMPLIED
+        COLSPEC CDATA   #IMPLIED
+        UNITS  (EN|PIXELS|RELATIVE) EN
+        DP      CDATA   #IMPLIED
+        WIDTH   CDATA   #IMPLIED
+        HEIGHT  CDATA   #IMPLIED
+        %block.align;
+        NOFLOW (NOFLOW) #IMPLIED
+        NOWRAP (NOWRAP) #IMPLIED
+        CELLSPACING NUMBER 2
+        CELLPADDING NUMBER 1
+        BGCOLOR CDATA #IMPLIED
+        >
+
+<!-- Document Head ........................................................ -->
+
+<!ELEMENT HEAD O O  (%head.content;)>
+<!ATTLIST HEAD
+        %attrs;
+	>
+<!ELEMENT TITLE - -  (#PCDATA)*>
+<!ELEMENT LINK - O EMPTY>
+<!ATTLIST LINK
+        HREF %URI; #REQUIRED
+        %linkExtraAttributes;
+        >
+<!ELEMENT ISINDEX - O EMPTY>
+<!ATTLIST ISINDEX
+	HREF %URI; #IMPLIED
+        PROMPT CDATA #IMPLIED
+        >
+<!ELEMENT BASE - O EMPTY>
+<!ATTLIST BASE
+        HREF %URI; #REQUIRED
+        >
+<!ELEMENT NEXTID - O EMPTY>
+<!ATTLIST NEXTID
+        N %linkName; #REQUIRED
+        >
+<!ELEMENT META - O EMPTY>
+<!ATTLIST META
+        HTTP-EQUIV  NAME    #IMPLIED
+        NAME        NAME    #IMPLIED
+        CONTENT     CDATA   #REQUIRED
+        >
+
+<!-- Style Notations ...................................................... -->
+
+<!ENTITY % style-notations "dsssl-lite|w3c-style|css">
+<!NOTATION dsssl-lite PUBLIC "ISO/IEC 10179:1995//NOTATION DSSSL Style Language//EN">
+<!NOTATION w3c-style  PUBLIC "-//IETF//NOTATION W3C Style Language//EN">
+<!NOTATION css        PUBLIC "-//IETF//NOTATION Cascading Style Sheet Language//EN">
+<!ELEMENT STYLE - O (#PCDATA)>
+<!ATTLIST STYLE
+	NOTATION NOTATION (%style-notations;) #REQUIRED
+>
+
+<!-- Document Structure ................................................... -->
+
+<!ELEMENT HTML O O  (%html.content;)>
+<!ATTLIST HTML
+        %attrs;
+        %version.attr;
+        >
+
+<!-- end of HTML DTD 2.0 Extended ............................... -->
+<!-- ............................................................ -->

@@ -1,0 +1,228 @@
+
+<!--     Document Type Definition
+        for the HyperText Markup Language 1996-01
+
+        Last revised: $Date: 2004/09/19 12:34:08 $
+
+        Authors: Daniel W. Connolly <connolly@w3.org>
+                 Francois Yergeau   <yergeau@alis.com>
+                 Murray M. Altheim  <murray@stonehand.com>
+-->
+
+<!--    Features:  (see module declarations below)
+        1. modular DTD
+        2. extended for internationalisation
+        3. tables
+        4. file upload
+        5. additional attribute features
+-->
+        
+<!ENTITY % HTML.Version
+        "-//W3C//DTD HTML 1996-01//EN"
+  --    This is the driver file for Version 2.2 of the HTML DTD. 
+        Please use the following formal public identifier (FPI) 
+        to identify it:
+        
+        "-//W3C//DTD HTML 1996-01//EN"
+
+        For example, use this FPI in the DOCTYPE declaration:
+
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 1996-01//EN">
+            <HTML>
+            ...
+            </HTML>
+        
+        If you modify the HTML DTD in any way, label your DTD as 
+        a variant of HTML.  See the maintenance documentation 
+        (@@maint.txt) for more information on extending HTML and
+        the Formal Public Identifier (FPI) syntax for variants,
+        as well as for bibliographic references on sources.
+-->
+
+
+<!-- Feature Test and Module Status ............................. -->
+
+<!ENTITY % HTML.Recommended "IGNORE"
+        -- Certain features of the language are necessary for
+           compatibility with widespread usage, but they may
+           compromise the structural integrity of a document.
+           This feature test entity enables a more prescriptive
+           document type definition that eliminates
+           those features.
+        -->
+
+<!ENTITY % HTML.highlighting "INCLUDE"
+        -- Use this feature test entity to validate that a
+           document uses no highlighting tags, which may be
+           ignored on minimal implementations.
+        -->
+        
+<!ENTITY % char.module       "INCLUDE" >
+<!ENTITY % genent.module     "INCLUDE" >
+<!ENTITY % sda.module        "INCLUDE" >
+<!ENTITY % text.module       "INCLUDE" >
+<!ENTITY % link.module       "INCLUDE" >
+<!ENTITY % paragraphs.module "INCLUDE" >
+<!ENTITY % headings.module   "INCLUDE" >
+<!ENTITY % textflows.module  "INCLUDE" >
+<!ENTITY % lists.module      "INCLUDE" >
+<!ENTITY % forms.module      "INCLUDE" >
+<!ENTITY % tables.module     "INCLUDE" >
+<!ENTITY % body.module       "INCLUDE" >
+<!ENTITY % head.module       "INCLUDE" >
+<!ENTITY % struct.module     "INCLUDE" >
+
+
+<!-- Module Inclusions .......................................... -->
+
+<!--    The following module inclusions rely on the mapping 
+        of FPI (Formal Public Identifier) to SOI (Storage
+        Object Identifier) within an SGML catalog file, as
+        introduced in SGML Open TR9401 [ENTMGMT] :
+-->
+
+<!ENTITY % ISO8859-1.mod PUBLIC
+        "-//W3C//ENTITIES HTML ISO8859-1 1996-01//EN" >
+%ISO8859-1.mod;
+
+
+<!ENTITY % markupesc.mod SYSTEM "markupesc.mod">
+%markupesc.mod;
+
+<!ENTITY % i18n.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Internationalization//EN" "i18n.mod" >
+%i18n.mod;
+
+<!ENTITY % layout.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 DYNSRC//EN"
+	"layout.mod" >
+%layout.mod;
+
+<!-- General Entities and Imported Names .............. -->
+<![ %genent.module; [
+<!ENTITY % genent PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 General Entities//EN" >
+%genent;
+<!-- end of genent.module -->]]>
+
+<!ENTITY % color.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Color Idioms//EN" "color.mod" >
+%color.mod;
+
+<!ENTITY % font.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 FONT markup//EN"
+	 "font.mod" >
+%font.mod;
+
+<!ENTITY % dynsrc.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 DYNSRC feature//EN"
+	 "dynsrc.mod" >
+%dynsrc.mod;
+
+<!-- SGML Document Access (SDA) Parameter Entities .... -->
+<![ %sda.module; [
+<!ENTITY % sda.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 SGML Document Access//EN" >
+%sda.mod;
+<!-- end of sda.module -->]]>
+
+<!-- Text Markup ...................................... -->
+<![ %text.module; [
+<!ENTITY % text.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Text Markup//EN" >
+%text.mod
+<!-- end of text.module -->]]>
+
+<!-- Link Markup ...................................... -->
+<![ %link.module; [
+<!ENTITY % link.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Link Markup//EN" >
+%link.mod;
+<!-- end of link.module -->]]>
+
+
+<!ENTITY % dynsrc.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 DYNSRC//EN"
+	"dynsrc.mod" >
+%dynsrc.mod;
+
+<!ENTITY % images.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Images//EN"
+	"images.mod" >
+%images.mod;
+
+<!ENTITY % insert.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Insert//EN"
+	"insert.mod" >
+%insert.mod;
+
+<!ENTITY % resource.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Resource//EN"
+	"resource.mod" >
+%resource.mod;
+
+
+<!-- Paragraphs ....................................... -->
+<![ %paragraphs.module; [
+<!ENTITY % paragraphs PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Paragraphs//EN" >
+%paragraphs;
+<!-- end of paragraphs.module -->]]>
+
+<!-- Headings ......................................... -->
+<![ %headings.module; [
+<!ENTITY % headings PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Headings//EN" >
+%headings;
+<!-- end of headings.module -->]]>
+
+<!-- Text Flows ....................................... -->
+<![ %textflows.module; [
+<!ENTITY % textflows PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Text Flows//EN" >
+%textflows;
+<!-- end of textflows.module -->]]>
+
+<!-- Lists ............................................ -->
+<![ %lists.module; [
+<!ENTITY % lists PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Lists//EN" >
+%lists;
+<!-- end of lists.module -->]]>
+
+<!-- Forms ............................................ -->
+<![ %forms.module; [
+<!ENTITY % forms PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Forms//EN" >
+%forms;
+<!-- end of forms.module -->]]>
+
+<!-- Tables ............................................ -->
+<![ %tables.module; [
+<!ENTITY % tables PUBLIC
+        "-//W3C//ELEMENTS HTML V2.0-Based Extension Tables V0.3//EN" >
+%tables;
+<!-- end of tables.module -->]]>
+
+<!-- Document Body .................................... -->
+<![ %body.module; [
+<!ENTITY % body PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Document Body//EN" >
+%body;
+<!-- end of body.module -->]]>
+
+<!-- Document Head .................................... -->
+<![ %head.module; [
+<!ENTITY % head PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Document Head//EN" >
+%head;
+<!-- end of head.module -->]]>
+
+<!-- Document Structure ............................... -->
+<![ %struct.module; [
+<!ENTITY % struct.mod PUBLIC
+        "-//W3C//ELEMENTS HTML 1996-01 Document Structure//EN"
+	>
+%struct.mod;
+<!-- end of struct.module -->]]>
+

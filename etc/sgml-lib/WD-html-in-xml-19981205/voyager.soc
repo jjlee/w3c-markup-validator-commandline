@@ -1,0 +1,15 @@
+	-- catalog: SGML Open style entity catalog for Voyager --
+
+	-- Ways to refer to Level 2: most general to most specific --
+PUBLIC  "-//W3C//DTD Voyager Core//EN"          core.dtd
+PUBLIC  "-//W3C//DTD Voyager strict//EN"        strict.dtd
+PUBLIC  "-//W3C//DTD Voyager loose//EN"         loose.dtd
+PUBLIC  "-//W3C//DTD Voyager frameset//EN"      frameset.dtd
+
+	-- ISO latin 1 entity set for HTML -- 
+PUBLIC	"-//W3C//ENTITIES Latin1//EN//HTML" HTMLlat1x.ent
+PUBLIC	"-//W3C//ENTITIES Symbols//EN//HTML" HTMLsymbolx.ent
+PUBLIC	"-//W3C//ENTITIES Special//EN//HTML" HTMLspecialx.ent
+
+SGMLDECL "xml.dcl"
+DOCTYPE html loose.dtd

@@ -1,0 +1,2715 @@
+<!-- This is the HTML Professional Document Type Description (DTD) -->
+<!-- (see version number and invocation below. -->
+<!-- For details of distribution and application, see the -->
+<!-- accompanying file htmlpro.html or refer to the online version at -->
+<!-- http://www.arbornet.org/~silmaril/dtds/html/htmlpro.html -->
+
+<!-- Copyleft under the terms of the GNU General Public License 1997 -->
+<!-- You may freely distribute copies of this file and accompanying -->
+<!-- documentation under the condition that you do not restrict any -->
+<!-- subsequent distribution or copying. See the file gnugpl.html for -->
+<!-- details of the terms under which it is offered. -->
+
+<!-- The HTML Pro DTD is a conforming application of ISO 8879: -->
+<!-- Standard Generalized Markup Language. -->
+
+<!-- This DTD is intended to provide HTML authors with a usable -->
+<!-- platform for the development of World-Wide Web documents which -->
+<!-- conform to the provisions of ISO 8879: Standard Generalized Markup -->
+<!-- Language. Inclusion of an element, attribute, or entity -->
+<!-- declaration in this DTD does not imply its acceptance, -->
+<!-- implementation, or support by any manufacturer, trade -->
+<!-- association, or standards body, and should not be taken as a -->
+<!-- precedent for such. -->
+
+<!-- Thanks are due to the HTML Working Group of the IETF, and the -->
+<!-- www-html mailing list of the W3C for their valuable criticism, -->
+<!-- Microstar for their support of the HTML Working Group and their -->
+<!-- DTD creation product Near&Far; to SoftQuad for their product -->
+<!-- Author/Editor; to Lennart Staflin for psgml-mode; and to Richard -->
+<!-- Stallman for Emacs. --> 
+
+<!-- This is a formatted file, intended more for machine consumption -->
+<!-- (eg by a parser or other conforming application) than for human -->
+<!-- reading. The following points should be noted: -->
+
+<!-- a. Every entity, element, and attribute has a comment labelled -->
+<!--    with the string <Title> (following the pattern used by N&F). -->
+
+<!-- b. The comment may contain the source in parentheses (where known): -->
+<!--    (1)    HTML, CERN original version (1) -->
+<!--    (2)    HTML 2.0 (RFC1866), the formal standard -->
+<!--    (3)    HTML3, the expired Internet draft -->
+<!--    (C)    Cougar or HTML 3.2, a W3C stopgap -->
+<!--    (W)    Wilbur, a W3C experiment -->
+<!--    (M)    Microsoft proposal -->
+<!--    (N)    Netscape proposal -->
+<!--    (S)    Sun proposal -->
+<!--    (L)    Lynx proposal -->
+<!--    (T)    WebTV proposal -->
+<!--    (I)    Internationalisation (I18N, RFC2070) -->
+<!--    (F)    Form-based file uploads (RFC1867) -->
+<!--    (O)    Compound Documents in HTML (Burchard & Raggett) -->
+<!--    (P)    Enabling mechanism, experimental in HTML Pro -->
+<!--    (D)    ICADD/HTML Interest Group (from SGML'96) -->
+<!--    (B)    FirstFloor Software's Smart Bookmarks Netscape plugin -->
+<!--    (?)    Unknown origin (information welcomed) -->
+
+<!-- c. Followed by a usage prefix where needed: -->
+<!--    OBSOLETE        Not to be used nowadays, and should be replaced -->
+<!--                        or removed if encountered in an existing file -->
+<!--    SOLITAIRE       Implemented only by one browser, possibly not -->
+<!--                        meaningful, so use only with extreme caution -->
+<!--    EXPERIMENTAL    May or may not work, care or experience needed -->
+<!--    REGULAR         Part of RFC1866 Level 0 or 1: should work in -->
+<!--     (default)          all browsers (otherwise complain) -->
+<!--    SUPERFLUOUS     Unnecessary `feature' which can already be done -->
+<!--                        using existing elements or SGML facilities -->
+<!--    COMPULSORY      Must appear in every HTML file -->
+
+<!-- New users are STRONGLY advised to look through the DTD, noting -->
+<!-- the following concepts: -->
+
+<!-- The structure of an SGML declaration takes the general form -->
+
+<!--      <!keyword [%] name [-o] [-o] {PUBLIC|SYSTEM} value>    -->
+
+<!-- where <keyword> is one of {ENTITY|ELEMENT|NOTATION} -->
+<!--       <symbol>  is %, used with ENTITY -->
+<!--       <name>    is the name of the entity, element, or notation -->
+<!--                 and may be a group of names in (parentheses) -->
+<!--       - and o   (with ELEMENT only) represent the omissibility -->
+<!--                 of the start-tag and end-tag respectively (o -->
+<!--                 means may be omitted, - means must be present -->
+<!--       PUBLIC or SYSTEM (for NOTATION only) define a formal public -->
+<!--                 identifer (FPI) or a local (system) filename -->
+<!--       <value>   is the "replacement text" (for ENTITY); the content -->
+<!--                 model (for ELEMENT), or the public or system  -->
+<!--                 identifer (for NOTATION). -->
+
+<!-- Content models of elements describe the permitted content of the -->
+<!-- element: usually one or more other elements allowed to occur -->
+<!-- within the element being defined; the identifier #PCDATA, meaning -->
+<!-- parsed character data (text left over once markup elements have -->
+<!-- been identified); or the identifer EMPTY, meaning no content (and -->
+<!-- therefore no end-tag. The mix of elements in a content model can -->
+<!-- be refined into groups using parentheses and the following occurrence -->
+<!-- indicators: -->
+
+<!--    * means the element or group is optional and may be used -->
+<!--            more than once; -->
+<!--    + means the element or group may be used more than once, -->
+<!--            but must occur at least once; -->
+<!--    ? means the element or group is optional but if used, -->
+<!--            can only be used once; -->
+<!--    | separates elements or groups which may occur in any order; -->
+<!--    , separates elements or groups which must occur in the order -->
+<!--            in which they are given. -->
+
+<!-- Content models can also contain entity names, in which case the -->
+<!-- name is expanded at parse time. -->
+
+<!-- The above is a deliberate simplification for the purposes of -->
+<!-- explanation of this DTD, and is not intended as the exhaustive -->
+<!-- formal definition of SGML, for which see Goldfarb, _The SGML -->
+<!-- Handbook_, or a copy of ISO 8879 from your Standards Authority -->
+
+<!-- **************************************************************** -->
+
+<!-- Entities for content models -->
+
+<!ENTITY % structure "(DIV | CENTER | H1 | H2 | H3 | H4 | H5 | H6 | P | 
+ UL | OL | DL | DIR | MENU | PRE | XMP | LISTING | BQ | MULTICOL | NOBR |
+ BLOCKQUOTE | FORM | TABLE | ADDRESS | FIG | BDO | NOTE | FN )+" 
+ --<Title>structural elements-->
+
+<!ENTITY % text "((#PCDATA) | TT | I | B | U | S | BIG | SMALL | SUB | 
+ SUP | EM | STRONG | DFN | CODE | SAMP | KBD | VAR | CITE | Q | A | 
+ LANG | AU | AUTHOR | FONT | PERSON | ACRONYM | ABBREV | INS | DEL | STYLE | 
+ SPAN | ENTITY | ELEMENT | ATTRIB | STRIKE | COMMENT | BLINK | 
+ MATH | BLACKFACE | LIMITTEXT | NOSMARTQUOTES | SHADOW )*"
+ --<Title>textual, descriptive, or analytical elements-->
+
+<!ENTITY % insertions "(BASEFONT | APP | APPLET | OBJECT | EMBED | SCRIPT | 
+ MARQUEE | HR | ISINDEX | BGSOUND | TAB | IMG | IMAGE | BR | NOEMBED | MAP | 
+ SERVER | SPACER | AUDIOSCOPE | SIDEBAR )*" 
+ --<Title>things which are not part of the running text-->
+
+<!ENTITY % formula "((#PCDATA) | BOX | ABOVE | BELOW | VEC | BAR | DOT | 
+ DDOT | HAT | TILDE | ROOT | SQRT | ARRAY | SUB | SUP | B | 
+ I | T | BT)+"
+ --<Title>mathematical formulae-->
+
+<!-- *************************************************************** -->
+
+<!-- Entities for attribute lists -->
+
+<!ENTITY % thisversion '
+ VERSION CDATA #FIXED "+//Silmaril//DTD HTML Pro v0r11 19970101//EN"
+ '
+ --<Title>the current version of the DTD-->
+
+<!ENTITY % commonatts "
+ id      ID        #IMPLIED
+ --<Title>Document-wide unique ID--
+ class   NAMES     #IMPLIED
+ --<Title>Comma-separated list of classes-- 
+ style   CDATA     #IMPLIED
+ --<Title>Style info for this occurrence only-- 
+ title   CDATA     #IMPLIED
+ --<Title>Advisory title (rec'd max 64 chars)-- 
+ lang    NAME      #IMPLIED
+ --<Title>RFC 1766 language value-- 
+ dir     (ltr,rtl) #IMPLIED
+ --<Title>Directionality--
+ noindex (noindex) #IMPLIED
+ --<Title>Defeats robot indexing--
+ "
+ --<Title>attributes common to all elements--> 
+
+<!ENTITY % horiz.align "
+ align (left,right,center,justify) #IMPLIED
+ --<Title>Horizontal alignment--
+ "
+ --<Title>horizontal alignment on some structural elements-->
+
+<!ENTITY % vert.align '
+ align (top,middle,bottom) "middle"
+ --<Title>Vertical alignment--
+ '
+ --<Title>vertical alignment on some elements-->
+
+<!-- **************************************************************** -->
+
+<!-- Parameter entities for ICADD (International Committee for -->
+<!-- Accessible Document Design). These FIXED attributes enable -->
+<!-- browsers for the visually or aurally disabled to identify the -->
+<!-- structural and other elements of the document.-->
+
+<!ENTITY % SDAFORM "
+ SDAFORM  CDATA  #FIXED
+ "
+ --<Title>One to one mapping-->
+
+<!ENTITY % SDAPREF "
+ SDAPREF  CDATA  #FIXED
+ "
+ --<Title>Generated text prefix-->
+
+<!ENTITY % SDARULE "
+ SDARULE  CDATA  #FIXED
+ "
+ --<Title>Context-sensitive mapping-->
+
+<!ENTITY % SDASUFF "
+ SDASUFF  CDATA  #FIXED
+ "
+ --<Title>Generated text suffix-->
+
+<!ENTITY % SDASUSP "
+ SDASUSP  NAME   #FIXED
+ "
+ --<Title>Suspend transform process-->
+
+<!-- *************************************************************** -->
+
+<!-- Notations for images etc -->
+
+<!NOTATION GIF SYSTEM "gif"
+ --<Title>Compu$erve Graphics Interchange Format-->
+
+<!NOTATION JPEG SYSTEM "jpg"
+ --<Title>Joint Photographic Experts Group-->
+
+<!NOTATION EPS SYSTEM "eps"
+ --<Title>Encapsulated Adobe PostScript-->
+
+<!NOTATION DVI SYSTEM "dvi"
+ --<Title>TeX typesetting system binary typeset format-->
+
+<!NOTATION BMP SYSTEM "bmp"
+ --<Title>Microsoft Windows BitMap-->
+
+<!NOTATION PNG SYSTEM "png"
+ --<Title>Portable Network Graphics-->
+
+<!NOTATION TIFF SYSTEM "tif"
+ --<Title>Tagged Image Format-->
+
+<!NOTATION PICT SYSTEM "pict"
+ --<Title>Apple Mac Picture-->
+
+<!NOTATION XBM SYSTEM "xbm"
+ --<Title>X Window system bitmap-->
+
+<!NOTATION XPM SYSTEM "xpm"
+ --<Title>X Window system pixmap-->
+
+<!NOTATION AU SYSTEM "au"
+ --<Title>UNIX audio-->
+
+<!NOTATION SND SYSTEM "snd"
+ --<Title>Apple Mac SouND-->
+
+<!NOTATION WAV SYSTEM "wav"
+ --<Title>Windows WAVe audio-->
+
+<!NOTATION MOV SYSTEM "mov"
+ --<Title>Windows Movie-->
+
+<!NOTATION MPEG SYSTEM "mpg"
+ --<Title>Motion Picture Experts Group (video) file-->
+
+<!NOTATION VIV SYSTEM "viv"
+ --<Title>Vivo Video format-->
+
+<!NOTATION CSS1 SYSTEM "css"
+ --<Title>Cascading Style Sheets-->
+
+<!NOTATION DSSSL SYSTEM "dsssl"
+ --<Title>Document Style and Semantics Specification Language (ISO ???)-->
+
+<!-- **************************************************************** -->
+
+<!-- Top-level structure -->
+
+<!-- The normal document type is HTML, but when you use some text -->
+<!-- databases, there can be more than one HTML document in the -->
+<!-- file, so you need something to contain them. This is not meaningful -->
+<!-- for direct use in the Web, but for when a server script driving a -->
+<!-- database is extracting whole HTML documents from a single-file -->
+<!-- corpus: XTML is therefore just a convenience and should never -->
+<!-- appear in individual files on the Web.-->
+
+<!ELEMENT XTML O O (HTML)*
+ --<Title>(P)EXPERIMENTAL Container used only for database (corpus) storage 
+          when there needs to be more than one HTML document in the file-->
+
+<!ATTLIST XTML %commonatts;
+ --<Title>Corpus usage should be formally identified-->
+
+<!-- Frames are implemented here by making them the alternative to -->
+<!-- BODY, and making NOFRAME compulsory after the FRAMESETS. The -->
+<!-- obsolete element PLAINTEXT is implemented here for historical -->
+<!-- interest and completeness, and should never be used in new files. -->
+
+<!ELEMENT HTML - O ((HEAD , (BODY | (FRAMESET+ , NOFRAMES))) | PLAINTEXT)
+ --<Title>(H1)COMPULSORY The HTML overall container -->
+
+<!ATTLIST HTML %commonatts;
+ %thisversion; 
+ --<Title>DTD version-- 
+ VER  CDATA  #IMPLIED 
+ --<Title>(?)Added by dumb editors which don't grok the DOCTYPE --
+ SDAFORM  CDATA    #FIXED "Book"
+ --<Title>SDAFORM-->
+
+<!-- **************************************************************** -->
+
+<!-- The documentation header -->
+
+<!-- A header is now compulsory on all files except obsolete ones -->
+<!-- containing just PLAINTEXT and nothing else. The header at its -->
+<!-- minimum consists of just the TITLE, which is mandated. -->
+
+<!ENTITY % head.any "(META | LINK | SCRIPT | STYLE | RANGE)*"
+ --<Title>Repeatable HEAD elements -->
+
+<!ELEMENT HEAD - - ( %head.any; , ( (TITLE, %head.any;) & 
+ (BASE, %head.any;)? & (ISINDEX, %head.any;)? & (NEXTID, %head.any;)? 
+ & (NOSCRIPT, %head.any;)? & (BGSOUND, %head.any;)? ) ) 
+ --<Title>(H1)COMPULSORY Documentation header -->
+
+<!ATTLIST HEAD %commonatts;>
+
+<!ELEMENT TITLE - - (#PCDATA)
+ --<Title>(H1)COMPULSORY document title-->
+
+<!ATTLIST TITLE %commonatts;
+ SDAFORM  CDATA    #FIXED "Ti"
+ --<Title>SDAFORM-->
+
+<!ELEMENT ISINDEX - O EMPTY 
+ --<Title>(H1)This file is a script which accepts a single input -->
+
+<!ATTLIST ISINDEX %commonatts;
+ href CDATA #REQUIRED 
+ --<Title>URL for a linked resource. Note some browsers have faulty syntax in omitting HREF -- 
+ action CDATA #REQUIRED 
+ --<Title>URL for a server-side handler script-- 
+ prompt CDATA #IMPLIED 
+ --<Title>Prompt message--
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ SDAPREF CDATA #FIXED "<Para>[Document is a script accepting input.]</Para>"
+ --<Title>SDAPREF-->
+
+<!ELEMENT BASE - O EMPTY 
+ --<Title>(H2)Specifies home base URL-->
+
+<!ATTLIST BASE %commonatts;
+ href CDATA #REQUIRED 
+ --<Title>URL of the document's home base--
+ target CDATA #IMPLIED
+ --<Title>(N) target window in framing environment-->
+
+<!ELEMENT META - O EMPTY 
+ --<Title>(H2)Generic metainformation-->
+
+<!ATTLIST META %commonatts;
+ http-equiv NAME #IMPLIED 
+ --<Title>HTTP response header name (RFC???)-- 
+ name NAME #IMPLIED 
+ --<Title>Metainformation name (eg Dublin Core)-- 
+ content CDATA #REQUIRED 
+ --<Title>Metainformation itself-->
+
+<!ELEMENT LINK - O EMPTY 
+ --<Title>(H2)Link to another resource on the network-->
+
+<!ATTLIST LINK %commonatts;
+ href CDATA #REQUIRED 
+ --<Title>URL for linked resource-- 
+ target CDATA #IMPLIED
+ --<Title>(N) target window in framing environment--
+ rel CDATA #IMPLIED 
+ --<Title>Forward link types (the HREF'd doc is these to this doc)--
+ rev CDATA #IMPLIED 
+ --<Title>Reverse link types (this doc is these to the HREF'd doc)-- 
+ type CDATA #IMPLIED 
+ --<Title>Advisory Internet media type--
+ urn CDATA #IMPLIED
+ --<Title>URN when available--
+ SDAPREF  CDATA    #FIXED "Linked to: #AttVal (TITLE) (URN) (HREF)>"
+ --<Title>SDAPREF-->
+
+<!ELEMENT NEXTID - O EMPTY
+ --<Title>(H1)OBSOLETE editor control value-->
+
+<!ATTLIST NEXTID %commonatts;
+ N CDATA #REQUIRED 
+ --<Title>Number to pass to editor-->
+
+<!ELEMENT BGSOUND - O (#PCDATA)
+ --<Title>(M)SOLITAIRE Background sound-->
+<!-- Has to allow some content in order to apply NOTATION -->
+
+<!ATTLIST BGSOUND %commonatts;
+ alt CDATA #IMPLIED 
+ --<Title>For display in place of noise-- 
+ SRC CDATA #REQUIRED 
+ --<Title>URL for sound file-- 
+ fileformat NOTATION (AU,WAV,SND) #IMPLIED
+ --<Title>Format of sound file if not implicit -- 
+ LOOP (loop) #IMPLIED
+ --<Title>Loop control information (was NMTOKEN #IMPLIED)-->
+
+<!ELEMENT SCRIPT - - CDATA 
+ --<Title>(N)Script language statements-->
+
+<!ATTLIST SCRIPT %commonatts;
+ %horiz.align;
+ type CDATA #IMPLIED 
+ --<Title>Internet media type for script language-- 
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ event CDATA #IMPLIED
+ --<Title>(L) Undefined--
+ for CDATA #IMPLIED
+ --<Title>(L) Undefined--
+ name CDATA #IMPLIED
+ --<Title>(L) Undefined--
+ scriptengine CDATA #IMPLIED
+ --<Title>(L) Undefined--
+ language CDATA #IMPLIED 
+ --<Title>Predefined script language name-- 
+ src CDATA #IMPLIED 
+ --<Title>URL for an external script-->
+
+<!ELEMENT NOSCRIPT - - (%text;)+
+ --<Title>(N)Text to display when SCRIPTs are disabled or unimplemented-->
+
+<!ATTLIST NOSCRIPT %commonatts;>
+
+<!ELEMENT STYLE - - CDATA 
+ --<Title>(H3)Stylesheet information-->
+
+<!ATTLIST STYLE %commonatts;
+ type CDATA #REQUIRED 
+ --<Title>Internet media type for style notation--
+ notation NOTATION (CSS,DSSSL) #IMPLIED
+ --<Title>(L)Undefined in Lynx but must be one of these so far-->
+
+<!ELEMENT RANGE - O EMPTY 
+ --<Title>(H3)Identifies arbitrary range of text from SPOT to SPOT-->
+
+<!ATTLIST RANGE %commonatts;
+ from IDREF #REQUIRED 
+ --<Title>SPOT indicating start of marked range-- 
+ until IDREF #REQUIRED 
+ --<Title>SPOT indicating end of marked range-->
+
+<!-- ************************************************************** -->
+
+<!-- Body-composition elements -->
+
+<!ELEMENT FRAMESET - - (FRAME* | FRAMESET+) 
+ --<Title>(N)Set of FRAME elements-->
+
+<!ATTLIST FRAMESET %commonatts;
+ cols CDATA #IMPLIED
+ --<Title>Comma-sep column specs in pixels or %, *=equalize remainder--
+ rows CDATA #IMPLIED
+ --<Title>Comma-sep row specs in pixels or %, *=equalize remainder--
+ border NUMBER #IMPLIED
+ --<Title>(N) border width in pixels--
+ bordercolor CDATA #IMPLIED
+ --<Title>(N) Hex-encoded or Windows colorname--
+ frameborder (YES,NO) "NO"
+ --<Title>(N) has the frame a border or not: rules are complex, see Netscape-- 
+ onLoad CDATA #IMPLIED 
+ --<Title>Module to execute on loading-- 
+ onUnload CDATA #IMPLIED 
+ --<Title>Module to execute on unloading (exiting)--
+ onFocus CDATA #IMPLIED 
+ --<Title>Module to execute when window gains focus-- 
+ onBlur CDATA #IMPLIED 
+ --<Title>Module to execute when window loses focus-->
+
+<!ELEMENT FRAME - O EMPTY 
+ --<Title>(N)Display external HTML object in separate frame-->
+
+<!ATTLIST FRAME %commonatts;
+ marginheight CDATA #IMPLIED
+ --<Title>(N) Margin above and below--
+ marginwidth CDATA #IMPLIED
+ --<Title>(N) Margin either side--
+ bordercolor CDATA #IMPLIED
+ --<Title>(N) Hex-encoded or Windows colorname--
+ frameborder CDATA "NO"
+ --<Title>(N) has the frame a border or not: rules are complex, see Netscape--
+ name CDATA #IMPLIED
+ --<Title>(N) Name to refer to this frame by from <a> links--
+ noresize (noresize) #IMPLIED
+ --<Title>(N) Frame cannot be size-dragged--
+ scrolling (yes,no,auto) "auto"
+ --<Title>(N) Frame scrolling control--
+ src CDATA #REQUIRED
+ --<Title>(N) URL for the document to display-->
+
+<!ELEMENT NOFRAMES - - (BODY)
+ --<Title>(N)Alternative body for non-FRAMEing browsers-->
+
+<!ATTLIST NOFRAMES %commonatts;>
+
+<!ELEMENT BODY O O (BANNER? , BODYTEXT) +(SPOT)
+ --<Title>(H1)Text body of the document-->
+
+<!ATTLIST BODY %commonatts;
+ background CDATA #IMPLIED 
+ --<Title>Image to tile for document background-- 
+ bgcolor CDATA #IMPLIED 
+ --<Title>#rrggbb color code for document background-- 
+ text CDATA #IMPLIED 
+ --<Title>#rrggbb color code for body text-- 
+ link CDATA #IMPLIED 
+ --<Title>#rrggbb color code for unvisited <a> links-- 
+ vlink CDATA #IMPLIED 
+ --<Title>#rrggbb color code for visited <a> links-- 
+ alink CDATA #IMPLIED 
+ --<Title>#rrggbb color code for active <a> link-- 
+ onLoad CDATA #IMPLIED 
+ --<Title>Module to execute on loading-- 
+ onUnload CDATA #IMPLIED 
+ --<Title>Module to execute on unloading (exiting)--
+ onFocus CDATA #IMPLIED 
+ --<Title>Module to execute when window gains focus-- 
+ onBlur CDATA #IMPLIED 
+ --<Title>Module to execute when window loses focus--
+ topmargin NUMBER #implied
+ --<Title>(?)Forces body to top of screen? --
+ tile (vertical|horizontal|both) "both"
+ --<Title>(P)Controls direction of tiling BACKGROUND image --
+ credits CDATA #IMPLIED
+ --<Title>(T) URL of authors, contributors, etc --
+ fontsize (small,medium,large) "medium"
+ --<Title>(T) overrides user-specified body font size --
+ hspace NUMBER "8"
+ --<Title>(T) specifies outer LH and RH margins of BODY in pixels --
+ instructions CDATA #IMPLIED
+ --<Title>(T) URL for user instructions related to current page --
+ logo CDATA #IMPLIED
+ --<Title>(T) URL for thumbnail for index entries of current page --
+ nohtilebg (nohtilebg) #IMPLIED
+ --<Title>(T) defeats horizontal tiling of background image --
+ novtilebg (novtilebg) #IMPLIED
+ --<Title>(T) defeats vertical tiling of background image --
+ vspace NUMBER "6"
+ --<Title>(T) specifies top and bottom margins of BODY in pixels --
+ xspeed NUMBER "0"
+ --<Title>(T) horizontal scroll speed for scrolled background image --
+ yspeed NUMBER "0"
+ --<Title>(T) vertical scroll speed for scrolled background image -->
+
+<!ELEMENT BANNER - - ((%structure;) | (%insertions;) | (%text;))+
+ --<Title>(H3)Static (non-scrolling) banner-->
+
+<!ATTLIST BANNER %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow-->
+
+<!ELEMENT BODYTEXT O O ((%structure;) | (%insertions;))+
+ --<Title>(H3)Used only when distinguishing BANNER from remainder of BODY-->
+
+<!ATTLIST BODYTEXT %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ data CDATA #IMPLIED 
+ --<Title>(L) reference to object's data-- 
+ name CDATA #IMPLIED
+ --<Title>(L) name for image-- 
+ ref CDATA #IMPLIED
+ --<Title>(L) Undocumented--
+ object CDATA #IMPLIED
+ --<Title>(L) Undocumented--
+ value CDATA #IMPLIED 
+ --<Title>property value-- 
+ valuetype (DATA,REF,OBJECT) "DATA"
+ --<Title>How to interpret value-- 
+ type CDATA #IMPLIED 
+ --<Title>Internet media type-->
+
+<!-- **************************************************************** -->
+
+<!-- Structural elements within a text body -->
+
+<!ELEMENT BDO - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(I) BiDirectional Override-->
+
+<!ATTLIST BDO %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(I) control of text flow-->
+
+<!ELEMENT DIV - - ((%structure;)+ | (%insertions;)* | (%text;)*)+
+ --<Title>(H3)Unspecified structural division-->
+
+<!ATTLIST DIV %commonatts;
+ %horiz.align;
+ clear CDATA #IMPLIED
+ --<Title>(H3)control of text flow-->
+
+<!ELEMENT H1 - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H1)Heading level 1-->
+
+<!ATTLIST H1 %commonatts;
+ %horiz.align;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ dingbat  ENTITY   #IMPLIED
+ --<Title>dingbat entity from obsolete HTMLicons collection--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ nowrap (nowrap) #IMPLIED 
+ --<Title>(N) don't wrap words--
+ seqnum   NUMBER   #IMPLIED
+ --<Title>Starting sequence number--
+ skip     NUMBER   0
+ --<Title>skip seq nums for missing items--
+ src CDATA #IMPLIED
+ --<Title>URI for bullet icon-- 
+ SDAFORM  CDATA    #FIXED "H1"
+ --<Title>SDAFORM-->
+
+<!ELEMENT H2 - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H1)Heading level 2-->
+
+<!ATTLIST H2 %commonatts;
+ %horiz.align;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ dingbat  ENTITY   #IMPLIED
+ --<Title>dingbat entity from obsolete HTMLicons collection--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ nowrap (nowrap) #IMPLIED 
+ --<Title>(N) don't wrap words--
+ seqnum   NUMBER   #IMPLIED
+ --<Title>Starting sequence number--
+ skip     NUMBER   0
+ --<Title>skip seq nums for missing items--
+ src CDATA #IMPLIED
+ --<Title>URI for bullet icon-- 
+ SDAFORM  CDATA    #FIXED "H2"
+ --<Title>SDAFORM-->
+
+<!ELEMENT H3 - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H1)Heading level 3-->
+
+<!ATTLIST H3 %commonatts;
+ %horiz.align;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ dingbat  ENTITY   #IMPLIED
+ --<Title>dingbat entity from obsolete HTMLicons collection--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ nowrap (nowrap) #IMPLIED 
+ --<Title>(N) don't wrap words--
+ seqnum   NUMBER   #IMPLIED
+ --<Title>Starting sequence number--
+ skip     NUMBER   0
+ --<Title>skip seq nums for missing items--
+ src CDATA #IMPLIED
+ --<Title>URI for bullet icon-- 
+ SDAFORM  CDATA    #FIXED "H3"
+ --<Title>SDAFORM-->
+
+<!ELEMENT H4 - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H1)Heading level 4-->
+
+<!ATTLIST H4 %commonatts;
+ %horiz.align;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ dingbat  ENTITY   #IMPLIED
+ --<Title>dingbat entity from obsolete HTMLicons collection--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ nowrap (nowrap) #IMPLIED 
+ --<Title>(N) don't wrap words--
+ seqnum   NUMBER   #IMPLIED
+ --<Title>Starting sequence number--
+ skip     NUMBER   0
+ --<Title>skip seq nums for missing items--
+ src CDATA #IMPLIED
+ --<Title>URI for bullet icon-- 
+ SDAFORM  CDATA    #FIXED "H4"
+ --<Title>SDAFORM-->
+
+<!ELEMENT H5 - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H5)Heading level 5-->
+
+<!ATTLIST H5 %commonatts;
+ %horiz.align;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ dingbat  ENTITY   #IMPLIED
+ --<Title>dingbat entity from obsolete HTMLicons collection--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ nowrap (nowrap) #IMPLIED 
+ --<Title>(N) don't wrap words--
+ seqnum   NUMBER   #IMPLIED
+ --<Title>Starting sequence number--
+ skip     NUMBER   0
+ --<Title>skip seq nums for missing items--
+ src CDATA #IMPLIED
+ --<Title>URI for bullet icon-- 
+ SDAFORM  CDATA    #FIXED "H5"
+ --<Title>SDAFORM-->
+
+<!ELEMENT H6 - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H6)Heading level 6-->
+
+<!ATTLIST H6 %commonatts;
+ %horiz.align;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ dingbat  ENTITY   #IMPLIED
+ --<Title>dingbat entity from obsolete HTMLicons collection--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ nowrap (nowrap) #IMPLIED 
+ --<Title>(N) don't wrap words--
+ seqnum   NUMBER   #IMPLIED
+ --<Title>Starting sequence number--
+ skip     NUMBER   0
+ --<Title>skip seq nums for missing items--
+ src CDATA #IMPLIED
+ --<Title>URI for bullet icon-- 
+ SDAFORM  CDATA    #FIXED "H6"
+ --<Title>SDAFORM-->
+
+<!ELEMENT P - O ((%text;)+ | (%insertions;)*)+
+ --<Title>(H1)Paragraph-->
+
+<!ATTLIST P %commonatts; 
+ %horiz.align;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ nowrap (nowrap) #IMPLIED 
+ --<Title>(N) don't wrap words--
+ SDAFORM  CDATA    #FIXED "Para"
+ --<Title>SDAFORM-->
+
+<!ELEMENT MULTICOL - - (%structure;)+
+ --<Title>(N)Enclose multicolumn material-->
+
+<!ATTLIST MULTICOL %commonatts;
+ cols NUMBER #REQUIRED
+ --<Title>Number of columns--
+ width NUMBER #IMPLIED
+ --<Title>Column width in pixels, default calculated--
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ gutter NUMBER #IMPLIED
+ --<Title>Space between columns in pixels, default 10-->
+
+<!ELEMENT NOBR - - (%text;)+ +(WBR,APPLET, EMBED, OBJECT, IMG, IMAGE)
+ --<Title>(N)Prohibit break within this line-->
+
+<!ATTLIST NOBR %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow-->
+
+<!ELEMENT WBR - O EMPTY
+ --<Title>(N)Discretionary linebreak between words within NOBR-->
+
+<!ATTLIST WBR %commonatts;>
+
+<!ELEMENT PRE - - (%text;)+ -(BR , TT) +(HR, APPLET, EMBED, OBJECT, IMG, IMAGE)
+ --<Title>(H3)Preformatted text for fixed-width display-->
+
+<!ATTLIST PRE %commonatts;
+ width NUMBER #IMPLIED 
+ --<Title>Recommended maximum width in fixed-width characters--
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ SDAFORM  CDATA    #FIXED "Lit"
+ --<Title>SDAFORM-->
+
+<!ELEMENT BLOCKQUOTE - - (BODYTEXT , CREDIT?)
+ --<Title>(H1)Block quotation-->
+
+<!ATTLIST BLOCKQUOTE %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ nowrap (nowrap) #IMPLIED 
+ --<Title>(N) don't wrap words--
+ SDAFORM  CDATA    #FIXED "BQ"
+ --<Title>SDAFORM-->
+
+<!ELEMENT BQ - - (BODYTEXT , CREDIT?)
+ --<Title>(H3)Alternative block quotation-->
+
+<!ATTLIST BQ %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ nowrap (nowrap) #IMPLIED 
+ --<Title>(N) don't wrap words--
+ SDAFORM  CDATA    #FIXED "BQ"
+ --<Title>SDAFORM-->
+
+<!ELEMENT DL - - (DT | DD | HR)*
+ --<Title>(H1)Definition list-->
+
+<!ATTLIST DL %commonatts;
+ compact (compact) #IMPLIED 
+ --<Title>Reduced interitem spacing--
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ SDAFORM  CDATA    #FIXED "List"
+ --<Title>SDAFORM--
+ SDAPREF  CDATA    #FIXED "Definition List:"
+ --<Title>SDAPREF-->
+
+<!ELEMENT DT - O ((%text;)+ | (%insertions;)*)+
+ --<Title>(H1)Definition term in a DL-->
+
+<!ATTLIST dt %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ SDAFORM  CDATA    #FIXED "Term"
+ --<Title>SDAFORM-->
+
+<!ELEMENT DD - O ((%structure;)+ | (%insertions;)* | (%text;)+)?
+ --<Title>(H1)Definition description in a DL-->
+
+<!ATTLIST DD %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ SDAFORM  CDATA    #FIXED "LItem"
+ --<Title>SDAFORM-->
+
+<!ELEMENT OL - - (LI* | HR? | LH?)+
+ --<Title>(H1)Ordered list-->
+
+<!ATTLIST OL %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ seqnum   NUMBER   #IMPLIED
+ --<Title>Starting sequence number--
+ type CDATA #IMPLIED 
+ --<Title>Numbering/lettering style constrained to [1aAiI]--
+ start NUMBER #IMPLIED 
+ --<Title>Starting sequence number-- 
+ continue NUMBER #IMPLIED 
+ --<Title>Continuation sequence number-- 
+ compact (compact) #IMPLIED 
+ --<Title>Reduced interitem spacing--
+ SDAFORM  CDATA    #FIXED "List"
+ --<Title>SDAFORM-->
+
+<!ELEMENT UL - - (LI* | HR? | LH?)+
+ --<Title>(H1)Unordered list-->
+
+<!ATTLIST UL %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ type (disc,square,circle,plain,A,I,1) #IMPLIED 
+ --<Title>Bulleting style, [AaIi1] interpreted by browser-- 
+ compact (compact) #IMPLIED 
+ --<Title>Reduced interitem spacing--
+ plain CDATA #IMPLIED 
+ --<Title>Unbulleted, ought to be the nametoken "PLAIN" but it's already bee used above for TYPE--
+ src CDATA #IMPLIED
+ --<Title>URI for bullet icon-- 
+ dingbat  ENTITY   #IMPLIED
+ --<Title>dingbat entity from obsolete HTMLicons collection--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ wrap (ON,OFF,HARD,SOFT) "ON"
+ --<Title>(N) how to handle line-wrapping--
+ fileformat NOTATION (GIF,JPG,DVI,BMP,EPS,PNG,PICT,TIFF,XBM,XPM) #IMPLIED 
+ --<Title>Format of image if not implicit --
+ SDAFORM  CDATA    #FIXED "List"
+ --<Title>SDAFORM-->
+
+<!ELEMENT DIR - - ((#PCDATA) | (LH?,LI*)+ ) 
+ -(P,UL,OL,DIR,MENU,PRE,XMP,LISTING,DL,DIV,CENTER,BQ,FORM,TABLE,FIELDSET)
+ --<Title>(H1)Directory listing, (T) also allows #pcdata-->
+
+<!ATTLIST DIR %commonatts;
+ compact (compact) #IMPLIED 
+ --<Title>Reduced interitem spacing--
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ dingbat  ENTITY   #IMPLIED
+ --<Title>dingbat entity from obsolete HTMLicons collection--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ src CDATA #IMPLIED
+ --<Title>URI for bullet icon-- 
+ type CDATA #IMPLIED 
+ --<Title>Numbering/lettering style constrained to [1aAiI]--
+ plain CDATA #IMPLIED 
+ --<Title>Unbulleted, ought to be the nametoken "PLAIN" but it's already bee used above for TYPE--
+ wrap (ON,OFF,HARD,SOFT) "ON"
+ --<Title>(N) how to handle line-wrapping--
+ SDAFORM  CDATA    #FIXED "List"
+ --<Title>SDAFORM--
+ SDAPREF  CDATA    #FIXED "<LHead>Directory</LHead>"
+ --<Title>SDAPREF-->
+
+<!ELEMENT MENU - - (LH?,LI*) -(P , UL , OL , DIR , MENU , PRE , XMP , 
+ LISTING , DL , DIV , CENTER , BQ , FORM , TABLE ,  FIELDSET)
+ --<Title>(H1)Menu listing-->
+
+<!ATTLIST MENU %commonatts;
+ compact (compact) #IMPLIED 
+ --<Title>Reduced interitem spacing--
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ dingbat  ENTITY   #IMPLIED
+ --<Title>dingbat entity from obsolete HTMLicons collection--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ src CDATA #IMPLIED
+ --<Title>URI for bullet icon-- 
+ type CDATA #IMPLIED 
+ --<Title>Numbering/lettering style constrained to [1aAiI]--
+ plain CDATA #IMPLIED 
+ --<Title>Unbulleted, ought to be the nametoken "PLAIN" but it's already bee used above for TYPE--
+ wrap (ON,OFF,HARD,SOFT) "ON"
+ --<Title>(N) how to handle line-wrapping--
+ SDAFORM  CDATA    #FIXED "List"
+ --<Title>SDAFORM--
+ SDAPREF  CDATA    #FIXED "<LHead>Menu</LHead>"
+ --<Title>SDAPREF-->
+
+<!ELEMENT LH - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)List header-->
+
+<!ATTLIST LH %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow-->
+
+<!ELEMENT LI - O ((%insertions;)* | (%text;)+ | P | UL | OL | DL | DIR | 
+ MENU | PRE | XMP | LISTING | BLOCKQUOTE | BQ | FORM | TABLE | ADDRESS)+
+ --<Title>(H1)Item in a list-->
+
+<!ATTLIST LI %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ type CDATA #IMPLIED
+ --<Title>List item style, see TYPE for OL and UL--
+ value NUMBER #IMPLIED 
+ --<Title>Reset sequence number--
+ skip     NUMBER   0
+ --<Title>skip seq nums for missing items--
+ dingbat  ENTITY   #IMPLIED
+ --<Title>dingbat entity from obsolete HTMLicons collection--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ src CDATA #IMPLIED
+ --<Title>URI for bullet icon-- 
+ fileformat NOTATION (GIF,JPG,DVI,BMP,EPS,PNG,PICT,TIFF,XBM,XPM) #IMPLIED 
+ --<Title>Format of icon if not implicit --
+ SDAFORM  CDATA    #FIXED "LItem"
+ --<Title>SDAFORM-->
+
+<!ELEMENT ADDRESS - - ((%text;)+ | (%insertions;)*)+ +(P) 
+ --<Title>(H1)Address blocks-->
+
+<!ATTLIST ADDRESS %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ nowrap (nowrap) #IMPLIED 
+ --<Title>(N) don't wrap words--
+ SDAFORM  CDATA    #FIXED "Lit"
+ --<Title>SDAFORM--
+ SDAPREF  CDATA    #FIXED "Address: "
+ --<Title>SDAPREF-->
+
+<!ELEMENT FN - - ((%structure;)+ | (%insertions;)* | (%text;)+)?
+ --<Title>(H3)Footnotes (T)WARNING: idiosyncratic implementation-->
+
+<!ATTLIST FN %commonatts;
+ flow (vertical|columnar|para) "vertical"
+ --<Title>Arrangement--
+ series CDATA #IMPLIED
+ --<Title>Multiseries like A, B, C etc--
+ src CDATA #IMPLIED 
+ --<Title>URI of image to embed-- 
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ num NUMBER #IMPLIED
+ --<Title>Sequence number if needed--
+ href CDATA #IMPLIED 
+ --<Title>(T) #ID fragmentary URL for an <fn id="..."> in current document-->
+
+<!ELEMENT NOTE - - ((%structure;)+ | (%insertions;)* | (%text;)+)?
+ --<Title>(H3)Notes-->
+
+<!ATTLIST NOTE %commonatts;
+ flow (vertical|columnar|para) "vertical"
+ --<Title>Arrangement--
+ series CDATA #IMPLIED
+ --<Title>Multiseries like A, B, C etc--
+ src CDATA #IMPLIED 
+ --<Title>URI of image to embed-- 
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ num NUMBER #IMPLIED
+ --<Title>Sequence number if needed-->
+
+<!ELEMENT SIDEBAR - - ((%structure;)+ | (%insertions;)* | (%text;)+)?
+ --<Title>(T) non-scrolling sidebar on-screen -->
+
+<!ATTLIST SIDEBAR %commonatts;
+ %horiz.align;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ width CDATA #IMPLIED
+ --<Title>(T) width of the sidebar in pixels or as a percent -->
+
+<!-- **************************************************************** -->
+
+<!-- Visual elements with no structural semantics -->
+
+<!ELEMENT BLINK - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(N)DEPRECATED Flashing text, deprecated for medical reasons-->
+
+<!ATTLIST BLINK %commonatts;
+ speed NUMBER #IMPLIED
+ --<Title>Blinks per minutes-->
+
+<!ELEMENT CENTER - - ((%structure;)+ | (%insertions;)* |(%text;)*)+
+ --<Title>(N)SUPERFLUOUS Centered material, use DIV with ALIGN="CENTER" -->
+
+<!ATTLIST CENTER %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow-->
+
+<!ELEMENT HR - O EMPTY
+ --<Title>(H1)Horizontal rule-->
+
+<!ATTLIST HR %commonatts;
+ %horiz.align; 
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ src CDATA #IMPLIED 
+ --<Title>URI of image to embed-- 
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ noshade (noshade) #IMPLIED 
+ --<Title>(N) non-shaded rule-- 
+ size CDATA #IMPLIED 
+ --<Title>(N) [+]nn e.g. size="+1", size="4"-- 
+ width CDATA #IMPLIED 
+ --<Title>(N) suggested width in pixels--
+ invertborder (invertborder) #IMPLIED
+ --<Title>(T) produces 3D-style raised rule --
+ SDAPREF  CDATA    #FIXED "  "
+ --<Title>SDAPREF-->
+
+<!ELEMENT BR - O EMPTY
+ --<Title>(H2)Forced line break-->
+
+<!ATTLIST BR %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ SDAPREF  CDATA    #FIXED " "
+ --<Title>SDAPREF-->
+
+<!ELEMENT BASEFONT - O EMPTY 
+ --<Title>(M)Change (specify) the base font from here on-->
+
+<!ATTLIST BASEFONT %commonatts;
+ size CDATA #REQUIRED 
+ --<Title>base font size for FONT elements--
+ end CDATA #IMPLIED
+ --<Title>(L) undocumented--
+ color CDATA #IMPLIED 
+ --<Title>#RRGGBB in hex, e.g. red: color="#FF0000"-- 
+ face CDATA #IMPLIED
+ --<Title>typeface if available-->
+
+<!-- ****************************************************************** -->
+
+<!-- Insertions: non-running-text elements -->
+
+<!ELEMENT MARQUEE - O (%text;)+
+ --<Title>(M)Marching display text-->
+
+<!ATTLIST MARQUEE %commonatts;
+ align (left|right|top|absmiddle|absbottom|texttop|middle|baseline|bottom) "bottom"
+ --<Title>Relationship to adjacent text (type=block only)--
+ DIRECTION CDATA #IMPLIED
+ --<Title>Direction of scroll, should be (LEFT,RIGHT) but they've already been used-- 
+ BEHAVIOR (SCROLL,SLIDE,ALTERNATE) "SCROLL"
+ --<Title>Type of movement-- 
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ SCROLLAMOUNT NUMBER #IMPLIED 
+ --<Title>Quantity of scroll-- 
+ SCROLLDELAY NUMBER #IMPLIED 
+ --<Title>Delay time-- 
+ LOOP CDATA "INFINITE"
+ --<Title>How long to scroll for-- 
+ bgcolor CDATA #IMPLIED 
+ --<Title>Background color-- 
+ BORDER NUMBER #IMPLIED 
+ --<Title>Border width-- 
+ HEIGHT CDATA #IMPLIED 
+ --<Title>Height-- 
+ WIDTH CDATA #IMPLIED 
+ --<Title>Width-- 
+ HSPACE NUMBER #IMPLIED 
+ --<Title>Horizontal spacing-- 
+ VSPACE NUMBER #IMPLIED 
+ --<Title>Vertical spacing--
+ transparency NUMBER "0"
+ --<Title>(T) degree of transparency (0=opaque, 100=clear)-->
+
+<!ELEMENT SERVER - - CDATA
+ --<Title>(N)Contains a LiveWire script-->
+
+<!ATTLIST SERVER %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow-->
+
+<!ELEMENT SPACER - O EMPTY
+ --<Title>(N)Governs concrete spacing-->
+
+<!ATTLIST SPACER %commonatts;
+ align (left|right|top|absmiddle|absbottom|texttop|middle|baseline|bottom) "bottom"
+ --<Title>Relationship to adjacent text (type=block only)--
+ height NUMBER #IMPLIED
+ --<Title>Height in pixels (type=block only)--
+ size NUMBER #IMPLIED
+ --<Title>Width or height in pixels, depending on TYPE--
+ type (horizontal|vertical|block) "block"
+ --<Title>Functional type--
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ width NUMBER #IMPLIED
+ --<Title>Width in pixels (type=block only)-->
+
+<!-- **************************************************************** -->
+
+<!-- Images etc -->
+
+<!ELEMENT (IMG,IMAGE) - O (#PCDATA)
+ --<Title>(A)Inline image (IMAGE is a Netscapism, and STRONGLY deprecated)-->
+<!-- Content permitted in DTD to allow NOTATION, but not used in practice -->
+
+<!ATTLIST (IMG,IMAGE) %commonatts;
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ isobject (isobject) #IMPLIED
+ --<Title>(L) Figure is an object--
+ units (en,pixels) "pixels"
+ --<Title>specifies units as en's or pixels-- 
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ src CDATA #REQUIRED 
+ --<Title>URL of image to embed--
+ lowsrc CDATA #IMPLIED
+ --<Title>(N) source for lo-res image-- 
+ name CDATA #IMPLIED
+ --<Title>(N) name for image-- 
+ onLoad CDATA #IMPLIED 
+ --<Title>Module to execute on loading-- 
+ onAbort CDATA #IMPLIED 
+ --<Title>Module to execute when user cancels load--
+ onError CDATA #IMPLIED 
+ --<Title>Module to execute when script encounters error-- 
+ alt CDATA #REQUIRED
+ --<Title>For display in place of image-- 
+ align (left|right|top|absmiddle|absbottom|texttop|middle|baseline|bottom) "bottom"
+ --<Title>Relationship to adjacent text (type=block only)--
+ height NUMBER #IMPLIED 
+ --<Title>Suggested height in pixels-- 
+ width NUMBER #IMPLIED 
+ --<Title>Suggested width in pixels-- 
+ border NUMBER #IMPLIED 
+ --<Title>(N) border width in pixels-- 
+ hspace NUMBER #IMPLIED 
+ --<Title>Suggested horizontal gutter-- 
+ vspace CDATA #IMPLIED 
+ --<Title>Suggested vertical gutter-- 
+ usemap CDATA #IMPLIED 
+ --<Title>Use client-side image map-- 
+ ismap (ismap) #IMPLIED 
+ --<Title>Use server image map-- 
+ fileformat NOTATION (GIF,JPG,DVI,BMP,EPS,PNG,PICT,TIFF,XBM,XPM) #IMPLIED 
+ --<Title>(P)Format of image file if not implicit --
+ naturalsizeflag NUMBER #IMPLIED
+ --<Title>(M) Indicates if scaling has been used --
+ ani CDATA #IMPLIED
+ --<Title>(T) URL of alternate WebTV-specific animation to replace SRC--
+ animateonselect (animateonselect) #IMPLIED
+ --<Title>(T) ANI animation only runs when user selects it --
+ anistartx NUMBER #IMPLIED
+ --<Title>(T) ANI TLC location in pixels relative to page or table cell --
+ anistarty NUMBER #IMPLIED
+ --<Title>(T) ANI TLC location in pixels relative to page or table cell --
+ loop (loop) #IMPLIED
+ --<Title>(MT) recycle an animated image? --
+ reload NUMBER #IMPLIED
+ --<Title>(T) frequency of reload --
+ selected CDATA #IMPLIED
+ --<Title>(T) wrests focus to "x,y" of imagemap relative to TLC --  
+ transparency NUMBER "0"
+ --<Title>(T) degree of transparency (0=opaque, 100=clear)--
+ dynsrc CDATA #IMPLIED
+ --<Title>(?) Undocumented --
+ SDAPREF  CDATA    #FIXED "<Fig><?SDATrans Img: #AttList>#AttVal(Alt)</Fig>"
+ --<Title>SDAPREF-->
+
+<!ELEMENT AUDIOSCOPE - O EMPTY
+ --<Title>(T)Displays realtime animated image of a playing sound-->
+
+<!ATTLIST AUDIOSCOPE %commonatts;
+ align (left|right|top|absmiddle|absbottom|texttop|middle|baseline|bottom) "bottom"
+ --<Title>Relationship to adjacent text (type=block only)--
+ border NUMBER "1"
+ --<Title>width of border in pixels--
+ gain NUMBER "1"
+ --<Title>multiplier for amplitude display--
+ height NUMBER "80"
+ --<Title>height of image in pixels--
+ leftcolor CDATA "#8ECE10"
+ --<Title>color of left channel trace--
+ leftoffset NUMBER "0"
+ --<Title>positions the left channel baseline + or - --
+ maxlevel CDATA "false"
+ --<Title>specifies clip level for gain--
+ rightcolor CDATA "#8ECE10"
+ --<Title>color of right channel trace--
+ rightoffset NUMBER "0"
+ --<Title>positions the right channel baseline + or - --
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ width NUMBER "100"
+ --<Title>width of image in pixels-->
+
+<!ELEMENT MAP - - (AREA*)
+ --<Title>(N)Mapping spec for clientside imagemaps-->
+
+<!ATTLIST MAP %commonatts;
+ name CDATA #IMPLIED 
+ --<Title>Named link end-->
+
+<!ELEMENT AREA - O EMPTY 
+ --<Title>(N)Mapping area within a MAP-->
+
+<!ATTLIST AREA %commonatts;
+ shape (rect,circle,poly,default) "rect"
+ --<Title>For use with OBJECT SHAPES-- 
+ coords CDATA #IMPLIED 
+ --<Title>Coord pairs, always needed except for shape=default-- 
+ href CDATA #IMPLIED 
+ --<Title>Hypertext link to apply-- 
+ nohref (nohref) #IMPLIED 
+ --<Title>This region has no action-- 
+ name CDATA #IMPLIED 
+ --<Title>named link end-- 
+ target CDATA #IMPLIED
+ --<Title>(N) target window in framing environment--
+ rel CDATA #IMPLIED 
+ --<Title>forward link types--
+ rev CDATA #IMPLIED 
+ --<Title>reverse link types--
+ alt CDATA #REQUIRED 
+ --<Title>Description for text-only browsers-- 
+ tabindex NUMBER #IMPLIED 
+ --<Title>Position in tabbing order-- 
+ notab (notab) #IMPLIED 
+ --<Title>Exclude from tabbing order-- 
+ onClick CDATA #IMPLIED 
+ --<Title>What to do on click-- 
+ onMouseOver CDATA #IMPLIED 
+ --<Title>What to do when mouse is moved over area-- 
+ onMouseOut CDATA #IMPLIED 
+ --<Title>What to do when mouse is moved off area-->
+
+<!-- ************************************************************** -->
+
+<!-- Non-image insertions -->
+
+<!ELEMENT OBJECT - - (param+ | (%structure;)+ | (%insertions;)* | (%text;)*)*
+ --<Title>(W?)External object for insertion-->
+
+<!ATTLIST OBJECT %commonatts;
+ declare (declare) #IMPLIED 
+ --<Title>declare but don't instantiate flag-- 
+ classid CDATA #IMPLIED 
+ --<Title>identifies an implementation-- 
+ codebase CDATA #IMPLIED 
+ --<Title>some systems need an additional URL-- 
+ data CDATA #IMPLIED 
+ --<Title>reference to object's data-- 
+ alt CDATA #IMPLIED 
+ --<Title>for display in place of object-- 
+ type CDATA #IMPLIED 
+ --<Title>Internet media type for data-- 
+ codetype CDATA #IMPLIED 
+ --<Title>Internet media type for code-- 
+ standby CDATA #IMPLIED 
+ --<Title>message to show while loading-- 
+ align (texttop,middle,textmiddle,baseline,textbottom,left,center,right) #IMPLIED 
+ --<Title>positioning inside document-- 
+ height CDATA #IMPLIED 
+ --<Title>suggested height-- 
+ width CDATA #IMPLIED 
+ --<Title>suggested width-- 
+ border CDATA #IMPLIED 
+ --<Title>suggested link border width-- 
+ hspace CDATA #IMPLIED 
+ --<Title>suggested horizontal gutter-- 
+ vspace CDATA #IMPLIED 
+ --<Title>suggested vertical gutter-- 
+ ismap (ismap) #IMPLIED 
+ --<Title>Use server image map-- 
+ usemap CDATA #IMPLIED 
+ --<Title>reference to image map-- 
+ shapes (shapes) #IMPLIED 
+ --<Title>object has shaped hypertext links-- 
+ name CDATA #IMPLIED 
+ --<Title>submit as part of form-- 
+ tabindex NUMBER #IMPLIED 
+ --<Title>position in tabbing order-- 
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ notab (notab) #IMPLIED 
+ --<Title>exclude from tabbing order-->
+
+<!ELEMENT EMBED - - (PARAM*, CAPTION?, EMBED.BODY, CREDIT?)
+ --<Title>(N)Embedded plugin applet-->
+
+<!ATTLIST EMBED %commonatts;
+ ALIGN   (top|middle|bottom|left|center|right)  #IMPLIED
+ --<Title>(O) more specific alignment --
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ border NUMBER #IMPLIED
+ --<Title>(N) thickness of border in pixels--
+ frameborder (YES,NO) "NO"
+ --<Title>(N) has the frame a border or not--
+ hidden (TRUE,FALSE) "FALSE"
+ --<Title>(N) is the plugin visible--
+ hspace NUMBER #IMPLIED
+ --<Title>(N) LR margin in pixels--
+ vspace NUMBER #IMPLIED
+ --<Title>(N) TB margin in pixels--
+ FLOWTO  NAME       #IMPLIED   
+ --<Title>(O) flow text around block until this ID --
+ name CDATA #IMPLIED
+ --<Title>(N) name of the applet--
+ controls CDATA "FALSE"
+ --<Title>(N) should the controls be on display--
+ palette (FOREGROUND,BACKGROUND) "FOREGROUND"
+ --<Title>(N) where the applet's palette applies (MS-Win only)--
+ pluginspace CDATA #IMPLIED
+ --<Title>(N) URL of instructions if applet's MIME-type plugin not found--
+ type CDATA #IMPLIED
+ --<Title>(N) MIME content-type--
+ src CDATA #REQUIRED 
+ --<Title>location of object source-- 
+ height CDATA #IMPLIED 
+ --<Title>suggested height-- 
+ width CDATA #IMPLIED 
+ --<Title>suggested width-- 
+ imagemap (imagemap) #IMPLIED 
+ --<Title>pass background clicks to server-- 
+ ismap (ismap) #IMPLIED 
+ --<Title>Use server image map-- 
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ noflow (noflow) #IMPLIED 
+ --<Title>noflow around table--
+ params CDATA #IMPLIED
+ --<Title>(O) parameters to pass --
+ units (en,px,relative) "en"
+ --<Title>units for column widths--
+ usemap CDATA #IMPLIED 
+ --<Title>reference to image map-- 
+ alt CDATA #IMPLIED 
+ --<Title>for display in place of embedded object--
+ URN     CDATA       #IMPLIED   
+ --<Title>(O) global entity name --
+ REL     NAME  #IMPLIED   
+ --<Title>(O) link relationship --
+ REV     NAME  #IMPLIED  
+ --<Title>(O) reverse relationship --
+ ACCEPT  CDATA  "text/plain" 
+ --<Title>(O) applicable media type(s) --
+ ACCEPT-CHARSET   CDATA  "ISO-8859-1" 
+ --<Title>(O) applicable character encoding(s) --
+ ACCEPT-ENCODING  CDATA  "ISO-8859-1" 
+ --<Title>(O) applicable transfer encoding(s) --
+ SDAPREF CDATA #FIXED '<Fig><Xref IDRef="#AttVal(SRC)"><?SDATrans Embed: #AttList>'
+ --<Title>(O)SDAPREF--
+ SDASUFF CDATA #FIXED '</Fig>'
+ --<Title>(O)SDASUFF-->
+
+<!ELEMENT EMBED.BODY O O ((%insertions;)* | (%text;)*)+ -(A)
+ --<Title>(O) Object-->
+
+<!ATTLIST EMBED.BODY %commonatts;>
+
+<!ELEMENT NOEMBED - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(N)Alternative text for EMBED-unable browsers-->
+
+<!ATTLIST NOEMBED %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow-->
+
+<!ELEMENT APP - - (param* , TEXTFLOW)
+ --<Title>(S)Embedded application-->
+
+<!ATTLIST APP %commonatts;
+ codebase CDATA #IMPLIED 
+ --<Title>code base-- 
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ mayscript (mayscript) #IMPLIED
+ --<Title>(N) allows applet access to JavaScript or similar--
+ archive CDATA #IMPLIED
+ --<Title>(N) URL of code archive (.zip, but not a compressed file)--
+ code CDATA #REQUIRED 
+ --<Title>class file-- 
+ name CDATA #IMPLIED 
+ --<Title>applet name-- 
+ alt CDATA #IMPLIED 
+ --<Title>for display in place of applet-- 
+ align (top,middle,bottom,left,right) #IMPLIED 
+ --<Title>vertical or horizontal alignment-- 
+ height CDATA #REQUIRED 
+ --<Title>suggested height in pixels-- 
+ width CDATA #REQUIRED 
+ --<Title>suggested width in pixels-- 
+ hspace CDATA #IMPLIED 
+ --<Title>suggested horizontal gutter-- 
+ vspace CDATA #IMPLIED 
+ --<Title>suggested vertical gutter-- 
+ download NUMBER #IMPLIED 
+ --<Title>image download order-->
+
+<!ELEMENT APPLET - - (param* , TEXTFLOW)
+ --<Title>(S)Embedded application-->
+
+<!ATTLIST APPLET %commonatts;
+ codebase CDATA #IMPLIED 
+ --<Title>code base-- 
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ mayscript (mayscript) #IMPLIED
+ --<Title>(N) allows applet access to JavaScript or similar--
+ archive CDATA #IMPLIED
+ --<Title>(N) URL of code archive (.zip, but not a compressed file)--
+ code CDATA #REQUIRED 
+ --<Title>class file-- 
+ name CDATA #IMPLIED 
+ --<Title>applet name-- 
+ alt CDATA #IMPLIED 
+ --<Title>for display in place of applet-- 
+ align (top,middle,bottom,left,right) #IMPLIED 
+ --<Title>vertical or horizontal alignment-- 
+ height CDATA #REQUIRED 
+ --<Title>suggested height in pixels-- 
+ width CDATA #REQUIRED 
+ --<Title>suggested width in pixels-- 
+ hspace CDATA #IMPLIED 
+ --<Title>suggested horizontal gutter-- 
+ vspace CDATA #IMPLIED 
+ --<Title>suggested vertical gutter-- 
+ download NUMBER #IMPLIED 
+ --<Title>image download order-->
+
+<!ELEMENT PARAM - O EMPTY
+ --<Title>(S)Named property value to pass to OBJECT or APPLET-->
+
+<!ATTLIST PARAM %commonatts;
+ name CDATA #REQUIRED 
+ --<Title>property name-- 
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ value CDATA #IMPLIED 
+ --<Title>property value-- 
+ valuetype (DATA,REF,OBJECT) "DATA"
+ --<Title>How to interpret value-- 
+ ref CDATA #IMPLIED
+ --<Title>(L) Undocumented--
+ valueref CDATA #IMPLIED
+ --<Title>(L) Undocumented--
+ data CDATA #IMPLIED 
+ --<Title>reference to object's data-- 
+ object CDATA #IMPLIED
+ --<Title>(L) Undocumented--
+ accept CDATA #IMPLIED
+ --<Title>(L) Undefined--
+ accept-charset CDATA #IMPLIED
+ --<Title>(L) Undefined--
+ accept-encoding CDATA #IMPLIED
+ --<Title>(L) Undefined--
+ type CDATA #IMPLIED 
+ --<Title>Internet media type--
+ SDAPREF CDATA #FIXED "<?SDATrans Param: #AttList>"
+ --<Title>(O)SDAPREF-->
+
+<!-- **************************************************************** -->
+
+<!-- Forms -->
+
+<!ELEMENT FORM - - ((%structure;)+ | (%insertions;)* | (%text;)*)+ 
+ -(FORM) +(INPUT , SELECT , TEXTAREA , LABEL , FIELDSET, KEYGEN) 
+ --<Title>(H2)Fill-in form-->
+
+<!ATTLIST FORM %commonatts;
+ clear CDATA #IMPLIED 
+ --<Title>for control of text flow-- 
+ script CDATA #IMPLIED 
+ --<Title>(L) Undocumented-- 
+ subject CDATA #IMPLIED 
+ --<Title>(L) Undocumented-- 
+ action CDATA #REQUIRED 
+ --<Title>(H2) server-side form handler (script)-- 
+ method (GET,POST,PGET) "GET"
+ --<Title>(H2) see HTTP specification: PGET added for Foteos' testing-- 
+ name CDATA #IMPLIED
+ --<Title>(N) name for the form--
+ target CDATA #IMPLIED
+ --<Title>(N) name for the target window--
+ enctype CDATA "application/x-www-form-urlencoded"
+ --<Title>(H2) Encoding type, may also be "multipart/form-data"-- 
+ onReset CDATA #IMPLIED
+ --<Title>(N) module to execute when form is reset--
+ onSubmit CDATA #IMPLIED 
+ --<Title>(N) module to execute when form is submitted--
+ SDAPREF  CDATA    #FIXED "<Para>Form:</Para>"
+ --<Title>SDAPREF--
+ SDASUFF  CDATA    #FIXED "<Para>Form End.</Para>"
+ --<Title>SDASUFF-->
+
+<!ELEMENT LABEL - - ((%text;)+ | (%insertions;)*)+ -(LABEL)
+ --<Title>(?)Field label text-->
+
+<!ATTLIST LABEL %commonatts;
+ for IDREF #IMPLIED 
+ --<Title>matches a field ID value-- 
+ accesskey CDATA #IMPLIED 
+ --<Title>accessibility key character-- 
+ onClick CDATA #IMPLIED 
+ --<Title>intrinsic event-->
+
+<!ELEMENT FIELDSET - - (CAPTION? , ((%structure;)+ | (%insertions;)*)?) 
+ -(FIELDSET)
+ --<Title>(?)Encloses a set of form fields-->
+
+<!ATTLIST FIELDSET %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ checked (checked) #IMPLIED 
+ --<Title>marks this set of fields by default as CHECKED-->
+
+<!-- Fields -->
+
+<!ELEMENT INPUT - O CDATA
+ --<Title>(H2)Single-line input-->
+
+<!ATTLIST INPUT %commonatts;
+ type (TEXT,PASSWORD,CHECKBOX,RADIO,SUBMIT,RESET,FILE,HIDDEN,IMAGE,BUTTON) "TEXT"
+ --<Title>what kind of widget is needed--
+ name CDATA #IMPLIED 
+ --<Title>required for all but submit and reset--
+ value CDATA #IMPLIED 
+ --<Title>required for radio and checkboxes, also for file uploads--
+ checked (checked) #IMPLIED 
+ --<Title>marks this field by default as CHECKED--
+ disabled (disabled) #IMPLIED 
+ --<Title>turns off this field--
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ error CDATA #IMPLIED
+ --<Title>(L) Undefined--
+ height NUMBER #IMPLIED
+ --<Title>(L) Undefined--
+ width NUMBER #IMPLIED
+ --<Title>(L) Undefined--
+ max NUMBER #IMPLIED
+ --<Title>(L) Undefined--
+ min NUMBER #IMPLIED
+ --<Title>(L) Undefined--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ size CDATA #IMPLIED 
+ --<Title>specific to each type of field--
+ maxlength NUMBER #IMPLIED 
+ --<Title>maxlength-- 
+ src CDATA #IMPLIED 
+ --<Title>for fields with background images-- 
+ alt CDATA #IMPLIED 
+ --<Title>for display in place of applet-- 
+ fileformat NOTATION (GIF,JPG,DVI,BMP,EPS,PNG,PICT,TIFF,XBM,XPM) #IMPLIED 
+ --<Title>Format of icon file if not implicit --
+ accept CDATA #IMPLIED
+ --<Title>Form-based file upload accepted types (RFC1867)--
+ %horiz.align;
+ tabindex NUMBER #IMPLIED 
+ --<Title>position in tabbing order-- 
+ notab (notab) #IMPLIED 
+ --<Title>exclude from tabbing order-- 
+ onClick CDATA #IMPLIED 
+ --<Title>(N) script to execute when button is clicked; (T) animation -- 
+ onFocus CDATA #IMPLIED 
+ --<Title>intrinsic event-- 
+ onBlur CDATA #IMPLIED 
+ --<Title>intrinsic event-- 
+ onSelect CDATA #IMPLIED 
+ --<Title>intrinsic event-- 
+ onChange CDATA #IMPLIED 
+ --<Title>intrinsic event--
+ action CDATA #IMPLIED
+ --<Title>(T) URL to send single field value to when field is clicked --
+ submitform  (submitform) #IMPLIED
+ --<Title>(T) with ACTION, sends whole form instead of single value --
+ noargs (noargs) #IMPLIED
+ --<Title>(T) with ACTION, defeats sending of field data --
+ nohighlight (nohighlight) #IMPLIED
+ --<Title>(T) disables auto-highlighting --
+ usestyle (usestyle) #IMPLIED
+ --<Title>(T) use body font for content --
+ autosubmit (autosubmit) #IMPLIED
+ --<Title>(T) in HIDDEN fields, submits form when user transcludes --
+ loop (loop) #IMPLIED
+ --<Title>(T) forces an ONCLICK animation to loop --
+ nocursor (nocursor) #IMPLIED
+ --<Title>(T) in IMAGE fields, disable cursor on image --
+ borderimage CDATA #IMPLIED
+ --<Title>(T) in TEXT, RESET and SUBMIT, specifies alternate button images --
+ useform IDREF #IMPLIED
+ --<Title>(T) in SUBMIT, send the form ID="id" rather than the current form --
+ allcaps (allcaps) #IMPLIED
+ --<Title>(T) forces keyboard to CAPS LOCK for data in this field --
+ autocaps (autocaps) #IMPLIED
+ --<Title>(T) forces keyboard to initial capitalization for this field --
+ autoactivate (autoactivate) #IMPLIED
+ --<Title>(T) in TEXT fields, activates focus automatically --
+ bgcolor CDATA #IMPLIED 
+ --<Title>(T) background color-- 
+ cursor CDATA #IMPLIED 
+ --<Title>(T) cursor color-- 
+ executeurl CDATA #IMPLIED
+ --<Title>(T) in TEXT, interpret data as URL and transclude on RETURN --
+ nosubmit (nosubmit) #IMPLIED
+ --<Title>(T) defeats submission when RETURN is pressed --
+ numbers (numbers) #IMPLIED
+ --<Title>(T) forces use of numeric keypad --
+ SDAPREF  CDATA    #FIXED "Input: "
+ --<Title>SDAPREF-->
+
+<!ELEMENT SELECT - - (OPTION+)
+ --<Title>(H2)Encloses multi-option form menu-->
+
+<!ATTLIST SELECT %commonatts;
+ %horiz.align;
+ name CDATA #REQUIRED 
+ --<Title>property name--
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ disabled (disabled) #IMPLIED 
+ --<Title>marks this field by default as disabled--
+ error CDATA #IMPLIED
+ --<Title>(L) Undefined--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ width NUMBER #IMPLIED 
+ --<Title>desired width in units-- 
+ height NUMBER #IMPLIED 
+ --<Title>desired height in units-- 
+ units (en,pixels) "pixels"
+ --<Title>specifies units as en's or pixels-- 
+ size NUMBER #IMPLIED 
+ --<Title>number of items in the list to be visible at once-- 
+ multiple (multiple) #IMPLIED 
+ --<Title>multiple-- 
+ checked (checked) #IMPLIED 
+ --<Title>marks this field by default as CHECKED--
+ tabindex NUMBER #IMPLIED 
+ --<Title>position in tabbing order--
+ notab (notab) #IMPLIED 
+ --<Title>exclude from tabbing order--
+ onFocus CDATA #IMPLIED 
+ --<Title>intrinsic event-- 
+ onBlur CDATA #IMPLIED 
+ --<Title>intrinsic event-- 
+ onChange CDATA #IMPLIED 
+ --<Title>intrinsic event--
+ onClick CDATA #IMPLIED 
+ --<Title>(N) script to execute when button is clicked-- 
+ autoactivate (autoactivate) #IMPLIED
+ --<Title>(T) in TEXT fields, activates focus automatically --
+ bgcolor CDATA #IMPLIED 
+ --<Title>(T) background color-- 
+ exclusive (exclusive) #IMPLIED
+ --<Title>(T) detect and purge duplicate OPTION entries --
+ selcolor CDATA "#EAEAEA"
+ --<Title>(T) sets color for background of selected options --
+ showempty (showempty) #IMPLIED
+ --<Title>(T) displays empty lists with string "empty" --
+ text CDATA #IMPLIED
+ --<Title>(T) sets color for text of OPTIONs --
+ usestyle (usestyle) #IMPLIED
+ --<Title>(T) use body font for content --
+ SDAFORM  CDATA    #FIXED "List"
+ --<Title>SDAFORM--
+ SDAPREF  CDATA    #FIXED "<LHead>Select #AttVal(Multiple)</LHead>"
+ --<Title>SDAPREF-->
+
+<!ELEMENT OPTION - O (#PCDATA)
+ --<Title>(H2)Options in a form menu-->
+
+<!ATTLIST OPTION %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ disabled (disabled) #IMPLIED 
+ --<Title>marks this field by default as disabled--
+ selected (selected) #IMPLIED 
+ --<Title>marks this field by default as selected--
+ error CDATA #IMPLIED
+ --<Title>(L) Undefined--
+ shape CDATA #IMPLIED
+ --<Title>(L) Instantiation-- 
+ value CDATA #IMPLIED 
+ --<Title>defaults to element content--
+ SDAFORM  CDATA    #FIXED "LItem"
+ --<Title>SDAFORM--
+ SDAPREF  CDATA    #FIXED "Option: #AttVal(Value) #AttVal(Selected)"
+ --<Title>SDAPREF-->
+
+<!ELEMENT TEXTAREA - - (#PCDATA)
+ --<Title>(H2)Freetext input area-->
+
+<!ATTLIST TEXTAREA %commonatts;
+ %horiz.align;
+ name CDATA #REQUIRED 
+ --<Title>property name--
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ disabled (disabled) #IMPLIED 
+ --<Title>marks this field by default as disabled--
+ error CDATA #IMPLIED
+ --<Title>(L) Undefined--
+ wrap (ON,OFF,HARD,SOFT,PHYSICAL,VIRTUAL) "OFF"
+ --<Title>(N) how to handle line-wrapping and inserted newlines--
+ rows NUMBER #REQUIRED 
+ --<Title>rows-- 
+ cols NUMBER #REQUIRED 
+ --<Title>cols-- 
+ checked (checked) #IMPLIED 
+ --<Title>marks this field by default as CHECKED--
+ tabindex NUMBER #IMPLIED 
+ --<Title>position in tabbing order-- 
+ notab (notab) #IMPLIED 
+ --<Title>exclude from tabbing order--
+ onFocus CDATA #IMPLIED 
+ --<Title>intrinsic event-- 
+ onBlur CDATA #IMPLIED 
+ --<Title>intrinsic event-- 
+ onSelect CDATA #IMPLIED 
+ --<Title>intrinsic event-- 
+ onChange CDATA #IMPLIED 
+ --<Title>intrinsic event--
+ allcaps (allcaps) #IMPLIED
+ --<Title>(T) forces keyboard to CAPS LOCK for data in this field --
+ autocaps (autocaps) #IMPLIED
+ --<Title>(T) forces keyboard to initial capitalization for this field --
+ autoactivate (autoactivate) #IMPLIED
+ --<Title>(T) in TEXT fields, activates focus automatically --
+ bgcolor CDATA #IMPLIED 
+ --<Title>(T) background color-- 
+ cursor CDATA #IMPLIED 
+ --<Title>(T) cursor color-- 
+ growable (growable) #IMPLIED
+ --<Title>(T) area grows when full instead of scrolling --
+ nohardbreaks (nohardbreaks) #IMPLIED
+ --<Title>(T) RETURN moves to next field instead of entering a newline --
+ nosoftbreaks (nosoftbreaks) #IMPLIED
+ --<Title>(T) soft breaks in wrapping will not be sent to server --
+ numbers (numbers) #IMPLIED
+ --<Title>(T) forces use of numeric keypad --
+ showkeyboard (showkeyboard) #IMPLIED
+ --<Title>(T) keyboard pops up automatically when area selected --
+ usestyle (usestyle) #IMPLIED
+ --<Title>(T) use body font for content --
+ SDAFORM  CDATA    #FIXED "Para"
+ --<Title>SDAFORM--
+ SDAPREF  CDATA    #FIXED "Input Text -- #AttVal(Name): "
+ --<Title>SDAPREF-->
+
+<!ELEMENT KEYGEN - O EMPTY
+ --<Title>(N)Generates and submits PublicKey encryption-->
+
+<!ATTLIST KEYGEN %commonatts;
+ name CDATA #REQUIRED
+ --<Title>Name for the name-value pair--
+ challenge CDATA #IMPLIED
+ --<Title>Challenge string (default is null IA5STRING)-->
+
+<!-- ****************************************************************** -->
+
+<!-- Tables -->
+
+<!-- The following definitions are from Author/Editor's CANONTBL -->
+
+<!ENTITY % VBorder "(VSingle|VDouble|VTriple|VDash|VDot|VBold|VBlank|VNone)">
+<!ENTITY % HBorder "(HSingle|HDouble|HTriple|HDash|HDot|HBold|HBlank|HNone)">
+<!ENTITY % TblUnit "(percent|pixels|points|picas|mm|cm|inches)">
+
+<!ELEMENT TABLE - - (CAPTION?,(col*|colgroup*),thead?,tfoot?,(tbody|(tr)*)+)
+ --<Title>(H3)Table-->
+
+<!ATTLIST TABLE %commonatts;
+ clear CDATA "no"
+ --<Title>(left|right|all|no) move down past figures--
+ needs CDATA #IMPLIED 
+ --<Title>minimum width needed in ems or pixels, eg "40 em" or "100 pixels"-- 
+ align (left,center,right,bleedleft,bleedright,justify) #IMPLIED 
+ --<Title>table position relative to window-- 
+ width CDATA #IMPLIED 
+ --<Title>table width relative to window-- 
+ cols NUMBER #IMPLIED 
+ --<Title>used for immediate display mode-- 
+ border CDATA #IMPLIED 
+ --<Title>controls frame width around table-- 
+ frame (void,above,below,hsides,lhs,rhs,vsides,box,border) #IMPLIED 
+ --<Title>which parts of table frame to include--
+ rules (none,groups,rows,cols,all) #IMPLIED 
+ --<Title>rulings between rows and cols--
+ cellspacing CDATA #IMPLIED 
+ --<Title>spacing between cells--
+ cellpadding CDATA #IMPLIED 
+ --<Title>spacing within cells--
+ colspec CDATA #IMPLIED 
+ --<Title>column widths and alignment--
+ units (en,px,relative) "en"
+ --<Title>units for column widths--
+ dp CDATA #IMPLIED 
+ --<Title>decimal point e.g. dp=","--
+ valign (top,middle,bottom,baseline) "top" 
+ --<Title>vertical alignment--
+ noflow (noflow) #IMPLIED 
+ --<Title>noflow around table--
+ nowrap (nowrap) #IMPLIED 
+ --<Title>(N) don't wrap words--
+ bgcolor CDATA #IMPLIED 
+ --<Title>Table background color--
+ bordercolor CDATA #IMPLIED 
+ --<Title>table border color-- 
+ bordercolorlight CDATA #IMPLIED 
+ --<Title>3D table border color--
+ bordercolordark CDATA #IMPLIED 
+ --<Title>bordercolordark--
+ background CDATA #IMPLIED 
+ --<Title>(T) Image to tile for table background-- 
+ cellborder NUMBER #IMPLIED
+ --<Title>(T) set cell border width in pixels --
+ href CDATA #IMPLIED 
+ --<Title>(T) Hypertext link to apply to whole table-- 
+ name CDATA #IMPLIED
+ --<Title>(T) Name instead of ID --
+ transparency NUMBER "0"
+ --<Title>(T) degree of transparency (0=opaque, 100=clear)--
+ stubcols NUMBER #IMPLIED 
+ --<Title>(D) so user agent can progressive render --  
+ hdrrows NUMBER #IMPLIED 
+ --<Title>(D) for symmetry, tho less important --   
+ TblWd CDATA #IMPLIED
+ --<Title>(AE) Table width--
+ TblHt CDATA #IMPLIED
+ --<Title>(AE) Table height--
+ TblUnits %TblUnit; #IMPLIED
+ --<Title>(AE) Table units--
+ --Not known if this is needed: SQTABLE CDATA #FIXED 'TBLBODY'-->
+
+<!ELEMENT CAPTION - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Caption to a TABLE or FIGURE-->
+
+<!ATTLIST CAPTION %commonatts;
+ align (top,bottom) #IMPLIED
+ --<Title>(H3) location of caption wrt table|figure|etc --
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ accesskey CDATA #IMPLIED 
+ --<Title>accessibility key character--
+ SDAPREF CDATA #FIXED "Caption: "
+ --<Title>(O)SDAPREF-->
+
+<!ELEMENT COLGROUP - O (col*)
+ --<Title>(H3)Group of column specifications-->
+
+<!ATTLIST COLGROUP %commonatts;
+ span NUMBER "1"
+ --<Title>default number of columns in group--
+ width CDATA #IMPLIED 
+ --<Title>default width for enclosed COLs--
+ align (left,center,right,justify,char)  #IMPLIED 
+ --<Title>align-- 
+ char CDATA #IMPLIED 
+ --<Title>alignment char, e.g. char=':'-- 
+ charoff CDATA #IMPLIED 
+ --<Title>offset for alignment char-- 
+ valign (top,middle,bottom,baseline) #IMPLIED 
+ --<Title>vertical alignment in cells--
+ ColSep %VBorder; #IMPLIED
+ --<Title>(AE) column separation pattern --
+ AlignChr CDATA #IMPLIED
+ --<Title>(AE) alignment character --
+ CharPos CDATA #IMPLIED
+ --<Title>(AE) character position --
+ ColWd  CDATA  #IMPLIED
+ --<Title>(AE) default width for all cells in all columns --
+ TblUnits %TblUnit; #IMPLIED
+ --<Title>(AE) table units --
+ TopSep  %HBorder; "HSingle"
+ --<Title>(AE) default top border for all cells in row 1 --
+ --unused: SQTABLE CDATA #FIXED 'TBLCDEFS'-->
+
+<!ELEMENT COL - O EMPTY 
+ --<Title>(H3)Column specification in a COLGROUP-->
+
+<!ATTLIST COL %commonatts;
+ span NUMBER "1"
+ --<Title>number of columns spanned by group--
+ width CDATA #IMPLIED 
+ --<Title>column width specification--
+ align (left,center,right,justify,char)  #IMPLIED 
+ --<Title>alignment-- 
+ char CDATA #IMPLIED 
+ --<Title>alignment char, e.g. char=':'--
+ charoff CDATA #IMPLIED 
+ --<Title>offset for alignment char--
+ valign (top,middle,bottom,baseline) #IMPLIED 
+ --<Title>vertical alignment in cells--
+ ColSep %VBorder; #IMPLIED
+ --<Title>(AE) column separation pattern --
+ AlignChr CDATA #IMPLIED
+ --<Title>(AE) alignment character --
+ CharPos CDATA #IMPLIED
+ --<Title>(AE) character position --
+ ColWd  CDATA  #IMPLIED
+ --<Title>(AE) default width for all cells in all columns --
+ TblUnits %TblUnit; #IMPLIED
+ --<Title>(AE) table units --
+ TopSep  %HBorder; "HSingle"
+ --<Title>(AE) default top border for all cells in row 1 --
+ --unused: SQTABLE CDATA #FIXED 'TBLCDEFS'-->
+
+<!ELEMENT THEAD - O (tr+)
+ --<Title>(H3)Table header-->
+
+<!ELEMENT TFOOT - O (tr+)
+ --<Title>(H3)Table footer: if used, must precede table body-->
+
+<!ELEMENT TBODY O O (tr+)
+ --<Title>(H3)Table body, implied for all tables but optional -->
+
+<!ATTLIST THEAD %commonatts;
+ align (left,center,right,justify,char)  #IMPLIED 
+ --<Title>align-- 
+ clear CDATA #IMPLIED 
+ --<Title>for control of text flow-- 
+ char CDATA #IMPLIED 
+ --<Title>alignment char, e.g. char=':'-- 
+ charoff CDATA #IMPLIED 
+ --<Title>offset for alignment char-- 
+ dp CDATA #IMPLIED 
+ --<Title>decimal point e.g. dp=","-- 
+ nowrap (nowrap) #IMPLIED 
+ --<Title>don't wrap words-- 
+ valign (top,middle,bottom,baseline) #IMPLIED 
+ --<Title>vertical alignment in cells--
+ RowSep %HBorder; #IMPLIED
+ --<Title>(AE) Inter-row border-->
+
+<!ATTLIST TFOOT %commonatts;
+ align (left,center,right,justify,char)  #IMPLIED 
+ --<Title>align-- 
+ clear CDATA #IMPLIED 
+ --<Title>for control of text flow-- 
+ char CDATA #IMPLIED 
+ --<Title>alignment char, e.g. char=':'-- 
+ charoff CDATA #IMPLIED 
+ --<Title>offset for alignment char-- 
+ dp CDATA #IMPLIED 
+ --<Title>decimal point e.g. dp=","-- 
+ nowrap (nowrap) #IMPLIED 
+ --<Title>don't wrap words-- 
+ valign (top,middle,bottom,baseline) #IMPLIED 
+ --<Title>vertical alignment in cells--
+ RowSep %HBorder; #IMPLIED
+ --<Title>(AE) Inter-row border-->
+
+<!ATTLIST TBODY %commonatts;
+ align (left,center,right,justify,char)  #IMPLIED 
+ --<Title>align-- 
+ clear CDATA #IMPLIED 
+ --<Title>for control of text flow-- 
+ char CDATA #IMPLIED 
+ --<Title>alignment char, e.g. char=':'-- 
+ charoff CDATA #IMPLIED 
+ --<Title>offset for alignment char-- 
+ dp CDATA #IMPLIED 
+ --<Title>decimal point e.g. dp=","-- 
+ nowrap (nowrap) #IMPLIED 
+ --<Title>don't wrap words-- 
+ valign (top,middle,bottom,baseline) #IMPLIED 
+ --<Title>vertical alignment in cells--
+ RowSep %HBorder; #IMPLIED
+ --<Title>(AE) Inter-row border-->
+
+<!ELEMENT TR - O (th*|td*)+
+ --<Title>(H3)Table row-->
+
+<!ATTLIST TR %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ align (left,center,right,justify,char)  #IMPLIED 
+ --<Title>align-- 
+ char CDATA #IMPLIED 
+ --<Title>alignment char, e.g. char=':'-- 
+ charoff CDATA #IMPLIED 
+ --<Title>offset for horizontal alignment in cells-- 
+ valign (top,middle,bottom,baseline) #IMPLIED 
+ --<Title>vertical alignment in cells-- 
+ dp CDATA #IMPLIED 
+ --<Title>decimal point e.g. dp=","-- 
+ nowrap (nowrap) #IMPLIED 
+ --<Title>don't wrap words-- 
+ bgcolor CDATA #IMPLIED 
+ --<Title>background color for cell-- 
+ bordercolor CDATA #IMPLIED 
+ --<Title>cell border color-- 
+ bordercolorlight CDATA #IMPLIED 
+ --<Title>3D cell border color-- 
+ bordercolordark CDATA #IMPLIED 
+ --<Title>3D cell border color-- 
+ width CDATA #IMPLIED 
+ --<Title>cell width--
+ transparency NUMBER "0"
+ --<Title>(T) degree of transparency (0=opaque, 100=clear)--
+ rowaxes CDATA #IMPLIED 
+ --<Title>(D) to indicate the distinguishing row part of td axes value --
+ ColSep %VBorder; #IMPLIED
+ --<Title>(AE) column separation pattern --
+ RowSep %HBorder; #IMPLIED
+ --<Title>(AE) Inter-row border-->
+
+<!ELEMENT (TH,TD) - O ((%structure;)+ | (%insertions;)* | (%text;)+)+
+ --<Title>(H3)Table headings and data (cells)-->
+
+<!ATTLIST TH %commonatts;
+ axis CDATA #IMPLIED 
+ --<Title>defaults to cell content-- 
+ axes CDATA #IMPLIED 
+ --<Title>list of axis names-- 
+ clear CDATA #IMPLIED 
+ --<Title>for control of text flow-- 
+ nowrap (nowrap) #IMPLIED 
+ --<Title>suppress word wrap-- 
+ bgcolor CDATA #IMPLIED 
+ --<Title>cell background color-- 
+ rowspan NUMBER "1"
+ --<Title>number of rows spanned by cell-- 
+ colspan NUMBER "1"
+ --<Title>number of cols spanned by cell-- 
+ align (left,center,right,justify,char)  #IMPLIED 
+ --<Title>align-- 
+ char CDATA #IMPLIED 
+ --<Title>alignment char, e.g. char=':'-- 
+ charoff CDATA #IMPLIED 
+ --<Title>offset for horizontal alignment in cells-- 
+ valign (top,middle,bottom,baseline) #IMPLIED 
+ --<Title>vertical alignment in cells-- 
+ dp CDATA #IMPLIED 
+ --<Title>decimal point e.g. dp=","-- 
+ rowstart NUMBER #IMPLIED
+ --<Title>(AE) edit control--
+ colstart NUMBER #IMPLIED
+ --<Title>(AE) edit control--
+ bordercolor CDATA #IMPLIED 
+ --<Title>cell border color-- 
+ bordercolorlight CDATA #IMPLIED 
+ --<Title>3D cell border color-- 
+ bordercolordark CDATA #IMPLIED 
+ --<Title>3D cell border color-- 
+ width CDATA #IMPLIED 
+ --<Title>cell width--
+ absheight NUMBER #IMPLIED
+ --<Title>(T) height of cell, presumably in pixels --
+ abswidth NUMBER #IMPLIED
+ --<Title>(T) width of cell, presumably in pixels --
+ maxlines NUMBER #IMPLIED
+ --<Title>(T) max lines to display in cell --
+ transparency NUMBER "0"
+ --<Title>(T) degree of transparency (0=opaque, 100=clear)--
+ ColSep %VBorder; #IMPLIED
+ --<Title>(AE) column separation pattern --
+ RowSep %HBorder; #IMPLIED
+ --<Title>(AE) Inter-row border--
+ AlignChr CDATA #IMPLIED
+ --<Title>(AE) alignment character --
+ CharPos CDATA #IMPLIED
+ --<Title>(AE) character position --
+ ColWd  CDATA  #IMPLIED
+ --<Title>(AE) default width for all cells in all columns --
+ TblUnits %TblUnit; #IMPLIED
+ --<Title>(AE) table units --
+ --TopSep  %HBorder; "HSingle"-- --values duplicate rowsep above--
+ --<Title>(AE) default top border for all cells in row 1 --
+ --unused: SQTABLE CDATA #FIXED 'TBLCDEFS'-->
+
+<!ATTLIST TD %commonatts;
+ axis CDATA #IMPLIED 
+ --<Title>defaults to cell content-- 
+ axes CDATA #IMPLIED 
+ --<Title>list of axis names-- 
+ clear CDATA #IMPLIED 
+ --<Title>for control of text flow-- 
+ nowrap (nowrap) #IMPLIED 
+ --<Title>suppress word wrap-- 
+ bgcolor CDATA #IMPLIED 
+ --<Title>cell background color-- 
+ rowspan NUMBER "1"
+ --<Title>number of rows spanned by cell-- 
+ colspan NUMBER "1"
+ --<Title>number of cols spanned by cell-- 
+ align (left,center,right,justify,char)  #IMPLIED 
+ --<Title>align-- 
+ char CDATA #IMPLIED 
+ --<Title>alignment char, e.g. char=':'-- 
+ charoff CDATA #IMPLIED 
+ --<Title>offset for horizontal alignment in cells-- 
+ valign (top,middle,bottom,baseline) #IMPLIED 
+ --<Title>vertical alignment in cells-- 
+ dp CDATA #IMPLIED 
+ --<Title>decimal point e.g. dp=","-- 
+ rowstart NUMBER #IMPLIED
+ --<Title>(AE) edit control--
+ colstart NUMBER #IMPLIED
+ --<Title>(AE) edit control--
+ bordercolor CDATA #IMPLIED 
+ --<Title>cell border color-- 
+ bordercolorlight CDATA #IMPLIED 
+ --<Title>3D cell border color-- 
+ bordercolordark CDATA #IMPLIED 
+ --<Title>3D cell border color-- 
+ width CDATA #IMPLIED 
+ --<Title>cell width--
+ absheight NUMBER #IMPLIED
+ --<Title>(T) height of cell, presumably in pixels --
+ abswidth NUMBER #IMPLIED
+ --<Title>(T) width of cell, presumably in pixels --
+ background CDATA #IMPLIED 
+ --<Title>(T) Image to tile for table background-- 
+ maxlines NUMBER #IMPLIED
+ --<Title>(T) max lines to display in cell --
+ transparency NUMBER "0"
+ --<Title>(T) degree of transparency (0=opaque, 100=clear)--
+ ColSep %VBorder; #IMPLIED
+ --<Title>(AE) column separation pattern --
+ RowSep %HBorder; #IMPLIED
+ --<Title>(AE) Inter-row border--
+ AlignChr CDATA #IMPLIED
+ --<Title>(AE) alignment character --
+ CharPos CDATA #IMPLIED
+ --<Title>(AE) character position --
+ ColWd  CDATA  #IMPLIED
+ --<Title>(AE) default width for all cells in all columns --
+ TblUnits %TblUnit; #IMPLIED
+ --<Title>(AE) table units --
+ --TopSep  %HBorder; "HSingle"-- --values duplicate rowsep above--
+ --<Title>(AE) default top border for all cells in row 1 --
+ --unused: SQTABLE CDATA #FIXED 'TBLCDEFS'-->
+
+<!-- ****************************************************************** -->
+
+<!-- Floating figures -->
+
+<!ELEMENT FIG - - (caption?, CREDIT?, OVERLAY* , (IMG|IMAGE|FIGTEXT)+ , 
+                   CAPTION?, CREDIT?) -(FIG) 
+ --<Title>(H3)Floating figure-->
+
+<!ATTLIST FIG %commonatts;
+ border CDATA #IMPLIED 
+ --<Title>controls frame width around figure-- 
+ clear CDATA #IMPLIED 
+ --<Title>for control of text flow-- 
+ src CDATA #IMPLIED 
+ --<Title>URI of image to embed-- 
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object-- 
+ isobject (isobject) #IMPLIED
+ --<Title>(L) Figure is an object--
+ width NUMBER #IMPLIED 
+ --<Title>desired width in units-- 
+ height NUMBER #IMPLIED 
+ --<Title>desired height in units-- 
+ units (en,pixels) "pixels"
+ --<Title>specifies units as en's or pixels-- 
+ align (bleedleft,left,center,right,bleedright,justify) "center"
+ --<Title>horizontal alignment-- 
+ noflow (noflow) #IMPLIED 
+ --<Title>noflow around figure-- 
+ imagemap (CDATA) #IMPLIED 
+ --<Title>pass background clicks to server-- 
+ fileformat NOTATION (GIF,JPG,DVI,BMP,EPS,PNG,PICT,TIFF,XBM,XPM) #IMPLIED
+ --<Title>Format of figure if not implicit -->
+
+<!ELEMENT OVERLAY - O (#PCDATA)
+ --<Title>(H3)Image overlay-->
+
+<!ATTLIST OVERLAY %commonatts;
+ src CDATA #REQUIRED 
+ --<Title>URI of image overlay--
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object--
+ units (en,pixels) "pixels"
+ --<Title>specifies units as en's or pixels--
+ x NUMBER "0"
+ --<Title>offset from left in units--
+ y NUMBER "0"
+ --<Title>offset from top in units--
+ width NUMBER #IMPLIED 
+ --<Title>desired width in units--
+ height NUMBER #IMPLIED 
+ --<Title>desired height in units--
+ imagemap (CDATA) #IMPLIED 
+ --<Title>pass background clicks to server-- 
+ fileformat NOTATION (GIF,JPG,DVI,BMP,EPS,PNG,PICT,TIFF,XBM,XPM) #IMPLIED 
+ --<Title>(P)Format of overlay image file if not implicit -->
+
+<!ELEMENT CREDIT - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)source of image-->
+
+<!ATTLIST CREDIT %commonatts;
+ %horiz.align;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ SDAFORM CDATA #FIXED "Fn"
+ --<Title>(O)SDAFORM-->
+
+<!ELEMENT FIGTEXT - O ((%structure;) | (%insertions;))+ 
+ --<Title>(H3)Container for textual figures-->
+
+<!ATTLIST FIGTEXT %commonatts;>
+
+<!-- ****************************************************************** -->
+
+<!-- Inline, descriptive, and analytical elements -->
+
+<!-- The <A> element is something of a class by itself -->
+
+<!ELEMENT A - - ((%insertions;)* | (%text;)*)+ -(A)
+ --<Title>(H1)Hypertext anchor (link)-->
+
+<!ATTLIST A %commonatts;
+ href CDATA #IMPLIED 
+ --<Title>URL for linked resource. RFC1808 (June 95) and RFC1738 (Dec 94)--
+ urn CDATA #IMPLIED
+ --<Title>URN when available--
+ name CDATA #IMPLIED 
+ --<Title>named link end-- 
+ rel CDATA #IMPLIED 
+ --<Title>forward link types--
+ rev CDATA #IMPLIED 
+ --<Title>reverse link types--
+ ismap (ismap) #IMPLIED 
+ --<Title>Use server image map-- 
+ md CDATA #IMPLIED 
+ --<Title>message digest for linked object--
+ target CDATA #IMPLIED
+ --<Title>(N) name for the target window--
+ type CDATA #IMPLIED 
+ --<Title>Internet media type--
+ accesskey CDATA #IMPLIED 
+ --<Title>accessibility key character--
+ shape (rect,circle,poly,default) "rect"
+ --<Title>for use with OBJECT SHAPES--
+ coords CDATA #IMPLIED 
+ --<Title>for use with OBJECT SHAPES-- 
+ tabindex NUMBER #IMPLIED 
+ --<Title>position in tabbing order--
+ notab (notab) #IMPLIED 
+ --<Title>exclude from tabbing order--
+ onClick CDATA #IMPLIED 
+ --<Title>intrinsic event-- 
+ onMouseOver CDATA #IMPLIED 
+ --<Title>intrinsic event-- 
+ onMouseOut CDATA #IMPLIED 
+ --<Title>intrinsic event--
+ nocolor (nocolor) #IMPLIED
+ --<Title>(T)defeats LINK color--
+ selected (selected) #IMPLIED
+ --<Title>(T)specifies this link is highlighted when 2+ appear on screen --
+ bulletin-date CDATA #IMPLIED
+ --<Title>(B) HTTP-format date/time of posting --
+ bulletin-text CDATA #IMPLIED
+ --<Title>(B) text to display --
+ bulletin-expires CDATA #IMPLIED
+ --<Title>(B) HTTP-format expiration date/time --
+ bulletin-image CDATA #IMPLIED
+ --<Title>(B) URL for a visual bulletin --
+ bulletin-href CDATA #IMPLIED
+ --<Title>(B) URL for a link to bulletin --
+ SDAPREF  CDATA    #FIXED "<Anchor: #AttList>"
+ --<Title>SDAPREF-->
+
+<!-- Descriptive markup -->
+
+<!ELEMENT ABBREV - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Abbreviation-->
+
+<!ELEMENT ACRONYM - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Acronym-->
+
+<!ELEMENT CODE - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H1)Program or code fragment-->
+
+<!ELEMENT EM - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H1)Emphasis-->
+
+<!ELEMENT KBD - - CDATA
+ --<Title>(H1)Single keyboard character, keycap, or button-->
+
+<!ELEMENT SAMP - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H1)Inline sample of computer input or response-->
+
+<!ELEMENT STRONG - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H1)Strong emphasis-->
+
+<!ELEMENT VAR - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H1)Program variable name, filename, etc-->
+
+<!-- Analytical markup -->
+
+<!ELEMENT AU - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Author of a CITEd document-->
+
+<!ELEMENT AUTHOR - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(L)Author of a CITEd document-->
+
+<!ELEMENT CITE - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H1)Citation (book title, product name, etc)-->
+
+<!ELEMENT DFN - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Definition (index term)-->
+
+<!ATTLIST CITE %commonatts;
+ key IDREF #IMPLIED
+ --<Title>Link to source--
+ SDAFORM  CDATA    #FIXED "It"
+ --<Title>SDAFORM-->
+
+<!ATTLIST DFN %commonatts;
+ key IDREF #IMPLIED
+ --<Title>Link to source--
+ SDAFORM  CDATA    #FIXED "It"
+ --<Title>SDAFORM-->
+
+<!ELEMENT DEL - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Text marked for deletion at the last edit, or text deleted
+ by an editor but left on display for review-->
+
+<!ELEMENT INS - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Text inserted at the last edit, or text inserted in the 
+ opinion of an editor-->
+
+<!ELEMENT LANG - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Language other than the base language of the document (eg eg :-)-->
+
+<!ELEMENT PERSON - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Personal name for indexing-->
+
+<!ELEMENT Q - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(3I)Direct speech: browsers should display `quotes' appropriately-->
+
+<!ELEMENT SPAN - - ((%text;)+ | (%insertions;)*)+ -(SPAN)
+ --<Title>(H3)Marks a text fragment for analytical reasons-->
+
+<!ELEMENT SPOT - O EMPTY
+ --<Title>(H3)Start or finish point of a RANGE-->
+
+<!-- Arbitrary visual markup -->
+
+<!ELEMENT B - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H2)Unspecified bold-->
+
+<!ELEMENT BLACKFACE - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(T)Unspecified extra-bold-->
+
+<!ELEMENT LIMITTEXT - O EMPTY
+ --<Title>(T) holds fixed-width text -->
+
+<!ELEMENT NOSMARTQUOTES - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(T) defeats "smart" quotes -->
+
+<!ELEMENT SHADOW - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(T) lights up shadow down and right of content text -->
+
+<!ELEMENT BIG - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Larger type than the current size-->
+
+<!ELEMENT FONT - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(M)Make local change to font-->
+
+<!ELEMENT I - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H2)Unspecified italics-->
+
+<!ELEMENT S - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Stricken text, reason unspecified-->
+
+<!ELEMENT SMALL - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Smaller type than the current size-->
+
+<!ELEMENT STRIKE - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(N)Alternative form of S-->
+
+<!ELEMENT SUB - - (%text;)+ +(VEC , BAR , DOT , DDOT , HAT , TILDE , 
+                  T ,  BT , BOX , ABOVE , ROOT , SQRT , ARRAY)
+ --<Title>(H3)Subscript-->
+
+<!ELEMENT SUP - - (%text;)+ +(VEC , BAR , DOT , DDOT , HAT , TILDE , 
+                  T ,  BT , BOX , ABOVE , ROOT , SQRT , ARRAY)
+ --<Title>(H3)Superscript-->
+
+<!ELEMENT TAB - O EMPTY --was (#PCDATA)--
+ --<Title>(H3)Tab set and tab jump-to-->
+
+<!ELEMENT TT - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H2)Fixed-width type-->
+
+<!ELEMENT U - - ((%text;)+ | (%insertions;)*)+
+ --<Title>(H2)Underlining where possible; WebTV wrongly does a UL here-->
+
+<!-- Documentary markup (for SGML) -->
+
+<!ELEMENT ELEMENT - - CDATA
+ --<Title>(P)EXPERIMENTAL SGML element-->
+<!ELEMENT ENTITY - - CDATA
+ --<Title>(P)EXPERIMENTAL SGML entity-->
+<!ELEMENT ATTRIB - - CDATA
+ --<Title>(P)EXPERIMENTAL SGML attribute-->
+
+<!-- Grouped attribute lists for inline elements -->
+
+<!ATTLIST (U,S,STRIKE,BIG,SMALL,SUB,SUP,Q,SPAN,AU,PERSON,ACRONYM,ABBREV) %commonatts;>
+
+<!ATTLIST (ENTITY,ELEMENT,ATTRIB) %commonatts;>
+
+<!ATTLIST (EM,I,VAR,LANG,INS,DEL) %commonatts;
+ SDAFORM  CDATA    #FIXED "It"
+ --<Title>SDAFORM-->
+
+<!ATTLIST (CODE,KBD,SAMP,TT) %commonatts;
+ SDAFORM  CDATA    #FIXED "Lit"
+ --<Title>SDAFORM-->
+
+<!ATTLIST (B,STRONG,BLACKFACE) %commonatts;
+ SDAFORM  CDATA    #FIXED "B"
+ --<Title>SDAFORM-->
+
+<!ATTLIST LIMITTEXT %commonatts;
+ size NUMBER #IMPLIED
+ --<Title>(T) specify width in characters --
+ width NUMBER #IMPLIED
+ --<Title>(T) specify width in pixels --
+ value CDATA #REQUIRED
+ --<Title>(T) supplies the text whose value is to be limited -->
+
+<!ATTLIST NOSMARTQUOTES %commonatts;>
+
+<!ATTLIST SHADOW %commonatts;>
+
+<!ATTLIST FONT %commonatts;
+ size CDATA #IMPLIED 
+ --<Title>[+/-]nn eg size="+1", size="4", size="-2"; range is 1 thru 7-- 
+ color CDATA #IMPLIED 
+ --<Title>#RRGGBB in hex, e.g. red: color="#FF0000"-- 
+ end CDATA #IMPLIED
+ --<Title>(L) undocumented--
+ face CDATA #IMPLIED 
+ --<Title>comma separated list of font names--
+ effect (relief|emboss|shadow) #IMPLIED
+ --<Title>(T) variant--
+ transparency NUMBER "0"
+ --<Title>(T) degree of transparency (0=opaque, 100=clear)-->
+
+<!ATTLIST SPOT %commonatts;>
+
+<!ATTLIST TAB %commonatts;
+ indent NUMBER "0"
+ --<Title>en units before new tab stop-- 
+ to IDREF #IMPLIED 
+ --<Title>jump to same location as a previous tab stop with this ID value-- 
+ align (left,center,right,decimal) "left"
+ --<Title>what kind of alignment-- 
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ dp CDATA #IMPLIED 
+ --<Title>specify the decimal point e.g. dp=","-->
+
+<!-- ******************************************************************* -->
+
+<!-- Math -->
+
+<!ELEMENT MATH - - (%text;)+ -(EM , STRONG , Q , BLINK) +(VEC , BAR , 
+ DOT , DDOT , HAT , TILDE , T , BT , BOX , ABOVE , BELOW , 
+ ROOT , SQRT , ARRAY , SUB , SUP, FONT)
+ --<Title>(H3)Mathematics-->
+
+<!ATTLIST MATH %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ box CDATA #IMPLIED
+ --<Title>(L) Undefined--
+ position (display,inline) #REQUIRED 
+ --<Title>Position in the paragraph-->
+
+<!-- Fractions -->
+
+<!ELEMENT BOX  - - ((%formula;) , (LEFT , (%formula;))? , 
+                         ((OVER | ATOP | CHOOSE) , 
+                   (%formula;))? , (RIGHT , (%formula;))?) 
+ --<Title>(H3)Boxes for building fractions-->
+
+<!ATTLIST BOX %commonatts;
+ size (normal,medium,large,huge) "normal"
+  --<Title>Delimiter size-->
+
+<!ELEMENT ABOVE - - (%formula;)
+ --<Title>(H3)Numerator-->
+
+<!ELEMENT BELOW - - (%formula;)
+ --<Title>(H3)Denominator-->
+
+<!ATTLIST ABOVE %commonatts;
+ sym ENTITY #IMPLIED 
+ --<Title>Symbol (character entity reference) from ISOams*-->
+
+<!ATTLIST BELOW %commonatts;
+ sym ENTITY #IMPLIED 
+ --<Title>Symbol (character entity reference) from ISOams*-->
+
+<!ELEMENT OVER - O EMPTY
+ --<Title>(H3)Separates num from denom in fractions-->
+
+<!ELEMENT RIGHT - O EMPTY
+ --<Title>(H3)Math RH barrier-->
+
+<!ELEMENT CHOOSE - O EMPTY
+ --<Title>(H3)Math choose array-->
+
+<!ELEMENT ATOP - O EMPTY
+ --<Title>(H3)Separates top from bottom in unlined overposition-->
+
+<!ELEMENT LEFT - O EMPTY
+ --<Title>(H3)Math LH barrier-->
+
+<!-- Arrays -->
+
+<!ELEMENT ARRAY - - (ROW+)
+ --<Title>(h3)LaTeX-like ARRAY-->
+
+<!ATTLIST ARRAY %commonatts;
+ %vert.align;
+ coldef CDATA #IMPLIED 
+ --<Title>Column alignment and separator-- 
+ ldelim CDATA #IMPLIED 
+ --<Title>Stretchy left delimiter-- 
+ rdelim CDATA #IMPLIED 
+ --<Title>Stretchy right delimiter-- 
+ labels (labels) #IMPLIED 
+ --<Title>TeX's \bordermatrix style-->
+
+<!ELEMENT ROW - O (ITEM*)
+ --<Title>(H3)Row in a math array-->
+
+<!ATTLIST ROW %commonatts;>
+
+<!ELEMENT ITEM - O (%formula;)
+ --<Title>(H3)Math array row item-->
+
+<!ATTLIST ITEM %commonatts;
+ align CDATA #IMPLIED 
+ --<Title>Override coldef alignment-- 
+ colspan NUMBER "1"
+ --<Title>Span columns as in TABLE-- 
+ rowspan NUMBER "1"
+ --<Title>Span rows as in TABLE-->
+
+<!-- Math fonts, redundant in new math model because <B> and <TT> work -->
+
+<!ELEMENT T - - (%formula;)
+ --<Title>(H3)Math typewriter-->
+
+<!ELEMENT BT - - (%formula;)
+ --<Title>(H3)Math bold typewriter-->
+
+<!ATTLIST (T,BT) %commonatts;>
+
+<!-- Symbolic markup -->
+
+<!ELEMENT ROOT - - ((%formula;) , OF , (%formula;)) 
+ --<Title>(H3)Math root-->
+
+<!ELEMENT OF - O EMPTY
+ --<Title>(H3)Dummy separator in ROOT-->
+
+<!ELEMENT SQRT - - (%formula;)
+ --<Title>(H3)Square root (convenience)-->
+
+<!-- Accents for math -->
+
+<!ELEMENT (TILDE,HAT,DOT,DDOT,BAR,VEC) - - (%formula;)
+ --<Title>(H3)Math accents: see TeX-->
+
+<!-- Dummy, redundant, superfluous, or obsolete elements. These -->
+<!-- should be avoided unless they are a requirement for illustration -->
+<!-- or backward compatibility. -->
+
+<!ELEMENT TEXTFLOW - O ((%text;)+ | (%insertions;)*)+
+ --<Title>(H3)Dummy: accomodates mixed content model in APPLET
+ caused by REs between PARAMs-->
+
+<!ELEMENT XMP - - CDATA 
+ --<Title>(H1)OBSOLETE: example (of display code), superseded by PRE-->
+
+<!ATTLIST XMP 
+ clear CDATA #IMPLIED
+ --<Title>(H3) control of text flow--
+ SDAFORM  CDATA    #FIXED "Lit"
+ --<Title>SDAFORM-- 
+ SDAPREF  CDATA    #FIXED "Example: "
+ --<Title>SDAPREF-->
+
+<!ELEMENT LISTING - - CDATA 
+ --<Title>(H1)OBSOLETE: listing (lineprinter style), superseded by PRE-->
+
+<!ATTLIST LISTING
+ %commonatts;
+ clear CDATA #IMPLIED
+ --<Title>(H3)Control of text flow--
+ SDAFORM  CDATA    #FIXED "Lit"
+ --<Title>SDAFORM-- 
+ SDAPREF  CDATA    #FIXED "Listing: "
+ --<Title>SDAPREF-->
+
+<!ELEMENT PLAINTEXT - O ANY
+ --<Title>(H1)OBSOLETE: no further markup permitted, superseded by PRE-->
+
+<!ATTLIST PLAINTEXT 
+ SDAFORM  CDATA    #FIXED "Lit"
+ --<Title>SDAFORM-->
+
+<!ELEMENT COMMENT - - (#PCDATA)
+ --<Title>(M)SUPERFLUOUS: comment, use normal comment markup instead-->
+
+<!-- ************************************** -->
+
+<!-- Character entity references -->
+
+<!ENTITY zwnj CDATA "&#8204;"--=zero width non-joiner-->
+<!ENTITY zwj  CDATA "&#8205;"--=zero width joiner-->
+<!ENTITY lrm  CDATA "&#8206;"--=left-to-right mark-->
+<!ENTITY rlm  CDATA "&#8207;"--=right-to-left mark-->
+
+<!-- Overrides for some of the public entitities -->
+
+<!ENTITY amp CDATA "&#38"
+ --<Title>(H1) ampersand -->
+
+<!ENTITY lt CDATA "&#60"
+ --<Title>(H1) less-than -->
+
+<!ENTITY gt CDATA "&#62"
+ --<Title>(H1) greater-than -->
+
+<!ENTITY quot CDATA "&#34"
+ --<Title>(I) internationalised application-dependent double-quote -->
+
+<!ENTITY nbsp CDATA " "
+ --<Title>(H3) non-breaking space -->
+
+<!ENTITY copy CDATA "(C)"
+ --<Title>(I) copyright symbol -->
+
+<!ENTITY reg CDATA "(R)"
+ --<Title>(I) registered symbol -->
+
+<!ENTITY % ISOlat1 PUBLIC "ISO 8879-1986//ENTITIES Added Latin 1//EN" 
+ --<Title>Latin-1 (accented) characters-->
+
+<!ENTITY % ISOlat2 PUBLIC "ISO 8879-1986//ENTITIES Added Latin 2//EN"
+ --<Title>Latin-2 more accented characters-->
+
+<!ENTITY % ISOpub PUBLIC "ISO 8879-1986//ENTITIES Publishing//EN" 
+ --<Title>Publishers' symbols-->
+
+<!ENTITY % ISOtech PUBLIC 
+ "ISO 8879-1986//ENTITIES General Technical//EN" 
+ --<Title>Technical symbols-->
+
+<!ENTITY % ISOnum PUBLIC 
+ "ISO 8879-1986//ENTITIES Numeric and Special Graphic//EN" 
+ --<Title>Numeric and graphic symbols-->
+
+%ISOlat1;
+%ISOlat2;
+%ISOpub;
+%ISOtech;
+%ISOnum;
+

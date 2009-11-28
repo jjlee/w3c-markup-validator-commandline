@@ -1,0 +1,25 @@
+<!-- ............................................................ -->
+<!-- HTML DTD Document Structure Module ......................... -->
+<!-- File struct.mod ............................................ -->
+
+<!ENTITY % structure.module.status %HTML.status; >
+<!ENTITY % structure.module.expires %HTML.expires; >
+<!ENTITY % structure.module.version 
+        "-//IETF//ELEMENTS HTML V2.0 Document Structure//EN" >
+
+<![ %HTML.Deprecated [
+        <!ENTITY % html.content "HEAD, BODY, PLAINTEXT?">
+]]>
+<!ENTITY % html.content "HEAD, BODY">
+
+<!ELEMENT HTML O O  (%html.content)>
+<!ENTITY % version.attr "VERSION CDATA #FIXED '%HTML.Version;'">
+
+<!ATTLIST HTML
+        %version.attr;
+        %SDAFORM; "Book"
+        >
+
+<!-- <HTML>                     HTML Document   -->
+
+<!-- End of struct.module -->

@@ -1,0 +1,5 @@
+<!ENTITY % Voyager.prolog SYSTEM "html-entities.mod">
+<!ENTITY % Voyager.base SYSTEM "html-base.mod">
+
+%Voyager.prolog;
+%Voyager.base;

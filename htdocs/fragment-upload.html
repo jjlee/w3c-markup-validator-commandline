@@ -1,0 +1,69 @@
+<!--#set var="revision" value="\$Id: fragment-upload.html,v 1.1.1.1 2004/09/19 12:34:09 ralph Exp $"
+--><!--#set var="date" value="\$Date: 2004/09/19 12:34:09 $"
+--><!--#set var="title" value="W3C MarkUp Validation Service: Validate Fragment"
+--><!--#set var="relroot" value="./"
+--><!--#include virtual="header.html" -->
+
+  <p id="skip">
+    This form allows you paste fragments of HTML and have them validated.
+  </p>
+
+  <p class="warning">
+    <strong>WARNING: This feature is highly experimental and has known
+      limitations (it only supports HTML, for one thing!). Do <em>not</em>
+      rely on it for 100% correctness! You have been warned!</strong>
+  </p>
+
+  <div>
+    <h2>Validate HTML Fragment</h2>
+
+    <form method="post" enctype="multipart/form-data" action="check">
+
+      <table cellpadding="0" cellspacing="0">
+
+        <tr>
+          <td colspan="2">
+            <label for="doctype">Document Type:
+<!--#include virtual="doctype-select.html" -->
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label><input name="ss" type="checkbox" value="" /> Show Source</label>
+          </td>
+          <td>
+            <label><input name="sp" type="checkbox" value="" /> Show Parse Tree</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label><input name="outline" type="checkbox" value="" /> Show Outline</label>
+          </td>
+          <td>
+            <label><input name="noatt" type="checkbox" value="" /> ...exclude attributes</label>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><textarea cols="60" rows="24" name="fragment"></textarea></td>
+        </tr>
+
+      </table>
+
+      <p>
+        <input type="submit" value="Validate this document" />
+        <input type="reset" value="Reset this form" />
+      </p>
+
+    </form>
+  </div>
+
+  <p>
+    If your document is on the Web, you can validate
+    it by <a title="Validate files by URI" href="./">entering its address</a> instead.
+  </p>
+
+<!--#include virtual="footer.html" -->
+
+  </body>
+</html>

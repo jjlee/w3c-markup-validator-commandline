@@ -1,0 +1,17 @@
+<!-- ............................................................ -->
+<!-- HTML DTD Paragraphs Module ................................. -->
+<!-- File para.mod ............................................. -->
+
+<!ENTITY % paragraphs.module.status %HTML.status; >
+<!ENTITY % paragraphs.module.expires %HTML.expires; >
+<!ENTITY % paragraphs.module.version 
+        "-//IETF//ELEMENTS HTML V2.0 Paragraphs//EN" >
+
+<!ELEMENT P     - O (%text)*>
+<!ATTLIST P
+        %SDAFORM; "Para"
+        >
+
+<!-- <P>        Paragraph       -->
+
+<!-- End of para.module -->

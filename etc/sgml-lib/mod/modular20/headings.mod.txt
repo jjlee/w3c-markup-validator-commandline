@@ -1,0 +1,44 @@
+<!-- ............................................................ -->
+<!-- HTML DTD Headings, Titles, Sections Module ................. -->
+<!-- File headings.mod .......................................... -->
+
+<!ENTITY % headings.module.status %HTML.status; >
+<!ENTITY % headings.module.expires %HTML.expires; >
+<!ENTITY % headings.module.version 
+        "-//IETF//ELEMENTS HTML V2.0 Headings//EN" >
+
+<!ELEMENT HR    - O EMPTY>
+<!ATTLIST HR
+        %SDAPREF; "&#RE;&#RE;"
+        >
+
+<!-- <HR>       Horizontal rule -->
+
+<!ELEMENT ( %heading )  - -  (%text;)*>
+<!ATTLIST H1
+        %SDAFORM; "H1"
+        >
+<!ATTLIST H2
+        %SDAFORM; "H2"
+        >
+<!ATTLIST H3
+        %SDAFORM; "H3"
+        >
+<!ATTLIST H4
+        %SDAFORM; "H4"
+        >
+<!ATTLIST H5
+        %SDAFORM; "H5"
+        >
+<!ATTLIST H6
+        %SDAFORM; "H6"
+        >
+
+<!-- <H1>       Heading, level 1 -->
+<!-- <H2>       Heading, level 2 -->
+<!-- <H3>       Heading, level 3 -->
+<!-- <H4>       Heading, level 4 -->
+<!-- <H5>       Heading, level 5 -->
+<!-- <H6>       Heading, level 6 -->
+
+<!-- End of headings.module -->

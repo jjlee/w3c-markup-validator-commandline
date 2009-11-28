@@ -1,0 +1,242 @@
+<!--#set var="revision" value="\$Id: help.html,v 1.1.1.1 2004/09/19 12:34:09 ralph Exp $"
+--><!--#set var="date" value="\$Date: 2004/09/19 12:34:09 $"
+--><!--#set var="title" value="Help for The W3C MarkUp Validation Service"
+--><!--#set var="relroot" value="../"
+--><!--#include virtual="../header.html" -->
+
+<div id="toc">
+<h2 id="TableOfContents">Table of contents</h2>
+<ul>
+  <li>About the Markup Validator
+  <ul>
+	<li>
+		<a href="#what-is-it">What is the Markup Validator and what does it do?</a>
+	</li>
+	<li>
+		<a href="#why-validate">Why validate?</a>
+	</li>
+	<li>
+		<a href="#who-does-validator">Who owns/maintain the Markup Validator?</a>
+	</li>
+	<li>
+		<a href="#others">What other validators are there?</a>
+	</li>
+	<li>
+		<a href="#how">How does The Validator work?</a>
+	</li>
+	<li>
+		<a href="#howto-feedback">How do I send feedback/bug reports 
+		about the Markup Validator?</a>
+	</li>
+  </ul>
+  </li>
+  <li>Using this service
+  <ul>
+	<li>
+		<a href="#manual">How do I use the Markup validator?</a>
+	</li>	
+	<li>
+		<a href="#errors">What is (are) this (these) error message(s)?</a>
+	</li>	
+	<li>
+		<a href="#munged-doctype">Many error messages? Don't panic.</a>
+	</li>
+	<li>
+		<a href="#cleanup">I don't want error messages, I want you to clean up my page!</a>
+	</li>
+  </ul>
+  </li>
+  <li>Miscellaneous (Very) Frequently Asked Questions
+  <ul>
+	<li>
+		<a href="#faq-ampersand">The validator complains about "&amp;" in my URLs!</a>
+	</li>
+	<li>
+		<a href="#faq-javascript">The validator complains about something in my Javascript!</a>
+	</li>
+	<li>
+		<a href="#faq-linkandmeta">Why doesn't the validator like my &lt;link ... /&gt; 
+		or &lt;meta ... /&gt;?</a>
+	</li>
+	<li>
+		<a href="#faq-typo">I found some nasty typo like &lt;p&lt;a ...&gt; 
+		and the validator accepted it!</a>
+	</li>
+   </ul>
+   </li>
+</ul>
+</div>
+
+
+<div id="skip">
+<h2 id="about">About the Markup Validator</h2>
+      <h3 id="what-is-it">What is the Markup Validator and what does it do?</h3>
+      <p>
+	The Markup Validator is a free tool and service that checks the 
+	syntax of (X)HTML documents.</p> 
+      <p>
+	The Validator is sort of like <code>lint</code> for C. It compares
+        your HTML document to the defined syntax of HTML and reports any
+        discrepancies. 
+      </p>
+      <p><a href="../about.html">Learn more</a> about the Markup Validator.</p>
+
+      <h3 id="why-validate">Why should I validate my HTML pages?</h3>
+      <p>
+        One of the important maxims of computer programming is: <q>Be
+        conservative in what you produce; be liberal in what you accept.</q>
+      </p>
+      <p>
+        Browsers follow the second half of this maxim by accepting Web pages
+        and trying to display them even if they're not legal HTML. Usually
+        this means that the browser will try to make educated guesses about
+        what you probably meant. The problem is that different browsers (or
+        even different versions of the same browser) will make different
+        guesses about the same illegal construct; worse, if your HTML is
+        <em>really</em> pathological, the browser could get hopelessly
+        confused and produce a mangled mess, or even crash.
+      </p>
+      <p>
+        That's why you want to follow the first half of the maxim by making
+        sure your pages are legal HTML. The best way to do that is by
+        running your documents through one or more HTML validators. 
+      </p>
+     
+
+      <h3 id="who-does-validator">Who owns/maintain the Markup Validator?</h3>
+      <p>The Markup Validator is Maintained at <acronym
+	title="World Wide Web Consortium">W3C</acronym> by W3C staff and 
+	benevolent collaborators, who receive a lot of help from contributors. 
+	(Read the <a href="http://validator.w3.org:8001/about.html#credits">full credits</a>)
+      </p>
+
+      <h3 id="others">What other validators are there?</h3>
+	<p>
+	We're doing our best to provide clear and reliable results as well as
+	a good interface with the Markup Validator, but for some reason you
+	may want to check other validators. Here are a few choices:
+	</p>
+	<ul>
+	<li><a href="http://valet.webthing.com/page/">Page Valet</a>, part of the
+	<a href="http://valet.webthing.com/">Site Valet</a> suite.</li>
+	<li><a href="http://www.htmlhelp.com/tools/validator/">WDG's HTML validator</a></li>
+	</ul>
+
+	<p>
+	Looking for validators at W3C, but not the Markup Validator?
+	Check out the list of <a href="http://www.w3.org/QA/Tools/#validators">validators at W3C</a>,
+	including well-known <a href="http://jigsaw.w3.org/css-validator/">CSS validator</a>,
+	<a href="http://validator.w3.org/checklink">link checker</a>, etc.
+	</p>
+	
+
+      <h3 id="how">How does The Validator work?</h3>
+      <p>
+	The Validator is based on <a href="http://www.jclark.com/">James
+        Clark</a>'s <code><a href="http://www.jclark.com/sp/">nsgmls</a></code>
+        SGML parser. The Validator itself is a CGI script that fetches your
+        URL, passes it through <code>nsgmls</code>, and post-processes the
+        resulting error list for easier reading. 
+      </p>
+
+      <h3 id="howto-feedback">How do I send feedback/bug reports about the Markup Validator?</h3>
+      <p>Read the instructions on our <a href="../feedback.html">Feedback page</a>.</p>
+</div>
+
+
+
+
+<div>
+<h2 id="using">Using this service</h2>
+
+      <h3 id="manual">How do I use this service?</h3>
+      <p>
+	Most probably, you will want to use the online Markup Validation service.
+	Read the <a href="users.html">user's manual</a> for further help with this
+	service.
+      </p>
+      <p>
+	If, for some reason, you prefer running your own instance of the Markup Validator,
+	check out our <a href="devel.html">developer's documentation</a>.
+      </p>
+
+      <h3 id="errors">What are these error messages?</h3>
+      <p>The output of the Markup Validator may be hard to decypher for
+	newcomers and experts alike, so we are maintaining a <a 
+	href="http://validator.w3.org:8001/docs/errors.html">list of error
+	messages and their interpretation</a>, which should help.
+     </p>
+
+      <h3 id="munged-doctype">Many error messages? Don't panic.</h3>
+      <p>
+        Don't panic. Did The Validator complain about your
+        <code>DOCTYPE</code> declaration (or lack thereof)? Make sure your
+        document has a syntactically correct <code>DOCTYPE</code>
+        declaration, as described in the <a href="sgml.html#doctype">section
+        on <code>DOCTYPE</code></a>, and make sure it correctly identifies
+        the type of HTML you're using. Then run it through The Validator
+        again; if you're lucky, you should get a lot fewer errors.
+      </p>
+      <p>
+        If this doesn't help, then you may be experiencing a cascade failure
+        &mdash; one error that gets The Validator so confused that it can't
+        make sense of the rest of your page. Try correcting the first few
+        errors and running your page through The Validator again. 
+      </p>
+      <p>
+	Be patient, with a little time and experience you will learn to use the 
+	Markup Validator to clean up your HTML documents in no time.
+      </p>
+
+      <h3 id="cleanup">I don't want error messages, I want you to clean up my page!</h3>
+       <p>The Markup Validator can not do this for you. You may want to have a look
+	at tools such as <a href="http://tidy.sourceforge.net">HTML Tidy</a>.</p>
+
+</div>
+
+<div>
+<h2 id="very-faq">Miscellaneous (Very) Frequently Asked Questions</h2>
+<h3 id="faq-ampersand">The validator complains about "&amp;" in my URLs!</h3>
+<p>Most probably, you should read the <a 
+href="http://www.htmlhelp.com/tools/validator/problems.html#amp">ampersand section</a>
+of WDG's excellent 
+"<a href="http://www.htmlhelp.com/tools/validator/problems.html">common validation problem</a>"
+</p>
+
+<h3 id="faq-javascript">The validator complains about something in my Javascript!</h3>
+<p>Most probably, you should read the 
+<a href="http://www.htmlhelp.com/tools/validator/problems.html#script">script section</a>
+of WDG's excellent                                                                    
+"<a href="http://www.htmlhelp.com/tools/validator/problems.html">common validation problem</a>"     
+</p>
+
+<h3 id="faq-linkandmeta">Why doesn't the validator like my 
+&lt;link ... /&gt; or &lt;meta ... /&gt;?</h3>
+<p>HTML is based on <a href="sgml.html">SGML</a> and uses an SGML 
+feature (called SHORTTAG) (note that this is <strong>not</strong> 
+the case with XHTML).</p>
+
+<p>With this feature enabled, the "/" in &lt;link ... /&gt; or &lt;meta ... /&gt;
+already closes the link (or meta) tag, and the "&gt;" becomes some regular text,
+ which is not allowed in the &lt;head&gt; element. Since &lt;/head&gt;&lt;body&gt; 
+is optional in HTML (again, <strong>not</strong> in XHTML), it is silently inserted, 
+thus head-only elements like meta and style as well as 
+"&lt;/head&gt;" and "&lt;body&gt;", which may apear only once, become false.
+</p>
+
+<p>(explanation courtesy of Christoph P&auml;per)</p>
+
+<h3 id="faq-typo">I found some nasty typo like &lt;p&lt;a ...&gt; 
+and the validator accepted it!</h3>
+
+<p>This again (as in the <a href="#faq-linkandmeta">previous case</a>) comes from the
+SHORTTAG feature in HTML (<strong>not</strong> in XHTML). The typo is actually a 
+"shorthand markup" and is a valid construct in HTML, even though its use 
+<a href="http://www.w3.org/TR/html4/appendix/notes.html#h-B.3.7">is not 
+recommended</a>.</p>
+
+</div>
+
+<!--#include virtual="../footer.html" -->
+  </body>
+</html>

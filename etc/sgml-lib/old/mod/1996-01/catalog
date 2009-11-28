@@ -1,0 +1,86 @@
+
+  -- note: this catalog is not used by the KGV. This is Dan's original --
+  -- catalog in the html-pubtext directory, unmodified except for this --
+  -- comment. I added most of this stuff to my catalog. -Gerald Oskoboiny --
+
+  --  HTML 1996-01 Catalog Data File
+      This is the catalog data file for HTML.
+      You do not need to use the file names listed here, and do not
+      need to use the filename method of identifying storage
+      objects at all. See "Entity Management", SGML Open Technical
+      Resolution 9401 for detailed information on supplying and
+      using catalog data. This document is available from SGML Open
+      at URL: <http://www.sgmlopen.org/sgml/docs/library/9401.htm>
+  --
+
+  -- ............................................................. --
+  -- SGML declaration associated with HTML ....................... --
+
+-- @@ I18N! (need to build nsgmls with wide char support)
+SGMLDECL "html.dcl"
+DTDDECL "-//W3C//DTD HTML 1996-01//EN" "html.dcl"
+ --
+
+  -- ............................................................. --
+  -- HTML 1996-01 driver file ....................................... --
+
+PUBLIC "-//W3C//DTD HTML 1996-01//EN" "html.dtd"
+PUBLIC "-//W3C//DTD HTML//EN" "html.dtd"
+
+  -- ............................................................. --
+  -- HTML 1996-01 modules ........................................... --
+
+PUBLIC "-//W3C//ENTITIES HTML ISO8859-1 1996-01//EN"             "ISO8859-1.sgm"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Character Mnemonics//EN"   "char.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 General Entities//EN"      "genent.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Color Idioms//EN"          "color.mod" >
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 SGML Document Access//EN"  "sda.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Text Markup//EN"           "text.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Link Markup//EN"           "link.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Images//EN"                "images.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Paragraphs//EN"            "para.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Headings//EN"              "headings.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Text Flows//EN"            "textflow.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Lists//EN"                 "lists.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Document Body//EN"         "body.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Forms//EN"                 "forms.mod"
+PUBLIC "-//W3C//ELEMENTS HTML V2.0-Based Extension Tables V0.3//EN"  "tables.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Document Head//EN"         "head.mod"
+PUBLIC "-//W3C//ELEMENTS HTML 1996-01 Document Structure//EN"    "struct.mod"
+
+  -- ............................................................. --
+  -- HTML 2.0 public text......................................... --
+
+	-- Ways to refer to Level 3: most general to most specific --
+PUBLIC  "-//W3C//DTD HTML 3 1995-03-24//EN"	../html3/html3.dtd
+
+	-- Ways to refer to Level 2: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML//EN"			../html-spec/html.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0//EN"		../html-spec/html.dtd
+PUBLIC  "-//IETF//DTD HTML Level 2//EN"		../html-spec/html.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0 Level 2//EN"	../html-spec/html.dtd
+
+	-- Ways to refer to Level 1: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Level 1//EN"		../html-spec/html-1.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0 Level 1//EN"	../html-spec/html-1.dtd
+
+	-- Ways to refer to
+		 Strict Level 2: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Strict//EN"			../html-spec/html-s.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0 Strict//EN"		../html-spec/html-s.dtd
+PUBLIC  "-//IETF//DTD HTML Strict Level 2//EN"		../html-spec/html-s.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0 Strict Level 2//EN"	../html-spec/html-s.dtd
+
+	-- Ways to refer to
+		 Strict Level 1: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Strict Level 1//EN"		../html-spec/html-1s.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0 Strict Level 1//EN"	../html-spec/html-1s.dtd
+
+
+  -- ............................................................. --
+  -- ISO entity sets ............................................. --
+
+PUBLIC	"ISO 8879-1986//ENTITIES Added Latin 1//EN//HTML"	"ISOlat1.sgm"
+
+  -- End of HTML catalog data 1996-01 ............................... --
+  -- ............................................................. --

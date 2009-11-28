@@ -1,0 +1,148 @@
+<!-- This DTD fragment shows only changes from HTML 2.1 to 2.1E -->
+<!-- Internet Draft on Compound Document Types
+     http://www.ics.uci.edu/pub/ietf/html/draft-ietf-html-cda-00.txt 
+     refers -->
+
+   <!ENTITY % HTML.Version "-//IETF//DTD HTML 2.1E//EN">
+   
+   <!-- Content models -->
+   
+   <![ %HTML.Highlighting [
+   <!ENTITY % text  "#PCDATA|A|EMBED|IMG|BR|%phrase|%font|SPAN|Q|BDO|SUP|SUB">
+   ]]>
+   <!ENTITY % text "#PCDATA|A|EMBED|IMG|BR|SPAN|Q|BDO|SUP|SUB">
+   
+   <!-- Attribute value types -->
+   
+   <!ENTITY % URI       "CDATA"    -- uniform resource identifier -->
+   <!ENTITY % Length    "CDATA"    -- number followed by optional units -->
+   
+   <!-- Attribute sets -->
+   
+   <!ENTITY % attrs
+        'ID      ID         #IMPLIED   -- element identifier --
+         LANG    NAME       #IMPLIED   -- RFC 1766 language tag --
+         DIR     (ltr|rtl)  #IMPLIED   -- text directionality --'>
+   <!ENTITY % size
+        'WIDTH   %Length    #IMPLIED   -- desired width in units --
+         HEIGHT  %Length    #IMPLIED   -- desired height in units --'>
+   <!ENTITY % align.simple
+        'ALIGN   (top|middle|bottom) #IMPLIED  -- glyph alignment --'>
+   <!ENTITY % align
+        'ALIGN   (top|middle|bottom|left|center|right)  #IMPLIED
+         HSPACE  %Length    #IMPLIED   -- text stays this far away  
+horizontally --
+         VSPACE  %Length    #IMPLIED   -- text stays this far away  
+vertically --
+         FLOWTO  NAME       #IMPLIED   -- flow text around block  
+until this ID --'>
+   <!ENTITY % mime.constraints -- MIME typing constraints --
+        'ACCEPT           CDATA  "text/plain" -- applicable media  
+type(s) --
+         ACCEPT-CHARSET   CDATA  "ISO-8859-1" -- appl. character  
+encoding(s) --
+         ACCEPT-ENCODING  CDATA  "ISO-8859-1" -- appl. transfer  
+encoding(s) --'>
+   <!ENTITY % link.internal -- links with implicit presentation  
+resource --
+        'SRC     %URI;      #REQUIRED  -- resource to retrieve --
+         PARAMS  CDATA      #IMPLIED   -- presentation specializer --
+         USEMAP  %URI       #IMPLIED   -- default event handling,  
+if needed --'>
+   <!ENTITY % link.metainfo  -- overall link metainfo  --
+        'TITLE   CDATA      #IMPLIED   -- overall title for resource --
+         URN     %URI       #IMPLIED   -- global entity name --
+         REL     %linkType  #IMPLIED   -- link relationship --
+         REV     %linkType  #IMPLIED   -- reverse relationship --'>
+   <![ %HTML.Deprecated [
+        <!ENTITY % case.metainfo  -- link metainfo for specific  
+variant --
+                '%mime.constraints;             -- type constraints --
+                 METHODS  NAMES     #IMPLIED    -- deprecated --'>
+   ]]>
+   <!ENTITY % case.metainfo  -- link metainfo for specific variant --
+        '%mime.constraints;             -- type constraints --'>
+   <!ENTITY % linkExtraAttributes
+        '%link.metainfo;
+         %case.metainfo;
+        '>
+   <![ %HTML.Recommended [
+        <!ENTITY % key.value  -- key/value pair with typed value --
+                'NAME    NAME       #IMPLIED   -- keyword, usually  
+required --
+                 VALUE   CDATA      #IMPLIED   -- default value --
+                 %mime.constraints;            -- type constraints  
+for value --'>
+   ]]>
+   <!ENTITY % key.value  -- key/value pair with typed value --
+        'NAME    CDATA      #IMPLIED   -- keyword, usually required --
+         VALUE   CDATA      #IMPLIED   -- default value --
+         %mime.constraints;            -- type constraints for  
+value --'>
+   
+   <!-- Embed and Related Elements -->
+   
+   <!ELEMENT EMBED - - (PARAM*, CAPTION?, EMBED.BODY, CREDIT?)>
+   <!ATTLIST EMBED
+        %attrs;
+        %link.internal;
+        %link.metainfo;
+        %case.metainfo;
+        %size;                      -- size of reserved area --
+        %align;                     -- alignment or float --
+        %SDAPREF; '<Fig><Xref IDRef="#AttVal(SRC)"><?SDATrans Embed: #AttList>'
+        %SDASUFF; '</Fig>'
+        >
+   <!ELEMENT CAPTION - - (%text;)+ -- caption for floating element -->
+   <!ATTLIST CAPTION
+        %attrs;
+        %align;                     -- side of rectangle where  
+caption placed --
+        %SDAPREF; "Caption: "
+        >
+   <!ELEMENT EMBED.BODY O O %A.content>
+   <!ATTLIST EMBED.BODY
+        %attrs;
+        >
+   <!ELEMENT CREDIT - - (%text;)* -- copyright/credit for embedded  
+object  -->
+   <!ATTLIST CREDIT
+        %attrs;
+        %SDAFORM; "Fn"
+        >
+   
+   <!-- Link Specializer Elements -->
+   
+   <!ELEMENT INPUT - O EMPTY  -- builds retrieval specializer -- >
+   <!ATTLIST INPUT
+        %attrs;
+        %key.value;                      -- key and MIME-typed value --
+        TYPE       %InputType  #IMPLIED  -- defaults to TEXT in  
+FORM context --
+        CHECKED    (CHECKED)   #IMPLIED  -- initial boolean state --
+        SRC        %URI;       #IMPLIED  -- embedded graphic for  
+TYPE=IMAGE --
+        %align.simple;                   -- alignment for TYPE=IMAGE --
+        SIZE       CDATA       #IMPLIED
+        MAXLENGTH  NUMBER      #IMPLIED
+        %SDAPREF; "Input #AttVal(Type): "
+        >
+   <!ELEMENT PARAM - O EMPTY  -- builds presentation specializer -- >
+   <!ATTLIST PARAM
+        %attrs;
+        %key.value;
+        %SDAPREF; "<?SDATrans Param: #AttList>"
+        >
+   
+   <!-- Corrections -->
+   
+   <!ELEMENT FORM - - %body.content -(FORM) +(INPUT|SELECT|TEXTAREA)>
+   <!ATTLIST FORM
+        %attrs;
+        ACTION CDATA #IMPLIED
+        METHOD (%HTTP-Method) GET
+        ENCTYPE %Content-Type; "application/x-www-form-urlencoded"
+        %SDAPREF; "<Para>Form:</Para>"
+        %SDASUFF; "<Para>Form End.</Para>"
+        >
+

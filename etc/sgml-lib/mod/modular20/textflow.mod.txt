@@ -1,0 +1,68 @@
+<!-- ............................................................ -->
+<!-- HTML DTD Text Flows Module ................................. -->
+<!-- File textflow.mod ......................................... -->
+
+<!ENTITY % textflows.module.status %HTML.status; >
+<!ENTITY % textflows.module.expires %HTML.expires; >
+<!ENTITY % textflows.module.version 
+        "-//IETF//ELEMENTS HTML V2.0 Text Flows//EN" >
+
+
+<![ %forms.module [
+        <!ENTITY % block.forms "BLOCKQUOTE | FORM | ISINDEX">
+]]>
+
+<!ENTITY % block.forms "BLOCKQUOTE">
+
+<![ %HTML.Deprecated [
+        <!ENTITY % preformatted "PRE | XMP | LISTING">
+]]>
+
+<!ENTITY % preformatted "PRE">
+
+<!ENTITY % block "P | %list | DL
+        | %preformatted
+        | %block.forms">
+
+<!ENTITY % flow "(%text|%block)*">
+
+<!ENTITY % pre.content "#PCDATA | A | HR | BR">
+<!ELEMENT PRE - - (%pre.content)*>
+<!ATTLIST PRE
+        WIDTH NUMBER #implied
+        %SDAFORM; "Lit"
+        >
+
+<!-- <PRE>              Preformatted text               -->
+<!-- <PRE WIDTH=...>    Maximum characters per line     -->
+
+<![ %HTML.Deprecated [
+
+<!ENTITY % literal "CDATA"
+        -- historical, non-conforming parsing mode where
+           the only markup signal is the end tag
+           in full
+        -->
+
+<!ELEMENT (XMP|LISTING) - -  %literal>
+<!ATTLIST XMP
+        %SDAFORM; "Lit"
+        %SDAPREF; "Example:&#RE;"
+        >
+<!ATTLIST LISTING
+        %SDAFORM; "Lit"
+        %SDAPREF; "Listing:&#RE;"
+        >
+
+<!-- <XMP>              Example section         -->
+<!-- <LISTING>          Computer listing        -->
+
+<!ELEMENT PLAINTEXT - O %literal>
+<!-- <PLAINTEXT>        Plain text passage      -->
+
+<!ATTLIST PLAINTEXT
+        %SDAFORM; "Lit"
+        >
+]]>
+
+<!-- End of textflows.module -->

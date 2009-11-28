@@ -1,0 +1,62 @@
+	-- catalog: SGML Open style entity catalog for HTML --
+	-- $Id: catalog,v 1.1.1.1 2004/09/19 12:34:08 ralph Exp $ --
+	-- well that $id is messed up now cos I edited the file! --
+
+	-- ISO latin 1 entity set for HTML -- =
+PUBLIC	"-//IETF//ENTITIES Added Latin 1 for HTML//EN"	html-latin.sgml
+
+        -- fake HTMLicons reference --
+PUBLIC	"-//IETF//ENTITIES icons for HTML//EN"          html-icons.sgml
+
+        -- fake HTMLmath reference --
+PUBLIC  "-//IETF//ENTITIES Math and Greek for HTML//EN"  html-math.sgml
+
+	-- Ways to refer to Level 3: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML//EN//3.0"		html-3.dtd
+PUBLIC  "-//W3O//DTD W3 HTML 3.0//EN//"         html-3.dtd
+PUBLIC  "-//IETF//DTD HTML 3.0//EN"             html-3.dtd
+PUBLIC  "-//IETF//DTD HTML 3.0//EN//"           html-3.dtd
+PUBLIC  "-//IETF//DTD HTML Level 3//EN"		html-3.dtd
+PUBLIC  "-//IETF//DTD HTML Level 3//EN//3.0"	html-3.dtd
+
+	-- Ways to refer to strict Level 3: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Strict//EN//3.0"		html-3s.dtd
+PUBLIC  "-//W3O//DTD W3 HTML Strict 3.0//EN//" 		html-3s.dtd
+PUBLIC  "-//IETF//DTD HTML Strict Level 3//EN"		html-3s.dtd
+PUBLIC  "-//IETF//DTD HTML Strict Level 3//EN//3.0"	html-3s.dtd
+
+	-- Ways to refer to Level 2: most general to most specific --
+PUBLIC  "HTML"					html.dtd
+PUBLIC  "-//IETF//DTD HTML//EN"			html.dtd
+PUBLIC  "-//IETF//DTD HTML//EN//2.0"		html.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0//EN"		html.dtd
+PUBLIC  "-//IETF//DTD HTML Level 2//EN"		html.dtd
+PUBLIC  "-//IETF//DTD HTML Level 2//EN//2.0"	html.dtd
+
+
+	-- Ways to refer to Level 1: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Level 1//EN"		html-1.dtd
+PUBLIC  "-//IETF//DTD HTML Level 1//EN//2.0"	html-1.dtd
+
+	-- Ways to refer to Level 0: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Level 0//EN"		html-0.dtd
+PUBLIC  "-//IETF//DTD HTML Level 0//EN//2.0"	html-0.dtd
+
+	-- Ways to refer to Strict Level 2 --
+PUBLIC  "-//IETF//DTD HTML Strict//EN"			html-s.dtd
+PUBLIC  "-//IETF//DTD HTML Strict//EN//2.0"		html-s.dtd
+PUBLIC  "-//IETF//DTD HTML Strict Level 2//EN"		html-s.dtd
+PUBLIC  "-//IETF//DTD HTML Strict Level 2//EN//2.0"	html-s.dtd
+
+	-- Ways to refer to Strict Level 1 --
+PUBLIC  "-//IETF//DTD HTML Strict Level 1//EN"		html-1s.dtd
+PUBLIC  "-//IETF//DTD HTML Strict Level 1//EN//2.0"	html-1s.dtd
+
+	-- Ways to refer to Strict Level 0 --
+PUBLIC  "-//IETF//DTD HTML Strict Level 0//EN"		html-0s.dtd
+PUBLIC  "-//IETF//DTD HTML Strict Level 0//EN//2.0"	html-0s.dtd
+
+	-- Ways to refer to Netscape extensions HTML --
+PUBLIC "-//Netscape Comm. Corp.//DTD HTML//EN"		html-mcom.dtd
+
+

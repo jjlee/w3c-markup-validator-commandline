@@ -1,0 +1,60 @@
+-- this is what I would append to my catalog to add Murray's --
+-- DTD stuff. It doesn't seem to want to work though. --
+
+-- Murray Altheim's modular DTD for HTML 2.2: --
+-- see http://ogopogo.nttc.edu/spec/html/modular-dtd.html --
+--  or http://www.stonehand.com/murray/modular.htm --
+
+  -- ............................................................. --
+  -- HTML catalog data V2.2 ...................................... --
+  -- File HTML22.cat ............................................. --
+
+  --  HTML V2.2 Catalog Data File                        1996/01/08
+      This is the catalog data file for Version 2.2 of the HTML DTD.
+      You do not need to use the file names listed here, and do not
+      need to use the filename method of identifying storage
+      objects at all. See "Entity Management", SGML Open Technical
+      Resolution 9401 for detailed information on supplying and
+      using catalog data. This document is available from SGML Open
+      at URL: <http://www.sgmlopen.org/sgml/docs/library/9401.htm>
+  --
+
+  -- ............................................................. --
+  -- SGML declaration associated with HTML ....................... --
+
+SGMLDECL "mod/modular22/html22.dcl"
+DTDDECL "-//IETF//DTD HTML V2.2//EN" "mod/modular22/html22.dcl"
+
+  -- ............................................................. --
+  -- HTML V2.2 driver file ....................................... --
+
+PUBLIC "-//IETF//DTD HTML V2.2//EN" "mod/modular22/html22.dtd"
+
+  -- ............................................................. --
+  -- HTML V2.2 modules ........................................... --
+
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 Character Mnemonics//EN"   "mod/modular22/char.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 General Entities//EN"      "mod/modular22/genent.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 SGML Document Access//EN"  "mod/modular22/sda.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 Text Markup//EN"           "mod/modular22/text.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 Link Markup//EN"           "mod/modular22/link.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 Images//EN"                "mod/modular22/images.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 Paragraphs//EN"            "mod/modular22/para.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 Headings//EN"              "mod/modular22/headings.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 Text Flows//EN"            "mod/modular22/textflow.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 Lists//EN"                 "mod/modular22/lists.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 Document Body//EN"         "mod/modular22/body.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 Forms//EN"                 "mod/modular22/forms.mod"
+PUBLIC "-//W3C//ELEMENTS HTML V2.0-Based Extension Tables V0.3//EN"  "mod/modular22/tables.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 Document Head//EN"         "mod/modular22/head.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.2 Document Structure//EN"    "mod/modular22/structure.mod"
+
+  -- ............................................................. --
+  -- ISO entity sets ............................................. --
+
+PUBLIC	"ISO 8879-1986//ENTITIES Added Latin 1 v.mod22//EN//HTML"	"mod/modular22/ISOlat1.sgm"
+  -- the 'v.mod22' above was added by Gerald Oskoboiny to distinguish --
+  -- it from the other stuff with the same name in my catalog. --
+
+  -- End of HTML catalog data V2.2 ............................... --
+  -- ............................................................. --

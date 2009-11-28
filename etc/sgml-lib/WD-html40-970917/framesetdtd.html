@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<!-- $Id: framesetdtd.html,v 1.1.1.1 2004/09/19 12:34:08 ralph Exp $ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>HTML 4.0 Frameset Document Type Definition</title>
+<link rel="previous" href="loosedtd.html">
+<link rel="next" href="entities.html">
+<LINK rel="contents" href="../cover.html#toc">
+<LINK rel="STYLESHEET" href="../style/default.css" type="text/css">
+</head>
+<body>
+<div class="navbar">
+<center><a href="loosedtd.html">previous</a> &nbsp; <a href="entities.html">next</a> &nbsp; <a href="../cover.html#toc">contents</a> &nbsp; <a href="../index/elements.html">elements</a> &nbsp; <a href="../index/attribs.html">attributes</a>
+</center><hr>
+</div>
+
+<h1 align="center"><a name="h-24">24</a> <a name=dtd>Frameset Document Type Definition
+</a></h1>
+<div class="dtd-fragment">
+<!-- $Id: framesetdtd.html,v 1.1.1.1 2004/09/19 12:34:08 ralph Exp $ -->
+<pre class="dtd">
+&lt;!--
+    This is an EXPERIMENTAL version of the HTML 4.0 "frameset" DTD
+    which differs from the normal DTD by the content of the HTML
+    element. For frameset documents the FRAMESET element is used
+    in place of the BODY element.
+
+          Draft: $Date: 2004/09/19 12:34:08 $
+
+          Authors:
+              Dave Raggett &lt;dsr@w3.org&gt;
+              Arnaud Le Hors &lt;lehors@w3.org&gt;
+
+    This is work in progress, subject to change at any time.
+    It does not imply endorsement by, or the consensus of,
+    either W3C or members of the HTML working group. Further
+    information about HTML 4.0 is available at:
+
+          <a href="http://www.w3.org/TR/WD-html40/">http://www.w3.org/TR/WD-html40/</a>.
+--&gt;
+&lt;!ENTITY % HTML.Version "-//W3C//DTD HTML 4.0 Frameset//EN"
+  -- Typical usage:
+
+    &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN"&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+    ...
+    &lt;/head&gt;
+    &lt;frameset&gt;
+    ...
+    &lt;/frameset&gt;
+    &lt;/html&gt;
+--&gt;
+
+&lt;!ENTITY % HTML.Frameset "INCLUDE"&gt;
+&lt;!ENTITY % HTML4.dtd PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
+%HTML4.dtd;
+</pre>
+
+</div>
+<div class="navbar">
+<hr><center><a href="loosedtd.html">previous</a> &nbsp; <a href="entities.html">next</a> &nbsp; <a href="../cover.html#toc">contents</a> &nbsp; <a href="../index/elements.html">elements</a> &nbsp; <a href="../index/attribs.html">attributes</a>
+</center></div>
+</body>
+</html>

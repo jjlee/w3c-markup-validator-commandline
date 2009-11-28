@@ -1,0 +1,15 @@
+OVERRIDE	YES
+        -- SGML Open entity catalog for Extensible HTML 1.0 --
+
+PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN"        strict.dtd
+PUBLIC  "-//W3C//DTD XHTML 1.0 Transitional//EN"  transitional.dtd
+PUBLIC  "-//W3C//DTD XHTML 1.0 Frameset//EN"      frameset.dtd
+
+        -- ISO latin 1 entity set for HTML (XML 1.0 format) --
+
+PUBLIC	"-//W3C//ENTITIES Latin1//EN//HTML"  HTMLlat1x.ent
+PUBLIC	"-//W3C//ENTITIES Symbols//EN//HTML" HTMLsymbolx.ent
+PUBLIC	"-//W3C//ENTITIES Special//EN//HTML" HTMLspecialx.ent
+
+SGMLDECL "xhtml1.dcl"
+DOCTYPE html transitional.dtd

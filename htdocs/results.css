@@ -1,0 +1,153 @@
+/* style sheet for the validator's results page          */
+/* $Id: results.css,v 1.1.1.1 2004/09/19 12:34:09 ralph Exp $ */
+
+.markup {
+  color: red;
+  background: white;
+  font-weight: bolder;
+}
+
+.input {
+  color: black;
+  background-color: #eeeeee; /* light grey */
+}
+
+fieldset {
+  color: black;
+  background-color: #eeeeee;
+}
+
+ul#Warnings {
+  clear: left;
+  padding-top: 1ex;
+}
+
+div.meat {
+  margin-right: 10em;
+}
+
+th {
+  padding-right: .5em;
+  text-align: right;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+td {
+  text-align: left;
+  padding-left: .5em;
+}
+
+.info {
+  color: black;
+  background: white;
+  border-color: gray;
+}
+
+.warning {
+  color: black;
+  background: silver;
+  border-color: gray;
+}
+
+.error {
+  color: black;
+  background: yellow;
+  border-color: black;
+}
+
+.fatal h2 {
+  color: black;
+  background: red;
+  border: solid black 1px;
+}
+
+h2.valid {
+  text-align: center;
+}
+
+.valid {
+  background:		#053188;
+  color:		white;
+  font-family:		"Luxi Sans", Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
+  font-size-adjust:	.53;
+  font-size:		1.5em;
+  font-weight:		500;
+  font-style:		normal;
+  text-decoration:	none;
+  word-spacing:		normal;
+  letter-spacing:	normal;
+  text-transform:	none;
+  border-color:		black;
+  padding-top:		.5em;
+  padding-bottom: 	.5em;
+}
+
+.valid a {
+  color:      yellow;
+  background: #053188;
+}
+
+.valid a:visited {
+  color: silver;
+  background: #053188;
+}
+
+.valid a:hover {
+  color: #053188;
+  background: #eee;
+}
+
+.valid a:active {
+  color: red;
+  background: yellow;
+}
+
+h2.invalid {
+  text-align: center;
+}
+
+.invalid {
+  background:		#880531;
+  color:		white;
+  font-family:		"Luxi Sans", Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
+  font-size-adjust:	.53;
+  font-size:		1.5em;
+  font-weight:		500;
+  font-style:		normal;
+  text-decoration:	none;
+  word-spacing:		normal;
+  letter-spacing:	normal;
+  text-transform:	none;
+  border-color: 	black;
+  padding-top:		.5em;
+  padding-bottom: 	.5em;
+}
+
+.invalid a {
+  color: blue;
+}
+
+.invalid a:visited {
+  color: silver;
+}
+
+.invalid a:hover {
+  color: #880531;
+  background: white;
+}
+
+.invalid a:active {
+  color: red;
+}
+
+img.inline-badge {
+  float: left;
+}
+
+
+
+div.mtb { /* "Medium Thematic Break" */
+  margin-top: 5em;
+  border-top: 1px solid black;
+}

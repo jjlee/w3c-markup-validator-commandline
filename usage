@@ -1,0 +1,68 @@
+Very cheesy usage documentation:
+(Ralph Bolton, Feb 29th, 2004)
+
+"check" requires the name of the file to validate. It only works with
+files, unlike it's online counterpart. In many cases, it'll figure out
+the correct details and use them. However, to avoid possible mishaps,
+you may with to specify the Mime type and character encoding for the
+file. That way, it'll still work, even if the auto-detect doesn't.
+
+Command line options are as follows:
+
+check [-mime mimetype] [-encoding encodingtype] filename
+
+Where:
+	mimetype is a proper Mime type (eg. text/html, text/xml etc)
+	encodingtype is a proper encoding type (eg. utf-8, iso-8859-1 etc)
+	filename is the path to a file to read and validate
+
+Output is really simple - the first line will report the result of the
+attempt to validate. After that, you get warnings and errors that were
+encountered during validation.
+
+For those who want to machine-read the output, you need to be ready for
+"Result" lines of the following form (one of the following, but possibly
+none of them, if a really fatal error occurs):
+	Result: This document is not valid [doctype]
+	Result: This document is not valid
+	Result: This document is valid [doctype]
+	Result: This document is well-formed XML
+	Result: This document tentatively validates as [doctype]
+	Result: This document validates as the document type specified
+
+(all output is left aligned, so ignore the tabs in this document)
+After that, warnings are of the form:
+	Warning: No Character Encoding detected - correct validation requires this
+
+...and errors are of the form:
+	Error: line 97 column 3:  document type does not allow element "TR" here
+
+...all in all, this lot should be pretty easy to parse into some Perl or something
+to augment the output as required.
+
+Multiple File Input
+===================
+As if all this wasn't enough, it's possible to save youself the startup costs
+of running "check" repeatedly. Simply specify the filename as "-" and you'll
+find yourself in a semi-interactive environment. Just enter the same command
+lines you'd have done on the end of the "check" command and it'll go do validation
+for you. "check" handily says "[waiting]" between jobs, so you'll know where to
+snip output (if you're reading with a program). Here's a sample...
+
+	% check -
+	[waiting]
+	-mime text/xml -encoding iso-8859-1 /path/to/file.xml
+	Result: This document is well-formed XML
+	Warning: The XML validator has some limitations
+	[waiting]
+	/path/to/nicehtml.html
+	Result: This document is valid HTML 4.01 Transitional
+	[waiting]
+	(ctrl-d)
+	%
+
+...beautiful. It saves an awful lot of reading extensive config files and
+compiling mucky Perl.
+
+Have Fun!
+

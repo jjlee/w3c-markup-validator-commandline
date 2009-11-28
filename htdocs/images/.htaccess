@@ -1,0 +1,6 @@
+#
+# $Id: .htaccess,v 1.1.1.1 2004/09/19 12:34:09 ralph Exp $
+#
+
+Header set Cache-Control "max-age=604800"
+

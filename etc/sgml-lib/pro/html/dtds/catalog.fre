@@ -1,0 +1,18 @@
+
+
+-- HTML Professional DTD Catalog fragment for Panorama FREE --
+ 
+PUBLIC "+//Silmaril//DTD HTML Pro v0r11 19970101//EN"
+       "c:\html\dtds\htmlpro.dtd"
+
+PUBLIC "ISO 8879:1986//ENTITIES Added Latin 1//EN" 
+	"c:\html\dtds\isolat1.ent"
+PUBLIC "ISO 8879:1986//ENTITIES Added Latin 2//EN" 
+	"c:\html\dtds\isolat2.ent"
+PUBLIC "ISO 8879:1986//ENTITIES Numeric and Special Graphic//EN 
+	"c:\html\dtds\isonum.ent"
+PUBLIC "ISO 8879:1986//ENTITIES Publishing//EN" 
+	"c:\html\dtds\isopub.ent"
+PUBLIC "ISO 8879:1986//ENTITIES General Technical//EN" 
+	"c:\html\dtds\isotech.ent"
+

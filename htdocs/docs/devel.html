@@ -1,0 +1,136 @@
+<!--#set var="revision" value="\$Id: devel.html,v 1.1.1.1 2004/09/19 12:34:09 ralph Exp $"
+--><!--#set var="date" value="\$Date: 2004/09/19 12:34:09 $"
+--><!--#set var="title" value="Developer Documentation for The W3C MarkUp Validation Service"
+--><!--#set var="relroot" value="../"
+--><!--#include virtual="../header.html" -->
+
+    <p id="skip">
+      The W3C MarkUp Validation Service consists of an SGML Parser, an SGML
+      catalog, a CGI program and it's configuration files. In addition it
+      relies on a moderately large set of Perl modules for it's operation.
+    </p>
+    <p>
+      This document tries to draw a road map of the prerequisites and what the
+      different parts of the system do. It is intended for system
+      administrators and people interested in helping developing the validator.
+      This is not end user documentation. See the
+      <a href="users.html">User Manual</a> for usage instructions.
+    </p>
+
+    <div id="prereq" class="stb">
+      <h2>Prerequisites</h2>
+      <p>
+        Apart from a properly configured web server, the Validator needs a
+        SGML parser -- that does all the hard work -- and several Perl
+        modules used by the "check" CGI script.
+      </p>
+      <p>
+        The SGML parser we're currently using is <code>OpenSP 1.5</code>,
+        which can be found on the <a href="http://openjade.sf.net/">OpenJade
+        home page</a>.
+      </p>
+      <p>
+        The canonical list of Perl modules we use can be found in the source
+        for the "check" CGI script. There is a bunch of lines that of the form
+        "use Foo::Bar" where each "Foo::Bar" represents a module. Most modules
+        can be found on <a href="http://www.cpan.org/">CPAN</a> (minimum
+        versions in parenthesis after the name). The following
+        list was complete when CVS spit out:
+        <code>$Date: 2004/09/19 12:34:09 $</code>. <tt>:-)</tt>
+      </p>
+      <dl>
+        <dt><code>CGI (2.81)</code></dt>
+        <dd>
+          The all-singing, all-dancing,
+          everything-<em>and</em>-the-kitchen-sink, Perl CGI library. This
+          takes care of all those niggly little bits of CGI for us and make
+          options parsing and file upload a breeze.
+        </dd>
+        <dt><code>CGI::Carp</code></dt>
+        <dd>CGI-aware warn()/die()</dd>
+        <dt><code>File::Spec</code></dt><dd>Portable filespecs.</dd>
+        <dt><code>HTML::Parser (3.25)</code></dt>
+        <dd>Minimal HTML Parser used for preparse and finding metadata.</dd>
+        <dt><code>LWP::UserAgent (1.90)</code></dt>
+        <dd>
+          Gisle Aas' most excellent WWW library for Perl. This is where our
+          support for downloading pages off the net comes from.
+        </dd>
+        <dt><code>Set::IntSpan</code></dt><dd>Efficient Set operations.</dd>
+        <dt><code>Text::Iconv</code></dt>
+        <dd>
+          Perl-native interface to the (g)libc iconv(3) library. Handles
+          charset conversion issues.
+        </dd>
+        <dt><code>Text::Wrap</code></dt>
+        <dd>Wrap text to a sane width. Needed for source output in results.</dd>
+        <dt><code>URI::Escape</code></dt>
+        <dd>Module to handle escaping special characters in URIs.</dd>
+      </dl>
+    </div>
+    <div id="config" class="stb">
+      <h2>Configuration Files</h2>
+      <p>
+        The validator uses a number of configuration files -- most of which
+        are really mapping tables of some form -- to avoid having to check in
+        a new version of the code every time a new version of HTML comes out.
+        All configuration files can be found in
+        <code>$CVSROOT/validator/htdocs/config/</code>.
+      </p>
+      <p>
+        To really understand what each does you should read the source, but
+        here is a short description to get you started.
+      </p>
+      <dl>
+        <dt>eref.cfg</dt>
+        <dd>
+          Contains the mappings from element names to an URI fragment
+          (relative to a configurable URI) for their definitions. Used
+          in output when the "Show Source Input" option is enabled.
+        </dd>
+        <dt>fpis.cfg</dt>
+        <dd>
+          Maps FPIs to plain text version strings.
+        </dd>
+        <dt>frag.cfg</dt>
+        <dd>
+          Maps error messages to an URI fragment identifier where an
+          explanation of that error can be found.
+        </dd>
+        <dt>type.cfg</dt>
+        <dd>
+          Maps MIME/HTTP Content-Types to an internal "document type" which
+          is used for treating HTML, XML, and XHTML in different ways.
+        </dd>
+        <dt>check.cfg</dt>
+        <dd>
+          Main configuration file. Gives various parameters (such as the
+          address of the maintainer and the URL for the "Home Page") and
+          the locations of the other configuration files and mapping tables.
+        </dd>
+       </dl>
+    </div>
+    <div id="todo" class="stb">
+      <h2>TODO</h2>
+      <p>
+        The TODO list for the Validator is online at
+        &lt;<a href="../todo.html">http://validator.w3.org/todo.html</a>&gt;.
+ 	      This is probably the best place to start.
+ 	    </p>
+      <p>
+        However this list is by no means comprehensive. Feel free to suggest
+        other features that should be on this list or send patches for your
+        favourite feature.
+      </p>
+      <p>
+        Keep in mind that features should be of general utility and that the
+        point if the validator is that it does an <em>objective</em>
+        validation instead of just what some random developer happens to
+        think is a Good Idea&reg;. While extra features are nice, they
+        shouldn't dilute the value of the validator as an objective check.
+      </p>
+    </div>
+
+<!--#include virtual="../footer.html" -->
+  </body>
+</html>

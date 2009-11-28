@@ -1,0 +1,10 @@
+
+
+-- HTML Professional Entity Resource fragment for Panorama FREE --
+
+PUBLIC "+//Silmaril//DTD HTML Pro v0r11 19970101//EN"
+	DOCTITLE "HEAD,TITLE"
+	VERBATIM "PRE LISTING XMP PLAINTEXT"
+	STYLESPEC "HTMLPRO" "http://www.ucc.ie/html/dtds/htmlpro.ssh"
+	NAVIGATOR "HTMLPRO" "http://www.ucc.ie/html/dtds/htmlpro.nav"
+

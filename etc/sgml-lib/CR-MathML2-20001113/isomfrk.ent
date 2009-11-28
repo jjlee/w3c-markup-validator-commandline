@@ -1,0 +1,79 @@
+
+<!--
+     File isomfrk.ent produced by the XSL script mmldtd.xsl
+     from input data in unicode.xml.
+
+     Please report any errors to 
+     David Carlisle <davidc@nag.co.uk>.
+
+     The numeric character values assigned to each entity
+     (should) match either official Unicode assignments
+     or assignments provisionally allocated by the
+     Unicode Consortium based on the characters in the `STIX'
+     propsal for mathematics. Note that these assignments
+     have not been ratified by the corresponding ISO
+     committee and thus should be considered liable to
+     change.
+
+     Entity names in this file are derived from files carrying the
+     following notice:
+
+     (C) International Organization for Standardization 1991
+     Permission to copy in any form is granted for use with
+     conforming SGML systems and applications as defined in
+     ISO 8879, provided this notice is included in all copies.
+
+-->
+
+<!ENTITY afr              "&amp;#x1D51E;" ><!--/frak a, lower case a -->
+<!ENTITY Afr              "&amp;#x1D504;" ><!--/frak A, upper case a -->
+<!ENTITY bfr              "&amp;#x1D51F;" ><!--/frak b, lower case b -->
+<!ENTITY Bfr              "&amp;#x1D505;" ><!--/frak B, upper case b -->
+<!ENTITY cfr              "&amp;#x1D520;" ><!--/frak c, lower case c -->
+<!ENTITY Cfr              "&#x0212D;" ><!--/frak C, upper case c -->
+<!ENTITY dfr              "&amp;#x1D521;" ><!--/frak d, lower case d -->
+<!ENTITY Dfr              "&amp;#x1D507;" ><!--/frak D, upper case d -->
+<!ENTITY efr              "&amp;#x1D522;" ><!--/frak e, lower case e -->
+<!ENTITY Efr              "&amp;#x1D508;" ><!--/frak E, upper case e -->
+<!ENTITY ffr              "&amp;#x1D523;" ><!--/frak f, lower case f -->
+<!ENTITY Ffr              "&amp;#x1D509;" ><!--/frak F, upper case f -->
+<!ENTITY gfr              "&amp;#x1D524;" ><!--/frak g, lower case g -->
+<!ENTITY Gfr              "&amp;#x1D50A;" ><!--/frak G, upper case g -->
+<!ENTITY hfr              "&amp;#x1D525;" ><!--/frak h, lower case h -->
+<!ENTITY Hfr              "&#x0210C;" ><!--/frak H, upper case h -->
+<!ENTITY ifr              "&amp;#x1D526;" ><!--/frak i, lower case i -->
+<!ENTITY Ifr              "&#x02111;" ><!--/frak I, upper case i -->
+<!ENTITY jfr              "&amp;#x1D527;" ><!--/frak j, lower case j -->
+<!ENTITY Jfr              "&amp;#x1D50D;" ><!--/frak J, upper case j -->
+<!ENTITY kfr              "&amp;#x1D528;" ><!--/frak k, lower case k -->
+<!ENTITY Kfr              "&amp;#x1D50E;" ><!--/frak K, upper case k -->
+<!ENTITY lfr              "&amp;#x1D529;" ><!--/frak l, lower case l -->
+<!ENTITY Lfr              "&amp;#x1D50F;" ><!--/frak L, upper case l -->
+<!ENTITY mfr              "&amp;#x1D52A;" ><!--/frak m, lower case m -->
+<!ENTITY Mfr              "&amp;#x1D510;" ><!--/frak M, upper case m -->
+<!ENTITY nfr              "&amp;#x1D52B;" ><!--/frak n, lower case n -->
+<!ENTITY Nfr              "&amp;#x1D511;" ><!--/frak N, upper case n -->
+<!ENTITY ofr              "&amp;#x1D52C;" ><!--/frak o, lower case o -->
+<!ENTITY Ofr              "&amp;#x1D512;" ><!--/frak O, upper case o -->
+<!ENTITY pfr              "&amp;#x1D52D;" ><!--/frak p, lower case p -->
+<!ENTITY Pfr              "&amp;#x1D513;" ><!--/frak P, upper case p -->
+<!ENTITY qfr              "&amp;#x1D52E;" ><!--/frak q, lower case q -->
+<!ENTITY Qfr              "&amp;#x1D514;" ><!--/frak Q, upper case q -->
+<!ENTITY rfr              "&amp;#x1D52F;" ><!--/frak r, lower case r -->
+<!ENTITY Rfr              "&#x0211C;" ><!--/frak R, upper case r -->
+<!ENTITY sfr              "&amp;#x1D530;" ><!--/frak s, lower case s -->
+<!ENTITY Sfr              "&amp;#x1D516;" ><!--/frak S, upper case s -->
+<!ENTITY tfr              "&amp;#x1D531;" ><!--/frak t, lower case t -->
+<!ENTITY Tfr              "&amp;#x1D517;" ><!--/frak T, upper case t -->
+<!ENTITY ufr              "&amp;#x1D532;" ><!--/frak u, lower case u -->
+<!ENTITY Ufr              "&amp;#x1D518;" ><!--/frak U, upper case u -->
+<!ENTITY vfr              "&amp;#x1D533;" ><!--/frak v, lower case v -->
+<!ENTITY Vfr              "&amp;#x1D519;" ><!--/frak V, upper case v -->
+<!ENTITY wfr              "&amp;#x1D534;" ><!--/frak w, lower case w -->
+<!ENTITY Wfr              "&amp;#x1D51A;" ><!--/frak W, upper case w -->
+<!ENTITY xfr              "&amp;#x1D535;" ><!--/frak x, lower case x -->
+<!ENTITY Xfr              "&amp;#x1D51B;" ><!--/frak X, upper case x -->
+<!ENTITY yfr              "&amp;#x1D536;" ><!--/frak y, lower case y -->
+<!ENTITY Yfr              "&amp;#x1D51C;" ><!--/frak Y, upper case y -->
+<!ENTITY zfr              "&amp;#x1D537;" ><!--/frak z, lower case z -->
+<!ENTITY Zfr              "&#x02128;" ><!--/frak Z, upper case z  -->

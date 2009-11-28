@@ -1,0 +1,1040 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<!-- $Id: loosedtd.html,v 1.1.1.1 2004/09/19 12:34:08 ralph Exp $ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>HTML 4.0 Transitional Document Type Definition</title>
+<link rel="previous" href="dtd.html">
+<link rel="next" href="framesetdtd.html">
+<LINK rel="contents" href="../cover.html#toc">
+<LINK rel="STYLESHEET" href="../style/default.css" type="text/css">
+</head>
+<body>
+<div class="navbar">
+<center><a href="dtd.html">previous</a> &nbsp; <a href="framesetdtd.html">next</a> &nbsp; <a href="../cover.html#toc">contents</a> &nbsp; <a href="../index/elements.html">elements</a> &nbsp; <a href="../index/attribs.html">attributes</a>
+</center><hr>
+</div>
+
+<h1 align="center"><a name="h-23">23</a> <a name=loosedtd>Transitional Document Type
+Definition</a></h1>
+<div class="dtd-fragment">
+<pre class="dtd">
+<!-- $Id: loosedtd.html,v 1.1.1.1 2004/09/19 12:34:08 ralph Exp $ -->
+&lt;!--
+    This is an EXPERIMENTAL version of the HTML 4.0 "transitional"
+    DTD which includes presentation attributes and elements that
+    W3C expects to phase out as support for style sheets matures.
+    HTML 4.0 includes mechanisms for style sheets, scripting,
+    embedding objects, improved support for right to left and mixed
+    direction text, and enhancements to forms for improved
+    accessibility for people with disabilities.
+
+          Draft: $Date: 2004/09/19 12:34:08 $
+
+          Authors:
+              Dave Raggett &lt;dsr@w3.org&gt;
+              Arnaud Le Hors &lt;lehors@w3.org&gt;
+
+    This is work in progress, subject to change at any time.
+    It does not imply endorsement by, or the consensus of,
+    either W3C or members of the HTML working group. Further
+    information about HTML 4.0 is available at:
+
+          <a href="http://www.w3.org/TR/WD-html40/">http://www.w3.org/TR/WD-html40/</a>.
+--&gt;
+&lt;!ENTITY % <a name="HTML.Version">HTML.Version</a> "-//W3C//DTD HTML 4.0 Transitional//EN"
+  -- Typical usage:
+
+    &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+    ...
+    &lt;/head&gt;
+    &lt;body&gt;
+    ...
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+    The FPI for the strict HTML 4.0 DTD is:
+
+        "-//W3C//DTD HTML 4.0//EN"
+
+    You are recommended to use the strict DTD unless you need the
+    presentation control for user agents that don't (adequately)
+    support style sheets.
+
+   If you are writing a frameset document you should use the
+   following FPI:
+
+        "-//W3C//DTD HTML 4.0 Frameset//EN"
+
+    You can also use a URL as a system identifier for the DTD, as in:
+
+
+    &lt;!DOCTYPE HTML SYSTEM "http://www.w3.org/DTD/HTML4-strict.dtd"&gt;
+
+    or better still together with the public identifier as in:
+
+    &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/DTD/HTML4-strict.dtd"&gt;
+
+    The user agent can then download the DTD and entity sets as needed.
+    The following URLs are supported in relation to HTML 4.0
+
+    "<a href="http://www.w3.org/DTD/HTML4-strict.dtd">http://www.w3.org/DTD/HTML4-strict.dtd</a>" (strict DTD)
+    "<a href="http://www.w3.org/DTD/HTML4-loose.dtd">http://www.w3.org/DTD/HTML4-loose.dtd</a>" (loose DTD)
+    "<a href="http://www.w3.org/DTD/HTML4-frameset.dtd">http://www.w3.org/DTD/HTML4-frameset.dtd</a>" (frameset documents)
+    "<a href="http://www.w3.org/DTD/ISOlat1.ent">http://www.w3.org/DTD/ISOlat1.ent</a>" (Latin-1 entities)
+    "<a href="http://www.w3.org/DTD/HTMLsymbol.ent">http://www.w3.org/DTD/HTMLsymbol.ent</a>" (Symbol entities)
+    "<a href="http://www.w3.org/DTD/HTMLspecial.ent">http://www.w3.org/DTD/HTMLspecial.ent</a>" (Special entities)
+--&gt;
+
+&lt;!--================== Imported Names ====================================--&gt;
+
+&lt;!ENTITY % <a name="ContentType">ContentType</a> "CDATA"
+    -- an Internet media type, as per <a rel="biblioentry" href="../references.html#ref-RFC2045">[RFC2045]</a>
+    --&gt;
+
+&lt;!ENTITY % <a name="URL">URL</a> "CDATA"
+    -- a Uniform Resource Locator,
+       see <a rel="biblioentry" href="../references.html#ref-RFC1808">[RFC1808]</a> and <a rel="biblioentry" href="../references.html#ref-RFC1738">[RFC1738]</a>
+    --&gt;
+
+&lt;!ENTITY % <a name="Script">Script</a> "CDATA" -- scriptlet --&gt;
+
+&lt;!-- Parameter Entities --&gt;
+
+&lt;!ENTITY % <a name="head.misc">head.misc</a> "SCRIPT|STYLE|META|LINK" -- repeatable head elements --&gt;
+
+&lt;!ENTITY % <a name="heading">heading</a> "<a href="../struct/global.html#edef-H1"><samp class="einst">H1</samp></a>|<a href="../struct/global.html#edef-H2"><samp class="einst">H2</samp></a>|<a href="../struct/global.html#edef-H3"><samp class="einst">H3</samp></a>|<a href="../struct/global.html#edef-H4"><samp class="einst">H4</samp></a>|<a href="../struct/global.html#edef-H5"><samp class="einst">H5</samp></a>|<a href="../struct/global.html#edef-H6"><samp class="einst">H6</samp></a>"&gt;
+
+&lt;!ENTITY % <a name="list">list</a> "UL | OL |  DIR | MENU"&gt;
+
+&lt;!ENTITY % <a name="preformatted">preformatted</a> "PRE"&gt;
+
+&lt;!--================ Character mnemonic entities =========================--&gt;
+
+&lt;!ENTITY % <a name="HTMLlat1">HTMLlat1</a> PUBLIC
+   "-//W3C//ENTITIES Latin1//EN//HTML"
+   "http://www.w3.org/DTD/ISOlat1.ent"&gt;
+<a href="#HTMLlat1">%HTMLlat1;</a>
+
+&lt;!ENTITY % <a name="HTMLsymbol">HTMLsymbol</a> PUBLIC
+   "-//W3C//ENTITIES Symbols//EN//HTML"
+   "http://www.w3.org/DTD/HTMLsymbol.ent"&gt;
+<a href="#HTMLsymbol">%HTMLsymbol;</a>
+
+&lt;!ENTITY % <a name="HTMLspecial">HTMLspecial</a> PUBLIC
+   "-//W3C//ENTITIES Special//EN//HTML"
+   "http://www.w3.org/DTD/HTMLspecial.ent"&gt;
+<a href="#HTMLspecial">%HTMLspecial;</a>
+&lt;!--=================== Generic Attributes ===============================--&gt;
+
+&lt;!ENTITY % <a name="coreattrs">coreattrs</a>
+ "<a href="../struct/global.html#adef-id"><samp class="ainst">id</samp></a>          ID         #IMPLIED  -- document-wide unique id --
+  <a href="../struct/global.html#adef-class"><samp class="ainst">class</samp></a>       CDATA      #IMPLIED  -- space separated list of classes --
+  <a href="../present/styles.html#adef-style"><samp class="ainst">style</samp></a>       CDATA      #IMPLIED  -- associated style info --
+  <a href="../struct/global.html#adef-title"><samp class="ainst">title</samp></a>       CDATA      #IMPLIED  -- advisory title/amplification --"
+  &gt;
+
+&lt;!ENTITY % <a name="i18n">i18n</a>
+ "<a href="../struct/dirlang.html#adef-lang"><samp class="ainst">lang</samp></a>        NAME       #IMPLIED  -- <a rel="biblioentry" href="../references.html#ref-RFC1766">[RFC1766]</a> language value --
+  <a href="../struct/dirlang.html#adef-dir"><samp class="ainst">dir</samp></a>         (ltr|rtl)  #IMPLIED  -- direction for weak/neutral text --"
+  &gt;
+
+&lt;!ENTITY % <a name="events">events</a>
+ "<a href="../interact/scripts.html#adef-onclick"><samp class="ainst">onclick</samp></a>     <a href="#Script">%Script;</a>   #IMPLIED  -- a pointer button was clicked --
+  <a href="../interact/scripts.html#adef-ondblclick"><samp class="ainst">ondblclick</samp></a>  <a href="#Script">%Script;</a>   #IMPLIED  -- a pointer button was double clicked --
+  <a href="../interact/scripts.html#adef-onmousedown"><samp class="ainst">onmousedown</samp></a> <a href="#Script">%Script;</a>   #IMPLIED  -- a pointer button was pressed down --
+  <a href="../interact/scripts.html#adef-onmouseup"><samp class="ainst">onmouseup</samp></a>   <a href="#Script">%Script;</a>   #IMPLIED  -- a pointer button was released --
+  <a href="../interact/scripts.html#adef-onmouseover"><samp class="ainst">onmouseover</samp></a> <a href="#Script">%Script;</a>   #IMPLIED  -- a pointer was moved onto --
+  <a href="../interact/scripts.html#adef-onmousemove"><samp class="ainst">onmousemove</samp></a> <a href="#Script">%Script;</a>   #IMPLIED  -- a pointer was moved within --
+  <a href="../interact/scripts.html#adef-onmouseout"><samp class="ainst">onmouseout</samp></a>  <a href="#Script">%Script;</a>   #IMPLIED  -- a pointer was moved away --
+  <a href="../interact/scripts.html#adef-onkeypress"><samp class="ainst">onkeypress</samp></a>  <a href="#Script">%Script;</a>   #IMPLIED  -- a key was pressed and released --
+  <a href="../interact/scripts.html#adef-onkeydown"><samp class="ainst">onkeydown</samp></a>   <a href="#Script">%Script;</a>   #IMPLIED  -- a key was pressed down --
+  <a href="../interact/scripts.html#adef-onkeyup"><samp class="ainst">onkeyup</samp></a>     <a href="#Script">%Script;</a>   #IMPLIED  -- a key was released --"
+  &gt;
+
+&lt;!-- Reserved Feature Switch --&gt;
+&lt;!ENTITY % <a name="HTML.Reserved">HTML.Reserved</a> "IGNORE"&gt;
+
+&lt;!-- The following attributes are reserved for possible future use --&gt;
+&lt;![ <a href="#HTML.Reserved">%HTML.Reserved;</a> [
+&lt;!ENTITY % <a name="reserved">reserved</a>
+ "<samp class="ainst">datasrc</samp>     $URL;      #IMPLIED  -- a single or tabular Data Source --
+  <samp class="ainst">datafld</samp>     CDATA      #IMPLIED  -- the property or column name --
+  <samp class="ainst">dataformatas</samp> (plaintext|html) plaintext -- text or html --"
+  &gt;
+]]&gt;
+
+&lt;!ENTITY % reserved ""&gt;
+
+&lt;!ENTITY % <a name="attrs">attrs</a> "<a href="#coreattrs">%coreattrs;</a> <a href="#i18n">%i18n;</a> <a href="#events">%events;</a>"&gt;
+
+&lt;!ENTITY % <a name="align">align</a> "align (left|center|right|justify)  #IMPLIED"
+                   -- default is left for ltr paragraphs, right for rtl --
+  &gt;
+
+&lt;!--=================== Text Markup ======================================--&gt;
+
+&lt;!ENTITY % <a name="fontstyle">fontstyle</a>
+ "<a href="../present/graphics.html#edef-TT"><samp class="einst">TT</samp></a> | <a href="../present/graphics.html#edef-I"><samp class="einst">I</samp></a> | <a href="../present/graphics.html#edef-B"><samp class="einst">B</samp></a> | <a href="../present/graphics.html#edef-U"><samp class="einst">U</samp></a> | <a href="../present/graphics.html#edef-S"><samp class="einst">S</samp></a> | <a href="../present/graphics.html#edef-STRIKE"><samp class="einst">STRIKE</samp></a> | <a href="../present/graphics.html#edef-BIG"><samp class="einst">BIG</samp></a> | <a href="../present/graphics.html#edef-SMALL"><samp class="einst">SMALL</samp></a>"&gt;
+
+&lt;!ENTITY % <a name="phrase">phrase</a> "<a href="../struct/text.html#edef-EM"><samp class="einst">EM</samp></a> | <a href="../struct/text.html#edef-STRONG"><samp class="einst">STRONG</samp></a> | <a href="../struct/text.html#edef-DFN"><samp class="einst">DFN</samp></a> | <a href="../struct/text.html#edef-CODE"><samp class="einst">CODE</samp></a> |
+                   <a href="../struct/text.html#edef-SAMP"><samp class="einst">SAMP</samp></a> | <a href="../struct/text.html#edef-KBD"><samp class="einst">KBD</samp></a> | <a href="../struct/text.html#edef-VAR"><samp class="einst">VAR</samp></a> | <a href="../struct/text.html#edef-CITE"><samp class="einst">CITE</samp></a> | <a href="../struct/text.html#edef-ACRONYM"><samp class="einst">ACRONYM</samp></a>"&gt;
+
+&lt;!ENTITY % <a name="special">special</a>
+   "A | IMG | APPLET | OBJECT | FONT | BASEFONT | BR | SCRIPT |
+    MAP | Q | SUB | SUP | SPAN | BDO | IFRAME"&gt;
+
+&lt;!ENTITY % <a name="formctrl">formctrl</a> "INPUT | SELECT | TEXTAREA | LABEL | BUTTON"&gt;
+
+&lt;!-- <a href="#inline">%inline;</a> covers inline or "text-level" elements --&gt;
+&lt;!ENTITY % <a name="inline">inline</a> "#PCDATA | <a href="#fontstyle">%fontstyle;</a> | <a href="#phrase">%phrase;</a> | <a href="#special">%special;</a> | <a href="#formctrl">%formctrl;</a>"&gt;
+
+&lt;!ELEMENT (<a href="#fontstyle">%fontstyle;</a>|<a href="#phrase">%phrase;</a>) - - (<a href="#inline">%inline;</a>)*&gt;
+&lt;!ATTLIST (<a href="#fontstyle">%fontstyle;</a>|<a href="#phrase">%phrase;</a>)
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  &gt;
+
+&lt;!ELEMENT (<a href="../struct/text.html#edef-SUB"><samp class="einst">SUB</samp></a>|<a href="../struct/text.html#edef-SUP"><samp class="einst">SUP</samp></a>) - - (<a href="#inline">%inline;</a>)* -- subscript, superscript --&gt;
+&lt;!ATTLIST (SUB|SUP)
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  &gt;
+
+&lt;!ELEMENT <a href="../struct/global.html#edef-SPAN"><samp class="einst">SPAN</samp></a> - - (<a href="#inline">%inline;</a>)*      -- generic language/style container --&gt;
+&lt;!ATTLIST SPAN
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="#reserved">%reserved;</a>			   -- reserved for possible future use --
+  &gt;
+
+&lt;!-- INS/DEL are handled by inclusion on BODY --&gt;
+&lt;!ELEMENT (<a href="../struct/text.html#edef-ins"><samp class="einst">INS</samp></a>|<a href="../struct/text.html#edef-del"><samp class="einst">DEL</samp></a>) - - (<a href="#inline">%inline;</a>)* -- inserted text, deleted text --&gt;
+&lt;!ATTLIST (INS|DEL)
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/text.html#adef-cite-INS"><samp class="ainst-INS">cite</samp></a>        <a href="#URL">%URL;</a>     #IMPLIED   -- info on reason for change --
+  <a href="../struct/text.html#adef-datetime"><samp class="ainst-INS">datetime</samp></a>    CDATA     #IMPLIED   -- when changed: ISO date format --
+  &gt;
+
+&lt;!ELEMENT <a href="../struct/dirlang.html#edef-BDO"><samp class="einst">BDO</samp></a> - - (<a href="#inline">%inline;</a>)*       -- I18N BiDi over-ride --&gt;
+&lt;!ATTLIST BDO
+  <a href="#coreattrs">%coreattrs;</a>                      -- id, class, style, title --
+  <a href="../struct/dirlang.html#adef-lang"><samp class="ainst-BDO">lang</samp></a>        NAME       #IMPLIED  -- <a rel="biblioentry" href="../references.html#ref-RFC1766">[RFC1766]</a> language value --
+  <a href="../struct/dirlang.html#adef-dir"><samp class="ainst-BDO">dir</samp></a>         (ltr|rtl)  #REQUIRED -- directionality --
+  &gt;
+
+&lt;!ELEMENT <a href="../present/graphics.html#edef-BASEFONT"><samp class="einst">BASEFONT</samp></a> - O EMPTY -- base font size --&gt;
+&lt;!ATTLIST BASEFONT
+  <a href="../struct/global.html#adef-id"><samp class="ainst">id</samp></a>          ID         #IMPLIED  -- document-wide unique id --
+  <a href="../present/graphics.html#adef-size-FONT"><samp class="ainst-FONT">size</samp></a>       CDATA      #REQUIRED -- base font size for FONT elements --
+  <a href="../present/graphics.html#adef-color-FONT"><samp class="ainst-FONT">color</samp></a>       CDATA      #IMPLIED  -- #RRGGBB in hex, e.g. red: "#FF0000" --
+  <a href="../present/graphics.html#adef-face-FONT"><samp class="ainst-FONT">face</samp></a>        CDATA      #IMPLIED  -- comma separated list of font names --
+  &gt;
+
+&lt;!ELEMENT <a href="../present/graphics.html#edef-FONT"><samp class="einst">FONT</samp></a> - - (<a href="#inline">%inline;</a>)*  -- local change to font --&gt;
+&lt;!ATTLIST FONT
+  <a href="#coreattrs">%coreattrs;</a>                      -- id, class, style, title --
+  <a href="../present/graphics.html#adef-size-FONT"><samp class="ainst-FONT">size</samp></a>        CDATA      #IMPLIED  -- [+]nn e.g. size="+1", size=4 --
+  <a href="../present/graphics.html#adef-color-FONT"><samp class="ainst-FONT">color</samp></a>       CDATA      #IMPLIED  -- #RRGGBB in hex, e.g. red: "#FF0000" --
+  <a href="../present/graphics.html#adef-face-FONT"><samp class="ainst-FONT">face</samp></a>        CDATA      #IMPLIED  -- comma separated list of font names --
+  &gt;
+
+&lt;!ELEMENT <a href="../struct/text.html#edef-BR"><samp class="einst">BR</samp></a> - O EMPTY            -- forced line break --&gt;
+&lt;!ATTLIST BR
+  <a href="#coreattrs">%coreattrs;</a>                      -- id, class, style, title --
+  <a href="../present/graphics.html#adef-clear"><samp class="ainst-BR">clear</samp></a> (left|all|right|none) none -- control of text flow --
+  &gt;
+
+&lt;!--================== HTML content models ===============================--&gt;
+
+&lt;!--
+    HTML has two basic content models:
+
+        <a href="#inline">%inline;</a>     character level elements and text strings
+        <a href="#block">%block;</a>      block-like elements e.g. paragraphs and lists
+--&gt;
+
+&lt;!ENTITY % <a name="blocklevel">blocklevel</a>
+     "P | <a href="#heading">%heading;</a> | <a href="#list">%list;</a> | <a href="#preformatted">%preformatted;</a> | DL | DIV | CENTER |
+      NOSCRIPT | NOFRAMES | BLOCKQUOTE | FORM | ISINDEX | HR |
+      TABLE | FIELDSET | ADDRESS"&gt;
+
+&lt;!--=================== Document Body ====================================--&gt;
+
+&lt;!ENTITY % <a name="block">block</a> "<a href="#blocklevel">%blocklevel;</a> | <a href="#inline">%inline;</a>"&gt;
+
+&lt;!ENTITY % <a name="Color">Color</a> "CDATA" -- a color using sRGB: #RRGGBB as Hex values --&gt;
+
+&lt;!-- There are also 16 widely known color names with their sRGB values:
+
+    Black  = #000000    Green  = #008000
+    Silver = #C0C0C0    Lime   = #00FF00
+    Gray   = #808080    Olive  = #808000
+    White  = #FFFFFF    Yellow = #FFFF00
+    Maroon = #800000    Navy   = #000080
+    Red    = #FF0000    Blue   = #0000FF
+    Purple = #800080    Teal   = #008080
+    Fuchsia= #FF00FF    Aqua   = #00FFFF
+ --&gt;
+
+&lt;!ENTITY % <a name="bodycolors">bodycolors</a> "
+  bgcolor <a href="#Color">%Color;</a>   #IMPLIED
+  text    <a href="#Color">%Color;</a>   #IMPLIED
+  link    <a href="#Color">%Color;</a>   #IMPLIED
+  vlink   <a href="#Color">%Color;</a>   #IMPLIED
+  alink   <a href="#Color">%Color;</a>   #IMPLIED
+  "&gt;
+
+&lt;!ELEMENT <a href="../struct/global.html#edef-BODY"><samp class="einst">BODY</samp></a> O O  (<a href="#block">%block;</a>)+ +(INS|DEL) -- document body --&gt;
+&lt;!ATTLIST BODY
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/global.html#adef-background"><samp class="ainst-BODY">background</samp></a>  <a href="#URL">%URL;</a>      #IMPLIED  -- texture tile for document background --
+  <a href="#bodycolors">%bodycolors;</a>                     -- bgcolor, text, link, vlink, alink --
+  <a href="../interact/scripts.html#adef-onload"><samp class="ainst-BODY">onload</samp></a>      <a href="#Script">%Script;</a>   #IMPLIED  -- the document has been loaded --
+  <a href="../interact/scripts.html#adef-onunload"><samp class="ainst-BODY">onunload</samp></a>    <a href="#Script">%Script;</a>   #IMPLIED  -- the document has been removed --
+  &gt;
+
+&lt;!ELEMENT <a href="../struct/global.html#edef-ADDRESS"><samp class="einst">ADDRESS</samp></a> - - ((<a href="#inline">%inline;</a>) | P)+ -- information on author --&gt;
+&lt;!ATTLIST ADDRESS
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  &gt;
+
+&lt;!ELEMENT <a href="../struct/global.html#edef-DIV"><samp class="einst">DIV</samp></a> - - (<a href="#block">%block;</a>)+ -- generic language/style container --&gt;
+&lt;!ATTLIST DIV
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="#align">%align;</a>                          -- align, text alignment --
+
+  <a href="#reserved">%reserved;</a>                       -- reserved for possible future use --
+  &gt;
+
+&lt;!ELEMENT <a href="../present/graphics.html#edef-CENTER"><samp class="einst">CENTER</samp></a> - - (<a href="#block">%block;</a>)+ -- shorthand for DIV with align=center --&gt;
+&lt;!ATTLIST CENTER
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  &gt;
+
+&lt;!--================== The Anchor Element ================================--&gt;
+
+&lt;!ENTITY % <a name="Shape">Shape</a> "(rect|circle|poly|default)"&gt;
+&lt;!ENTITY % <a name="Coords">Coords</a> "CDATA" -- comma separated list of numbers --&gt;
+
+&lt;!ELEMENT <a href="../struct/links.html#edef-A"><samp class="einst">A</samp></a> - - (<a href="#inline">%inline;</a>)* -(A) -- anchor --&gt;
+&lt;!ATTLIST A
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/links.html#adef-charset"><samp class="ainst-A">charset</samp></a>     CDATA      #IMPLIED  -- char encoding of linked resource --
+  <a href="../struct/links.html#adef-name-A"><samp class="ainst-A">name</samp></a>        CDATA      #IMPLIED  -- named link end --
+  <a href="../struct/links.html#adef-href"><samp class="ainst-A">href</samp></a>        <a href="#URL">%URL;</a>      #IMPLIED  -- URL for linked resource --
+  <a href="../present/frames.html#adef-target"><samp class="ainst-A">target</samp></a>      CDATA      #IMPLIED  -- where to render resource --
+  <a href="../struct/links.html#adef-rel"><samp class="ainst-A">rel</samp></a>         CDATA      #IMPLIED  -- forward link types --
+  <a href="../struct/links.html#adef-rev"><samp class="ainst-A">rev</samp></a>         CDATA      #IMPLIED  -- reverse link types --
+  <a href="../interact/forms.html#adef-accesskey"><samp class="ainst-A">accesskey</samp></a>   CDATA      #IMPLIED  -- accessibility key character --
+  <a href="../struct/objects.html#adef-shape"><samp class="ainst-A">shape</samp></a>       <a href="#Shape">%Shape</a>     rect      -- for use with OBJECT SHAPES --
+  <a href="../struct/objects.html#adef-coords"><samp class="ainst-A">coords</samp></a>      <a href="#Coords">%Coords</a>    #IMPLIED  -- for use with OBJECT SHAPES --
+  <a href="../interact/forms.html#adef-tabindex"><samp class="ainst-A">tabindex</samp></a>    NUMBER     #IMPLIED  -- position in tabbing order --
+  <a href="../interact/scripts.html#adef-onfocus"><samp class="ainst-A">onfocus</samp></a>     <a href="#Script">%Script;</a>   #IMPLIED  -- the element got the focus --
+  <a href="../interact/scripts.html#adef-onblur"><samp class="ainst-A">onblur</samp></a>      <a href="#Script">%Script;</a>   #IMPLIED  -- the element lost the focus --
+  &gt;
+
+&lt;!--================== Client-side image maps ============================--&gt;
+
+&lt;!-- These can be placed in the same document or grouped in a
+     separate document although this isn't yet widely supported --&gt;
+
+&lt;!ELEMENT <a href="../struct/objects.html#edef-MAP"><samp class="einst">MAP</samp></a> - - (AREA)+ -- client-side image map --&gt;
+&lt;!ATTLIST MAP
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../interact/forms.html#adef-name-INPUT"><samp class="ainst-INPUT">name</samp></a>        CDATA      #IMPLIED
+  &gt;
+
+&lt;!ELEMENT <a href="../struct/objects.html#edef-AREA"><samp class="einst">AREA</samp></a> - O EMPTY -- client-side image map area --&gt;
+&lt;!ATTLIST AREA
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/objects.html#adef-shape"><samp class="ainst-AREA">shape</samp></a>       <a href="#Shape">%Shape;</a>    rect      -- controls interpretation of coords --
+  <a href="../struct/objects.html#adef-coords"><samp class="ainst-AREA">coords</samp></a>      <a href="#Coords">%Coords;</a>   #IMPLIED  -- comma separated list of values --
+  <a href="../struct/links.html#adef-href"><samp class="ainst-AREA">href</samp></a>        <a href="#URL">%URL;</a>      #IMPLIED  -- this region acts as hypertext link --
+  <a href="../present/frames.html#adef-target"><samp class="ainst-AREA">target</samp></a>      CDATA      #IMPLIED  -- where to render linked resource -- 
+  <a href="../struct/objects.html#adef-nohref"><samp class="ainst-AREA">nohref</samp></a>      (nohref)   #IMPLIED  -- this region has no action --
+  <a href="../struct/objects.html#adef-alt"><samp class="ainst-AREA">alt</samp></a>         CDATA      #REQUIRED -- short description --
+  <a href="../interact/forms.html#adef-tabindex"><samp class="ainst-AREA">tabindex</samp></a>    NUMBER     #IMPLIED  -- position in tabbing order --
+  <a href="../interact/forms.html#adef-accesskey"><samp class="ainst-AREA">accesskey</samp></a>   CDATA      #IMPLIED  -- accessibility key character --
+  &gt;
+
+&lt;!--================== The LINK Element ==================================--&gt;
+
+&lt;!--
+  Relationship values can be used in principle:
+
+   a) for document specific toolbars/menus when used
+      with the LINK element in document head e.g.
+        start, contents, previous, next, index, end, help
+   b) to link to a separate style sheet (rel=stylesheet)
+   c) to make a link to a script (rel=script)
+   d) by stylesheets to control how collections of
+      html nodes are rendered into printed documents
+   e) to make a link to a printable version of this document
+      e.g. a postscript or pdf version (rel=alternate media=print)
+--&gt;
+
+&lt;!ELEMENT <a href="../struct/links.html#edef-LINK"><samp class="einst">LINK</samp></a> - O EMPTY -- a media-independent link --&gt;
+&lt;!ATTLIST LINK
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/links.html#adef-charset"><samp class="ainst-LINK">charset</samp></a>     CDATA      #IMPLIED  -- char encoding of linked resource --
+  <a href="../struct/links.html#adef-href"><samp class="ainst-LINK">href</samp></a>        <a href="#URL">%URL;</a>      #IMPLIED  -- URL for linked resource --
+  <a href="../struct/links.html#adef-rel"><samp class="ainst-LINK">rel</samp></a>         CDATA      #IMPLIED  -- forward link types --
+  <a href="../struct/links.html#adef-rev"><samp class="ainst-LINK">rev</samp></a>         CDATA      #IMPLIED  -- reverse link types --
+  <a href="../interact/forms.html#adef-type"><samp class="ainst-LINK">type</samp></a>    <a href="#ContentType">%ContentType;</a>  #IMPLIED  -- advisory Internet content type --
+  <a href="../present/styles.html#adef-media"><samp class="ainst-LINK">media</samp></a>       CDATA      #IMPLIED  -- for rendering on these media --
+  <a href="../present/frames.html#adef-target"><samp class="ainst-LINK">target</samp></a>      CDATA      #IMPLIED  -- where to render linked resource --
+  &gt;
+
+&lt;!--=================== Images ===========================================--&gt;
+
+&lt;!ENTITY % <a name="Length">Length</a> "CDATA" -- nn for pixels or nn% for percentage length --&gt;
+&lt;!ENTITY % <a name="Pixels">Pixels</a> "CDATA" -- integer representing length in pixels --&gt;
+
+&lt;!ENTITY % <a name="IAlign">IAlign</a> "(top|middle|bottom|left|right)"  -- center? --&gt;
+
+&lt;!-- To avoid problems with text-only UAs you need to provide
+     a description with ALT, and avoid server-side image maps --&gt;
+&lt;!ELEMENT <a href="../struct/objects.html#edef-IMG"><samp class="einst">IMG</samp></a> - O EMPTY            --  Embedded image --&gt;
+&lt;!ATTLIST IMG
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/objects.html#adef-src-IMG"><samp class="ainst-IMG">src</samp></a>         <a href="#URL">%URL;</a>      #REQUIRED -- URL of image to embed --
+  <a href="../struct/objects.html#adef-alt"><samp class="ainst-IMG">alt</samp></a>         CDATA      #REQUIRED -- short description --
+  <samp class="ainst-IMG">longdesc</samp>    <a href="#URL">%URL;</a>      #IMPLIED  -- link to long description --
+  <a href="../struct/objects.html#adef-align-IMG"><samp class="ainst-IMG">align</samp></a>       <a href="#IAlign">%IAlign;</a>   #IMPLIED  -- vertical or horizontal alignment --
+  <a href="../struct/objects.html#adef-height-IMG"><samp class="ainst-IMG">height</samp></a>      <a href="#Pixels">%Pixels;</a>   #IMPLIED  -- suggested height in pixels --
+  <a href="../struct/objects.html#adef-width-IMG"><samp class="ainst-IMG">width</samp></a>       <a href="#Pixels">%Pixels;</a>   #IMPLIED  -- suggested width in pixels --
+  <a href="../struct/objects.html#adef-border-IMG"><samp class="ainst-IMG">border</samp></a>      <a href="#Pixels">%Pixels;</a>   #IMPLIED  -- suggested link border width --
+  <a href="../struct/objects.html#adef-hspace"><samp class="ainst-IMG">hspace</samp></a>      <a href="#Pixels">%Pixels;</a>   #IMPLIED  -- suggested horizontal gutter --
+  <a href="../struct/objects.html#adef-vspace"><samp class="ainst-IMG">vspace</samp></a>      <a href="#Pixels">%Pixels;</a>   #IMPLIED  -- suggested vertical gutter --
+  <a href="../struct/objects.html#adef-usemap"><samp class="ainst-IMG">usemap</samp></a>      <a href="#URL">%URL;</a>      #IMPLIED  -- use client-side image map --
+  <a href="../struct/objects.html#adef-ismap"><samp class="ainst-IMG">ismap</samp></a>       (ismap)    #IMPLIED  -- use server-side image map --
+  &gt;
+
+&lt;!-- USEMAP points to a MAP element which may be in this document
+  or an external document, although the latter is not widely supported --&gt;
+
+&lt;!--==================== OBJECT ======================================--&gt;
+&lt;!--
+  OBJECT is used to embed objects as part of HTML pages 
+  PARAM elements should precede other content. SGML mixed content
+  model technicality precludes specifying this formally ...
+--&gt;
+
+&lt;!ELEMENT <a href="../struct/objects.html#edef-OBJECT"><samp class="einst">OBJECT</samp></a> - - (PARAM | <a href="#inline">%inline;</a> | <a href="#blocklevel">%blocklevel;</a>)* -- generic embedded object --&gt;
+&lt;!ATTLIST OBJECT
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/objects.html#adef-declare"><samp class="ainst-OBJECT">declare</samp></a>     (declare)  #IMPLIED  -- declare but don't instantiate flag --
+  <a href="../struct/objects.html#adef-classid"><samp class="ainst-OBJECT">classid</samp></a>     <a href="#URL">%URL;</a>      #IMPLIED  -- identifies an implementation --
+  <a href="../struct/objects.html#adef-codebase-OBJECT"><samp class="ainst-OBJECT">codebase</samp></a>    <a href="#URL">%URL;</a>      #IMPLIED  -- some systems need an additional URL --
+  <a href="../struct/objects.html#adef-data"><samp class="ainst-OBJECT">data</samp></a>        <a href="#URL">%URL;</a>      #IMPLIED  -- reference to object's data --
+  <a href="../struct/objects.html#adef-type-OBJECT"><samp class="ainst-OBJECT">type</samp></a>     <a href="#ContentType">%ContentType;</a> #IMPLIED  -- Internet content type for data --
+  <a href="../struct/objects.html#adef-codetype"><samp class="ainst-OBJECT">codetype</samp></a> <a href="#ContentType">%ContentType;</a> #IMPLIED  -- Internet content type for code --
+  <a href="../struct/objects.html#adef-archive"><samp class="ainst-OBJECT">archive</samp></a>     <a href="#URL">%URL;</a>      #IMPLIED  -- space separated archive list --
+  <a href="../struct/objects.html#adef-standby"><samp class="ainst-OBJECT">standby</samp></a>     CDATA      #IMPLIED  -- message to show while loading --
+  <a href="../struct/objects.html#adef-align-IMG"><samp class="ainst-IMG">align</samp></a>       <a href="#IAlign">%IAlign;</a>   #IMPLIED  -- vertical or horizontal alignment --
+  <a href="../struct/objects.html#adef-height-IMG"><samp class="ainst-IMG">height</samp></a>      <a href="#Length">%Length;</a>   #IMPLIED  -- suggested height --
+  <a href="../struct/objects.html#adef-width-IMG"><samp class="ainst-IMG">width</samp></a>       <a href="#Length">%Length;</a>   #IMPLIED  -- suggested width --
+  <a href="../struct/objects.html#adef-border-IMG"><samp class="ainst-IMG">border</samp></a>      <a href="#Length">%Length;</a>   #IMPLIED  -- suggested link border width --
+  <a href="../struct/objects.html#adef-hspace"><samp class="ainst-IMG">hspace</samp></a>      <a href="#Length">%Length;</a>   #IMPLIED  -- suggested horizontal gutter --
+  <a href="../struct/objects.html#adef-vspace"><samp class="ainst-IMG">vspace</samp></a>      <a href="#Length">%Length;</a>   #IMPLIED  -- suggested vertical gutter --
+  <a href="../struct/objects.html#adef-usemap"><samp class="ainst-OBJECT">usemap</samp></a>      <a href="#URL">%URL;</a>      #IMPLIED  -- reference to image map --
+  <a href="../struct/objects.html#adef-shapes"><samp class="ainst-OBJECT">shapes</samp></a>      (shapes)   #IMPLIED  -- object has shaped hypertext links --
+  <a href="../interact/forms.html#adef-name-INPUT"><samp class="ainst-INPUT">name</samp></a>        CDATA      #IMPLIED  -- submit as part of form --
+  <a href="../interact/forms.html#adef-tabindex"><samp class="ainst-OBJECT">tabindex</samp></a>    NUMBER     #IMPLIED  -- position in tabbing order --
+  <a href="#reserved">%reserved;</a>                       -- reserved for possible future use --
+  &gt;
+
+&lt;!ELEMENT <a href="../struct/objects.html#edef-PARAM"><samp class="einst">PARAM</samp></a> - O EMPTY          -- named property value --&gt;
+&lt;!ATTLIST PARAM
+  <a href="../struct/global.html#adef-id"><samp class="ainst">id</samp></a>          ID         #IMPLIED  -- document-wide unique id --
+  <a href="../struct/objects.html#adef-name-PARAM"><samp class="ainst-PARAM">name</samp></a>        CDATA      #REQUIRED -- property name --
+  <a href="../struct/objects.html#adef-value-PARAM"><samp class="ainst-PARAM">value</samp></a>       CDATA      #IMPLIED  -- property value --
+  <a href="../struct/objects.html#adef-valuetype"><samp class="ainst-PARAM">valuetype</samp></a> (DATA|REF|OBJECT) DATA -- How to interpret value --
+  <a href="../struct/objects.html#adef-type-PARAM"><samp class="ainst-PARAM">type</samp></a>        CDATA      #IMPLIED  -- Internet media type --
+  &gt;
+
+&lt;!--=================== Java APPLET ==================================--&gt;
+&lt;!--
+  One of code or object attributes must be present.
+  Place PARAM elements before other content.
+--&gt;
+&lt;!ELEMENT <a href="../struct/objects.html#edef-APPLET"><samp class="einst">APPLET</samp></a> - - (PARAM | <a href="#inline">%inline;</a>)* -- Java applet --&gt;
+&lt;!ATTLIST APPLET
+  <a href="#coreattrs">%coreattrs;</a>                      -- id, class, style, title --
+  <a href="../struct/objects.html#adef-codebase-APPLET"><samp class="ainst-APPLET">codebase</samp></a>    <a href="#URL">%URL;</a>      #IMPLIED   -- optional base URL for applet --
+  <a href="../struct/objects.html#adef-archive"><samp class="ainst-APPLET">archive</samp></a>     CDATA      #IMPLIED   -- comma separated archive list --
+  <a href="../struct/objects.html#adef-code"><samp class="ainst-APPLET">code</samp></a>        CDATA      #IMPLIED   -- applet class file --
+  <a href="../struct/objects.html#adef-object"><samp class="ainst-APPLET">object</samp></a>      CDATA      #IMPLIED   -- serialized applet file --
+  <a href="../struct/objects.html#adef-alt"><samp class="ainst-APPLET">alt</samp></a>         CDATA      #IMPLIED   -- short description --
+  <a href="../struct/objects.html#adef-name-APPLET"><samp class="ainst-APPLET">name</samp></a>        CDATA      #IMPLIED   -- allows applets to find each other --
+  <a href="../struct/objects.html#adef-width-APPLET"><samp class="ainst-APPLET">width</samp></a>       <a href="#Pixels">%Pixels;</a>   #REQUIRED  -- suggested width in pixels --
+  <a href="../struct/objects.html#adef-height-APPLET"><samp class="ainst-APPLET">height</samp></a>      <a href="#Pixels">%Pixels;</a>   #REQUIRED  -- suggested height in pixels --
+  <a href="../struct/objects.html#adef-align-IMG"><samp class="ainst-IMG">align</samp></a>       <a href="#IAlign">%IAlign;</a>   #IMPLIED   -- vertical or horizontal alignment --
+  <a href="../struct/objects.html#adef-hspace"><samp class="ainst-IMG">hspace</samp></a>      <a href="#Pixels">%Pixels;</a>   #IMPLIED   -- suggested horizontal gutter --
+  <a href="../struct/objects.html#adef-vspace"><samp class="ainst-IMG">vspace</samp></a>      <a href="#Pixels">%Pixels;</a>   #IMPLIED   -- suggested vertical gutter --
+  &gt;
+
+&lt;!--=================== Horizontal Rule ==================================--&gt;
+
+&lt;!ELEMENT <a href="../present/graphics.html#edef-HR"><samp class="einst">HR</samp></a> - O EMPTY -- horizontal rule --&gt;
+&lt;!ATTLIST HR
+  <a href="#coreattrs">%coreattrs;</a>                      -- id, class, style, title --
+  <a href="#events">%events;</a>
+  <a href="../present/graphics.html#adef-align"><samp class="ainst-HR">align</samp></a> (left|right|center) #IMPLIED
+  <a href="../present/graphics.html#adef-noshade"><samp class="ainst-HR">noshade</samp></a>     (noshade)  #IMPLIED
+  <a href="../present/graphics.html#adef-size-HR"><samp class="ainst-HR">size</samp></a>        <a href="#Pixels">%Pixels;</a>   #IMPLIED
+  <a href="../present/graphics.html#adef-width-HR"><samp class="ainst-HR">width</samp></a>       <a href="#Length">%Length;</a>   #IMPLIED
+  &gt;
+
+&lt;!--=================== Paragraphs =======================================--&gt;
+
+&lt;!ELEMENT <a href="../struct/text.html#edef-P"><samp class="einst">P</samp></a> - O (<a href="#inline">%inline;</a>)* -- paragraph --&gt;
+&lt;!ATTLIST P
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="#align">%align;</a>                          -- align, text alignment --
+  &gt;
+
+&lt;!--=================== Headings =========================================--&gt;
+
+&lt;!--
+  There are six levels of headings from H1 (the most important)
+  to H6 (the least important).
+--&gt;
+
+&lt;!ELEMENT (<a href="#heading">%heading;</a>)  - -  (<a href="#inline">%inline;</a>)* -- heading --&gt;
+&lt;!ATTLIST (<a href="#heading">%heading;</a>)
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="#align">%align;</a>                          -- align, text alignment --
+  &gt;
+
+&lt;!--=================== Preformatted Text ================================--&gt;
+
+&lt;!-- excludes markup for images and changes in font size --&gt;
+&lt;!ENTITY % <a name="pre.exclusion">pre.exclusion</a> "IMG|OBJECT|APPLET|BIG|SMALL|SUB|SUP|FONT|BASEFONT"&gt;
+
+&lt;!ELEMENT <a href="../struct/text.html#edef-PRE"><samp class="einst">PRE</samp></a> - - (<a href="#inline">%inline;</a>)* -(<a href="#pre.exclusion">%pre.exclusion;</a>) -- preformatted text --&gt;
+&lt;!ATTLIST PRE
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/text.html#adef-width-PRE"><samp class="ainst-PRE">width</samp></a>       NUMBER     #IMPLIED
+  &gt;
+
+&lt;!--===================== Inline Quotes ==================================--&gt;
+
+&lt;!ELEMENT <a href="../struct/text.html#edef-Q"><samp class="einst">Q</samp></a> - - (<a href="#inline">%inline;</a>)* -- short inline quotation --&gt;
+&lt;!ATTLIST Q
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/text.html#adef-cite-Q"><samp class="ainst-Q">cite</samp></a>        <a href="#URL">%URL;</a>      #IMPLIED  -- URL for source document or msg --
+  &gt;
+
+&lt;!--=================== Block-like Quotes ================================--&gt;
+
+&lt;!ELEMENT <a href="../struct/text.html#edef-BLOCKQUOTE"><samp class="einst">BLOCKQUOTE</samp></a> - - (<a href="#block">%block;</a>)+ -- long quotation --&gt;
+&lt;!ATTLIST BLOCKQUOTE
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <samp class="ainst-BLOCKQUOTE">cite</samp>        <a href="#URL">%URL;</a>      #IMPLIED  -- URL for source document or msg --
+  &gt;
+
+&lt;!--=================== Lists ============================================--&gt;
+
+&lt;!-- definition lists - DT for term, DD for its definition --&gt;
+
+&lt;!ELEMENT <a href="../struct/lists.html#edef-DL"><samp class="einst">DL</samp></a> - -  (DT|DD)+ -- definition list --&gt;
+&lt;!ATTLIST DL
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/lists.html#adef-compact"><samp class="ainst-DL">compact</samp></a>     (compact)  #IMPLIED  -- reduced interitem spacing --
+  &gt;
+
+&lt;!ELEMENT <a href="../struct/lists.html#edef-DT"><samp class="einst">DT</samp></a> - O  (<a href="#inline">%inline;</a>)* -- definition term --&gt;
+&lt;!ELEMENT <a href="../struct/lists.html#edef-DD"><samp class="einst">DD</samp></a> - O  (<a href="#block">%block;</a>)+ -- definition description --&gt;
+&lt;!ATTLIST (DT|DD)
+  <a href="#attrs">%attrs;</a>                         -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  &gt;
+
+&lt;!-- Ordered lists (OL) Numbering style
+
+    1   arablic numbers     1, 2, 3, ...
+    a   lower alpha         a, b, c, ...
+    A   upper alpha         A, B, C, ...
+    i   lower roman         i, ii, iii, ...
+    I   upper roman         I, II, III, ...
+
+    The style is applied to the sequence number which by default
+    is reset to 1 for the first list item in an ordered list.
+
+    This can't be expressed directly in SGML due to case folding.
+--&gt;
+
+&lt;!ENTITY % <a name="OLStyle">OLStyle</a> "CDATA"      -- constrained to: [1|a|A|i|I] --&gt;
+
+&lt;!ELEMENT <a href="../struct/lists.html#edef-OL"><samp class="einst">OL</samp></a> - -  (LI)+ -- ordered list --&gt;
+&lt;!ATTLIST OL
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../interact/forms.html#adef-type"><samp class="ainst-OL">type</samp></a>        <a href="#OLStyle">%OLStyle;</a>  #IMPLIED  -- numbering style --
+  <a href="../struct/lists.html#adef-compact"><samp class="ainst-OL">compact</samp></a>     (compact)  #IMPLIED  -- reduced interitem spacing --
+  <a href="../struct/lists.html#adef-start"><samp class="ainst-OL">start</samp></a>       NUMBER     #IMPLIED  -- starting sequence number --
+  &gt;
+
+&lt;!-- Unordered Lists (UL) bullet styles --&gt;
+&lt;!ENTITY % <a name="ULStyle">ULStyle</a> "(disc|square|circle)"&gt;
+
+&lt;!ELEMENT <a href="../struct/lists.html#edef-UL"><samp class="einst">UL</samp></a> - -  (LI)+ -- unordered list --&gt;
+&lt;!ATTLIST UL
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/lists.html#adef-type-UL"><samp class="ainst-UL">type</samp></a>        <a href="#ULStyle">%ULStyle;</a>  #IMPLIED  -- bullet style --
+  <a href="../struct/lists.html#adef-compact"><samp class="ainst-UL">compact</samp></a>     (compact)  #IMPLIED  -- reduced interitem spacing --
+  &gt;
+
+&lt;!ELEMENT (<a href="../struct/lists.html#edef-DIR"><samp class="einst">DIR</samp></a>|<a href="../struct/lists.html#edef-MENU"><samp class="einst">MENU</samp></a>) - -  (LI)+ -(<a href="#blocklevel">%blocklevel;</a>) -- directory list, menu list --&gt;
+&lt;!ATTLIST DIR
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/lists.html#adef-compact"><samp class="ainst-DIR">compact</samp></a>     (compact)  #IMPLIED
+  &gt;
+&lt;!ATTLIST MENU
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/lists.html#adef-compact"><samp class="ainst-MENU">compact</samp></a>     (compact)  #IMPLIED
+  &gt;
+
+&lt;!-- &lt;DIR&gt;              Directory list                  --&gt;
+&lt;!-- &lt;DIR COMPACT&gt;      Compact list style              --&gt;
+&lt;!-- &lt;MENU&gt;             Menu list                       --&gt;
+&lt;!-- &lt;MENU COMPACT&gt;     Compact list style              --&gt;
+
+&lt;!-- The type attribute can be used to change the bullet style
+     in unordered lists and the numbering style in ordered lists --&gt;
+
+&lt;!ENTITY % <a name="LIStyle">LIStyle</a> "CDATA" -- constrained to: "(<a href="#ULStyle">%ULStyle;</a>|<a href="#OLStyle">%OLStyle;</a>)" --&gt;
+
+&lt;!ELEMENT <a href="../struct/lists.html#edef-LI"><samp class="einst">LI</samp></a> - O (<a href="#block">%block;</a>)+ -- list item --&gt;
+&lt;!ATTLIST LI
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../interact/forms.html#adef-type"><samp class="ainst-LI">type</samp></a>        <a href="#LIStyle">%LIStyle;</a>  #IMPLIED  -- list item style --
+  <a href="../struct/lists.html#adef-value-LI"><samp class="ainst-LI">value</samp></a>       NUMBER     #IMPLIED  -- reset sequence number --
+  &gt;
+
+&lt;!--================ Forms ===============================================--&gt;
+&lt;!ELEMENT <a href="../interact/forms.html#edef-FORM"><samp class="einst">FORM</samp></a> - - (<a href="#block">%block;</a>)+ -(FORM) -- interactive form --&gt;
+&lt;!ATTLIST FORM
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../interact/forms.html#adef-action"><samp class="ainst-FORM">action</samp></a>      <a href="#URL">%URL;</a>      #REQUIRED -- server-side form handler --
+  <a href="../interact/forms.html#adef-method"><samp class="ainst-FORM">method</samp></a>      (GET|POST) GET       -- HTTP method used to submit the form --
+  <a href="../interact/forms.html#adef-enctype"><samp class="ainst-FORM">enctype</samp></a>     <a href="#ContentType">%ContentType;</a> "application/x-www-form-urlencoded"
+  <a href="../interact/scripts.html#adef-onsubmit"><samp class="ainst-FORM">onsubmit</samp></a>    <a href="#Script">%Script;</a>   #IMPLIED  -- the form was submitted --
+  <a href="../interact/scripts.html#adef-onreset"><samp class="ainst-FORM">onreset</samp></a>     <a href="#Script">%Script;</a>   #IMPLIED  -- the form was reset --
+  <a href="../present/frames.html#adef-target"><samp class="ainst-FORM">target</samp></a>      CDATA      #IMPLIED  -- where to render result --
+  <a href="../interact/forms.html#adef-accept-charset"><samp class="ainst-FORM">accept-charset</samp></a> CDATA   #IMPLIED  -- list of supported charsets --
+  &gt;
+
+&lt;!-- Each label must not contain more than ONE field --&gt;
+&lt;!ELEMENT <a href="../interact/forms.html#edef-LABEL"><samp class="einst">LABEL</samp></a> - - (<a href="#inline">%inline;</a>)* -(LABEL) -- form field label text --&gt;
+&lt;!ATTLIST LABEL
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../interact/forms.html#adef-for"><samp class="ainst-LABEL">for</samp></a>         IDREF      #IMPLIED  -- matches field ID value --
+  <a href="../interact/forms.html#adef-disabled"><samp class="ainst-LABEL">disabled</samp></a>    (disabled) #IMPLIED  -- control is unavailable in this context --
+  <a href="../interact/forms.html#adef-accesskey"><samp class="ainst-LABEL">accesskey</samp></a>   CDATA      #IMPLIED  -- accessibility key character --
+  <a href="../interact/scripts.html#adef-onfocus"><samp class="ainst-LABEL">onfocus</samp></a>     <a href="#Script">%Script;</a>   #IMPLIED  -- the element got the focus --
+  <a href="../interact/scripts.html#adef-onblur"><samp class="ainst-LABEL">onblur</samp></a>      <a href="#Script">%Script;</a>   #IMPLIED  -- the element lost the focus --
+  &gt;
+
+&lt;!ENTITY % <a name="InputType">InputType</a>
+  "(TEXT | PASSWORD | CHECKBOX |
+    RADIO | SUBMIT | RESET |
+    FILE | HIDDEN | IMAGE | BUTTON)"
+   &gt;
+
+&lt;!-- attribute name required for all but submit & reset --&gt;
+&lt;!ELEMENT <a href="../interact/forms.html#edef-INPUT"><samp class="einst">INPUT</samp></a> - O EMPTY -- form control --&gt;
+&lt;!ATTLIST INPUT
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../interact/forms.html#adef-type"><samp class="ainst-INPUT">type</samp></a>       <a href="#InputType">%InputType;</a> TEXT      -- what kind of widget is needed --
+  <a href="../interact/forms.html#adef-name-INPUT"><samp class="ainst-INPUT">name</samp></a>        CDATA      #IMPLIED  -- submit as part of form --
+  <a href="../interact/forms.html#adef-value-INPUT"><samp class="ainst-INPUT">value</samp></a>       CDATA      #IMPLIED  -- required for radio and checkboxes --
+  <a href="../interact/forms.html#adef-checked"><samp class="ainst-INPUT">checked</samp></a>   (checked)    #IMPLIED  -- for radio buttons and check boxes --
+  <a href="../interact/forms.html#adef-disabled"><samp class="ainst-INPUT">disabled</samp></a>  (disabled)   #IMPLIED  -- control is unavailable in this context --
+  <a href="../interact/forms.html#adef-readonly"><samp class="ainst-INPUT">readonly</samp></a>  (readonly)   #IMPLIED  -- for text and passwd --
+  <a href="../interact/forms.html#adef-size-INPUT"><samp class="ainst-INPUT">size</samp></a>        CDATA      #IMPLIED  -- specific to each type of field --
+  <a href="../interact/forms.html#adef-maxlength"><samp class="ainst-INPUT">maxlength</samp></a>   NUMBER     #IMPLIED  -- max chars for text fields --
+  <a href="../interact/forms.html#adef-src"><samp class="ainst-INPUT">src</samp></a>         <a href="#URL">%URL;</a>      #IMPLIED  -- for fields with images --
+  <a href="../struct/objects.html#adef-alt"><samp class="ainst-INPUT">alt</samp></a>         CDATA      #IMPLIED  -- short description --
+  <a href="../struct/objects.html#adef-usemap"><samp class="ainst-INPUT">usemap</samp></a>      <a href="#URL">%URL;</a>      #IMPLIED  -- use client-side image map --
+  <a href="../present/graphics.html#adef-align"><samp class="ainst-INPUT">align</samp></a>       <a href="#IAlign">%IAlign;</a>   #IMPLIED  -- vertical or horizontal alignment --
+  <a href="../interact/forms.html#adef-tabindex"><samp class="ainst-INPUT">tabindex</samp></a>    NUMBER     #IMPLIED  -- position in tabbing order --
+  <a href="../interact/forms.html#adef-accesskey"><samp class="ainst-INPUT">accesskey</samp></a>   CDATA      #IMPLIED  -- accessibility key character --
+  <a href="../interact/scripts.html#adef-onfocus"><samp class="ainst-INPUT">onfocus</samp></a>     <a href="#Script">%Script;</a>   #IMPLIED  -- the element got the focus --
+  <a href="../interact/scripts.html#adef-onblur"><samp class="ainst-INPUT">onblur</samp></a>      <a href="#Script">%Script;</a>   #IMPLIED  -- the element lost the focus --
+  <a href="../interact/scripts.html#adef-onselect"><samp class="ainst-INPUT">onselect</samp></a>    <a href="#Script">%Script;</a>   #IMPLIED  -- some text was selected --
+  <a href="../interact/scripts.html#adef-onchange"><samp class="ainst-INPUT">onchange</samp></a>    <a href="#Script">%Script;</a>   #IMPLIED  -- the element value was changed --
+  <a href="../interact/forms.html#adef-accept"><samp class="ainst-INPUT">accept</samp></a>      CDATA      #IMPLIED  -- list of MIME types for file upload --
+  <a href="#reserved">%reserved;</a>                       -- reserved for possible future use --
+  &gt;
+
+&lt;!ELEMENT <a href="../interact/forms.html#edef-SELECT"><samp class="einst">SELECT</samp></a> - - (OPTION)+ -- option selector --&gt;
+&lt;!ATTLIST SELECT
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../interact/forms.html#adef-name-SELECT"><samp class="ainst-SELECT">name</samp></a>        CDATA      #IMPLIED -- field name --
+  <a href="../interact/forms.html#adef-size-SELECT"><samp class="ainst-SELECT">size</samp></a>        NUMBER     #IMPLIED  -- rows visible --
+  <a href="../interact/forms.html#adef-multiple"><samp class="ainst-SELECT">multiple</samp></a>  (multiple)   #IMPLIED  -- default is single selection --
+  <a href="../interact/forms.html#adef-disabled"><samp class="ainst-SELECT">disabled</samp></a>  (disabled)   #IMPLIED  -- control is unavailable in this context --
+  <a href="../interact/forms.html#adef-tabindex"><samp class="ainst-SELECT">tabindex</samp></a>    NUMBER     #IMPLIED  -- position in tabbing order --
+  <a href="../interact/scripts.html#adef-onfocus"><samp class="ainst-SELECT">onfocus</samp></a>     <a href="#Script">%Script;</a>   #IMPLIED  -- the element got the focus --
+  <a href="../interact/scripts.html#adef-onblur"><samp class="ainst-SELECT">onblur</samp></a>      <a href="#Script">%Script;</a>   #IMPLIED  -- the element lost the focus --
+  <a href="../interact/scripts.html#adef-onchange"><samp class="ainst-SELECT">onchange</samp></a>    <a href="#Script">%Script;</a>   #IMPLIED  -- the element value was changed --
+  <a href="#reserved">%reserved;</a>                       -- reserved for possible future use --
+  &gt;
+
+&lt;!ELEMENT <a href="../interact/forms.html#edef-OPTION"><samp class="einst">OPTION</samp></a> - O (#PCDATA) -- selectable choice --&gt;
+&lt;!ATTLIST OPTION
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../interact/forms.html#adef-selected"><samp class="ainst-OPTION">selected</samp></a>  (selected)   #IMPLIED
+  <a href="../interact/forms.html#adef-disabled"><samp class="ainst-OPTION">disabled</samp></a>  (disabled)   #IMPLIED  -- control is unavailable in this context --
+  <a href="../interact/forms.html#adef-value-OPTION"><samp class="ainst-OPTION">value</samp></a>       CDATA      #IMPLIED  -- defaults to element content --
+  &gt;
+
+&lt;!ELEMENT <a href="../interact/forms.html#edef-TEXTAREA"><samp class="einst">TEXTAREA</samp></a> - - (#PCDATA) -- multi-line text field --&gt;
+&lt;!ATTLIST TEXTAREA
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../interact/forms.html#adef-name-TEXTAREA"><samp class="ainst-TEXTAREA">name</samp></a>        CDATA      #IMPLIED
+  <a href="../interact/forms.html#adef-rows-TEXTAREA"><samp class="ainst-TEXTAREA">rows</samp></a>        NUMBER     #REQUIRED
+  <a href="../interact/forms.html#adef-cols-TEXTAREA"><samp class="ainst-TEXTAREA">cols</samp></a>        NUMBER     #REQUIRED
+  <a href="../interact/forms.html#adef-disabled"><samp class="ainst-TEXTAREA">disabled</samp></a>  (disabled)   #IMPLIED  -- control is unavailable in this context --
+  <a href="../interact/forms.html#adef-readonly"><samp class="ainst-TEXTAREA">readonly</samp></a>  (readonly)   #IMPLIED
+  <a href="../interact/forms.html#adef-tabindex"><samp class="ainst-TEXTAREA">tabindex</samp></a>    NUMBER     #IMPLIED  -- position in tabbing order --
+  <a href="../interact/scripts.html#adef-onfocus"><samp class="ainst-TEXTAREA">onfocus</samp></a>     <a href="#Script">%Script;</a>   #IMPLIED  -- the element got the focus --
+  <a href="../interact/scripts.html#adef-onblur"><samp class="ainst-TEXTAREA">onblur</samp></a>      <a href="#Script">%Script;</a>   #IMPLIED  -- the element lost the focus --
+  <a href="../interact/scripts.html#adef-onselect"><samp class="ainst-TEXTAREA">onselect</samp></a>    <a href="#Script">%Script;</a>   #IMPLIED  -- some text was selected --
+  <a href="../interact/scripts.html#adef-onchange"><samp class="ainst-TEXTAREA">onchange</samp></a>    <a href="#Script">%Script;</a>   #IMPLIED  -- the element value was changed --
+  <a href="#reserved">%reserved;</a>                       -- reserved for possible future use --
+  &gt;
+
+&lt;!--
+  #PCDATA is to solve the mixed content problem,
+  per specification only whitespace is allowed there!
+ --&gt;
+&lt;!ELEMENT <a href="../interact/forms.html#edef-FIELDSET"><samp class="einst">FIELDSET</samp></a> - - (#PCDATA,LEGEND,(<a href="#block">%block;</a>)+) -- form control group --&gt;
+&lt;!ATTLIST FIELDSET
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  &gt;
+
+&lt;!ELEMENT <a href="../interact/forms.html#edef-LEGEND"><samp class="einst">LEGEND</samp></a> - - (<a href="#inline">%inline;</a>)* -- fieldset legend --&gt;
+&lt;!ENTITY % <a name="LAlign">LAlign</a> "(top|bottom|left|right)"&gt;
+
+&lt;!ATTLIST LEGEND
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../interact/forms.html#adef-align-LEGEND"><samp class="ainst-LEGEND">align</samp></a>       <a href="#LAlign">%LAlign;</a>   #IMPLIED  -- relative to fieldset --
+  <a href="../interact/forms.html#adef-accesskey"><samp class="ainst-LEGEND">accesskey</samp></a>   CDATA      #IMPLIED  -- accessibility key character --
+  &gt;
+
+&lt;!ELEMENT <a href="../interact/forms.html#edef-BUTTON"><samp class="einst">BUTTON</samp></a> - -
+     (<a href="#inline">%inline;</a> | <a href="#blocklevel">%blocklevel;</a>)+ -(A | <a href="#formctrl">%formctrl;</a> | FORM | ISINDEX | FIELDSET)
+     -- push button --&gt;
+&lt;!ATTLIST BUTTON
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../interact/forms.html#adef-name-BUTTON"><samp class="ainst-BUTTON">name</samp></a>        CDATA      #IMPLIED  -- for scripting/forms as submit button --
+  <a href="../interact/forms.html#adef-value-BUTTON"><samp class="ainst-BUTTON">value</samp></a>       CDATA      #IMPLIED  -- gets passed to server when submitted --
+  <a href="../interact/forms.html#adef-type-BUTTON"><samp class="ainst-BUTTON">type</samp></a> (button|submit|reset) submit -- for use as form submit/reset button --
+  <a href="../interact/forms.html#adef-disabled"><samp class="ainst-BUTTON">disabled</samp></a>   (disabled)  #IMPLIED  -- control is unavailable in this context --
+  <a href="../interact/forms.html#adef-tabindex"><samp class="ainst-BUTTON">tabindex</samp></a>    NUMBER     #IMPLIED  -- position in tabbing order --
+  <a href="../interact/forms.html#adef-accesskey"><samp class="ainst-BUTTON">accesskey</samp></a>   CDATA      #IMPLIED  -- accessibility key character --
+  <a href="../interact/scripts.html#adef-onfocus"><samp class="ainst-BUTTON">onfocus</samp></a>     <a href="#Script">%Script;</a>   #IMPLIED  -- the element got the focus --
+  <a href="../interact/scripts.html#adef-onblur"><samp class="ainst-BUTTON">onblur</samp></a>      <a href="#Script">%Script;</a>   #IMPLIED  -- the element lost the focus --
+  <a href="#reserved">%reserved;</a>                       -- reserved for possible future use --
+  &gt;
+
+&lt;!--======================= Tables =======================================--&gt;
+
+&lt;!-- IETF HTML table standard, see <a rel="biblioentry" href="../references.html#ref-RFC1942">[RFC1942]</a> --&gt;
+
+&lt;!--
+ The BORDER attribute sets the thickness of the frame around the
+ table. The default units are screen pixels.
+
+ The FRAME attribute specifies which parts of the frame around
+ the table should be rendered. The values are not the same as
+ CALS to avoid a name clash with the VALIGN attribute.
+
+ The value "border" is included for backwards compatibility with
+ &lt;TABLE BORDER&gt; which yields frame=border and border=implied
+ For &lt;TABLE BORDER=1&gt; you get border=1 and frame=implied. In this
+ case, it is appropriate to treat this as frame=border for backwards
+ compatibility with deployed browsers.
+--&gt;
+&lt;!ENTITY % <a name="TFrame">TFrame</a> "(void|above|below|hsides|lhs|rhs|vsides|box|border)"&gt;
+
+&lt;!--
+ The RULES attribute defines which rules to draw between cells:
+
+ If RULES is absent then assume:
+     "none" if BORDER is absent or BORDER=0 otherwise "all"
+--&gt;
+
+&lt;!ENTITY % <a name="TRules">TRules</a> "(none | groups | rows | cols | all)"&gt;
+  
+&lt;!-- horizontal placement of table relative to document --&gt;
+&lt;!ENTITY % <a name="TAlign">TAlign</a> "(left|center|right)"&gt;
+
+&lt;!-- horizontal alignment attributes for cell contents --&gt;
+&lt;!ENTITY % <a name="cellhalign">cellhalign</a>
+  "<a href="../struct/tables.html#adef-align-TD"><samp class="ainst-TD">align</samp></a> (left|center|right|justify|char) #IMPLIED
+   <a href="../struct/tables.html#adef-char"><samp class="ainst">char</samp></a>       CDATA      #IMPLIED  -- alignment char, e.g. char=':' --
+   <a href="../struct/tables.html#adef-charoff"><samp class="ainst">charoff</samp></a>    CDATA      #IMPLIED  -- offset for alignment char --"
+  &gt;
+
+&lt;!-- vertical alignment attributes for cell contents --&gt;
+&lt;!ENTITY % <a name="cellvalign">cellvalign</a>
+  "<a href="../struct/tables.html#adef-valign"><samp class="ainst">valign</samp></a> (top|middle|bottom|baseline) #IMPLIED"
+  &gt;
+
+&lt;!-- Only one CAPTION is allowed in each TABLE --&gt;
+&lt;!ELEMENT <a href="../struct/tables.html#edef-TABLE"><samp class="einst">TABLE</samp></a> - -
+     (CAPTION?, ((COL*|COLGROUP*), THEAD?, TFOOT?, TBODY+), CAPTION?)&gt;
+&lt;!ELEMENT <a href="../struct/tables.html#edef-CAPTION"><samp class="einst">CAPTION</samp></a> - - (<a href="#inline">%inline;</a>)*    -- table caption --&gt;
+&lt;!ELEMENT <a href="../struct/tables.html#edef-THEAD"><samp class="einst">THEAD</samp></a> - O (TR)+ -- table header --&gt;
+&lt;!ELEMENT <a href="../struct/tables.html#edef-TFOOT"><samp class="einst">TFOOT</samp></a> - O (TR)+ -- table footer --&gt;
+&lt;!ELEMENT <a href="../struct/tables.html#edef-TBODY"><samp class="einst">TBODY</samp></a> O O (TR)+ -- table body --&gt;
+&lt;!ELEMENT <a href="../struct/tables.html#edef-COLGROUP"><samp class="einst">COLGROUP</samp></a> - O (col)* -- table column group --&gt;
+&lt;!ELEMENT <a href="../struct/tables.html#edef-COL"><samp class="einst">COL</samp></a> - O EMPTY -- table column --&gt;
+&lt;!ELEMENT <a href="../struct/tables.html#edef-TR"><samp class="einst">TR</samp></a> - O (TH|TD)+ -- table row --&gt;
+&lt;!ELEMENT (<a href="../struct/tables.html#edef-TH"><samp class="einst">TH</samp></a>|<a href="../struct/tables.html#edef-TD"><samp class="einst">TD</samp></a>) - O (<a href="#block">%block;</a>)+ -- table header cell, table data cell --&gt;
+
+&lt;!ATTLIST TABLE                 -- table element --
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/tables.html#adef-summary"><samp class="ainst-TABLE">summary</samp></a>     CDATA      #IMPLIED  -- purpose/structure for speech o/p --
+  <a href="../struct/tables.html#adef-align-TABLE"><samp class="ainst-TABLE">align</samp></a>       <a href="#TAlign">%TAlign;</a>   #IMPLIED  -- table position relative to window --
+  <a href="../present/graphics.html#adef-bgcolor"><samp class="ainst-TABLE">bgcolor</samp></a>     <a href="#Color">%Color;</a>    #IMPLIED  -- background color for cells --
+  <a href="../struct/tables.html#adef-width-TABLE"><samp class="ainst-TABLE">width</samp></a>       CDATA      #IMPLIED  -- table width relative to window --
+  <a href="../struct/tables.html#adef-cols-TABLE"><samp class="ainst-TABLE">cols</samp></a>        NUMBER     #IMPLIED  -- used for immediate display mode --
+  <a href="../struct/tables.html#adef-border"><samp class="ainst-TABLE">border</samp></a>      CDATA      #IMPLIED  -- controls frame width around table --
+  <a href="../struct/tables.html#adef-frame"><samp class="ainst-TABLE">frame</samp></a>       <a href="#TFrame">%TFrame;</a>   #IMPLIED  -- which parts of table frame to include --
+  <a href="../struct/tables.html#adef-rules"><samp class="ainst-TABLE">rules</samp></a>       <a href="#TRules">%TRules;</a>   #IMPLIED  -- rulings between rows and cols --
+  <a href="../struct/tables.html#adef-cellspacing"><samp class="ainst-TABLE">cellspacing</samp></a> CDATA      #IMPLIED  -- spacing between cells --
+  <a href="../struct/tables.html#adef-cellpadding"><samp class="ainst-TABLE">cellpadding</samp></a> CDATA      #IMPLIED  -- spacing within cells --
+  <a href="#reserved">%reserved;</a>                       -- reserved for possible future use --
+  &gt;
+
+&lt;!ENTITY % <a name="CAlign">CAlign</a> "(top|bottom|left|right)"&gt;
+
+&lt;!ATTLIST CAPTION               -- table caption --
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/tables.html#adef-align-CAPTION"><samp class="ainst-CAPTION">align</samp></a>       <a href="#CAlign">%CAlign;</a>   #IMPLIED  -- relative to table --
+  &gt;
+
+&lt;!--
+COLGROUP groups a set of COL elements. It allows you to group
+several columns together.
+--&gt;
+&lt;!ATTLIST COLGROUP
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/tables.html#adef-span-COLGROUP"><samp class="ainst-COLGROUP">span</samp></a>        NUMBER     1         -- default number of columns in group --
+  <a href="../struct/tables.html#adef-width-COLGROUP"><samp class="ainst-COLGROUP">width</samp></a>       CDATA      #IMPLIED  -- default width for enclosed COLs --
+  <a href="#cellhalign">%cellhalign;</a>                     -- horizontal alignment in cells --
+  <a href="#cellvalign">%cellvalign;</a>                     -- vertical alignment in cells --
+  &gt;
+
+&lt;!--
+ COL elements define the alignment properties for cells in a given
+ column or spanned columns. The WIDTH attribute specifies the
+ width of the columns, e.g.
+
+     width=64        width in screen pixels
+     width=0.5*      relative width of 0.5
+--&gt;
+&lt;!ATTLIST COL                   -- column groups and properties --
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/tables.html#adef-span-COL"><samp class="ainst-COL">span</samp></a>        NUMBER     1         -- number of columns spanned by group --
+  <a href="../struct/tables.html#adef-width-COL"><samp class="ainst-COL">width</samp></a>       CDATA      #IMPLIED  -- column width specification --
+  <a href="#cellhalign">%cellhalign;</a>                     -- horizontal alignment in cells --
+  <a href="#cellvalign">%cellvalign;</a>                     -- vertical alignment in cells --
+  &gt;
+
+&lt;!--
+    Use THEAD to duplicate headers when breaking table
+    across page boundaries, or for static headers when
+    TBODY sections are rendered in scrolling panel.
+
+    Use TFOOT to duplicate footers when breaking table
+    across page boundaries, or for static footers when
+    TBODY sections are rendered in scrolling panel.
+
+    Use multiple TBODY sections when rules are needed
+    between groups of table rows.
+--&gt;
+&lt;!ATTLIST (THEAD|TBODY|TFOOT)   -- table section --
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="#cellhalign">%cellhalign;</a>                     -- horizontal alignment in cells --
+  <a href="#cellvalign">%cellvalign;</a>                     -- vertical alignment in cells --
+  &gt;
+
+&lt;!ATTLIST TR                    -- table row --
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="#cellhalign">%cellhalign;</a>                     -- horizontal alignment in cells --
+  <a href="#cellvalign">%cellvalign;</a>                     -- vertical alignment in cells --
+  <a href="../present/graphics.html#adef-bgcolor"><samp class="ainst-TR">bgcolor</samp></a>     <a href="#Color">%Color;</a>    #IMPLIED  -- background color for row --
+  &gt;
+
+&lt;!ATTLIST (TH|TD)               -- header or data cell --
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  <a href="../struct/tables.html#adef-abbr"><samp class="ainst-TH">abbr</samp></a>        CDATA      #IMPLIED  -- abbreviation for header cell --
+  <a href="../struct/tables.html#adef-axis"><samp class="ainst-TH">axis</samp></a>        CDATA      #IMPLIED  -- names groups of related headers--
+  <a href="../struct/tables.html#adef-axes"><samp class="ainst-TH">axes</samp></a>        IDREFS     #IMPLIED  -- list of id's for header cells --
+  <a href="../struct/tables.html#adef-nowrap"><samp class="ainst-TH">nowrap</samp></a>      (nowrap)   #IMPLIED  -- suppress word wrap --
+  <a href="../present/graphics.html#adef-bgcolor"><samp class="ainst-TH">bgcolor</samp></a>     <a href="#Color">%Color;</a>    #IMPLIED  -- cell background color --
+  <a href="../struct/tables.html#adef-rowspan"><samp class="ainst-TH">rowspan</samp></a>     NUMBER     1         -- number of rows spanned by cell --
+  <a href="../struct/tables.html#adef-colspan"><samp class="ainst-TH">colspan</samp></a>     NUMBER     1         -- number of cols spanned by cell --
+  <a href="#cellhalign">%cellhalign;</a>                     -- horizontal alignment in cells --
+  <a href="#cellvalign">%cellvalign;</a>                     -- vertical alignment in cells --
+  <a href="../struct/tables.html#adef-width-TH"><samp class="ainst-TH">width</samp></a>       <a href="#Pixels">%Pixels;</a>   #IMPLIED  -- suggested width for cell --
+  <a href="../struct/tables.html#adef-height-TH"><samp class="ainst-TH">height</samp></a>      <a href="#Pixels">%Pixels;</a>   #IMPLIED  -- suggested height for cell --
+  &gt;
+
+&lt;!--================== Document Frames ===================================--&gt;
+
+&lt;!--
+  The content model for HTML documents depends on whether the HEAD is
+  followed by a FRAMESET or BODY element. The widespread omission of
+  the BODY start tag makes it impractical to define the content model
+  without the use of a marked section.
+--&gt;
+
+&lt;!-- Feature Switch for frameset documents --&gt;
+&lt;!ENTITY % <a name="HTML.Frameset">HTML.Frameset</a> "IGNORE"&gt;
+
+&lt;![ <a href="#HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!ELEMENT <a href="../present/frames.html#edef-FRAMESET"><samp class="einst">FRAMESET</samp></a> - - ((FRAMESET|FRAME)+ & NOFRAMES?)
+  -- window subdivision --&gt;
+&lt;!ATTLIST FRAMESET
+  <a href="../struct/global.html#adef-id"><samp class="ainst">id</samp></a>          ID         #IMPLIED  -- document-wide unique id --
+  <a href="../struct/global.html#adef-title"><samp class="ainst">title</samp></a>       CDATA      #IMPLIED  -- advisory title as for anchors --
+  -- absolute pixel values, percentages or relative scales. --
+  <a href="../present/frames.html#adef-rows-FRAMESET"><samp class="ainst-FRAMESET">rows</samp></a>        CDATA      #IMPLIED  -- if not given, default is 1 row --
+  <a href="../present/frames.html#adef-cols-FRAMESET"><samp class="ainst-FRAMESET">cols</samp></a>        CDATA      #IMPLIED  -- if not given, default is 1 column --
+  <a href="../interact/scripts.html#adef-onload"><samp class="ainst-FRAMESET">onload</samp></a>      <a href="#Script">%Script;</a>   #IMPLIED  -- all the frames have been loaded  -- 
+  <a href="../interact/scripts.html#adef-onunload"><samp class="ainst-FRAMESET">onunload</samp></a>    <a href="#Script">%Script;</a>   #IMPLIED  -- all the frames have been removed -- 
+  &gt;
+]]&gt;
+
+&lt;![ <a href="#HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!-- reserved frame names start with "_" otherwise starts with letter --&gt;
+&lt;!ELEMENT <a href="../present/frames.html#edef-FRAME"><samp class="einst">FRAME</samp></a> - O EMPTY -- subwindow --&gt;
+&lt;!ATTLIST FRAME
+  <a href="../struct/global.html#adef-id"><samp class="ainst">id</samp></a>          ID         #IMPLIED  -- document-wide unique id --
+  <a href="../struct/global.html#adef-title"><samp class="ainst">title</samp></a>       CDATA      #IMPLIED  -- advisory title as for anchors --
+  <a href="../present/frames.html#adef-name-FRAME"><samp class="ainst-FRAME">name</samp></a>        CDATA      #IMPLIED  -- name of frame for targetting --
+  <a href="../present/frames.html#adef-src-FRAME"><samp class="ainst-FRAME">src</samp></a>         <a href="#URL">%URL;</a>      #IMPLIED  -- source of frame content --
+  <a href="../present/frames.html#adef-frameborder"><samp class="ainst-FRAME">frameborder</samp></a> (1|0)      1         -- request frame borders? --
+  <a href="../present/frames.html#adef-marginwidth"><samp class="ainst-FRAME">marginwidth</samp></a> <a href="#Pixels">%Pixels;</a>   #IMPLIED  -- margin widths in pixels --
+  <a href="../present/frames.html#adef-marginheight"><samp class="ainst-FRAME">marginheight</samp></a> <a href="#Pixels">%Pixels;</a>  #IMPLIED  -- margin height in pixels --
+  <a href="../present/frames.html#adef-noresize"><samp class="ainst-FRAME">noresize</samp></a>    (noresize) #IMPLIED  -- allow users to resize frames? --
+  <a href="../present/frames.html#adef-scrolling"><samp class="ainst-FRAME">scrolling</samp></a> (yes|no|auto) auto     -- scrollbar or none --
+  &gt;
+]]&gt;
+
+&lt;!ELEMENT <a href="../present/frames.html#edef-IFRAME"><samp class="einst">IFRAME</samp></a> - - (<a href="#block">%block;</a>)+ -- inline subwindow --&gt;
+&lt;!ATTLIST IFRAME
+  <a href="../struct/global.html#adef-id"><samp class="ainst">id</samp></a>          ID         #IMPLIED  -- document-wide unique id --
+  <a href="../struct/global.html#adef-title"><samp class="ainst">title</samp></a>       CDATA      #IMPLIED  -- advisory title as for anchors --
+  <samp class="ainst-IFRAME">name</samp>        CDATA      #IMPLIED  -- name of frame for targetting --
+  <a href="../interact/forms.html#adef-src"><samp class="ainst-IFRAME">src</samp></a>         <a href="#URL">%URL;</a>      #IMPLIED  -- source of frame content --
+  <a href="../present/frames.html#adef-frameborder"><samp class="ainst-IFRAME">frameborder</samp></a> (1|0)      1         -- request frame borders? --
+  <a href="../present/frames.html#adef-marginwidth"><samp class="ainst-IFRAME">marginwidth</samp></a> <a href="#Pixels">%Pixels;</a>   #IMPLIED  -- margin widths in pixels --
+  <a href="../present/frames.html#adef-marginheight"><samp class="ainst-IFRAME">marginheight</samp></a> <a href="#Pixels">%Pixels;</a>  #IMPLIED  -- margin height in pixels --
+  <a href="../present/frames.html#adef-scrolling"><samp class="ainst-IFRAME">scrolling</samp></a> (yes|no|auto) auto     -- scrollbar or none --
+  <a href="../present/graphics.html#adef-align"><samp class="ainst-IFRAME">align</samp></a>       <a href="#IAlign">%IAlign;</a>   #IMPLIED  -- vertical or horizontal alignment --
+  <a href="../present/frames.html#adef-height-IFRAME"><samp class="ainst-IFRAME">height</samp></a>      <a href="#Length">%Length;</a>   #IMPLIED  -- suggested height --
+  <a href="../present/frames.html#adef-width-IFRAME"><samp class="ainst-IFRAME">width</samp></a>       <a href="#Length">%Length;</a>   #IMPLIED  -- suggested width --
+  &gt;
+
+&lt;![ <a href="#HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!ENTITY % <a name="noframes.content">noframes.content</a> "BODY"&gt;
+]]&gt;
+
+&lt;!ENTITY % noframes.content "<a href="#block">%block;</a>"&gt;
+
+&lt;!ELEMENT <a href="../present/frames.html#edef-NOFRAMES"><samp class="einst">NOFRAMES</samp></a> - - (<a href="#noframes.content">%noframes.content;</a>)
+ -- alternate content container for non frame-based rendering --&gt;
+&lt;!ATTLIST NOFRAMES
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  &gt;
+
+&lt;!--================ Document Head =======================================--&gt;
+&lt;!-- <a href="#head.misc">%head.misc;</a> defined earlier on as "SCRIPT | STYLE | META | LINK" --&gt;
+&lt;!ENTITY % <a name="head.content">head.content</a> "TITLE &amp; ISINDEX? &amp; BASE?"&gt;
+
+&lt;!ELEMENT <a href="../struct/global.html#edef-HEAD"><samp class="einst">HEAD</samp></a> O O  (<a href="#head.content">%head.content;</a>) +(<a href="#head.misc">%head.misc;</a>) -- document head --&gt;
+&lt;!ATTLIST HEAD
+  <a href="#i18n">%i18n;</a>                           -- lang, dir --
+  <a href="../struct/global.html#adef-profile"><samp class="ainst-HEAD">profile</samp></a>     <a href="#URL">%URL;</a>      #IMPLIED  -- named dictionary of meta info --
+  &gt;
+
+&lt;!-- The TITLE element is not considered part of the flow of text.
+       It should be displayed, for example as the page header or
+       window title. Exactly one title is required per document.
+    --&gt;
+&lt;!ELEMENT <a href="../struct/global.html#edef-TITLE"><samp class="einst">TITLE</samp></a> - -  (#PCDATA) -(<a href="#head.misc">%head.misc;</a>) -- document title --&gt;
+&lt;!ATTLIST TITLE <a href="#i18n">%i18n</a>&gt;
+
+&lt;!ELEMENT <a href="../interact/forms.html#edef-ISINDEX"><samp class="einst">ISINDEX</samp></a> - O EMPTY -- single line prompt --&gt;
+&lt;!ATTLIST ISINDEX
+  <a href="#coreattrs">%coreattrs;</a>                      -- id, class, style, title --
+  <a href="#i18n">%i18n;</a>                           -- lang, dir --
+  <a href="../interact/forms.html#adef-prompt"><samp class="ainst-ISINDEX">prompt</samp></a>      CDATA      #IMPLIED  -- prompt message --&gt;
+
+&lt;!ELEMENT <a href="../struct/links.html#edef-BASE"><samp class="einst">BASE</samp></a> - O EMPTY -- document base URL --&gt;
+&lt;!ATTLIST BASE
+  <a href="../struct/links.html#adef-href-BASE"><samp class="ainst-BASE">href</samp></a>        <a href="#URL">%URL;</a>      #REQUIRED
+  <a href="../present/frames.html#adef-target"><samp class="ainst-BASE">target</samp></a>      CDATA      #IMPLIED  -- where to render linked resource --
+  &gt;
+
+&lt;!ELEMENT <a href="../struct/global.html#edef-META"><samp class="einst">META</samp></a> - O EMPTY        -- generic metainformation --&gt;
+&lt;!ATTLIST META
+  <a href="#i18n">%i18n;</a>                           -- lang, dir, for use with content string --
+  <a href="../struct/global.html#adef-http-equiv"><samp class="ainst-META">http-equiv</samp></a>  NAME       #IMPLIED  -- HTTP response header name  --
+  <a href="../struct/global.html#adef-name-META"><samp class="ainst-META">name</samp></a>        NAME       #IMPLIED  -- metainformation name --
+  <a href="../struct/global.html#adef-content"><samp class="ainst-META">content</samp></a>     CDATA      #REQUIRED -- associated information --
+  <a href="../struct/global.html#adef-scheme"><samp class="ainst-META">scheme</samp></a>      CDATA      #IMPLIED  -- select form of content --
+  &gt;
+
+&lt;!ELEMENT <a href="../present/styles.html#edef-STYLE"><samp class="einst">STYLE</samp></a> - - CDATA      -- style info --&gt;
+&lt;!ATTLIST STYLE
+  <a href="#i18n">%i18n;</a>                           -- lang, dir, for use with title --
+  <a href="../present/styles.html#adef-type-STYLE"><samp class="ainst-STYLE">type</samp></a>        CDATA      #REQUIRED -- Internet content type
+                                      for style language --
+  <a href="../present/styles.html#adef-media"><samp class="ainst-STYLE">media</samp></a>       CDATA      #IMPLIED  -- designed for use with these media --
+  <a href="../struct/global.html#adef-title"><samp class="ainst-STYLE">title</samp></a>       CDATA      #IMPLIED  -- advisory title --
+  &gt;
+
+&lt;!ELEMENT <a href="../interact/scripts.html#edef-SCRIPT"><samp class="einst">SCRIPT</samp></a> - - CDATA      -- script statements --&gt;
+&lt;!ATTLIST SCRIPT
+  <a href="../interact/scripts.html#adef-type-SCRIPT"><samp class="ainst-SCRIPT">type</samp></a>        CDATA      #IMPLIED  -- Internet content type for
+                                      script language --
+  <a href="../interact/scripts.html#adef-language"><samp class="ainst-SCRIPT">language</samp></a>    CDATA      #IMPLIED  -- predefined script language name --
+  <a href="../interact/scripts.html#adef-src-SCRIPT"><samp class="ainst-SCRIPT">src</samp></a>         <a href="#URL">%URL;</a>      #IMPLIED  -- URL for an external script --
+  &gt;
+
+&lt;!ELEMENT <a href="../interact/scripts.html#edef-NOSCRIPT"><samp class="einst">NOSCRIPT</samp></a> - - (<a href="#block">%block;</a>)+
+  -- alternate content container for non script-based rendering --&gt;
+&lt;!ATTLIST NOSCRIPT
+  <a href="#attrs">%attrs;</a>                          -- <a href="#coreattrs">%coreattrs</a>, <a href="#i18n">%i18n</a>, <a href="#events">%events</a> --
+  &gt;
+
+&lt;!--================ Document Structure ==================================--&gt;
+&lt;!ENTITY % <a name="version">version</a> "version CDATA #FIXED '<a href="#HTML.Version">%HTML.Version;</a>'"&gt;
+
+&lt;![ <a href="#HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!ENTITY % <a name="html.content">html.content</a> "HEAD, FRAMESET"&gt;
+]]&gt;
+
+&lt;!ENTITY % html.content "HEAD, BODY"&gt;
+
+&lt;!ELEMENT <a href="../struct/global.html#edef-HTML"><samp class="einst">HTML</samp></a> O O (<a href="#html.content">%html.content;</a>) -- document root element --&gt;
+&lt;!ATTLIST HTML
+  <a href="#version">%version;</a>
+  <a href="#i18n">%i18n;</a>                           -- lang, dir --
+  &gt;
+</pre>
+
+</div>
+<div class="navbar">
+<hr><center><a href="dtd.html">previous</a> &nbsp; <a href="framesetdtd.html">next</a> &nbsp; <a href="../cover.html#toc">contents</a> &nbsp; <a href="../index/elements.html">elements</a> &nbsp; <a href="../index/attribs.html">attributes</a>
+</center></div>
+</body>
+</html>

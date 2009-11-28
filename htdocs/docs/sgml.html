@@ -1,0 +1,99 @@
+<!--#set var="revision" value="\$Id: sgml.html,v 1.1.1.1 2004/09/19 12:34:09 ralph Exp $"
+--><!--#set var="date" value="\$Date: 2004/09/19 12:34:09 $"
+--><!--#set var="title" value="Introduction To SGML for The W3C MarkUp Validation Service"
+--><!--#set var="relroot" value="../"
+--><!--#include virtual="../header.html" -->
+    <div id="skip">
+      <h2 id="sgml">What is SGML?</h2>
+      <p>
+        SGML stands for Standard Generalized Markup Language. This is
+        actually a slight misnomer, since SGML is actually a
+        <em>meta-language</em> &mdash; that is, a language for writing markup
+        languages.  HTML is a markup language written in SGML &mdash; an "SGML
+        application", to use the terminology.
+      </p>
+      <p>
+        You don't actually have to know much about SGML to use The Validator
+        successfully. If you're interested, though, I recommend TEI's
+        <a href="http://etext.virginia.edu/tei-tocs1.html">"A Gentle
+        Introduction to SGML"</a> as a good starting point. An additional SGML
+        resource can be found on
+        <a href="http://www.oasis-open.org/cover/sgml-xml.html">SIL's SGML
+        Web Page</a>.
+      </p>
+    </div>
+
+    <div>
+      <h2 id="dtd">What is a DTD?</h2>
+      <p>
+        For our purposes, a DTD, or Document Type Definition, is simply a file
+        that defines the syntax of a <a href="#sgml">SGML</a>-based language.
+        The DTDs for
+        <a href="http://w3.org/MarkUp/html-spec/">HTML 2.0</a>
+        and <a href="http://w3.org/TR/REC-html32">HTML 3.2</a>
+        were written by the HTML Working Group of the
+        <a href="http://www.ietf.org/"><abbr title="Internet Engineering Task Force">IETF</abbr></a>,
+        in collaboration with the <a href="http://w3.org"><abbr title="World Wide Web Consortium">W3C</abbr></a>.
+        From <a href="http://w3.org/TR/html4">HTML 4.0</a> on (this includes
+        <a href="http://w3.org/TR/xhtml1">XHTML</a>), the standards (both
+        prose and DTDs) have been written by the
+        <a href="http://w3.org"><abbr title="World Wide Web Consortium">W3C</abbr></a>.
+      </p>
+    </div>
+
+    <div>
+      <h2 id="doctype">What is this <code>DOCTYPE</code> thing The Validator
+        keeps pestering me for?</h2>
+
+      <p>
+        A <code>DOCTYPE</code> is a <a href="#sgml">SGML</a> document type
+        declaration. Its purpose is to tell an SGML parser what
+        <a href="#dtd">DTD</a> it should use to parse the document. It appears
+        as the first line of the document, and has the form:
+        <code>&lt;!DOCTYPE html PUBLIC "quoted string"&gt;</code>
+      </p>
+      <p>
+        The quoted string is called a <dfn>public identifier</dfn>; it refers
+        to the desired DTD by a "well-known" name, usually defined by an
+        associated standard.
+      </p>
+      <p>
+        Most Web browsers don't actually use an SGML parser (in fact, none
+        that I'm aware of do), and so they don't need a <code>DOCTYPE</code>
+        declaration, and will ignore it if present. The Validator, however,
+        does use an SGML parser, and therefore needs a <code>DOCTYPE</code>
+        declaration. The Validator is more insistent on this point than
+        WebTechs was, which would insert a <code>DOCTYPE</code> on the fly
+        for you; The Validator requires that your <code>DOCTYPE</code> already
+        be in the document.
+      </p>
+      <p>
+        So now you're preparing to add a <code>DOCTYPE</code> to your document.
+        Be sure that the syntax is as described above, and that you use the
+        correct public identifier; otherwise, The Validator will use the wrong
+        DTD, or will be unable to find a DTD at all, and will produce a huge
+        list of absolutely meaningless errors.
+      </p>
+      <p>
+        The W3C QA Activity maintains a <a
+        href="http://www.w3.org/QA/2002/04/valid-dtd-list.html">List of
+        Valid Doctypes</a> that you can choose from, and the <acronym
+        title="Web Design Group">WDG</acronym> maintains a document on
+        "<a href="http://htmlhelp.com/tools/validator/doctype.html">Choosing
+        a DOCTYPE</a>".
+      </p>
+      <p class="warning">
+        <strong>WARNING:</strong> Some HTML editors will insert a
+        <code>DOCTYPE</code> declaration for you. Unfortunately, this
+        pre-inserted <code>DOCTYPE</code> will sometimes confuse
+        The Validator. This usually occurs when the inserted
+        <code>DOCTYPE</code> does not correspond to the generated HTML.
+        If your editor adds a <code>DOCTYPE</code> to your page, you may
+        need to correct it as described above before running your page through
+        The Validator.
+      </p>
+    </div>
+<!--#include virtual="../footer.html" -->
+  </body>
+</html>
+

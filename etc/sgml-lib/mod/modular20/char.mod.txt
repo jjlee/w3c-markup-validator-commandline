@@ -1,0 +1,21 @@
+<!-- ............................................................ -->
+<!-- HTML DTD Character Mnemonics Module ........................ -->
+<!-- File char.mod .............................................. -->
+
+<!ENTITY % char.module.status   %HTML.status; >
+<!ENTITY % char.module.expires  %HTML.expires; >
+<!ENTITY % char.module.version 
+        "-//IETF//ENTITIES HTML V2.0 Character Mnemonics//EN" >
+        
+<!-- Character mnemonic entities .......................-->
+<!ENTITY % ISOlat1 PUBLIC
+        "ISO 8879-1986//ENTITIES Added Latin 1//EN//HTML" >
+%ISOlat1;
+
+<!-- Entities for markup significant characters ........-->
+<!ENTITY amp CDATA "&#38;"     -- ampersand             -->
+<!ENTITY gt CDATA "&#62;"      -- greater than          -->
+<!ENTITY lt CDATA "&#60;"      -- less than             -->
+<!ENTITY quot CDATA "&#34;"    -- double quote          -->
+
+<!-- End of char.module -->

@@ -1,0 +1,175 @@
+<!--#set var="revision" value="\$Id: index.html,v 1.1.1.1 2004/09/19 12:34:09 ralph Exp $"
+--><!--#set var="date" value="\$Date: 2004/09/19 12:34:09 $"
+--><!--#set var="title" value="Source Code Availability for The W3C MarkUp Validation Service"
+--><!--#set var="relroot" value="../"
+--><!--#include virtual="../header.html" -->
+
+    <p id="skip">
+      The source code for the <a
+        href="../">W3C MarkUp Validation Service</a> is available under the
+      terms of the <a
+        href="http://www.w3.org/Consortium/Legal/copyright-software">W3C
+      Software Copyright</a>.
+    </p>
+    <p>
+      The purpose of making the source code available is partly to allow
+      others to set up mirrors of the service (either publicly or within
+      an intranet behind a firewall), but also to allow us to collaborate
+      on making the service better -- there are <a
+        href="../todo.html">many ways the service could be improved</a>!
+    </p>
+
+    <div id="getting">
+      <h2>Retrieving the Code</h2>
+      <p>You can retrieve the code a number of ways:</p>
+      <ul>
+        <li>
+          <p>
+            If you just want to glance at the code, or see its revision
+            history, you can <a
+              href="http://dev.w3.org/cgi-bin/cvsweb/validator/">browse it on
+              the web</a>.
+          </p>
+          <p>
+            The most interesting files are currently <a
+              href="http://dev.w3.org/cgi-bin/cvsweb/validator/httpd/cgi-bin/check">a
+              CGI script called "check"</a> that does pretty much everything,
+            and possibly also <a
+              href="http://dev.w3.org/cgi-bin/cvsweb/validator/httpd/conf/httpd.conf">the
+              httpd.conf</a>. (Select the topmost revision numbers on these
+            pages to see the most recent revision of each file.)
+          </p>
+        </li>
+        <li>
+          <p>
+            If you want a copy of all the files that make up the
+            service, you can <a href="../validator.tar.gz">grab a tar
+              ball</a> (~2.8MB).
+          </p>
+        </li>
+        <li id="CVS">
+          <p>
+            If you intend to actively mirror the code and/or contribute
+            patches to the code, you should install and become familiar
+            with <a href="http://www.cvshome.org/">CVS</a>;
+            this is the tool we use for revision control and is generally
+            a good thing to get to know. <a
+              href="http://www.loria.fr/~molli/cvs-index.html">More
+              information on CVS</a> is available courtesy of <a
+              href="http://www.loria.fr/~molli/">Pascal Molli</a>.
+          </p>
+          <p>
+            Our CVS base is available read-only, using CVS pserver
+            authentication a la:
+          </p>
+          <pre>
+    bash$ <kbd>export CVSROOT=":pserver:anonymous@dev.w3.org:/sources/public"</kbd>
+    bash$ <kbd>cvs login</kbd>
+    (Logging in to anonymous@dev.w3.org)
+    CVS password: <kbd>anonymous</kbd>
+    bash$ <kbd>cvs get validator</kbd>
+    cvs server: Updating validator
+    cvs server: Updating validator/htdocs
+    U validator/htdocs/about.html
+    ...
+          </pre>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Prerequisites</h2>
+      <p>
+        Before you will be able to get the code to run, you will need a few
+        things already installed on your system:
+      </p>
+        <ul>
+          <li>
+            A Unix-like operating system. It may also work with Windows
+            NT, Mac OS X or other systems. It has worked on Linux,
+            Solaris, FreeBSD, HP-UX, and Digital UNIX. If you try it on other
+            systems and get it to work, please <a href="../feedback.html">let
+            us know</a> (and <a href="../feedback.html">send us patches</a>,
+            if they are needed to get it to work elsewhere).
+         </li>
+         <li>
+           <a href="http://openjade.sourceforge.net/">OpenSP</a>, version 1.5
+           or newer.  OpenSP is the SGML and XML parser used by the service.
+         </li>
+         <li>
+           <a href="../sgml-lib.tar.gz">A collection of DTDs and other
+             files</a> to validate against. (You do not need to download this
+           if you mirror everything using <a href="#CVS">CVS</a>.)
+         </li>
+         <li>
+           A web server: we are currently running <a
+             href="httpd://httpd.apache.org/">Apache</a> version 1.3.27, but
+           likely any version will work, and other web servers may work as
+           well with some tweaking.  In particular, the server needs to be
+           able to run <a href="http://www.w3.org/CGI/"><acronym
+           title="Common Gateway Interface">CGI</acronym></a> scripts and
+           have support for
+           <a href="http://httpd.apache.org/docs/howto/ssi.html"><acronym
+           title="Server Side Includes">SSI</acronym></a>.
+         </li>
+         <li>
+           <a href="http://www.perl.org/">Perl</a>: the <a
+             href="http://dev.w3.org/cgi-bin/cvsweb/validator/httpd/cgi-bin/check">main
+             CGI script</a> that does everything is written in Perl.
+             You'll need version 5.6.0 or newer.  Additionally, the following
+             <a href="http://www.cpan.org/"><acronym
+             title="Comprehensive Perl Archive Network">CPAN</acronym></a>
+             distributions are needed:
+          <ul>
+           <li>
+            <a href="http://search.cpan.org/dist/CGI.pm/">CGI.pm</a>,
+            version 2.81 or newer
+           </li>
+           <li>
+            <a href="http://search.cpan.org/dist/HTML-Parser/">HTML-Parser</a>,
+            version 3.25 or newer
+           </li>
+           <li>
+            <a href="http://search.cpan.org/dist/libwww-perl/">libwww-perl</a>,
+            version 5.60 or newer
+           </li>
+           <li>
+            <a href="http://search.cpan.org/dist/Set-IntSpan/">Set-IntSpan</a>
+           </li>
+           <li>
+            <a href="http://search.cpan.org/dist/Text-Iconv/">Text-Iconv</a>
+           </li>
+           <li>
+            <a href="http://search.cpan.org/dist/Text-Iconv/">URI</a>
+           </li>
+          </ul>
+         </li>
+       </ul>
+       <p>
+         If you try to use the code and succeed (or fail), please <a
+           href="../feedback.html">let us know</a>!
+       </p>
+     </div>
+
+     <div id="dev">
+       <h2>Development</h2>
+       <p>
+         For information on current development activity, see the <a
+           href="http://lists.w3.org/Archives/Public/www-validator/">www-validator
+           mailing list archives</a>. To join in discussions about the
+         Validator, please join us in the <code>#validator</code> IRC channel
+         on <code>irc.freenode.net</code>.
+       </p>
+       <p>
+         Any changes to the service will attempt to maintain
+         compatibility with a <a href="../dev/tests/">list of test cases</a>.
+         Any changes to the code or documentation related to the service cause
+         a notification message to be sent to the <a
+           href="http://lists.w3.org/Archives/Public/www-validator-cvs/">www-validator-cvs
+           mailing list</a>.
+       </p>
+     </div>
+<!--#include virtual="../footer.html" -->
+  </body>
+</html>
+

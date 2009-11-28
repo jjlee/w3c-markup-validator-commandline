@@ -1,0 +1,77 @@
+<!-- $Id: sgmltop.html,v 1.1.1.1 2004/09/19 12:34:08 ralph Exp $ -->
+<head>
+<title>SGML reference information for HTML</title>
+<LINK rel="prev" SRC="../interact/scripts.html">
+<LINK rel="next" SRC="sgmldecl.html">
+<LINK rel="STYLESHEET" href="../style/default.css" type="text/css">
+</head>
+<body>
+<div class="navbar">
+<center><a href="../interact/scripts.html">previous</a> &nbsp; <a href="sgmldecl.html">next</a> &nbsp; <a href="../contents.html">contents</a> &nbsp; <a href="../index/elements.html">elements</a> &nbsp; <a href="../index/attribs.html">attributes</a>
+</center><hr>
+</div>
+
+<H1 align="center">SGML reference information for HTML<!-- Formal
+definition of HTML and validation --><a name="h-10">&nbsp;</a></H1>
+<div class="subtoc"><p><strong>Contents</strong>
+<ol>
+<li><a href="sgmltop.html#h-10.1">Document Validation</a>
+<li><a href="sgmltop.html#h-10.2">Sample SGML catalog</a>
+</ol>
+</div>
+
+<p>The following sections contain the formal SGML definition of HTML 4.0,
+including the <a href="sgmldecl.html">SGML declaration</a> and the <a
+href="dtd.html">Document Type Definition</a> (DTD), as well as a <a
+href="#catalog">sample SGML catalog</a>.
+
+<h2>Document Validation<a name="h-10.1">&nbsp;</a></h2>
+
+<p>Many authors rely on a limited set of browsers to check on the
+documents they produce, assuming that if the browsers can render their
+documents they are valid. Unfortunately, this is a very ineffective
+means of verifying a document's validity precisely because browsers
+are designed to cope with invalid documents by rendering them as well
+as they can to avoid frustrating users.
+
+<p>The following sample SGML catalog can be used with an SGML parser, such
+as nsgmls, to verify that HTML documents conform to the HTML 4.0 DTD. It
+assumes that the DTD has been saved as the file "HTML4.dtd" and that the
+entities are in the files "HTMLlat1.ent", "HTMLsymbol.ent" and
+"HTMLspecial.ent". See your validation tool documentation for further
+details.
+
+<p>Beware that such validation, although useful and highly
+recommended, does not guarantee that a document fully conforms to the
+HTML 4.0 specification. This is because an SGML parser relies solely
+on the given SGML DTD which does not express all aspects of a valid
+HTML 4.0 document. Specifically, an SGML parser ensures that the
+syntax, the structure, the list of elements and their attributes are
+valid. But for instance, it cannot catch errors such as setting the
+<samp class="ainst-IMG">width</samp> attribute of an <a href="../struct/includes.html#edef-IMG"><samp
+class="einst">IMG</samp></a> element to an invalid value (i.e., "foo",
+"12.5", or "25%"). Although the specification restricts the value for
+this attribute to an "integer representing a length in pixels",
+the DTD only defines it to be <a
+href="../types.html#type-cdata">CDATA</a>, which actually allows any
+value. Only a specialized program could capture the complete
+specification of HTML 4.0.
+
+<p>Nevertheless, this type of validation is still highly recommended
+since it permits the detection of a large set of errors that make
+documents invalid.
+
+<h2><a name="catalog">Sample SGML catalog</a><a name="h-10.2">&nbsp;</a></h2>
+<pre>
+PUBLIC "-//W3C//DTD HTML 4.0 Draft//EN" HTML4.dtd
+PUBLIC "-//W3C//DTD HTML 4.0 Final//EN" HTML4.dtd
+PUBLIC "-//W3C//DTD HTML 4.0//EN" HTML4.dtd
+PUBLIC "-//W3C//ENTITIES Latin1//EN//HTML" ISOlat1.ent
+PUBLIC "-//W3C//ENTITIES Special//EN//HTML" HTMLmisc.ent
+PUBLIC "-//W3C//ENTITIES Symbols//EN//HTML" HTMLsym.ent
+
+</pre>
+<div class="navbar">
+<hr><center><a href="../interact/scripts.html">previous</a> &nbsp; <a href="sgmldecl.html">next</a> &nbsp; <a href="../contents.html">contents</a> &nbsp; <a href="../index/elements.html">elements</a> &nbsp; <a href="../index/attribs.html">attributes</a>
+</center></div>
+</body>

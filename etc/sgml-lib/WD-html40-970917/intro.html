@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML lang="en">
+<!-- $Id: intro.html,v 1.1.1.1 2004/09/19 12:34:08 ralph Exp $ -->
+<HEAD>
+<META http-equiv="Content-Type" content=
+"text/html; charset=ISO-8859-1">
+<TITLE>SGML reference information for HTML</TITLE>
+<LINK rel="previous" href="../interact/scripts.html">
+<LINK rel="next" href="sgmldecl.html">
+<LINK rel="contents" href="../cover.html#toc">
+<LINK rel="STYLESHEET" href="../style/default.css" type="text/css">
+</HEAD>
+<BODY>
+<div class="navbar">
+<center><a href="../interact/scripts.html">previous</a> &nbsp; <a href="sgmldecl.html">next</a> &nbsp; <a href="../cover.html#toc">contents</a> &nbsp; <a href="../index/elements.html">elements</a> &nbsp; <a href="../index/attribs.html">attributes</a>
+</center><hr>
+</div>
+
+<H1 align="center"><a name="h-20">20</a> SGML reference information for HTML<!-- Formal
+definition of HTML and validation --></H1>
+<div class="subtoc"><p><strong>Contents</strong>
+<ol>
+<li><a href="intro.html#h-20.1">Document Validation</a>
+<li><a href="intro.html#h-20.2">Sample SGML catalog</a>
+</ol>
+</div>
+
+<P>The following sections contain the formal SGML definition of
+HTML 4.0, including the <A href="sgmldecl.html">SGML declaration
+</A> and the <A href="dtd.html">Document Type Definition</A> (DTD),
+as well as a <A href="#catalog">sample SGML catalog</A>.</P>
+
+<H2><a name="h-20.1">20.1</a> Document Validation</H2>
+
+<P>Many authors rely on a limited set of browsers to check on the
+documents they produce, assuming that if the browsers can render
+their documents they are valid. Unfortunately, this is a very
+ineffective means of verifying a document's validity precisely
+because browsers are designed to cope with invalid documents by
+rendering them as well as they can to avoid frustrating users.</P>
+
+<P>The following sample SGML catalog can be used with an SGML
+parser, such as nsgmls (see <A href="../references.html#ref-SP">
+[SP]</A>), to verify that HTML documents conform to the HTML 4.0
+DTD. It assumes that the DTD has been saved as the file "HTML4.dtd"
+and that the entities are in the files "HTMLlat1.ent",
+"HTMLsymbol.ent" and "HTMLspecial.ent". Make sure your SGML parser
+is capable of handling Unicode. See your validation tool
+documentation for further details.</P>
+
+<P>Beware that such validation, although useful and highly
+recommended, does not guarantee that a document fully conforms to
+the HTML 4.0 specification. This is because an SGML parser relies
+solely on the given SGML DTD which does not express all aspects of
+a valid HTML 4.0 document. Specifically, an SGML parser ensures
+that the syntax, the structure, the list of elements and their
+attributes are valid. But for instance, it cannot catch errors such
+as setting the <a href="../struct/objects.html#adef-width-IMG"><SAMP class="ainst-IMG">width</SAMP></a> attribute of an
+<a href="../struct/objects.html#edef-IMG"><SAMP class="einst">IMG</SAMP></a> element to an invalid value (i.e.,
+"foo", "12.5", or "25%"). Although the specification restricts the
+value for this attribute to an "integer representing a length in
+pixels", the DTD only defines it to be <A href=
+"../types.html#type-cdata">CDATA</A>, which actually allows any
+value. Only a specialized program could capture the complete
+specification of HTML 4.0.</P>
+
+<P>Nevertheless, this type of validation is still highly
+recommended since it permits the detection of a large set of errors
+that make documents invalid.</P>
+
+<H2><a name="h-20.2">20.2</a> <A name="catalog">Sample SGML catalog</A></H2>
+
+<P>This catalog includes the override directive to ensure that
+processing software such as nsgmls uses public identifiers in
+preference to system identifiers. This means that users do not have to
+be connected to the Web when retrieving URL-based system
+identifiers.</P>
+
+<div class="dtd-fragment">
+<PRE>
+OVERRIDE YES
+
+PUBLIC "-//W3C//DTD HTML 4.0//EN" HTML4-strict.dtd
+PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" HTML4-loose.dtd
+PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN" HTML4-frameset.dtd
+PUBLIC "-//W3C//ENTITIES Latin1//EN//HTML" ISOlat1.ent
+PUBLIC "-//W3C//ENTITIES Special//EN//HTML" HTMLmisc.ent
+PUBLIC "-//W3C//ENTITIES Symbols//EN//HTML" HTMLsym.ent
+
+</PRE>
+</div>
+
+<div class="navbar">
+<hr><center><a href="../interact/scripts.html">previous</a> &nbsp; <a href="sgmldecl.html">next</a> &nbsp; <a href="../cover.html#toc">contents</a> &nbsp; <a href="../index/elements.html">elements</a> &nbsp; <a href="../index/attribs.html">attributes</a>
+</center></div>
+</BODY>
+</HTML>
+

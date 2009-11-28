@@ -1,0 +1,228 @@
+<!-- Begin HTML DTD V2.0 -->
+
+<!-- ............................................................ -->
+<!-- HTML DTD V2.0 .............................................. -->
+<!-- File html.dtd .............................................. -->
+
+<!--     Document Type Definition
+        for the HyperText Markup Language Version 2.0 (HTML 2.0 DTD)
+
+        Based on:
+        $Id: html20.dtd.txt,v 1.1.1.1 2004/09/19 12:34:08 ralph Exp $
+
+        Last revised: 96/01/08
+
+        Authors: Daniel W. Connolly <connolly@w3.org>
+                 Murray M. Altheim  <murray@stonehand.com>
+        See Also: html.decl
+                http://www.w3.org/hypertext/WWW/MarkUp/MarkUp.html
+-->
+
+<!--     Features:  (see module declarations below)
+        1. modular DTD
+        2. additional attribute features
+-->
+        
+<!ENTITY % HTML.version
+        "-//IETF//DTD HTML V2.0//EN"
+        
+  --    This is the driver file for Version 2.0 of the HTML DTD. 
+        Please use the following formal public identifier (FPI) 
+        to identify it:
+        
+        "-//IETF//DTD HTML V2.0//EN"
+
+        For example, use this FPI in the DOCTYPE declaration:
+
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML V2.0//EN">
+            <HTML>
+            ...
+            </HTML>
+        
+        If you modify the HTML DTD in any way, label your DTD as 
+        a variant of HTML.  See the maintenance documentation 
+        (maint.txt) for more information on extending HTML and
+        the Formal Public Identifier (FPI) syntax for variants,
+        as well as for bibliographic references on sources.
+-->
+
+<!ENTITY % HTML.status  "Proposed-Standard"
+  --    'status' infers IETF standards-track status as per [STD1].
+        'Components' are defined as either module of a core HTML DTD
+         or a subset or extension module. Values are limited to:
+
+            'Experimental'      all proprietary, unregistered or
+                                non-standards track components
+            'Internet-Draft'    IETF standards-track components
+                                carrying an RFC number and/or
+                                registered with IANA.
+            'Proposed-Standard' IETF Proposed Standard
+            'Internet-Standard' IETF Internet Standard
+-->
+
+<!ENTITY % HTML.expires "01-Nov-1996"
+  --    'expires' infers an expiration date six months from posting
+        an IETF Internet-Draft; one year on Proposed Standard. This
+        entity is not declared on Internet Standards, which have
+        no expiration date.
+-->
+
+<!-- Feature Test and Module Status ............................. -->
+
+<!ENTITY % HTML.Recommended "IGNORE"
+        -- Certain features of the language are necessary for
+           compatibility with widespread usage, but they may
+           compromise the structural integrity of a document.
+           This feature test entity enables a more prescriptive
+           document type definition that eliminates
+           those features.
+        -->
+
+<![ %HTML.Recommended [
+        <!ENTITY % HTML.Deprecated "IGNORE">
+]]>
+
+<!ENTITY % HTML.Deprecated "INCLUDE"
+        -- Certain features of the language are necessary for
+           compatibility with earlier versions of the specification,
+           but they tend to be used and implemented inconsistently,
+           and their use is deprecated. This feature test entity
+           enables a document type definition that eliminates
+           these features.
+        -->
+
+<!ENTITY % HTML.highlighting "INCLUDE"
+        -- Use this feature test entity to validate that a
+           document uses no highlighting tags, which may be
+           ignored on minimal implementations.
+        -->
+        
+<!ENTITY % char.module       "INCLUDE" >
+<!ENTITY % genent.module     "INCLUDE" >
+<!ENTITY % sda.module        "INCLUDE" >
+<!ENTITY % text.module       "INCLUDE" >
+<!ENTITY % link.module       "INCLUDE" >
+<!ENTITY % images.module     "INCLUDE" >
+<!ENTITY % paragraphs.module "INCLUDE" >
+<!ENTITY % headings.module   "INCLUDE" >
+<!ENTITY % textflows.module  "INCLUDE" >
+<!ENTITY % lists.module      "INCLUDE" >
+<!ENTITY % body.module       "INCLUDE" >
+<!ENTITY % forms.module      "INCLUDE" 
+        -- Please note that the original HTML 2.0 specification
+           feature test entity '%HTML.Forms;' has been here replaced
+           by the module status keyword '%forms.module;', which may
+           be used as a replacement feature test entity.
+        -->
+<!ENTITY % head.module       "INCLUDE" >
+<!ENTITY % struct.module     "INCLUDE" >
+
+
+<!-- Module Inclusions .......................................... -->
+
+<!--    The following module inclusions rely on the mapping 
+        of FPI (Formal Public Identifier) to SOI (Storage
+        Object Identifier) within an SGML catalog file, as
+        introduced in SGML Open TR9401 [ENTMGMT] :
+-->
+
+<!-- Character Mnemonics ........................................ -->
+<![ %char.module; [
+<!ENTITY % char PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 Character Mnemonics//EN" >
+%char;
+<!-- end of char.module -->]]>
+
+<!-- General Entities and Imported Names .............. -->
+<![ %genent.module; [
+<!ENTITY % genent PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 General Entities//EN" >
+%genent;
+<!-- end of genent.module -->]]>
+
+<!-- SGML Document Access (SDA) Parameter Entities .... -->
+<![ %sda.module; [
+<!ENTITY % sda PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 SGML Document Access//EN" >
+%sda;
+<!-- end of sda.module -->]]>
+
+<!-- Text Markup ...................................... -->
+<![ %text.module; [
+<!ENTITY % text PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 Text Markup//EN" >
+%text;
+<!-- end of text.module -->]]>
+
+<!-- Link Markup ...................................... -->
+<![ %link.module; [
+<!ENTITY % text PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 Link Markup//EN" >
+%link;
+<!-- end of link.module -->]]>
+
+<!-- Images ........................................... -->
+<![ %images.module; [
+<!ENTITY % images PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 Images//EN" >
+%images;
+<!-- end of images.module -->]]>
+
+<!-- Paragraphs ....................................... -->
+<![ %paragraphs.module; [
+<!ENTITY % paragraphs PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 Paragraphs//EN" >
+%paragraphs;
+<!-- end of paragraphs.module -->]]>
+
+<!-- Headings ......................................... -->
+<![ %headings.module; [
+<!ENTITY % headings PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 Headings//EN" >
+%headings;
+<!-- end of headings.module -->]]>
+
+<!-- Text Flows ....................................... -->
+<![ %textflows.module; [
+<!ENTITY % textflows PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 Text Flows//EN" >
+%textflows;
+<!-- end of textflows.module -->]]>
+
+<!-- Lists ............................................ -->
+<![ %lists.module; [
+<!ENTITY % lists PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 Lists//EN" >
+%lists;
+<!-- end of lists.module -->]]>
+
+<!-- Document Body .................................... -->
+<![ %body.module; [
+<!ENTITY % body PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 Document Body//EN" >
+%body;
+<!-- end of body.module -->]]>
+
+<!-- Forms ............................................ -->
+<![ %forms.module; [
+<!ENTITY % forms PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 Forms//EN" >
+%forms;
+<!-- end of forms.module -->]]>
+
+<!-- Document Head .................................... -->
+<![ %head.module; [
+<!ENTITY % head PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 Document Head//EN" >
+%head;
+<!-- end of head.module -->]]>
+
+<!-- Document Structure ............................... -->
+<![ %structure.module; [
+<!ENTITY % structure PUBLIC
+        "-//IETF//ELEMENTS HTML V2.0 Document Structure//EN" >
+%structure;
+<!-- end of structure.module -->]]>
+
+<!-- end of HTML DTD V2.0 ....................................... -->
+<!-- ............................................................ -->

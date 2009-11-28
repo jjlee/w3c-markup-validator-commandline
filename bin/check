@@ -1,0 +1,475 @@
+#!/usr/bin/perl -w
+#
+# W3C MarkUp Validation Service
+# A CGI script to retrieve and validate a MarkUp file
+#
+# Copyright 1995-2002 Gerald Oskoboiny <gerald@w3.org>
+# for additional contributors, see http://dev.w3.org/cvsweb/validator/
+#
+# This source code is available under the license at:
+#     http://www.w3.org/Consortium/Legal/copyright-software
+#
+# $Id: check,v 1.7 2005/10/17 13:23:36 ralph Exp $
+#
+# This program was originally a CGI/mod_perl program with extensive
+# mixing of HTML and functionality. It was subsequently severely
+# mangled by Ralph Bolton (http://www.coofercat.com) into a command
+# line version of the same program. It now performs no HTML work at
+# all, but has (hopefully) got machine readable output, so could
+# be used to create an online facility that validates pages.
+# There's no guarantee that this is the most efficient program in
+# the world. Indeed, we can easily see it's a bit of a mess, so
+# almost certainly isn't. However, short of a complete rewrite,
+# it'll do nicely for a lot of jobs. Those of a Perly disposition
+# will easily spot the original CGI script, and no doubt plenty
+# of room for improvement.
+#                              - Ralph Bolton, 29th February, 2004.
+
+#
+# We need Perl 5.6.0+.
+use 5.006;
+
+###############################################################################
+#### Load modules. ############################################################
+###############################################################################
+
+#
+# Pragmas.
+use strict;
+use warnings;
+
+#
+# Modules.
+#
+# Version numbers given where we absolutely need a minimum version of a given
+# module (gives nicer error messages). By default, add an empty import list
+# when loading modules to prevent non-OO or poorly written modules from
+# polluting our namespace.
+#
+use File::Spec          qw();
+use HTML::Parser   3.25 qw(); # Need 3.25 for $p->ignore_elements.
+use HTTP::Request       qw();
+use IO::File            qw();
+use IPC::Open3          qw(open3);
+use Set::IntSpan        qw();
+use Text::Iconv         qw();
+use Text::Wrap          qw(wrap);
+
+use lib '/opt/w3cvalidator/lib';
+
+use W3CValidator::Constants;
+use W3CValidator::Parse;
+use W3CValidator::Util;
+
+#
+# Define global variables.
+use vars qw($DEBUG $CFG $VERSION);
+
+
+#
+# Things inside BEGIN don't happen on every request in persistent
+# environments, such as mod_perl.  So let's do globals, eg. read config here.
+BEGIN {
+
+  #
+  # Read Config Files.
+  $CFG = &read_cfg($ENV{W3C_VALIDATOR_CFG} || '/opt/w3cvalidator/etc/validator.conf');
+  if (! -x $CFG->{'SGML Parser'}) {
+    die("Configured SGML Parser '$CFG->{'SGML Parser'}' not executable!");
+  }
+
+  #
+  # Set debug flag.
+  $DEBUG = TRUE if $ENV{W3C_VALIDATOR_DEBUG} || $CFG->{DEBUG};
+
+  #
+  # Strings
+  $VERSION    =  q$Revision: 1.7 $;
+  $VERSION    =~ s/Revision: ([\d\.]+) /$1/;
+
+
+  #
+  # Read TAB-delimited configuration files. Returns a hash reference.
+  sub read_cfg {
+    my $file = shift;
+    my %cfg;
+
+    my $fh = new IO::File $file;
+    unless (defined $fh) {
+      die "check: Couldn't open config ($file): $! (did you forget to set \$ENV{W3C_VALIDATOR_CFG}?)";
+    }
+
+    while (<$fh>) {
+      next if /^\s*$/;
+      next if /^\s*\#/;
+      chomp;
+      my($k, $v) = split /\t+/, $_, 2;
+      $v = '' unless defined $v;
+
+      if    ($v =~ s(^file://){}) {$cfg{$k} = &read_cfg($v)  }
+      elsif ($v =~ /,/)           {$cfg{$k} = [split /,/, $v]}
+      else                        {$cfg{$k} = $v             }
+    }
+    undef $fh;
+    return \%cfg;
+  }
+
+} # end of BEGIN block.
+
+END
+{
+        if((defined($main::child_pid)) && ($main::child_pid != 0))
+        {
+                kill 15, $main::child_pid;
+        }
+}
+
+
+sub signal_handler
+{
+	local ($main::signal)=@_;
+
+	print STDERR "check: received SIG$main::signal\n";
+
+	if((defined($main::child_pid)) && ($main::child_pid != 0))
+	{
+		kill 15, $main::child_pid;
+	}
+	die "Stopping because of signal SIG$main::signal\n";
+}
+
+
+MAIN:
+{
+	#
+	# Get rid of (possibly insecure) $PATH.
+	delete $ENV{PATH};
+
+
+	#
+	# The data structure that will hold all session data.
+	my $File=undef;
+
+	while(@ARGV>=0)
+	{
+	        my $arg=shift(@ARGV);
+	        last if(!defined($arg));
+	        if($arg eq "-mime")
+	        {
+	                $File->{ContentType}=shift(@ARGV);
+			$File->{ContentType}=~tr/A-Z/a-z/;
+	        }
+	        elsif($arg eq "-encoding")
+	        {
+	                $File->{Charset}->{HTTP}=shift(@ARGV);
+			$File->{Charset}->{HTTP}=~tr/A-Z/a-z/;
+	        }
+	        else
+	        {
+	                $File->{Filename}=$arg;
+	        }
+	}
+                                                                                                                
+	if(!defined($File->{Filename}))
+	{
+	        print "check: No filename specified\n";
+	        exit 1;
+	}
+
+	if($File->{Filename} eq "-")
+	{
+		print "[waiting]\n";
+		# Install a signal handler...
+		$SIG{TERM}=\&signal_handler;
+		$SIG{INT}=\&signal_handler;
+		$SIG{ALRM}=\&alarm_handler;
+
+		# Switch STDOUT to non-buffered output so that
+		# other processes can read what we say easily (otherwise
+		# stdio buffering really screws things up!)
+		my $keep=select(STDOUT);
+		$|=1;
+		select($keep);
+		$keep=select(STDIN);
+		$|=1;
+		select($keep);
+		while(<STDIN>)
+		{
+			chop;
+			my $line=$_;
+			my @args=split(/\s+/,$line);
+			my $File;
+			while ($#args>=0)
+			{
+				my $arg=shift(@args);
+				last if(!defined($arg));
+				if($arg eq "-mime")
+				{
+					$File->{ContentType}=shift(@args);
+				}
+				elsif($arg eq "-encoding")
+				{
+					$File->{Charset}->{HTTP}=shift(@args);
+				}
+				else
+				{
+					$File->{Filename}=$arg;
+				}
+			}
+			eval { &wrapper($File); };
+			print "$@" if($@);
+			print "[waiting]\n";
+		}
+	}
+	else
+	{
+		&wrapper($File);
+	}
+	exit 0;
+} # end of MAIN
+
+
+sub wrapper
+{
+	my $File=shift;
+
+	##############################################
+	# Populate $File->{Env} -- Session Metadata. #
+	##############################################
+
+	#
+	# Initialize parameters we'll need (and override) later.
+	# (casing policy: lowercase early)
+	$File->{Charset}->{Use}      = ''; # The charset used for validation.
+	$File->{Charset}->{Auto}     = ''; # Autodetection using XML rules (Appendix F)
+	#$File->{Charset}->{HTTP}     = ''; # From HTTP's "charset" parameter.
+	$File->{Charset}->{META}     = ''; # From HTML's <meta http-equiv>.
+	$File->{Charset}->{XML}      = ''; # From the XML Declaration.
+	$File->{Charset}->{Override} = ''; # From CGI/user override.
+
+	#
+	# Array (ref) used to store character offsets for the XML report.
+	$File->{Offsets}->[0] = [0, 0]; # The first item isn't used...
+
+	#
+	# List to hold line numbers for encoding errors
+	$File->{Lines} = [];
+
+
+	#########################################
+	# Populate $File->{Opt} -- CGI Options. #
+	#########################################
+
+	$File->{Opt}->{'Verbose'}        = FALSE;
+	$File->{Opt}->{'Charset'}        = '';
+	$File->{Opt}->{'DOCTYPE'}        = '';
+	$File->{Opt}->{'URI'}            = '';
+	$File->{Opt}->{'Output'}         = 'html';
+
+	# Can't see this ever happening, but I'll let it go ;-)
+	&abort_if_error_flagged($File, 0);
+
+	# This seems a sensible default ;-)
+	$File->{ContentType}="text/html";
+
+	# This is an uber-hack - I'm 99% certain it'll break
+	# all kinds of things. However, it works fine when
+	# validating things that are in pretty good shape.
+	$File->{Type}=$File->{ContentType};
+	$File->{Type}=~s/^[^\/]*\///;
+
+
+	# Read the file in...
+	# Get it as a series of bytes, rather than getting
+	# Perl to do clever stuff on it. We convert it's
+	# encoding later.
+	#if(open(MYFILE,"< " . $File->{Filename}))
+	#{
+	#	binmode(MYFILE);
+	#	$File->{Bytes}="";
+	#	while(<MYFILE>)
+	#	{
+	#		$File->{Bytes}.=$_;
+	#	}
+	#	close(MYFILE);
+	#}
+	#else
+	#{
+	#	print "check: Could not open " . $File->{Filename} . ": $!\n";
+	#	return 0;
+	#}
+
+	if(! -f $File->{Filename})
+	{
+		print "check: Could not find file " . $File->{Filename} . "\n";
+		return 0;
+	}
+	
+	###############################################################################
+	#### Output validation results. ###############################################
+	###############################################################################
+
+
+	$File = &find_xml_encoding ($File);
+
+	#
+	# Decide on a charset to use (first part)
+	#
+	if ($File->{Charset}->{HTTP}) { # HTTP, if given, is authoritative.
+	  $File->{Charset}->{Use} = $File->{Charset}->{HTTP};
+	} elsif ($File->{ContentType} =~ m(^text/([-.a-zA-Z0-9]\+)?xml$)) {
+	  # Act as if $http_charset was 'us-ascii'. (MIME rules)
+	  $File->{Charset}->{Use} = 'us-ascii';
+	  &add_warning($File, "no character set specified - us-ascii is the default for " . $File->{ContentType});
+	} elsif ($File->{Charset}->{XML}) {
+	  $File->{Charset}->{Use} = $File->{Charset}->{XML};
+	} elsif ($File->{Charset}->{Auto} =~ /^utf-16[bl]e$/ && $File->{BOM} == 2) {
+	  $File->{Charset}->{Use} = 'utf-16';
+	} elsif ($File->{ContentType} =~ m(^application/([-.a-zA-Z0-9]+\+)?xml$)) {
+	  $File->{Charset}->{Use} = "utf-8";
+	}
+
+	# I don't think we need to do this, as preparse now opens the file
+	# in accordance with the charset. Besides, we don't have the file content
+	# yet, we've only read the first few bytes to get the BOM info
+	#$File->{Content} = &normalize_newlines($File->{Bytes},
+	#                       exact_charset($File, $File->{Charset}->{Use}));
+
+
+	#$File->{Content}->[0] = substr $File->{Content}->[0], $File->{BOM}; # remove BOM
+	#### add warning about BOM in UTF-8
+
+	#
+	# Try to extract META charset
+	# (works only if ascii-based and reasonably clean before <meta>)
+	$File = &preparse($File);
+	unless ($File->{Charset}->{Use}) {
+	  $File->{Charset}->{Use} = $File->{Charset}->{META};
+	}
+
+	if (&conflict($File->{Opt}->{Charset}, '(detect automatically)')) {
+	  my ($override, undef) = split(/\s/, $File->{Opt}->{Charset}, 2);
+	  $File->{Charset}->{Use} = $File->{Charset}->{Override} = lc($override);
+	  # message about 'charset override' in effect comes later
+	}
+
+	unless ($File->{Charset}->{Use}) {
+	  $File->{'Error Flagged'} = TRUE;
+	  $File->{'Error Message'} = "Could not determine character encoding for file";
+	}
+
+	#
+	# Abort if an error was flagged while finding the encoding.
+	&abort_if_error_flagged($File, O_CHARSET|O_DOCTYPE);
+
+
+	#
+	# Check the detected Encoding and transcode.
+	if (&conflict($File->{Charset}->{Use}, 'utf-8')) {
+	  $File = &transcode($CFG,$File);
+	  &abort_if_error_flagged($File, 0);
+	}
+
+
+	$File = &check_utf8($File); # always check
+	$File = &byte_error($File);
+
+	#
+	# Abort if an error was flagged during transcoding
+	&abort_if_error_flagged($File, O_SOURCE);
+
+
+
+	#
+	# Overall parsing algorithm for documents returned as text/html:
+	#
+	# For documents that come to us as text/html,
+	#
+	#  1. check if there's a doctype
+	#  2. if there is a doctype, parse/validate against that DTD
+	#  3. if no doctype, check for an xmlns= attribute on the first element
+	#  4. if there is an xmlns= attribute, check for XML well-formedness
+	#  5. if there is no xmlns= attribute, and no DOCTYPE, punt.
+	#
+
+	#
+	# Override DOCTYPE if user asked for it.
+	if ($File->{Opt}->{DOCTYPE}
+	    and not $File->{Opt}->{DOCTYPE} =~ /(Inline|detect)/i) {
+	  $File = &override_doctype($File);
+	  my $dtd = ent($File->{Opt}->{DOCTYPE});
+	  &add_warning($File, "The DOCTYPE declaration in the document is being ignored and $dtd used instead");
+	  $File->{Tentative} |= T_ERROR; # Tag it as Invalid.
+	}
+
+	#
+	# Try to extract a DOCTYPE or xmlns.
+	$File = &preparse($File);
+
+
+	#
+	# Set document type to XHTML if the DOCTYPE was for XHTML.
+	# Set document type to MathML if the DOCTYPE was for MathML.
+	# This happens when the file is served as text/html
+	$File->{Type} = 'xhtml+xml'  if $File->{DOCTYPE} =~ /xhtml/i;
+	$File->{Type} = 'mathml+xml' if $File->{DOCTYPE} =~ /mathml/i;
+
+
+	#
+	# Sanity check Charset information and add any warnings necessary.
+	$File = &charset_conflicts($File);
+
+
+	# Temporary filehandles.
+	#my $spin  = IO::File->new_tmpfile;
+
+	#
+	# Dump file to a temp file for parsing.
+	#for (@{$File->{Content}}) {
+	#  print $spin $_, "\n";
+	#}
+
+	my $fh;
+        my $file_open;
+        my $filename=$File->{Filename};
+        my $charset=$File->{Charset}->{Use};
+
+        if((!defined($charset)) || ($charset eq ""))
+        {
+                $file_open=open($fh, "<:bytes", $filename);
+        }
+        elsif(Encode::perlio_ok($charset))
+        {
+		$charset=~tr/A-Z/a-z/;
+		if(($charset eq 'utf8')  || ($charset eq 'utf-8'))
+		{
+			$file_open=open($fh, "<:utf8", $filename);
+		}
+		else
+		{
+                	$file_open=open($fh, "<:encoding($charset)", $filename);
+		}
+        }
+        else
+        {
+                $file_open=open($fh, "<:utf8", $filename);
+        }
+        unless($file_open)
+        {
+                # FIle didn't open?
+                $File->{'Error Flagged'} = TRUE;
+                $File->{'Error Message'} = "Could not open file $filename";
+		&abort_if_error_flagged($File, O_SOURCE);
+        }
+
+
+	&W3CValidator::Parse::parse_file($CFG,$File,$fh);
+
+	return 1;
+
+} # end of sub wrapper
+
+
+#
+# The end - phew! [wipes brow]
+#

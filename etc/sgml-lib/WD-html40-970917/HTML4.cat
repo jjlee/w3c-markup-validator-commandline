@@ -1,0 +1,8 @@
+OVERRIDE YES
+
+PUBLIC "-//W3C//DTD HTML 4.0//EN" HTML4-strict.dtd
+PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" HTML4-loose.dtd
+PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN" HTML4-frameset.dtd
+PUBLIC "-//W3C//ENTITIES Latin1//EN//HTML" ISOlat1.ent
+PUBLIC "-//W3C//ENTITIES Special//EN//HTML" HTMLmisc.ent
+PUBLIC "-//W3C//ENTITIES Symbols//EN//HTML" HTMLsym.ent

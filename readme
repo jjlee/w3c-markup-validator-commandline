@@ -1,0 +1,29 @@
+w3cvalidator - command line edition Readme
+
+The w3cvalidator is Copyright 1995-2002 Gerald Oskoboiny <gerald@w3.org>
+for additional contributors, see http://dev.w3.org/cvsweb/validator/
+
+This source code is available under the license at:
+    http://www.w3.org/Consortium/Legal/copyright-software
+
+The command line version of the w3c validator is a heavily mangled
+version of the original "check" CGI script by Gerald Oskoboiny. This
+version does broadly the same job, although doesn't have all the
+HTML niceties in it's output. It also doesn't have any HTML in the
+code anymore ;-)
+
+This program was originally a CGI/mod_perl program with extensive
+mixing of HTML and functionality. It was subsequently severely
+mangled by Ralph Bolton (http://www.coofercat.com) into a command
+line version of the same program. It now performs no HTML work at
+all, but has (hopefully) got machine readable output, so could
+be used to create an online facility that validates pages.
+There's no guarantee that this is the most efficient program in
+the world. Indeed, we can easily see it's a bit of a mess, so
+almost certainly isn't. However, short of a complete rewrite,
+it'll do nicely for a lot of jobs. Those of a Perly disposition
+will easily spot the original CGI script, and no doubt plenty
+of room for improvement.
+                             - Ralph Bolton, 29th February, 2004.
+
+

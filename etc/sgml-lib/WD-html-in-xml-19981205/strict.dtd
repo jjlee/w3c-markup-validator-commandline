@@ -1,0 +1,61 @@
+ <!--
+    Voyager version of HTML 4.0 Strict DTD
+
+    Namespace = http://www.w3.org/Profiles/voyager-strict
+
+    Copyright (c) 1998 W3C (MIT, INRIA, Keio),
+    All Rights Reserved. 
+ -->
+
+ <!-- Name files we will want to include -->
+
+ <!ENTITY % Voyager.entities SYSTEM "html-entities.mod">
+ <!ENTITY % Voyager.chars SYSTEM "html-chars.mod">
+ <!ENTITY % Voyager.base SYSTEM "html-base.mod">
+ <!ENTITY % Voyager.phrases SYSTEM "html-phrases.mod">
+ <!ENTITY % Voyager.lists SYSTEM "html-lists.mod">
+ <!ENTITY % Voyager.blocktext SYSTEM "html-blocktext.mod">
+ <!ENTITY % Voyager.object SYSTEM "html-object.mod">
+ <!ENTITY % Voyager.img SYSTEM "html-img.mod">
+ <!ENTITY % Voyager.forms SYSTEM "html-forms.mod">
+ <!ENTITY % Voyager.tables SYSTEM "html-tables.mod">
+
+ <!-- Customize entities that control the content model -->
+
+ <!ENTITY % block.forms "form | fieldset">
+
+ <!ENTITY % media "|object | img | map">
+
+ <!ENTITY % fontstyle "tt | i | b | big | small">
+
+ <!ENTITY % phrase "em | strong | dfn | code | q | sub | sup |
+                    samp | kbd | var | cite | abbr | acronym" >
+
+ <!ENTITY % lists "ul | ol | dl">
+
+ <!ENTITY % inline.forms "input | select | label | textarea | button">
+
+  <!ENTITY % blocktext "pre | hr | blockquote | address">
+
+ <!ENTITY % extra.block "| %lists; | %blocktext; | %block.forms; | table">
+ <!ENTITY % extra.inline "| %fontstyle; | %phrase; | %inline.forms;">
+
+ <!--
+   Now include the files using the names we declared
+   earlier, starting with the entities file and ending
+   with the base file. The entities file defines the
+   standard content models for elements declared in the
+   following files.
+ -->
+
+ %Voyager.entities;
+ %Voyager.chars;
+ %Voyager.phrases;
+ %Voyager.lists;
+ %Voyager.blocktext;
+ %Voyager.object;
+ %Voyager.img;
+ %Voyager.forms;
+ %Voyager.tables;
+ %Voyager.base;
+

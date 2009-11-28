@@ -1,0 +1,50 @@
+  -- ............................................................. --
+  -- HTML catalog data V2.0 ...................................... --
+  -- File HTML20.cat ............................................. --
+
+  --  HTML V2.0 Catalog Data File                        1996/01/08
+      This is the catalog data file for Version 2.0 of the HTML DTD.
+      You do not need to use the file names listed here, and do not
+      need to use the filename method of identifying storage
+      objects at all. See "Entity Management", SGML Open Technical
+      Resolution 9401 for detailed information on supplying and
+      using catalog data. This document is available from SGML Open
+      at URL: <http://www.sgmlopen.org/sgml/docs/library/9401.htm>
+  --
+
+  -- ............................................................. --
+  -- SGML declaration associated with HTML ....................... --
+
+SGMLDECL "html20.dcl"
+DTDDECL "-//IETF//DTD HTML V2.0//EN" "html20.dcl"
+
+  -- ............................................................. --
+  -- HTML V2.0 driver file ....................................... --
+
+PUBLIC "-//IETF//DTD HTML V2.0//EN" "html20.dtd"
+
+  -- ............................................................. --
+  -- HTML V2.0 modules ........................................... --
+
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 Character Mnemonics//EN"   "char.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 General Entities//EN"      "genent.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 SGML Document Access//EN"  "sda.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 Text Markup//EN"           "text.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 Link Markup//EN"           "link.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 Images//EN"                "images.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 Paragraphs//EN"            "para.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 Headings//EN"              "headings.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 Text Flows//EN"            "textflow.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 Lists//EN"                 "lists.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 Document Body//EN"         "body.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 Forms//EN"                 "forms.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 Document Head//EN"         "head.mod"
+PUBLIC "-//IETF//ELEMENTS HTML V2.0 Document Structure//EN"    "structure.mod"
+
+  -- ............................................................. --
+  -- ISO entity sets ............................................. --
+
+PUBLIC	"ISO 8879-1986//ENTITIES Added Latin 1//EN//HTML"	"ISOlat1.sgm"
+
+  -- End of HTML catalog data V2.0 ............................... --
+  -- ............................................................. --

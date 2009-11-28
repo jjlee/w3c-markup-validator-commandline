@@ -1,0 +1,153 @@
+<!-- $Id: sgmldecl.html,v 1.1.1.1 2004/09/19 12:34:08 ralph Exp $ -->
+<head>
+<title>SGML Declaration of HTML 4.0</title>
+<link rel="prev" src="sgmltop.html">
+<link rel="next" src="dtd.html">
+<LINK rel="STYLESHEET" href="../style/default.css" type="text/css">
+</head>
+<body>
+<div class="navbar">
+<center><a href="sgmltop.html">previous</a> &nbsp; <a href="dtd.html">next</a> &nbsp; <a href="../contents.html">contents</a> &nbsp; <a href="../index/elements.html">elements</a> &nbsp; <a href="../index/attribs.html">attributes</a>
+</center><hr>
+</div>
+
+<h1 align="center">SGML Declaration<a name="h-10.3">&nbsp;</a></h1>
+<div class="subtoc"><p><strong>Contents</strong>
+<ol>
+<li><a href="sgmldecl.html#h-10.3.1">The Document Character Set</a>
+<ol>
+<li><a href="sgmldecl.html#h-10.3.1.1">Data transfer</a>
+</ol>
+<li><a href="sgmldecl.html#h-10.3.2">The SGML Declaration</a>
+</ol>
+</div>
+
+<h2>The Document Character Set<a name="h-10.3.1">&nbsp;</a></h2>
+
+<p>The HTML 4.0 document character set, in the SGML sense, is the
+Universal Character Set (UCS) of <a rel="biblioentry"
+href="../references.html#ref-ISO10646">[ISO10646]</a>.
+Currently, this is code-by-code identical with the <a
+rel="biblioentry" href="../references.html#ref-UNICODE">[UNICODE]</a>
+standard. 
+
+
+<h3>Data transfer<a name="h-10.3.1.1">&nbsp;</a></h3>
+<p>When HTML text is transmitted directly in UCS-2
+(charset="UNICODE-1-1"), one must address the question of byte order:
+does the high-order byte of each two-byte character come first or
+second? This specification recommends that the UCS-2 be transmitted in
+big-endian byte order (high order byte first), which corresponds both
+to the established network byte order for two-byte quantities and to
+the Unicode (<a rel="biblioentry"
+href="./references.html#ref-UNICODE">[UNICODE]</a>) recommendation for
+serialized text data. Furthermore, to maximize chances of proper
+interpretation, it is recommended that documents transmitted as UCS-2
+always begin with a ZERO-WIDTH NON-BREAKING SPACE character
+(hexadecimal FEFF) which, when byte-reversed becomes number FFFE, a
+character guaranteed to be never assigned. Thus, a user-agent
+receiving an FFFE as the first octets of a text would know that bytes
+have to be reversed for the remainder of the text.
+
+<P> The UTF-1 transformation format of 
+<a rel="biblioentry"
+	  href="./references.html#ref-ISO10646">[ISO10646]</a>
+	(registered by IANA as ISO-10646-UTF-1), should not be used.
+
+<h2>The SGML Declaration<a name="h-10.3.2">&nbsp;</a></h2>
+
+<pre>
+   &lt;!SGML  "ISO 8879:1986"
+   --
+        SGML Declaration for HyperText Markup Language version 4.0
+
+        With support for Unicode UCS-4 and increased limits
+        for tag and literal lengths etc.
+   --
+
+   CHARSET
+            BASESET  "ISO Registration Number 177//CHARSET
+                      ISO/IEC 10646-1:1993 UCS-4 with
+                      implementation level 3//ESC 2/5 2/15 4/6"
+            DESCSET  0   9     UNUSED
+                     9   2     9
+                     11  2     UNUSED
+                     13  1     13
+                     14  18    UNUSED
+                     32  95    32
+                     127 1     UNUSED
+                     128 32    UNUSED
+                     160 2147483486 160
+   --
+       In ISO 10646, the positions with hexadecimal
+       values 0000D800 - 0000DFFF, used in the UTF-16
+       encoding of UCS-4, are reserved, as well as the last
+       two code values in each plane of UCS-4, i.e. all
+       values of the hexadecimal form xxxxFFFE or xxxxFFFF.
+       These code values or the corresponding numeric
+       character references must not be included when
+       generating a new HTML document, and they should be
+       ignored if encountered when processing a HTML
+       document.
+   --
+
+   CAPACITY        SGMLREF
+                   TOTALCAP        150000
+                   GRPCAP          150000
+             ENTCAP         150000
+
+   SCOPE    DOCUMENT
+   SYNTAX
+            SHUNCHAR CONTROLS 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+              17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 127
+            BASESET  "ISO 646IRV:1991//CHARSET
+                      International Reference Version
+                      (IRV)//ESC 2/8 4/2"
+            DESCSET  0 128 0
+
+            FUNCTION
+                     RE            13
+                     RS            10
+                     SPACE         32
+                     TAB SEPCHAR    9
+
+            NAMING   LCNMSTRT ""
+                     UCNMSTRT ""
+                     LCNMCHAR ".-"  -- ?include "~/_" for URLs? --
+                     UCNMCHAR ".-"
+                     NAMECASE GENERAL YES
+                              ENTITY  NO
+            DELIM    GENERAL  SGMLREF
+                     SHORTREF SGMLREF
+            NAMES    SGMLREF
+            QUANTITY SGMLREF
+                     ATTSPLEN 65536   -- These are the largest values --
+                     LITLEN   65536   -- permitted in the declaration --
+                     NAMELEN  65536   -- Avoid fixed limits in actual --
+                     PILEN    65536   -- implementations of HTML UA's --
+                     TAGLVL   100
+                     TAGLEN   65536
+                     GRPGTCNT 150
+                     GRPCNT   64
+
+   FEATURES
+     MINIMIZE
+       DATATAG  NO
+       OMITTAG  YES
+       RANK     NO
+       SHORTTAG YES
+     LINK
+       SIMPLE   NO
+       IMPLICIT NO
+       EXPLICIT NO
+     OTHER
+       CONCUR   NO
+       SUBDOC   NO
+       FORMAL   YES
+   &gt;
+</pre>
+
+<div class="navbar">
+<hr><center><a href="sgmltop.html">previous</a> &nbsp; <a href="dtd.html">next</a> &nbsp; <a href="../contents.html">contents</a> &nbsp; <a href="../index/elements.html">elements</a> &nbsp; <a href="../index/attribs.html">attributes</a>
+</center></div>
+</body>
