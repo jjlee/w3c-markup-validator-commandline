@@ -1,0 +1,5 @@
+Makefile.PL
+MANIFEST
+lib/W3CValidator/Constants.pm
+lib/W3CValidator/Util.pm
+lib/W3CValidator/Parse.pm

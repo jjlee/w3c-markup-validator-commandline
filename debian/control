@@ -1,0 +1,26 @@
+Source: w3c-markup-validator-commandline
+Section: web
+Priority: optional
+Maintainer: John Lee <jjl@pobox.com>
+Build-Depends: debhelper (>= 7.3.15ubuntu3), pristine-tar
+Build-Depends-Indep: perl
+Standards-Version: 3.8.3.0
+Vcs-Git: git://github.com/jjlee/w3c-markup-validator-commandline.git
+Vcs-Browser: http://github.com/jjlee/w3c-markup-validator-commandline
+
+Package: w3c-markup-validator-commandline
+Architecture: all
+Depends: perl (>= 5.8), ${misc:Depends}, libhtml-parser-perl (>= 3.25), libtext-iconv-perl, libset-intspan-perl, opensp (>= 1.5release)
+Description: W3C Markup Validator, command line version
+ This is a command line tool which lets you check a file against a
+ validating SGML parser for conformance to official W3C
+ recommendations.
+ .
+ This tool is the pre-emptive.net command line fork of the W3C validator,
+ based on the CGI script available on the W3C web site,
+ http://validator.w3.org.
+ .
+ The original W3C CGI script version is w3c-markup-validator.  Note that
+ currently, this command line version uses the original DTDs from
+ pre-emptive.net upstream, which are different from those used by
+ w3c-markup-validator.

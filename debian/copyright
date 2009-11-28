@@ -1,0 +1,183 @@
+This package was debianized by John Lee <jjl@pobox.com> on
+Sat, 28 Nov 2009 19:09:00 +0000.
+
+It was downloaded from the URL
+http://www.pre-emptive.net/files/w3cvalidator-1-0-1.tar_0.gz
+
+Upstream Authors: Gerald Oskoboiny <gerald@w3.org>, Ralph Bolton, and others
+
+Copyright: the source code for the W3C markup validation service is
+available under the terms of the W3C Software Copyright (compatible with
+the GNU GPL), which can be found at the URL 
+
+    http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+
+and is reproduced below:
+
+[1]W3C W3C
+
+     * [2]Standards
+     * [3]Participate
+     * [4]Membership
+     * [5]About W3C
+     * ____________________ (Submit) Search
+
+Site Navigation
+
+[6]Policies and Legal Information Header link
+
+     * [7]Licenses for W3C Test Suites
+     * [8]Policies for Contribution of Test Cases to W3C
+     * [9]Intellectual Rights FAQ
+     * [10]W3C Intellectual Rights Notice and Legal Disclaimers
+     * [11]W3C Privacy Statements
+     * [12]W3C Document License
+     * [13]W3C Trademarks and Generic Terms
+     * [14]W3C® Trademark and Service Mark License
+     * W3C Software Notice and License
+     * [15]W3C Invited Expert and Collaborators Agreement
+     * [16]W3C URI Persistence Policy
+     * [17]Mirroring the W3C Site
+
+     * [18]Skip
+     * [19]W3C »
+     * [20]About W3C »
+     * [21]Facts About W3C »
+     * [22]Policies and Legal Information »
+     * W3C Software Notice and License
+
+W3C Software Notice and License
+
+   This work (and included software, documentation such as READMEs, or
+   other related items) is being provided by the copyright holders under
+   the following license.
+
+License
+
+   By obtaining, using and/or copying this work, you (the licensee) agree
+   that you have read, understood, and will comply with the following
+   terms and conditions.
+
+   Permission to copy, modify, and distribute this software and its
+   documentation, with or without modification, for any purpose and
+   without fee or royalty is hereby granted, provided that you include the
+   following on ALL copies of the software and documentation or portions
+   thereof, including modifications:
+     * The full text of this NOTICE in a location viewable to users of the
+       redistributed or derivative work.
+     * Any pre-existing intellectual property disclaimers, notices, or
+       terms and conditions. If none exist, the [23]W3C Software Short
+       Notice should be included (hypertext is preferred, text is
+       permitted) within the body of any redistributed or derivative code.
+     * Notice of any changes or modifications to the files, including the
+       date changes were made. (We recommend you provide URIs to the
+       location from which the code is derived.)
+
+Disclaimers
+
+   THIS SOFTWARE AND DOCUMENTATION IS PROVIDED "AS IS," AND COPYRIGHT
+   HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED,
+   INCLUDING BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS
+   FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE OR
+   DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS,
+   TRADEMARKS OR OTHER RIGHTS.
+
+   COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL
+   OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR
+   DOCUMENTATION.
+
+   The name and trademarks of copyright holders may NOT be used in
+   advertising or publicity pertaining to the software without specific,
+   written prior permission. Title to copyright in this software and any
+   associated documentation will at all times remain with copyright
+   holders.
+
+Notes
+
+   This version:
+   http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+
+   This formulation of W3C's notice and license became active on December
+   31 2002. This version removes the copyright ownership notice such that
+   this license can be used with materials other than those owned by the
+   W3C, reflects that ERCIM is now a host of the W3C, includes references
+   to this specific dated version of the license, and removes the
+   ambiguous grant of "use". Otherwise, this version is the same as the
+   [24]previous version and is written so as to preserve the [25]Free
+   Software Foundation's assessment of GPL compatibility and [26]OSI's
+   certification under the [27]Open Source Definition.
+
+Footer Navigation
+
+Navigation
+
+     * [28]Home
+     * [29]Standards
+     * [30]Participate
+     * [31]Membership
+     * [32]About W3C
+
+Contact W3C
+
+     * [33]Contact
+     * [34]Help and FAQ
+     * [35]Donate
+     * [36]Site Map
+     *
+
+
+    [37]Feedback ([38]archive)
+
+W3C Updates
+
+     * [39]Twitter [40]Identica
+
+   Copyright © 2009 W3C ^® ([41] MIT , [42]ERCIM , [43]Keio) [44]Usage
+   policies apply.
+
+References
+
+   1. http://www.w3.org/
+   2. http://www.w3.org/standards/
+   3. http://www.w3.org/participate/
+   4. http://www.w3.org/Consortium/membership
+   5. http://www.w3.org/Consortium/
+   6. http://www.w3.org/Consortium/Legal/
+   7. http://www.w3.org/Consortium/Legal/2008/04-testsuite-copyright.html
+   8. http://www.w3.org/2004/10/27-testcases.html
+   9. http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html
+  10. http://www.w3.org/Consortium/Legal/2002/ipr-notice-20021231.html
+  11. http://www.w3.org/Consortium/Legal/privacy-statement-20000612.html
+  12. http://www.w3.org/Consortium/Legal/2002/copyright-documents-20021231.html
+  13. http://www.w3.org/Consortium/Legal/2002/trademarks-20021231.html
+  14. http://www.w3.org/Consortium/Legal/2002/trademark-license-20021231.html
+  15. http://www.w3.org/Consortium/Legal/2002/collaborators-agreement-20021231.html
+  16. http://www.w3.org/Consortium/Persistence.html
+  17. http://www.w3.org/1999/10/21-mirroring-policy.html
+  18. http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231#w3c_content_body
+  19. http://www.w3.org/
+  20. http://www.w3.org/Consortium/
+  21. http://www.w3.org/Consortium/facts.html
+  22. http://www.w3.org/Consortium/Legal/
+  23. http://www.w3.org/Consortium/Legal/2002/copyright-software-short-notice-20021231.html
+  24. http://www.w3.org/Consortium/Legal/copyright-software-19980720
+  25. http://www.gnu.org/philosophy/license-list.html#GPLCompatibleLicenses
+  26. http://www.opensource.org/licenses/W3C.php
+  27. http://www.opensource.org/docs/definition.php
+  28. http://www.w3.org/
+  29. http://www.w3.org/standards/
+  30. http://www.w3.org/participate/
+  31. http://www.w3.org/Consortium/membership
+  32. http://www.w3.org/Consortium/
+  33. http://www.w3.org/Consortium/contact
+  34. http://www.w3.org/Help/
+  35. http://www.w3.org/Consortium/sup
+  36. http://www.w3.org/Consortium/siteindex
+  37. mailto:site-comments@w3.org
+  38. http://lists.w3.org/Archives/Public/site-comments/
+  39. http://twitter.com/W3C
+  40. http://identi.ca/w3c
+  41. http://www.csail.mit.edu/
+  42. http://www.ercim.org/
+  43. http://www.keio.ac.jp/
+  44. http://www.w3.org/Consortium/Legal/2002/ipr-notice-20021231

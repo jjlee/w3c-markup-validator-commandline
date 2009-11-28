@@ -1,0 +1,75 @@
+#!/usr/bin/make -f
+# Sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+### DH_COMPAT is not used anymore, see file debian/compat
+# This is the debhelper compatibility version to use.
+#export DH_COMPAT=4
+
+PACKAGE=w3c-markup-validator-commandline
+
+configure:
+
+build:
+	perl Makefile.PL INSTALLDIRS=vendor
+	$(MAKE) OPTIMIZE="-O2 -g -Wall"
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+	# Add here commands to install the package into debian/w3c-markup-validator.
+	install -o root -g root -m 0755 bin/check debian/${PACKAGE}/usr/bin/w3c-validate
+	install -o root -g root -m 0644 etc/*.cfg debian/${PACKAGE}/etc/w3c-cmdline/
+	install -o root -g root -m 0644 etc/*.conf debian/${PACKAGE}/etc/w3c-cmdline/
+	cp -r etc/sgml-lib debian/${PACKAGE}/usr/share/w3c-markup-validator-commandline/sgml-lib/
+	chown root:root debian/${PACKAGE}/usr/share/w3c-markup-validator-commandline/sgml-lib/
+	chmod -R 0644 debian/${PACKAGE}/usr/share/w3c-markup-validator-commandline/sgml-lib/
+	install -o root -g root -m 0644 debian/${PACKAGE}.lintian-override debian/${PACKAGE}/usr/share/lintian/overrides/${PACKAGE}
+	# perl module
+	$(MAKE) install PREFIX=$(CURDIR)/debian/${PACKAGE}/usr
+
+# Build architecture-independent files here.
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_installdebconf
+	dh_installdocs readme usage
+#	dh_installexamples
+#	dh_installmenu
+#	dh_installlogrotate
+#	dh_installemacsen
+#	dh_installpam
+#	dh_installmime
+#	dh_installinit
+#	dh_installcron
+
+#	dh_installinfo
+	dh_installchangelogs
+#	dh_link
+#	dh_strip
+	dh_compress
+	dh_fixperms
+#	dh_makeshlibs
+	dh_installdeb
+	dh_perl -V
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+# We have no architecture-dependent files so this section is empty.
+binary-arch: build install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure

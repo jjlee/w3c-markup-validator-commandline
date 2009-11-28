@@ -1,0 +1,4 @@
+etc/w3c-cmdline
+/usr/share/w3c-markup-validator-commandline
+usr/bin
+usr/share/lintian/overrides

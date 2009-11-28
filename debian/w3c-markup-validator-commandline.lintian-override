@@ -1,0 +1,3 @@
+# The copyright file contains the word GPL, but the software is not
+# under GPL, so the Lintian warning should be overriden.
+w3c-markup-validator-commandline: copyright-should-refer-to-common-license-file-for-gpl

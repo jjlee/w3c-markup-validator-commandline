@@ -1,0 +1,29 @@
+w3c-markup-validator-commandline
+--------------------------------
+
+This is a debian package of Pre-emptive's command line fork of the
+W3C's CGI-based HTML validator.
+
+http://www.pre-emptive.net/doco/w3cvalidator-command-line-html-validator
+
+
+The w3c-markup-validator package contains the W3C's original CGI-based
+validator.
+
+To validate an HTML file, run this at the command line:
+
+w3c-validate my_html.html
+
+
+If you find a problem while using the validator, like a page that
+doesn't validate even though it is correct, or any other error, please
+try to validate it with the public W3C validator at
+http://validator.w3.org/ before reporting a bug against this package.
+
+This PPA distribution of the validator includes the same set of DTDs
+as originally included in Pre-emptive's tarball.  That differs from
+w3c-markup-validator, which uses a different set of DTDs (see the
+README.Debian for that package).  If this package becomes an official
+multiverse / universe package, that may change.
+
+ -- John Lee <jjl@pobox.com>  Sat, 28 Nov 2009 18:54:56 +0000

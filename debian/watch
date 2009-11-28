@@ -1,0 +1,3 @@
+version=3
+opts="uversionmangle=s/-/./g" \
+  http://www.pre-emptive.net/doco/w3cvalidator-command-line-html-validator http://www.pre-emptive.net/files/w3cvalidator-(.*)\.tar_0\.gz

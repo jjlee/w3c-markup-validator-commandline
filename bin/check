@@ -73,7 +73,7 @@ BEGIN {
 
   #
   # Read Config Files.
-  $CFG = &read_cfg($ENV{W3C_VALIDATOR_CFG} || '/opt/w3cvalidator/etc/validator.conf');
+  $CFG = &read_cfg($ENV{W3C_VALIDATOR_CFG} || '/etc/w3c-cmdline/validator.conf');
   if (! -x $CFG->{'SGML Parser'}) {
     die("Configured SGML Parser '$CFG->{'SGML Parser'}' not executable!");
   }
