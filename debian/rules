@@ -21,6 +21,7 @@ clean:
 	dh_testdir
 	dh_testroot
 	dh_clean
+	dh_auto_clean
 
 install: build
 	dh_testdir
