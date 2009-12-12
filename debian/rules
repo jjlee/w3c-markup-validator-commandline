@@ -22,6 +22,7 @@ clean:
 	dh_testroot
 	dh_clean
 	dh_auto_clean
+	rm debian/w3c-markup-validator-commandline.debhelper.log
 
 install: build
 	dh_testdir
