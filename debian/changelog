@@ -1,3 +1,9 @@
+w3c-markup-validator-commandline (1.0.1-0ubuntu1~ppa2) karmic; urgency=low
+
+  * Fix dependencies.
+
+ -- John Lee <jjl@pobox.com>  Sat, 12 Dec 2009 17:09:31 +0000
+
 w3c-markup-validator-commandline (1.0.1-0ubuntu1~ppa1) karmic; urgency=low
 
   * Initial release.
