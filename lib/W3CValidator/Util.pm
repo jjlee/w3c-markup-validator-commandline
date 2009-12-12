@@ -7,7 +7,6 @@ use warnings;
 
 use File::Spec          qw();
 use HTML::Parser   3.25 qw(); # Need 3.25 for $p->ignore_elements.
-use HTTP::Request       qw();
 use IO::File            qw();
 use IPC::Open3          qw(open3);
 use Set::IntSpan        qw();
