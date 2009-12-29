@@ -34,6 +34,31 @@ def sanitize_version(version):
     return version.replace('~', '.')
 
 
+class Test(object):
+
+    def set_up(self, env):
+        env.cmd(cmd_env.write_file_cmd(
+                "test.html",
+                """\
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head><title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <p>Hello, valid world.
+  </body>
+</html>
+"""))
+
+    def run_test(self, env):
+        env.cmd(["w3c-validate", "test.html"])
+
+    def verify(self, output):
+        return output == "Result: This document is valid HTML 4.01 Strict\n"
+
+
 class Releaser(object):
 
     key = "A362A9D1"
@@ -89,6 +114,7 @@ class Releaser(object):
     def build(self, log):
         self._in_repo.cmd(["git-buildpackage",
                            "--git-pristine-tar",
+                           "--git-ignore-new",
                            "--git-tag",
                            "--git-sign-tags",
                            "--git-keyid=%s" % self.key,  # for signing tags
@@ -137,7 +163,8 @@ allow_unsigned_uploads = 0
     def all(self):
         work_dir = "/tmp/w3c-test"
         test = buildtools.testdeb.PbuilderActions(self._env, work_dir,
-                                                  self._get_deb_path)
+                                                  self._get_deb_path,
+                                                  test=Test())
         return [
             self.clean,
             self.clone,
